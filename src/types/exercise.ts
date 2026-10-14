@@ -60,8 +60,10 @@ export interface Exercise {
     jointActions: string[];
     kineticChain: '開放鏈 (OKC)' | '閉鎖鏈 (CKC)' | '混合鏈 (Mixed)';
   };
+  description: string;
   execution: {
     startingPosition: string;
+    description?: string;
     steps: ExecutionStep[];
     coachingCues: string[];
     commonErrors: string[];

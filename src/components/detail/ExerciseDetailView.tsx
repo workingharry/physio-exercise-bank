@@ -257,6 +257,19 @@ export const ExerciseDetailView: React.FC = () => {
           <span>分步動作指引與臨床執行規則 (Step-by-Step Execution)</span>
         </h3>
 
+        {/* Clinical Biomechanical Purpose / Description */}
+        {exercise.description && (
+          <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 space-y-1.5">
+            <div className="flex items-center gap-2 text-teal-300 font-bold uppercase tracking-wider text-xs">
+              <Sparkles className="w-4 h-4 text-teal-400" />
+              <span>臨床動作機制與生物力學目的 (Biomechanical Mechanism & Clinical Rationale):</span>
+            </div>
+            <p className="text-sm text-slate-200 leading-relaxed font-medium">
+              {exercise.description}
+            </p>
+          </div>
+        )}
+
         {/* Starting Position */}
         <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
           <strong className="text-xs font-bold text-teal-400 uppercase tracking-wide block mb-1">

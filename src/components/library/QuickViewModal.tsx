@@ -123,6 +123,15 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
               <span>執行步驟與臨床要點</span>
             </h4>
 
+            {exercise.description && (
+              <div className="p-3.5 rounded-xl bg-teal-950/40 border border-teal-800/60 text-xs text-slate-200">
+                <strong className="text-teal-300 block mb-1 font-bold">
+                  臨床動作機制與生物力學目的:
+                </strong>
+                <p className="leading-relaxed font-medium">{exercise.description}</p>
+              </div>
+            )}
+
             <div className="p-3 rounded-xl bg-slate-950/50 border border-slate-800 text-xs text-slate-300">
               <strong className="text-teal-400 block mb-0.5">起始位置：</strong>
               <p>{exercise.execution.startingPosition}</p>

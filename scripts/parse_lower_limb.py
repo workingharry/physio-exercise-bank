@@ -112,34 +112,77 @@ def determine_difficulty(phases, movement_types):
         return 'Intermediate (中階)'
     return 'Beginner (初階)'
 
-def parse_steps(instruction_str):
+def parse_steps_sequential(instruction_str):
     if not instruction_str:
-        return [{'stepNumber': 1, 'instruction': '依臨床指示進行操作。'}]
+        return [{'stepNumber': 1, 'instruction': '依臨床指示與物理治療師指導進行操作。', 'keyPoint': ''}]
     
-    # Split by 1) 2) 3) or Step 1, Step 2
-    parts = re.split(r'(?:\d+\)|Step\s*\d+[\:\.]?)\s*', instruction_str)
-    steps = []
-    num = 1
-    for p in parts:
-        cleaned = p.strip()
-        if cleaned:
-            # find title or keyPoint if any
-            key_point = ''
-            if 'avoid' in cleaned.lower():
-                key_point = '注意避免代償動作'
-            elif 'hold' in cleaned.lower():
-                key_point = '維持頂峰收縮'
-            elif 'slow' in cleaned.lower() or 'eccentric' in cleaned.lower():
-                key_point = '離心控制下放'
+    text = clean_text(instruction_str)
+    
+    # Try finding strictly sequential Step 1, Step 2, Step 3... or 1), 2), 3)
+    pattern = re.compile(r'(?:^|[\.\;\!\?]\s*)(?:(?:Step|Part|Phase|Stage)?\s*(\d+)[\)\.\:])\s*', re.IGNORECASE)
+    matches = list(pattern.finditer(text))
+    valid_steps = []
+    expected_num = 1
+    for m in matches:
+        num = int(m.group(1))
+        if num == expected_num:
+            valid_steps.append((num, m.start(0), m.end(0)))
+            expected_num += 1
+            
+    if not valid_steps or len(valid_steps) == 1:
+        alt_pattern = re.compile(r'(?:^|\s)(?:(?:Step|Part|Phase)?\s*(\d+)[\)\.\:])\s*', re.IGNORECASE)
+        alt_matches = list(alt_pattern.finditer(text))
+        alt_valid = []
+        exp = 1
+        for m in alt_matches:
+            num = int(m.group(1))
+            if num == exp:
+                alt_valid.append((num, m.start(0), m.end(0)))
+                exp += 1
+        if len(alt_valid) > len(valid_steps):
+            valid_steps = alt_valid
 
-            steps.append({
-                'stepNumber': num,
-                'title': f'步驟 {num}',
-                'instruction': cleaned,
-                'keyPoint': key_point
-            })
-            num += 1
-    return steps if steps else [{'stepNumber': 1, 'instruction': instruction_str}]
+    if not valid_steps:
+        # Fallback to splitting by sentence
+        sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if len(s.strip()) > 8]
+        if len(sentences) > 1:
+            return [{'stepNumber': idx+1, 'title': f'步驟 {idx+1}', 'instruction': s, 'keyPoint': ''} for idx, s in enumerate(sentences)]
+        return [{'stepNumber': 1, 'title': '步驟 1', 'instruction': text, 'keyPoint': ''}]
+    
+    steps = []
+    for i in range(len(valid_steps)):
+        num, start, end = valid_steps[i]
+        next_start = valid_steps[i+1][1] if i + 1 < len(valid_steps) else len(text)
+        step_content = text[end:next_start].strip()
+        step_content = re.sub(r'^[,\.\;\:\-\s]+', '', step_content).strip()
+        
+        key_point = ''
+        if 'avoid' in step_content.lower() or 'not' in step_content.lower():
+            key_point = '注意避免代償動作'
+        elif 'hold' in step_content.lower() or 'freeze' in step_content.lower() or 'static' in step_content.lower():
+            key_point = '維持頂峰等長收縮'
+        elif 'slow' in step_content.lower() or 'eccentric' in step_content.lower():
+            key_point = '離心控制慢速下放'
+        elif 'align' in step_content.lower() or 'knee over' in step_content.lower():
+            key_point = '注意關節力線對齊'
+            
+        steps.append({
+            'stepNumber': num,
+            'title': f'步驟 {num}',
+            'instruction': step_content,
+            'keyPoint': key_point
+        })
+    return steps
+
+def extract_starting_position(instructions, steps):
+    if steps and len(steps) > 0:
+        first = steps[0]['instruction']
+        # If first step describes posture e.g. "Stand on...", "Lie supine..."
+        if any(w in first.lower() for w in ['stand', 'sit', 'lie', 'quadruped', 'kneel', 'place', 'hook-lying', 'side-lying']):
+            return first
+    if instructions:
+        return instructions.split('.')[0]
+    return '採標準臨床起始站姿或坐姿。'
 
 def parse_docx(docx_path, sub_region):
     try:
@@ -188,7 +231,6 @@ def parse_docx(docx_path, sub_region):
                 for tr in tbl.findall('.//w:tr', namespaces):
                     cells = []
                     for tc in tr.findall('.//w:tc', namespaces):
-                        # check hyperlink in tc
                         for hl in tc.iterfind('.//w:hyperlink', namespaces):
                             r_id = hl.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
                             if r_id in hyperlinks:
@@ -240,13 +282,15 @@ def parse_docx(docx_path, sub_region):
                 # Coaching cues & common errors
                 cues = []
                 errors = []
-                if 'cues:' in precautions_raw.lower():
-                    parts = re.split(r'cues:\s*', precautions_raw, flags=re.IGNORECASE)
-                    errors.append(parts[0].strip())
-                    cues.append(parts[1].strip())
+                if re.search(r'(?:cues|external cues?):\s*', precautions_raw, re.IGNORECASE):
+                    parts = re.split(r'(?:cues|external cues?):\s*', precautions_raw, flags=re.IGNORECASE)
+                    if parts[0].strip():
+                        errors.append(parts[0].strip())
+                    if len(parts) > 1 and parts[1].strip():
+                        cues.append(parts[1].strip())
                 elif precautions_raw:
                     errors.append(precautions_raw)
-                    cues.append('保持良好動作控制與呼吸對齊')
+                    cues.append('保持骨盆中立與關節良好對齊')
 
                 # Video URL fallback
                 if not video_url:
@@ -255,15 +299,16 @@ def parse_docx(docx_path, sub_region):
                     else:
                         video_url = f"https://www.youtube.com/results?search_query={name.replace(' ', '+')}+physiotherapy"
 
-                # SubRegion prefix for id
                 prefix = 'ankle' if 'Ankle' in sub_region else ('knee' if 'Knee' in sub_region else 'hip')
                 ex_id = f"{prefix}-{slugify(name)}"
 
-                # Build Exercise object
+                steps = parse_steps_sequential(instructions)
+                starting_pos = extract_starting_position(instructions, steps)
+
                 ex_obj = {
                     'id': ex_id,
                     'name': name,
-                    'chineseName': name, # Will be enriched
+                    'chineseName': name,
                     'macroRegion': 'Lower Limb',
                     'subRegion': sub_region,
                     'movementType': movement_types,
@@ -271,6 +316,7 @@ def parse_docx(docx_path, sub_region):
                     'targetPathologies': [topic_title],
                     'equipment': equipment,
                     'difficulty': difficulty,
+                    'description': description, # Biomechanical Mechanism & Purpose
                     'media': {
                         'thumbnailUrl': f"/media/lower-limb/{prefix}/{slugify(name)}.jpg",
                         'videoUrl': video_url,
@@ -286,13 +332,14 @@ def parse_docx(docx_path, sub_region):
                         'kineticChain': kinetic_chain
                     },
                     'execution': {
-                        'startingPosition': instructions.split('.')[0] if instructions else '採標準臨床起始站姿或坐姿。',
-                        'steps': parse_steps(instructions),
+                        'startingPosition': starting_pos,
+                        'description': description,
+                        'steps': steps,
                         'coachingCues': cues if cues else ['軀幹穩定，動作流暢無代償'],
                         'commonErrors': errors if errors else ['關節力線偏移或代償晃動']
                     },
-                    'regressions': [{'name': '退階動作', 'rationale': regression_raw}],
-                    'progressions': [{'name': '進階動作', 'rationale': progression_raw}],
+                    'regressions': [{'name': '退階方案', 'rationale': regression_raw}],
+                    'progressions': [{'name': '進階方案', 'rationale': progression_raw}],
                     'dosage': {
                         'sets': '3-4 組',
                         'reps': '10-15 次',

@@ -37,6 +37,7 @@ export const CustomStudioView: React.FC = () => {
       targetPathologies: ['臨床自訂適應症'],
       equipment: ['徒手 (Bodyweight)'],
       difficulty: 'Intermediate (中階)',
+      description: instructions ? instructions.slice(0, 150) : '臨床自訂復健動作與功能性強化機制。',
       media: {
         thumbnailUrl: `/media/custom/${name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         videoUrl: videoUrl.trim() || undefined,
