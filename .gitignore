@@ -1,0 +1,18 @@
+# Node & build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor & OS
+.DS_Store
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Raw source files (already parsed to src/data/lowerLimbExercises.json)
+lower_limb_source/
