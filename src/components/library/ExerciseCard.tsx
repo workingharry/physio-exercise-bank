@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'wouter';
 import { Exercise } from '../../types/exercise';
 import { AnatomySvgPlaceholder } from '../common/AnatomySvgPlaceholder';
-import { Bookmark, Plus, Check, Play, ChevronRight, AlertCircle, Dumbbell } from 'lucide-react';
+import { Eye, Bookmark, Plus, Check, Play, ChevronRight, AlertCircle, Dumbbell } from 'lucide-react';
 import { useRoutineStore } from '../../store/useRoutineStore';
 
 interface Props {
@@ -105,13 +105,24 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
       </div>
 
       {/* Card Actions */}
-      <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+      <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between gap-1.5">
+        {onQuickView && (
+          <button
+            onClick={() => onQuickView(exercise)}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 text-xs font-semibold border border-slate-700 transition"
+            title="側欄快速預覽"
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>預覽</span>
+          </button>
+        )}
+
         <Link
           href={`/exercise/${exercise.id}`}
-          className="flex-1 flex items-center justify-center gap-1 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
+          className="flex-1 flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition truncate"
         >
-          <span>詳細分析</span>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span>完整分析</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
         </Link>
 
         <button
