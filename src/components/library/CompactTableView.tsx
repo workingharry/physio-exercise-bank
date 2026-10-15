@@ -13,11 +13,11 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
   const { routine, addToRoutine, removeFromRoutine, bookmarks, toggleBookmark } = useRoutineStore();
 
   return (
-    <div className="w-full bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+    <div className="w-full bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl transition-colors">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse text-xs">
           <thead>
-            <tr className="bg-slate-950/90 border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider text-[11px]">
+            <tr className="bg-slate-50 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[11px]">
               <th className="py-3.5 px-4">運動名稱 / 部位</th>
               <th className="py-3.5 px-4 hidden md:table-cell">目標主動肌</th>
               <th className="py-3.5 px-4 hidden sm:table-cell">收縮型態</th>
@@ -27,7 +27,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
               <th className="py-3.5 px-4 text-right">快捷操作</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800/80">
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
             {exercises.map((exercise) => {
               const isAdded = routine.some(item => item.exerciseId === exercise.id);
               const isBookmarked = bookmarks.includes(exercise.id);
@@ -35,35 +35,35 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
               return (
                 <tr
                   key={exercise.id}
-                  className="hover:bg-slate-800/50 transition group"
+                  className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition group"
                 >
                   {/* Name & Region */}
                   <td className="py-3 px-4">
                     <div className="flex flex-col">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-800 text-teal-300 border border-slate-700">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700">
                           {exercise.subRegion}
                         </span>
                         {exercise.media.videoUrl && (
-                          <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-teal-950/80 text-teal-400 border border-teal-800/60">
+                          <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-teal-50 text-teal-700 dark:bg-teal-950/80 dark:text-teal-400 border border-teal-200 dark:border-teal-800/60">
                             <Play className="w-2.5 h-2.5 fill-current" />
                             <span>影片</span>
                           </span>
                         )}
                       </div>
                       <Link href={`/exercise/${exercise.id}`}>
-                        <span className="font-bold text-slate-100 hover:text-teal-300 transition cursor-pointer text-sm line-clamp-1">
+                        <span className="font-bold text-slate-900 dark:text-slate-100 hover:text-teal-600 dark:hover:text-teal-300 transition cursor-pointer text-sm line-clamp-1">
                           {exercise.name}
                         </span>
                       </Link>
-                      <span className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
-                        {exercise.targetPathologies[0] || ''}
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                        {exercise.chineseName} · {exercise.targetPathologies[0] || ''}
                       </span>
                     </div>
                   </td>
 
                   {/* Target Muscles */}
-                  <td className="py-3 px-4 hidden md:table-cell text-slate-300 font-medium">
+                  <td className="py-3 px-4 hidden md:table-cell text-slate-700 dark:text-slate-300 font-medium">
                     <div className="line-clamp-2 max-w-xs">
                       {exercise.biomechanics.primaryMuscles.join(', ') || '下肢目標肌'}
                     </div>
@@ -73,7 +73,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   <td className="py-3 px-4 hidden sm:table-cell">
                     <div className="flex flex-wrap gap-1 max-w-[140px]">
                       {exercise.movementType.slice(0, 2).map((t) => (
-                        <span key={t} className="px-1.5 py-0.5 rounded text-[10px] bg-slate-800/80 text-cyan-300 border border-slate-700/80">
+                        <span key={t} className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-cyan-800 dark:bg-slate-800/80 dark:text-cyan-300 border border-slate-200 dark:border-slate-700/80">
                           {t}
                         </span>
                       ))}
@@ -81,7 +81,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   </td>
 
                   {/* Rehab Phase */}
-                  <td className="py-3 px-4 hidden lg:table-cell text-slate-400 font-medium text-[11px]">
+                  <td className="py-3 px-4 hidden lg:table-cell text-slate-500 dark:text-slate-400 font-medium text-[11px]">
                     <span className="truncate max-w-[150px] block">
                       {exercise.rehabPhase[0]?.split(':')[0] || 'Phase 2'}
                     </span>
@@ -90,19 +90,19 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   {/* Difficulty & Chain */}
                   <td className="py-3 px-4 hidden xl:table-cell">
                     <div className="flex items-center gap-1.5">
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
                         {exercise.difficulty.split(' ')[0]}
                       </span>
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-800/60 text-purple-300 border border-slate-700/60">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-purple-50 text-purple-700 dark:bg-slate-800/60 dark:text-purple-300 border border-purple-200 dark:border-slate-700/60">
                         {exercise.biomechanics.kineticChain.split(' ')[0]}
                       </span>
                     </div>
                   </td>
 
                   {/* Dosage */}
-                  <td className="py-3 px-4 hidden sm:table-cell text-slate-300 font-medium text-[11px]">
+                  <td className="py-3 px-4 hidden sm:table-cell text-slate-700 dark:text-slate-300 font-medium text-[11px]">
                     <div>{exercise.dosage.sets} x {exercise.dosage.reps}</div>
-                    <div className="text-[10px] text-slate-500">{exercise.dosage.frequency}</div>
+                    <div className="text-[10px] text-slate-400">{exercise.dosage.frequency}</div>
                   </td>
 
                   {/* Actions */}
@@ -113,8 +113,8 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         onClick={() => toggleBookmark(exercise.id)}
                         className={`p-1.5 rounded-lg border transition ${
                           isBookmarked
-                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/50'
-                            : 'bg-slate-800/80 hover:bg-slate-700 text-slate-400 border-slate-700'
+                            ? 'bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-300 border-amber-500/40'
+                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700'
                         }`}
                         title="學習書籤"
                       >
@@ -124,10 +124,10 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                       {/* Quick View Drawer */}
                       <button
                         onClick={() => onQuickView(exercise)}
-                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition"
                         title="快速側欄預覽"
                       >
-                        <Eye className="w-3.5 h-3.5 text-teal-400" />
+                        <Eye className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                         <span className="hidden sm:inline">預覽</span>
                       </button>
 
@@ -142,7 +142,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         }}
                         className={`p-1.5 rounded-lg transition ${
                           isAdded
-                            ? 'bg-teal-500/20 text-teal-300 border border-teal-500/40'
+                            ? 'bg-teal-500/10 text-teal-700 dark:bg-teal-500/20 dark:text-teal-300 border border-teal-500/40'
                             : 'bg-teal-600 hover:bg-teal-500 text-white'
                         }`}
                         title={isAdded ? '已在處方中' : '加入處方'}

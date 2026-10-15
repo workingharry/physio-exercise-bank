@@ -102,27 +102,27 @@ export const CustomStudioView: React.FC = () => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 animate-in fade-in duration-200">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
+        <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
           <FolderPlus className="w-4 h-4" />
           <span>全身部位自訂運動與 GitHub 數據管理</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           自訂運動與媒體工作室 (Custom Studio)
         </h1>
-        <p className="mt-1 text-sm text-slate-400">
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
           支援為全身任一部位（下肢、上肢、脊椎、核心）新增臨床運動，並可一鍵匯出 JSON 供 GitHub 儲存庫同步
         </p>
       </div>
 
       {/* Form Card */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-6">
-        <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-          <h2 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-            <PlusCircle className="w-5 h-5 text-teal-400" />
+      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-xl space-y-6">
+        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+            <PlusCircle className="w-5 h-5 text-teal-500" />
             <span>新增臨床復健運動</span>
           </h2>
           {submitted && (
-            <div className="flex items-center gap-1.5 text-xs font-bold text-teal-400 bg-teal-950 px-3 py-1 rounded-lg border border-teal-700/60 animate-in fade-in">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-lg border border-teal-200 dark:border-teal-700/60 animate-in fade-in">
               <CheckCircle2 className="w-4 h-4" />
               <span>成功儲存至本機資料庫！</span>
             </div>
@@ -132,36 +132,36 @@ export const CustomStudioView: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-5 text-xs">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-bold text-slate-300 mb-1">運動名稱 (英文 / 學名) *</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">運動名稱 (英文 / 學名) *</label>
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="例如: Copenhagen Adduction Plank"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-300 mb-1">運動中文名稱</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">運動中文名稱</label>
               <input
                 type="text"
                 value={chineseName}
                 onChange={(e) => setChineseName(e.target.value)}
                 placeholder="例如: 哥本哈根內收肌側棒式"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block font-bold text-slate-300 mb-1">第一層：宏觀區域 (MacroRegion)</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">第一層：宏觀區域 (MacroRegion)</label>
               <select
                 value={macroRegion}
                 onChange={(e) => setMacroRegion(e.target.value as MacroRegion)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
               >
                 <option value="Lower Limb">下肢 (Lower Limb)</option>
                 <option value="Upper Limb">上肢 (Upper Limb)</option>
@@ -171,11 +171,11 @@ export const CustomStudioView: React.FC = () => {
             </div>
 
             <div>
-              <label className="block font-bold text-slate-300 mb-1">第二層：關節子區域 (SubRegion)</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">第二層：關節子區域 (SubRegion)</label>
               <select
                 value={subRegion}
                 onChange={(e) => setSubRegion(e.target.value as SubRegion)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
               >
                 <option value="Ankle & Foot">Ankle & Foot (腳踝與足部)</option>
                 <option value="Knee">Knee (膝與髕骨)</option>
@@ -188,11 +188,11 @@ export const CustomStudioView: React.FC = () => {
             </div>
 
             <div>
-              <label className="block font-bold text-slate-300 mb-1">動作收縮型態</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">動作收縮型態</label>
               <select
                 value={movementType}
                 onChange={(e) => setMovementType(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
               >
                 <option value="Isometric">Isometric (等長)</option>
                 <option value="Concentric">Concentric (向心)</option>
@@ -205,59 +205,59 @@ export const CustomStudioView: React.FC = () => {
           </div>
 
           <div>
-            <label className="block font-bold text-slate-300 mb-1">目標主動肌群 (以逗號分隔)</label>
+            <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">目標主動肌群 (以逗號分隔)</label>
             <input
               type="text"
               value={primaryMuscles}
               onChange={(e) => setPrimaryMuscles(e.target.value)}
               placeholder="例如: 臀中肌, 內收大肌, 股四頭肌"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
             />
           </div>
 
           <div>
-            <label className="block font-bold text-slate-300 mb-1">分步執行步驟 (每行一步驟)</label>
+            <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">分步執行步驟 (每行一步驟)</label>
             <textarea
               rows={3}
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
               placeholder="1. 側躺於瑜珈墊上，上方腳踝置於長凳&#10;2. 啟動內收肌群將骨盆抬離地面&#10;3. 維持頂峰等長收縮 30 秒"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 outline-none focus:border-teal-500 resize-none"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500 resize-none"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-bold text-slate-300 mb-1">臨床指導口訣 (Coaching Cues)</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">臨床指導口訣 (Coaching Cues)</label>
               <input
                 type="text"
                 value={coachingCues}
                 onChange={(e) => setCoachingCues(e.target.value)}
                 placeholder="例如: 肚臍微縮，肋骨不外翻"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-300 mb-1">常見代償錯誤 (Common Errors)</label>
+              <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">常見代償錯誤 (Common Errors)</label>
               <input
                 type="text"
                 value={commonErrors}
                 onChange={(e) => setCommonErrors(e.target.value)}
                 placeholder="例如: 骨盆過度前傾或側向塌陷"
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
               />
             </div>
           </div>
 
           <div>
-            <label className="block font-bold text-slate-300 mb-1">示範影片路徑或 YouTube 網址</label>
+            <label className="block font-bold text-slate-700 dark:text-slate-300 mb-1">示範影片路徑或 YouTube 網址</label>
             <input
               type="text"
               value={videoUrl}
               onChange={(e) => setVideoUrl(e.target.value)}
               placeholder="例如: https://www.youtube.com/watch?v=... 或 /media/custom/my-video.mp4"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-100 outline-none focus:border-teal-500"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
             />
           </div>
 
@@ -274,48 +274,48 @@ export const CustomStudioView: React.FC = () => {
       </div>
 
       {/* Existing Custom Exercises List & GitHub Export */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-3">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 gap-3">
           <div>
-            <h3 className="text-base font-bold text-slate-100">
+            <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
               已建立之自訂運動庫 ({customExercises.length})
             </h3>
-            <p className="text-xs text-slate-400">儲存於瀏覽器 LocalStorage，支援匯出 JSON 以提交至 GitHub 專案</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">儲存於瀏覽器 LocalStorage，支援匯出 JSON 以提交至 GitHub 專案</p>
           </div>
 
           {customExercises.length > 0 && (
             <button
               onClick={handleExportAllCustom}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition"
             >
-              <Download className="w-4 h-4 text-teal-400" />
+              <Download className="w-4 h-4 text-teal-600 dark:text-teal-400" />
               <span>匯出所有自訂動作 JSON</span>
             </button>
           )}
         </div>
 
         {customExercises.length === 0 ? (
-          <p className="text-xs text-slate-500 italic py-4">目前尚無自訂運動，請填寫上方表單新增。</p>
+          <p className="text-xs text-slate-400 italic py-4">目前尚無自訂運動，請填寫上方表單新增。</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {customExercises.map((ex) => (
               <div
                 key={ex.id}
-                className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between gap-3"
+                className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3 shadow-sm"
               >
                 <div>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-800 text-teal-300 border border-slate-700">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700">
                     {ex.subRegion}
                   </span>
-                  <h4 className="font-bold text-sm text-slate-200 mt-1">{ex.name}</h4>
-                  <span className="text-xs text-slate-400 block mt-0.5">
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-slate-200 mt-1">{ex.name}</h4>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 block mt-0.5">
                     {ex.biomechanics.primaryMuscles.join(', ')}
                   </span>
                 </div>
 
                 <button
                   onClick={() => deleteCustomExercise(ex.id)}
-                  className="p-2 rounded-lg bg-slate-900 hover:bg-red-950 text-slate-500 hover:text-red-400 border border-slate-800 transition"
+                  className="p-2 rounded-lg bg-slate-100 hover:bg-red-50 dark:bg-slate-900 dark:hover:bg-red-950 text-slate-400 hover:text-red-500 border border-slate-200 dark:border-slate-800 transition"
                   title="刪除自訂運動"
                 >
                   <Trash2 className="w-4 h-4" />

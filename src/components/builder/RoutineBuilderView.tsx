@@ -2,17 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'wouter';
 import { useRoutineStore } from '../../store/useRoutineStore';
 import { getExerciseById } from '../../data/exercises';
-import { AnatomySvgPlaceholder } from '../common/AnatomySvgPlaceholder';
 import { 
   Printer, Trash2, ArrowLeft, Download, Plus, Sparkles, FileText, 
-  User, Calendar, Stethoscope, ChevronUp, ChevronDown 
+  User, Calendar, Stethoscope, ChevronUp, ChevronDown, GripVertical,
+  Minus, CheckCircle2, AlertTriangle, ShieldCheck
 } from 'lucide-react';
 
 export const RoutineBuilderView: React.FC = () => {
-  const { routine, updateRoutineItem, removeFromRoutine, clearRoutine } = useRoutineStore();
+  const { routine, updateRoutineItem, removeFromRoutine, clearRoutine, reorderRoutine, moveRoutineItem } = useRoutineStore();
   const [patientName, setPatientName] = useState<string>('');
-  const [protocolTitle, setProtocolTitle] = useState<string>('下肢臨床復健居家運動計畫 (HEP)');
-  const [therapistGeneralNotes, setTherapistGeneralNotes] = useState<string>('每日按時執行，若疼痛超過 4/10 或出現局部紅腫熱痛，請即刻暫停並與物理治療師聯繫。');
+  const [patientId, setPatientId] = useState<string>('');
+  const [protocolTitle, setProtocolTitle] = useState<string>('下肢關節復健居家運動處方 (HEP)');
+  const [therapistGeneralNotes, setTherapistGeneralNotes] = useState<string>(
+    '請遵照物理治療師指示每日定時執行。若運動期間或運動後疼痛指數超過 4/10，或出現局部關節急性紅腫熱痛，請即刻暫停並與治療師聯繫。'
+  );
+
+  // Drag and drop state
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
 
   const handlePrint = () => {
     window.print();
@@ -21,7 +28,8 @@ export const RoutineBuilderView: React.FC = () => {
   const handleExportJson = () => {
     const data = {
       title: protocolTitle,
-      patientName: patientName || '匿名病患 / 學生小抄',
+      patientName: patientName || '匿名病患',
+      patientId: patientId || 'N/A',
       date: new Date().toLocaleDateString('zh-TW'),
       therapistNotes: therapistGeneralNotes,
       items: routine.map(item => {
@@ -29,6 +37,8 @@ export const RoutineBuilderView: React.FC = () => {
         return {
           ...item,
           exerciseName: ex?.name,
+          chineseName: ex?.chineseName,
+          subRegion: ex?.subRegion,
           primaryMuscles: ex?.biomechanics.primaryMuscles,
           instructions: ex?.execution.steps.map(s => s.instruction)
         };
@@ -42,33 +52,72 @@ export const RoutineBuilderView: React.FC = () => {
     a.click();
   };
 
-  const moveItem = (index: number, direction: 'up' | 'down') => {
-    // In this basic version, order can be swapped
+  // Helper function to step numeric sets
+  const stepSets = (exerciseId: string, currentVal: string | undefined, delta: number) => {
+    const num = parseInt(currentVal || '3', 10) || 3;
+    const next = Math.max(1, num + delta);
+    updateRoutineItem(exerciseId, { customSets: `${next} 組` });
   };
 
+  // Helper function to step numeric reps
+  const stepReps = (exerciseId: string, currentVal: string | undefined, delta: number) => {
+    const num = parseInt(currentVal || '10', 10) || 10;
+    const next = Math.max(1, num + delta);
+    updateRoutineItem(exerciseId, { customReps: `${next} 次` });
+  };
+
+  // Drag & drop handlers
+  const onDragStart = (e: React.DragEvent, index: number) => {
+    setDraggedIndex(index);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const onDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    if (draggedIndex !== null && draggedIndex !== index) {
+      setDragOverIndex(index);
+    }
+  };
+
+  const onDragEnd = () => {
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
+
+  const onDrop = (e: React.DragEvent, targetIndex: number) => {
+    e.preventDefault();
+    if (draggedIndex !== null && draggedIndex !== targetIndex) {
+      reorderRoutine(draggedIndex, targetIndex);
+    }
+    setDraggedIndex(null);
+    setDragOverIndex(null);
+  };
+
+  const holdOptions = ['依節奏', '3 秒', '5 秒', '10 秒', '30 秒', '45 秒'];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 animate-in fade-in duration-200">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-6 animate-in fade-in duration-200">
       {/* Non-print Top Controls */}
-      <div className="no-print flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-800 gap-4">
+      <div className="no-print flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-4">
         <div>
-          <div className="flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
             <FileText className="w-4 h-4" />
             <span>臨床居家處方與複習表單組裝器</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             居家運動計畫 (HEP) 工作室
           </h1>
-          <p className="mt-1 text-sm text-slate-400">
-            已加入 <strong className="text-teal-300 font-bold">{routine.length}</strong> 個動作，支援直接列印為 A4 醫療格式或匯出 JSON
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            已加入 <strong className="text-teal-600 dark:text-teal-300 font-bold">{routine.length}</strong> 個動作，支援拖曳排序、劑量步進微調與 A4 雙欄醫療單據列印
           </p>
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
           <Link
             href="/"
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-slate-300 transition"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-4 h-4 text-teal-500" />
             <span>繼續新增動作</span>
           </Link>
 
@@ -76,7 +125,7 @@ export const RoutineBuilderView: React.FC = () => {
             <>
               <button
                 onClick={handleExportJson}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition"
                 title="匯出處方 JSON"
               >
                 <Download className="w-4 h-4" />
@@ -89,7 +138,7 @@ export const RoutineBuilderView: React.FC = () => {
                 title="列印或另存為 A4 PDF"
               >
                 <Printer className="w-4 h-4" />
-                <span>列印 / 匯出 PDF</span>
+                <span>列印 / 另存 A4 PDF</span>
               </button>
             </>
           )}
@@ -97,57 +146,79 @@ export const RoutineBuilderView: React.FC = () => {
       </div>
 
       {/* Routine Metadata Settings (Print-Friendly header) */}
-      <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-xl space-y-4 print-card">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-xl space-y-4 print-card">
+        {/* Print Only Hospital/Clinic Logo & Title */}
+        <div className="hidden print:flex items-center justify-between border-b-2 border-slate-800 pb-2 mb-2">
+          <div className="flex items-center gap-2">
+            <div className="font-extrabold text-base tracking-tight text-slate-900">
+              PhysioBank 物理治療復健運動處方 (Home Exercise Program)
+            </div>
+          </div>
+          <div className="text-[10px] text-slate-600">
+            臨床實證運動處方體系 · 依循 JOSPT / Aspetar 臨床指引
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 no-print">
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 no-print">
               處方計畫標題
             </label>
             <input
               type="text"
               value={protocolTitle}
               onChange={(e) => setProtocolTitle(e.target.value)}
-              className="text-xl sm:text-2xl font-extrabold text-white bg-transparent border-b border-transparent hover:border-slate-700 focus:border-teal-500 outline-none w-full transition print:text-black"
+              className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white bg-transparent border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700 focus:border-teal-500 outline-none w-full transition print:text-black print:text-base print:font-bold"
             />
           </div>
 
-          <div className="flex items-center gap-4 text-xs text-slate-400">
+          <div className="flex items-center gap-3 text-xs text-slate-600 dark:text-slate-400 flex-wrap">
             <div className="flex items-center gap-1.5">
-              <User className="w-4 h-4 text-teal-400" />
+              <User className="w-3.5 h-3.5 text-teal-500" />
               <input
                 type="text"
-                placeholder="輸入病患姓名或代號"
+                placeholder="病患姓名"
                 value={patientName}
                 onChange={(e) => setPatientName(e.target.value)}
-                className="bg-slate-950/70 border border-slate-800 rounded-lg px-2.5 py-1 text-slate-200 outline-none focus:border-teal-500 text-xs print:bg-transparent print:border-none print:text-black"
+                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 text-xs w-24 print:bg-transparent print:border-none print:text-black print:w-auto"
               />
             </div>
             <div className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-teal-400" />
-              <span>{new Date().toLocaleDateString('zh-TW')}</span>
+              <span className="text-[11px] font-semibold text-slate-500">病歷/編號:</span>
+              <input
+                type="text"
+                placeholder="可選填"
+                value={patientId}
+                onChange={(e) => setPatientId(e.target.value)}
+                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 text-xs w-20 print:bg-transparent print:border-none print:text-black print:w-auto"
+              />
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-teal-500" />
+              <span>開單日：{new Date().toLocaleDateString('zh-TW')}</span>
             </div>
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 no-print">
-            物理治療師總括臨床衛教與注意事項：
+          <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1 no-print">
+            物理治療師總括衛教與安全警示 (Therapist Precautions)：
           </label>
           <textarea
             value={therapistGeneralNotes}
             onChange={(e) => setTherapistGeneralNotes(e.target.value)}
             rows={2}
-            className="w-full text-xs text-slate-300 bg-slate-950/60 border border-slate-800 rounded-xl p-3 outline-none focus:border-teal-500 transition resize-none print:bg-transparent print:border-none print:text-slate-800"
+            className="w-full text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl p-2.5 outline-none focus:border-teal-500 transition resize-none print:bg-transparent print:border-none print:p-0 print:text-slate-900"
           />
         </div>
       </div>
 
       {/* Routine Items List */}
       {routine.length === 0 ? (
-        <div className="p-12 rounded-3xl bg-slate-900/50 border border-dashed border-slate-800 text-center space-y-4">
-          <Stethoscope className="w-12 h-12 text-slate-600 mx-auto" />
-          <h3 className="text-lg font-bold text-slate-200">處方清單目前為空</h3>
-          <p className="text-xs text-slate-400 max-w-md mx-auto">
+        <div className="p-12 rounded-3xl bg-white dark:bg-slate-900/50 border border-dashed border-slate-200 dark:border-slate-800 text-center space-y-4">
+          <Stethoscope className="w-12 h-12 text-slate-400 dark:text-slate-600 mx-auto" />
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">處方清單目前為空</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
             您可以前往運動資料庫瀏覽，並點擊任何動作卡片上的「加入處方」，將動作加入此計畫。
           </p>
           <Link
@@ -160,121 +231,280 @@ export const RoutineBuilderView: React.FC = () => {
         </div>
       ) : (
         <div className="space-y-4">
-          {routine.map((item, index) => {
-            const exercise = getExerciseById(item.exerciseId);
-            if (!exercise) return null;
+          {/* Instructions for user about Drag & Drop */}
+          <div className="no-print flex items-center justify-between text-xs text-slate-400 px-1">
+            <span className="flex items-center gap-1.5">
+              <GripVertical className="w-3.5 h-3.5 text-teal-500" />
+              <span>小提示：可直接拖曳左側把手或點擊上下箭頭調整動作順序</span>
+            </span>
+            <span>共 {routine.length} 個處方動作</span>
+          </div>
 
-            return (
-              <div
-                key={item.exerciseId}
-                className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-lg space-y-4 print-card"
-              >
-                {/* Item Header */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-teal-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      {index + 1}
-                    </span>
-                    <div>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-800 text-teal-300 border border-slate-700">
-                        {exercise.subRegion}
+          {/* Cards Container: In print mode, switches to 2-column compact grid */}
+          <div className="space-y-3.5 print:space-y-0 print-grid">
+            {routine.map((item, index) => {
+              const exercise = getExerciseById(item.exerciseId);
+              if (!exercise) return null;
+
+              const isDragging = draggedIndex === index;
+              const isOver = dragOverIndex === index;
+
+              return (
+                <div
+                  key={item.exerciseId}
+                  draggable={true}
+                  onDragStart={(e) => onDragStart(e, index)}
+                  onDragOver={(e) => onDragOver(e, index)}
+                  onDragEnd={onDragEnd}
+                  onDrop={(e) => onDrop(e, index)}
+                  className={`p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border transition shadow-sm dark:shadow-md print-card ${
+                    isOver 
+                      ? 'border-teal-500 ring-2 ring-teal-500/30' 
+                      : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                  } ${isDragging ? 'opacity-40 scale-[0.98]' : 'opacity-100'}`}
+                >
+                  {/* Item Header */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-2.5">
+                      {/* Drag Grip handle & Order buttons (Screen Only) */}
+                      <div className="no-print flex flex-col items-center gap-0.5 mt-0.5 text-slate-400">
+                        <button
+                          onClick={() => moveRoutineItem(index, 'up')}
+                          disabled={index === 0}
+                          className="p-1 hover:text-teal-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
+                          title="往上移"
+                        >
+                          <ChevronUp className="w-3.5 h-3.5" />
+                        </button>
+                        <div 
+                          className="cursor-grab active:cursor-grabbing p-1 text-slate-400 hover:text-slate-200" 
+                          title="按住拖曳排序"
+                        >
+                          <GripVertical className="w-4 h-4" />
+                        </div>
+                        <button
+                          onClick={() => moveRoutineItem(index, 'down')}
+                          disabled={index === routine.length - 1}
+                          className="p-1 hover:text-teal-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
+                          title="往下移"
+                        >
+                          <ChevronDown className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      {/* Item Number Badge */}
+                      <span className="w-6 h-6 rounded-lg bg-teal-500/10 text-teal-600 dark:bg-teal-500/20 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30 mt-0.5 print:bg-slate-200 print:text-black">
+                        {index + 1}
                       </span>
-                      <Link href={`/exercise/${exercise.id}`}>
-                        <h4 className="font-bold text-base text-white hover:text-teal-300 transition cursor-pointer mt-1">
-                          {exercise.name}
-                        </h4>
-                      </Link>
-                      <span className="text-xs text-slate-400 block mt-0.5">
-                        目標肌群：{exercise.biomechanics.primaryMuscles.join(', ')}
+
+                      <div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700 print:border-none print:p-0 print:text-slate-700">
+                            {exercise.subRegion}
+                          </span>
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-teal-50 text-teal-700 dark:bg-teal-950/60 dark:text-teal-400 border border-teal-200 dark:border-teal-900/60 no-print">
+                            {exercise.biomechanics.kineticChain}
+                          </span>
+                        </div>
+                        <Link href={`/exercise/${exercise.id}`}>
+                          <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-teal-500 dark:hover:text-teal-300 transition cursor-pointer mt-0.5 print:text-black">
+                            {exercise.name}
+                            <span className="ml-1.5 text-xs text-slate-500 dark:text-slate-400 font-normal">
+                              ({exercise.chineseName})
+                            </span>
+                          </h4>
+                        </Link>
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                          目標肌群：{exercise.biomechanics.primaryMuscles.join(', ')}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Delete Action (Screen Only) */}
+                    <div className="no-print flex items-center gap-1">
+                      <button
+                        onClick={() => removeFromRoutine(item.exerciseId)}
+                        className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/60 text-slate-400 hover:text-red-500 border border-transparent hover:border-red-200 dark:hover:border-red-800 transition"
+                        title="自處方移除"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Dosage Steppers & Parameters */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs pt-2">
+                    {/* Sets with +/- Stepper */}
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mb-1">組數 (Sets):</span>
+                      <div className="flex items-center justify-between gap-1">
+                        <button
+                          onClick={() => stepSets(item.exerciseId, item.customSets || exercise.dosage.sets, -1)}
+                          className="no-print w-6 h-6 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition"
+                          title="減少 1 組"
+                        >
+                          <Minus className="w-3 h-3" />
+                        </button>
+                        <input
+                          type="text"
+                          value={item.customSets || exercise.dosage.sets}
+                          onChange={(e) => updateRoutineItem(item.exerciseId, { customSets: e.target.value })}
+                          className="w-full text-center bg-transparent text-teal-600 dark:text-teal-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                        />
+                        <button
+                          onClick={() => stepSets(item.exerciseId, item.customSets || exercise.dosage.sets, 1)}
+                          className="no-print w-6 h-6 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition"
+                          title="增加 1 組"
+                        >
+                          <Plus className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Reps with +/- Stepper */}
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mb-1">次數 (Reps):</span>
+                      <div className="flex items-center justify-between gap-1">
+                        <button
+                          onClick={() => stepReps(item.exerciseId, item.customReps || exercise.dosage.reps, -2)}
+                          className="no-print w-6 h-6 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition"
+                          title="減少 2 次"
+                        >
+                          <Minus className="w-3 h-3" />
+                        </button>
+                        <input
+                          type="text"
+                          value={item.customReps || exercise.dosage.reps}
+                          onChange={(e) => updateRoutineItem(item.exerciseId, { customReps: e.target.value })}
+                          className="w-full text-center bg-transparent text-teal-600 dark:text-teal-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                        />
+                        <button
+                          onClick={() => stepReps(item.exerciseId, item.customReps || exercise.dosage.reps, 2)}
+                          className="no-print w-6 h-6 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition"
+                          title="增加 2 次"
+                        >
+                          <Plus className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Hold Duration */}
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mb-1">等長維持 (Hold):</span>
+                      <input
+                        type="text"
+                        value={item.customHold || exercise.dosage.holdDuration || '依節奏'}
+                        onChange={(e) => updateRoutineItem(item.exerciseId, { customHold: e.target.value })}
+                        className="w-full text-center bg-transparent text-cyan-600 dark:text-cyan-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                      />
+                    </div>
+
+                    {/* Frequency */}
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mb-1">頻率 (Frequency):</span>
+                      <span className="text-center text-slate-700 dark:text-slate-200 font-medium py-0.5 block print:text-black">
+                        {exercise.dosage.frequency}
                       </span>
                     </div>
                   </div>
 
-                  {/* Actions */}
-                  <div className="no-print flex items-center gap-2">
-                    <button
-                      onClick={() => removeFromRoutine(item.exerciseId)}
-                      className="p-2 rounded-lg bg-slate-800 hover:bg-red-950 hover:text-red-400 text-slate-400 border border-slate-700 transition"
-                      title="自此處方移除"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                  {/* Hold presets capsule bar (Screen only) */}
+                  <div className="no-print flex items-center gap-1.5 pt-1 text-[11px] text-slate-400 overflow-x-auto">
+                    <span className="shrink-0 text-slate-500">維持快選:</span>
+                    {holdOptions.map(opt => (
+                      <button
+                        key={opt}
+                        onClick={() => updateRoutineItem(item.exerciseId, { customHold: opt })}
+                        className={`px-1.5 py-0.5 rounded text-[10px] font-medium transition ${
+                          (item.customHold || exercise.dosage.holdDuration) === opt
+                            ? 'bg-teal-600 text-white font-bold'
+                            : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400'
+                        }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
                   </div>
-                </div>
 
-                {/* Dosage Stepper & Parameters */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1">
-                  <div className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
-                    <span className="text-slate-400 block mb-1">組數 (Sets):</span>
+                  {/* Therapist Specific Notes */}
+                  <div className="pt-2">
+                    <label className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold block mb-0.5">
+                      個人化執行要點與防代償提醒 (Therapist Specific Cue):
+                    </label>
                     <input
                       type="text"
-                      value={item.customSets || exercise.dosage.sets}
-                      onChange={(e) => updateRoutineItem(item.exerciseId, { customSets: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-teal-300 font-bold text-xs outline-none focus:border-teal-500 print:border-none print:p-0"
+                      value={item.therapistNotes || ''}
+                      onChange={(e) => updateRoutineItem(item.exerciseId, { therapistNotes: e.target.value })}
+                      placeholder="例：右腳尖向前不可外八、核心收緊骨盆防後傾..."
+                      className="w-full bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 transition print:bg-transparent print:border-none print:p-0 print:text-slate-900"
                     />
                   </div>
 
-                  <div className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
-                    <span className="text-slate-400 block mb-1">次數 (Reps):</span>
-                    <input
-                      type="text"
-                      value={item.customReps || exercise.dosage.reps}
-                      onChange={(e) => updateRoutineItem(item.exerciseId, { customReps: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-teal-300 font-bold text-xs outline-none focus:border-teal-500 print:border-none print:p-0"
-                    />
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
-                    <span className="text-slate-400 block mb-1">等長維持 (Hold):</span>
-                    <input
-                      type="text"
-                      value={item.customHold || exercise.dosage.holdDuration || '3 秒'}
-                      onChange={(e) => updateRoutineItem(item.exerciseId, { customHold: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-cyan-300 font-bold text-xs outline-none focus:border-teal-500 print:border-none print:p-0"
-                    />
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800">
-                    <span className="text-slate-400 block mb-1">運動頻率:</span>
-                    <span className="text-slate-200 font-medium block py-1">
-                      {exercise.dosage.frequency}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Therapist Specific Coaching Notes */}
-                <div>
-                  <span className="text-xs text-slate-400 font-semibold block mb-1">
-                    針對該病患之特定指導口訣與備註：
-                  </span>
-                  <input
-                    type="text"
-                    value={item.therapistNotes || ''}
-                    onChange={(e) => updateRoutineItem(item.exerciseId, { therapistNotes: e.target.value })}
-                    placeholder="例如：右腳跟著地不可離地；核心收緊防代償..."
-                    className="w-full bg-slate-950/70 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 outline-none focus:border-teal-500 transition print:bg-transparent print:border-none print:p-0"
-                  />
-                </div>
-
-                {/* Print instructions summary */}
-                <div className="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                  <strong>分步執行重點：</strong>
-                  <p className="line-clamp-2 text-slate-300">
+                  {/* Step Summary (Compact for A4 print) */}
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-400 line-clamp-2">
+                    <strong className="text-slate-700 dark:text-slate-300">執行重點：</strong>
                     {exercise.execution.steps.map(s => s.instruction).join(' ')}
-                  </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
 
-          {/* Clear routine button */}
+          {/* Weekly Patient Compliance Checkbox Sheet (Print Only) */}
+          <div className="hidden print:block pt-4 page-break-inside: avoid">
+            <h5 className="font-bold text-xs text-slate-900 mb-1 flex items-center gap-1">
+              <span>每週執行簽到表記錄 (Patient Weekly Adherence Checklist)</span>
+            </h5>
+            <p className="text-[9px] text-slate-500 mb-2">每次完成運動後，請於對應日期方格內打勾簽到：</p>
+            <table className="print-table w-full">
+              <thead>
+                <tr>
+                  <th className="text-left w-2/5">處方動作名稱</th>
+                  <th>目標組數/次數</th>
+                  <th>週一</th>
+                  <th>週二</th>
+                  <th>週三</th>
+                  <th>週四</th>
+                  <th>週五</th>
+                  <th>週六</th>
+                  <th>週日</th>
+                  <th>治療師覆核</th>
+                </tr>
+              </thead>
+              <tbody>
+                {routine.map((item, idx) => {
+                  const ex = getExerciseById(item.exerciseId);
+                  return (
+                    <tr key={item.exerciseId}>
+                      <td className="text-left font-semibold">
+                        {idx + 1}. {ex?.name} ({ex?.chineseName})
+                      </td>
+                      <td>
+                        {item.customSets || ex?.dosage.sets} × {item.customReps || ex?.dosage.reps}
+                      </td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td>[ ]</td>
+                      <td></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Clear routine button (Screen Only) */}
           <div className="no-print pt-4 flex justify-end">
             <button
               onClick={clearRoutine}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-red-950/50 text-slate-400 hover:text-red-400 border border-slate-800 text-xs font-semibold transition"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-red-50 dark:hover:bg-red-950/50 text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 border border-slate-200 dark:border-slate-800 text-xs font-semibold transition"
             >
               <Trash2 className="w-4 h-4" />
-              <span>清空全部處方清單</span>
+              <span>清空所有已選處方</span>
             </button>
           </div>
         </div>

@@ -84,7 +84,7 @@ export const FilterDrawer: React.FC<Props> = ({
     filters.kineticChain !== 'ALL';
 
   return (
-    <div className="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl">
+    <div className="w-full bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm dark:shadow-xl transition-colors">
       {/* Search Bar & Drawer Toggle */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
         {/* Search input */}
@@ -95,12 +95,12 @@ export const FilterDrawer: React.FC<Props> = ({
             value={filters.search}
             onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
             placeholder="多屬性檢索：運動名稱、目標肌群 (如: 腓骨肌、膕旁肌)、病症或器材..."
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm text-slate-100 placeholder:text-slate-500 outline-none transition"
+            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none transition"
           />
           {filters.search && (
             <button
               onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 dark:hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
@@ -114,20 +114,20 @@ export const FilterDrawer: React.FC<Props> = ({
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-semibold transition ${
               isOpen
                 ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-600/20'
-                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700'
             }`}
           >
             <SlidersHorizontal className="w-4 h-4" />
             <span>臨床進階篩選</span>
             {hasActiveFilters && (
-              <span className="w-2 h-2 rounded-full bg-cyan-300" />
+              <span className="w-2 h-2 rounded-full bg-cyan-400" />
             )}
           </button>
 
           {hasActiveFilters && (
             <button
               onClick={handleReset}
-              className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-xs text-slate-300 font-medium border border-slate-700/80 transition"
+              className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700/80 transition"
               title="重設全部條件"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -139,10 +139,10 @@ export const FilterDrawer: React.FC<Props> = ({
 
       {/* Expanded Multi-Attribute Filter Panel */}
       {isOpen && (
-        <div className="mt-4 pt-4 border-t border-slate-800 space-y-4 animate-in fade-in duration-200">
+        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4 animate-in fade-in duration-200">
           {/* Movement Types */}
           <div>
-            <span className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+            <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
               動作收縮型態 (Contraction / Movement Type)
             </span>
             <div className="flex flex-wrap gap-1.5">
@@ -154,8 +154,8 @@ export const FilterDrawer: React.FC<Props> = ({
                     onClick={() => handleToggle('movementTypes', type)}
                     className={`px-2.5 py-1 rounded-lg text-xs font-medium transition ${
                       active
-                        ? 'bg-teal-500 text-slate-950 font-bold border border-teal-400 shadow-sm'
-                        : 'bg-slate-950/60 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                        ? 'bg-teal-600 text-white font-bold border border-teal-500 shadow-sm'
+                        : 'bg-slate-50 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {type}
@@ -167,7 +167,7 @@ export const FilterDrawer: React.FC<Props> = ({
 
           {/* Rehab Phases */}
           <div>
-            <span className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+            <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
               復健臨床分期 (Rehabilitation Phase)
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
@@ -180,7 +180,7 @@ export const FilterDrawer: React.FC<Props> = ({
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium text-left transition ${
                       active
                         ? 'bg-cyan-600 text-white font-bold border border-cyan-400 shadow-sm'
-                        : 'bg-slate-950/60 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                        : 'bg-slate-50 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {phase}
@@ -194,7 +194,7 @@ export const FilterDrawer: React.FC<Props> = ({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             {/* Equipment */}
             <div>
-              <span className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+              <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
                 所需器材
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -206,8 +206,8 @@ export const FilterDrawer: React.FC<Props> = ({
                       onClick={() => handleToggle('equipment', eq)}
                       className={`px-2 py-1 rounded text-[11px] font-medium transition ${
                         active
-                          ? 'bg-teal-500 text-slate-950 font-bold'
-                          : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                          ? 'bg-teal-600 text-white font-bold'
+                          : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
                       }`}
                     >
                       {eq.split(' ')[0]}
@@ -219,7 +219,7 @@ export const FilterDrawer: React.FC<Props> = ({
 
             {/* Difficulty */}
             <div>
-              <span className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+              <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
                 難易度
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -230,8 +230,8 @@ export const FilterDrawer: React.FC<Props> = ({
                     className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
                       filters.difficulty === diff
                         ? 'bg-indigo-600 text-white font-bold'
-                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
-                    }`}
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
+                      }`}
                   >
                     {diff === 'ALL' ? '不限' : diff.split(' ')[0]}
                   </button>
@@ -241,7 +241,7 @@ export const FilterDrawer: React.FC<Props> = ({
 
             {/* Kinetic Chain */}
             <div>
-              <span className="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+              <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
                 動力鏈型態
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -252,7 +252,7 @@ export const FilterDrawer: React.FC<Props> = ({
                     className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
                       filters.kineticChain === chain
                         ? 'bg-emerald-600 text-white font-bold'
-                        : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {chain === 'ALL' ? '不限' : chain}
@@ -265,12 +265,12 @@ export const FilterDrawer: React.FC<Props> = ({
       )}
 
       {/* Filter status summary count */}
-      <div className="mt-3 pt-2 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
+      <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
         <span>
-          顯示符合條件的動作：<strong className="text-teal-300 font-bold">{totalFiltered}</strong> / {totalCount} 個
+          顯示符合條件的動作：<strong className="text-teal-600 dark:text-teal-300 font-bold">{totalFiltered}</strong> / {totalCount} 個
         </span>
         {hasActiveFilters && (
-          <span className="text-teal-400/90 text-[11px]">篩選器生效中</span>
+          <span className="text-teal-600 dark:text-teal-400/90 text-[11px] font-medium">篩選器生效中</span>
         )}
       </div>
     </div>

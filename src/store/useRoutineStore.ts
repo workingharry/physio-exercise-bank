@@ -98,6 +98,22 @@ export function useRoutineStore() {
       return [...prev, exerciseId];
     });
   };
+  const reorderRoutine = (startIndex: number, endIndex: number) => {
+    setRoutine(prev => {
+      if (startIndex < 0 || startIndex >= prev.length || endIndex < 0 || endIndex >= prev.length) {
+        return prev;
+      }
+      const result = Array.from(prev);
+      const [removed] = result.splice(startIndex, 1);
+      result.splice(endIndex, 0, removed);
+      return result;
+    });
+  };
+
+  const moveRoutineItem = (index: number, direction: 'up' | 'down') => {
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    reorderRoutine(index, targetIndex);
+  };
 
   const addCustomExercise = (ex: Exercise) => {
     setCustomExercises(prev => [ex, ...prev]);
@@ -115,8 +131,11 @@ export function useRoutineStore() {
     removeFromRoutine,
     updateRoutineItem,
     clearRoutine,
+    reorderRoutine,
+    moveRoutineItem,
     toggleBookmark,
     addCustomExercise,
     deleteCustomExercise
   };
 }
+
