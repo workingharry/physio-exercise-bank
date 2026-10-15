@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Play, RotateCcw, ExternalLink, Gauge, Repeat, Search, AlertCircle, Video } from 'lucide-react';
+import { Play, RotateCcw, ExternalLink, Gauge, Repeat, Search, AlertCircle, Video, Image as ImageIcon } from 'lucide-react';
 
 interface Props {
   videoUrl?: string;
@@ -10,19 +10,20 @@ interface Props {
 export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', title }) => {
   const [playbackRate, setPlaybackRate] = useState<number>(1.0);
   const [isLooping, setIsLooping] = useState<boolean>(true);
+  const [useDirectMode, setUseDirectMode] = useState<boolean>(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   if (!videoUrl) {
     return (
-      <div className="flex flex-col items-center justify-center p-8 bg-slate-900 border border-slate-800 rounded-xl text-slate-400">
+      <div className="flex flex-col items-center justify-center p-8 bg-slate-900 border border-slate-800 rounded-2xl text-slate-400">
         <Play className="w-8 h-8 mb-2 opacity-50" />
         <p className="text-sm">此運動暫無直接影片連結，可點擊上方關鍵字搜尋</p>
       </div>
     );
   }
 
-  // Extract YouTube ID if applicable (supports watch?v=, youtu.be/, embed/, etc.)
+  // Extract YouTube ID if applicable
   const getYouTubeId = (url: string) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
@@ -30,8 +31,10 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
   };
 
   const ytId = getYouTubeId(videoUrl);
+  const ytThumbnail = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : null;
+  const directWatchUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : videoUrl;
 
-  // Check if it's a YouTube search query URL (26 exercises in database)
+  // Check if it's a YouTube search query URL
   const isSearchUrl = videoUrl.includes('youtube.com/results') || videoUrl.includes('/results?search_query=');
   let searchQuery = '';
   if (isSearchUrl) {
@@ -45,11 +48,9 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
 
   const handleRateChange = (rate: number) => {
     setPlaybackRate(rate);
-    // If local HTML5 video
     if (videoRef.current) {
       videoRef.current.playbackRate = rate;
     }
-    // If YouTube iframe
     if (iframeRef.current && iframeRef.current.contentWindow) {
       iframeRef.current.contentWindow.postMessage(
         JSON.stringify({ event: 'command', func: 'setPlaybackRate', args: [rate] }),
@@ -59,19 +60,80 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
   };
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
       {/* Video Container */}
-      <div className="relative aspect-video w-full bg-black">
+      <div className="relative aspect-video w-full bg-black overflow-hidden">
         {ytId ? (
-          <iframe
-            ref={iframeRef}
-            className="w-full h-full"
-            src={`https://www.youtube-nocookie.com/embed/${ytId}?enablejsapi=1&rel=0&loop=${isLooping ? '1' : '0'}&playlist=${ytId}`}
-            title={title || "Exercise Demonstration"}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+          useDirectMode ? (
+            /* Direct Thumbnail Fallback Mode: Clean, prominent, no grey empty iframe */
+            <div className="relative w-full h-full flex flex-col items-center justify-center text-center p-6 bg-slate-950">
+              {ytThumbnail && (
+                <img
+                  src={ytThumbnail}
+                  alt={title || 'YouTube Demonstration'}
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 blur-sm"
+                />
+              )}
+              <div className="absolute inset-0 bg-slate-950/60" />
+              <div className="relative z-10 flex flex-col items-center max-w-md">
+                <a
+                  href={directWatchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-16 h-16 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center shadow-2xl shadow-red-600/40 hover:scale-110 transition mb-4 group"
+                >
+                  <Play className="w-8 h-8 fill-current ml-1" />
+                </a>
+                <h4 className="text-sm font-bold text-white mb-2 line-clamp-2">
+                  {title || '觀看 YouTube 臨床示範影片'}
+                </h4>
+                <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                  原頻道設有外部嵌入保護，點擊下方按鈕即可直接於 YouTube 開啟高畫質示範。
+                </p>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={directWatchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs shadow-lg transition"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>在 YouTube 觀看</span>
+                  </a>
+                  <button
+                    onClick={() => setUseDirectMode(false)}
+                    className="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition"
+                  >
+                    嘗試內嵌播放
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* Standard Embedded iframe */
+            <>
+              <iframe
+                ref={iframeRef}
+                className="w-full h-full"
+                src={`https://www.youtube-nocookie.com/embed/${ytId}?enablejsapi=1&rel=0&loop=${isLooping ? '1' : '0'}&playlist=${ytId}`}
+                title={title || "Exercise Demonstration"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              {/* Quick direct watch pill in corner */}
+              <a
+                href={directWatchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-500 text-white font-bold text-xs shadow-lg backdrop-blur-md transition"
+                title="若內嵌播放被頻道版權限制，點此直接開啟"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>在 YouTube 觀看</span>
+              </a>
+            </>
+          )
         ) : isSearchUrl ? (
           <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-950 via-slate-900 to-red-950/20 text-center">
             <div className="w-14 h-14 rounded-2xl bg-red-600/10 border border-red-500/20 flex items-center justify-center text-red-500 mb-3 shadow-lg shadow-red-900/10">
@@ -111,13 +173,19 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
         )}
       </div>
 
-      {/* Clinical Notice on YouTube Embed Limitations */}
-      {ytId && (
-        <div className="px-3.5 py-2 bg-slate-950/60 border-t border-slate-800/80 flex items-center gap-2 text-[11px] text-slate-400">
-          <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-          <p className="flex-1">
-            若影片顯示「無法在此播放」，係因原醫學頻道設定了版權防外部嵌入保護，請點擊下方 <span className="text-teal-300 font-medium">【在 YouTube 開新分頁播放】</span> 即可完整觀看。
-          </p>
+      {/* Helpful Fallback Prompt when in iframe mode */}
+      {ytId && !useDirectMode && (
+        <div className="px-3.5 py-2 bg-slate-950/80 border-t border-slate-800/80 flex items-center justify-between gap-2 text-xs text-slate-400">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+            <span>畫面若顯示「無法在此播放」，係因原頻道限制外部嵌入：</span>
+          </div>
+          <button
+            onClick={() => setUseDirectMode(true)}
+            className="text-teal-400 hover:text-teal-300 font-semibold underline underline-offset-2 shrink-0"
+          >
+            切換為縮圖直連模式
+          </button>
         </div>
       )}
 
@@ -162,13 +230,13 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
 
           {/* External YouTube link */}
           <a
-            href={videoUrl}
+            href={directWatchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600/90 hover:bg-red-500 text-white font-medium border border-red-500/30 transition shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-medium border border-red-500/30 transition shadow-sm"
           >
             <ExternalLink className="w-3.5 h-3.5" />
-            <span>在 YouTube 開新分頁播放</span>
+            <span>在 YouTube 觀看</span>
           </a>
         </div>
       </div>

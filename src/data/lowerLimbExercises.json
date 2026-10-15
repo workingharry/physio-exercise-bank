@@ -2,7 +2,7 @@
   {
     "id": "ankle-standing-seated-isometric-heel-raise-hold",
     "name": "Standing / seated isometric heel-raise hold",
-    "chineseName": "Standing / seated isometric heel-raise hold",
+    "chineseName": "站姿/坐姿等長提踵靜態維持 (比目魚肌/腓腸肌活化)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -114,7 +114,7 @@
   {
     "id": "ankle-flat-ground-heel-raise",
     "name": "Flat-ground heel raise",
-    "chineseName": "Flat-ground heel raise",
+    "chineseName": "平地雙腳提踵 (踮腳尖肌力基礎)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -227,7 +227,7 @@
   {
     "id": "ankle-seated-bent-knee-calf-raise-hsr",
     "name": "Seated bent-knee calf raise HSR",
-    "chineseName": "Seated bent-knee calf raise HSR",
+    "chineseName": "坐姿屈膝比目魚肌高負荷肌腱訓練 (HSR)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -331,7 +331,7 @@
   {
     "id": "ankle-step-edge-eccentric-hsr-heel-drop",
     "name": "Step-edge eccentric & HSR heel drop",
-    "chineseName": "Step-edge eccentric & HSR heel drop",
+    "chineseName": "台階邊緣離心下沉與高負荷肌腱修復 (Alfredson)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -441,7 +441,7 @@
   {
     "id": "ankle-inner-range-plantarflexion-heel-block-raise",
     "name": "Inner-range plantarflexion heel-block raise",
-    "chineseName": "Inner-range plantarflexion heel-block raise",
+    "chineseName": "內側角度蹠屈墊木提踵 (足底深層穩定)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -545,7 +545,7 @@
   {
     "id": "ankle-single-leg-weighted-smith-machine-dumbbell-calf-press",
     "name": "Single-leg weighted Smith-machine / dumbbell calf press",
-    "chineseName": "Single-leg weighted Smith-machine / dumbbell calf press",
+    "chineseName": "單腳負重史密斯機/啞鈴小腿推蹬",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -653,7 +653,7 @@
   {
     "id": "ankle-bilateral-to-unilateral-pogo-hops",
     "name": "Bilateral-to-unilateral pogo hops",
-    "chineseName": "Bilateral-to-unilateral pogo hops",
+    "chineseName": "雙腳轉單腳連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -759,7 +759,7 @@
   {
     "id": "ankle-forward-single-leg-hop-incline-sprint-acceleration",
     "name": "Forward single-leg hop & incline sprint acceleration",
-    "chineseName": "Forward single-leg hop & incline sprint acceleration",
+    "chineseName": "前向單腳跳躍與坡度衝刺加速",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -861,7 +861,7 @@
   {
     "id": "ankle-post-cast-unloaded-active-rom-scar-glide-stationary",
     "name": "Post-cast unloaded active ROM, scar glide & stationary bike (Ankle Fracture Wk 2–6)",
-    "chineseName": "Post-cast unloaded active ROM, scar glide & stationary bike (Ankle Fracture Wk 2–6)",
+    "chineseName": "拆石膏早期無負重主動活動度、疤痕滑動與飛輪訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -967,7 +967,7 @@
   {
     "id": "ankle-plantar-fascia-myofascial-release-pronation-unlocking-wedge-lunge",
     "name": "Plantar fascia myofascial release & \"Pronation-Unlocking\" Wedge Lunge (Pes Cavus)",
-    "chineseName": "Plantar fascia myofascial release & \"Pronation-Unlocking\" Wedge Lunge (Pes Cavus)",
+    "chineseName": "足底筋膜筋膜球放鬆與高弓足旋前解鎖斜木弓箭步",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1075,7 +1075,7 @@
   {
     "id": "ankle-graduated-bathroom-scale-weight-shifting-rocker-to-flat-gait-weaning-post-orif",
     "name": "Graduated bathroom-scale weight-shifting & Rocker-To-Flat gait weaning (Post-ORIF)",
-    "chineseName": "Graduated bathroom-scale weight-shifting & Rocker-To-Flat gait weaning (Post-ORIF)",
+    "chineseName": "體重計漸進負重轉移與術後過渡步態訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1188,7 +1188,7 @@
   {
     "id": "ankle-banded-knee-to-wall-dorsiflexion-low-load-long-duration-calf-stretch",
     "name": "Banded Knee-to-Wall dorsiflexion & Low-Load Long-Duration calf stretch",
-    "chineseName": "Banded Knee-to-Wall dorsiflexion & Low-Load Long-Duration calf stretch",
+    "chineseName": "彈力帶屈膝觸牆背屈活動度與低負荷長時間小腿伸展",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1292,7 +1292,7 @@
   {
     "id": "ankle-resisted-band-ankle-eversion-dorsiflexion-peroneus-brevis",
     "name": "Resisted band ankle eversion & dorsiflexion (Peroneus Brevis/Tertius anti-varus)",
-    "chineseName": "Resisted band ankle eversion & dorsiflexion (Peroneus Brevis/Tertius anti-varus)",
+    "chineseName": "彈力帶抗阻外翻與背屈 (腓骨短肌抗內翻強化)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1407,7 +1407,7 @@
   {
     "id": "ankle-seated-standing-calf-raise-hsr-1st-ray-centered",
     "name": "Seated & standing calf raise HSR (1st-ray centered, avoiding lateral varus roll)",
-    "chineseName": "Seated & standing calf raise HSR (1st-ray centered, avoiding lateral varus roll)",
+    "chineseName": "坐姿與站姿提踵 HSR (第一蹠骨居中防止外側翻滾)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1507,7 +1507,7 @@
   {
     "id": "ankle-split-squat-step-down-with-soft-arch-knee-over-1st-toe-pronation",
     "name": "Split squat & step-down with \"Soft-Arch / Knee-Over-1st-Toe\" pronation absorption",
-    "chineseName": "Split squat & step-down with \"Soft-Arch / Knee-Over-1st-Toe\" pronation absorption",
+    "chineseName": "分腿蹲與下台階 (軟足弓緩衝與膝對齊第一趾)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1616,7 +1616,7 @@
   {
     "id": "ankle-single-leg-balance-on-compliant-foam-soft-triple-flexion",
     "name": "Single-leg balance on compliant foam & soft triple-flexion drop landing (RTS)",
-    "chineseName": "Single-leg balance on compliant foam & soft triple-flexion drop landing (RTS)",
+    "chineseName": "軟墊單腳平衡與三屈緩衝軟著地 (重返運動期)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1719,7 +1719,7 @@
   {
     "id": "ankle-banded-talocrural-distraction-posterior-talar-glide-anterior",
     "name": "Banded talocrural distraction & posterior talar glide (Anterior Impingement)",
-    "chineseName": "Banded talocrural distraction & posterior talar glide (Anterior Impingement)",
+    "chineseName": "彈力帶距骨小腿關節牽引與向後滑動鬆動術 (前夾擠)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1834,7 +1834,7 @@
   {
     "id": "ankle-seated-fhl-tendon-gliding-isolated-big-toe-isometric",
     "name": "Seated FHL tendon gliding & isolated big-toe isometric press (Posterior / FHL)",
-    "chineseName": "Seated FHL tendon gliding & isolated big-toe isometric press (Posterior / FHL)",
+    "chineseName": "坐姿屈拇長肌肌腱滑行與大拇趾獨立等長下壓",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -1933,7 +1933,7 @@
   {
     "id": "ankle-flat-ground-heel-raise-with-relaxed-toes-stopping",
     "name": "Flat-ground heel raise with relaxed toes (stopping shy of posterior pinch)",
-    "chineseName": "Flat-ground heel raise with relaxed toes (stopping shy of posterior pinch)",
+    "chineseName": "放鬆腳趾平地提踵 (止於後側夾擠角度前)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2045,7 +2045,7 @@
   {
     "id": "ankle-resisted-fhl-band-flexion-toe-off-towel-press",
     "name": "Resisted FHL band flexion & Toe-Off towel press (FHL Stage 2 HSR)",
-    "chineseName": "Resisted FHL band flexion & Toe-Off towel press (FHL Stage 2 HSR)",
+    "chineseName": "彈力帶屈拇長肌抗阻彎曲與蹬地毛巾下壓 (FHL二期HSR)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2150,7 +2150,7 @@
   {
     "id": "ankle-heel-elevated-box-squat-vertical-shin-rdl-anterior-impingement",
     "name": "Heel-elevated box squat & vertical-shin RDL (Anterior Impingement offloading)",
-    "chineseName": "Heel-elevated box squat & vertical-shin RDL (Anterior Impingement offloading)",
+    "chineseName": "羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2253,7 +2253,7 @@
   {
     "id": "ankle-seated-bent-knee-soleus-hsr-non-impinging-mid-range-0°–25°",
     "name": "Seated bent-knee soleus HSR (non-impinging mid-range 0°–25° PF arc)",
-    "chineseName": "Seated bent-knee soleus HSR (non-impinging mid-range 0°–25° PF arc)",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2353,7 +2353,7 @@
   {
     "id": "ankle-single-leg-balance-on-demi-pointe-tripod-foot-with",
     "name": "Single-leg balance on demi-pointe / tripod foot with hip external rotation",
-    "chineseName": "Single-leg balance on demi-pointe / tripod foot with hip external rotation",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2463,7 +2463,7 @@
   {
     "id": "ankle-controlled-forefoot-pogo-hops-kick-relevé-deceleration",
     "name": "Controlled forefoot pogo hops & kick/relevé deceleration (Late RTS)",
-    "chineseName": "Controlled forefoot pogo hops & kick/relevé deceleration (Late RTS)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2564,7 +2564,7 @@
   {
     "id": "ankle-inner-to-mid-range-isometric-calf-hold-straight-knee-bent-knee",
     "name": "Inner-to-mid-range isometric calf hold (straight-knee & bent-knee)",
-    "chineseName": "Inner-to-mid-range isometric calf hold (straight-knee & bent-knee)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2673,7 +2673,7 @@
   {
     "id": "ankle-flat-ground-bilateral-to-unilateral-heel-raise-0°-stretch-protected-arc",
     "name": "Flat-ground bilateral-to-unilateral heel raise (0° stretch-protected arc)",
-    "chineseName": "Flat-ground bilateral-to-unilateral heel raise (0° stretch-protected arc)",
+    "chineseName": "單腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2783,7 +2783,7 @@
   {
     "id": "ankle-seated-90°-bent-knee-soleus-hsr-press-isolated",
     "name": "Seated 90° bent-knee soleus HSR press (isolated soleus aponeurosis loading)",
-    "chineseName": "Seated 90° bent-knee soleus HSR press (isolated soleus aponeurosis loading)",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2887,7 +2887,7 @@
   {
     "id": "ankle-step-edge-eccentric-long-length-heel-drop-sarcomerogenesis-protocol",
     "name": "Step-edge eccentric long-length heel drop (sarcomerogenesis protocol)",
-    "chineseName": "Step-edge eccentric long-length heel drop (sarcomerogenesis protocol)",
+    "chineseName": "階梯足跟下沉 (離心伸展)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -2996,7 +2996,7 @@
   {
     "id": "ankle-lunge-stance-split-squat-heel-raise-acceleration-angle-triceps-surae",
     "name": "Lunge-stance (\"Split-Squat\") heel raise (acceleration-angle triceps surae)",
-    "chineseName": "Lunge-stance (\"Split-Squat\") heel raise (acceleration-angle triceps surae)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3097,7 +3097,7 @@
   {
     "id": "ankle-single-leg-weighted-straight-knee-calf-press-endurance-test",
     "name": "Single-leg weighted straight-knee calf press & endurance test (>= 25–30 reps)",
-    "chineseName": "Single-leg weighted straight-knee calf press & endurance test (>= 25–30 reps)",
+    "chineseName": "單腳 負重 小腿腿推提踵訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3199,7 +3199,7 @@
   {
     "id": "ankle-vertical-to-horizontal-pogo-hop-progression-elastic-recoil-restoration",
     "name": "Vertical-to-horizontal pogo hop progression (elastic recoil restoration)",
-    "chineseName": "Vertical-to-horizontal pogo hop progression (elastic recoil restoration)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3299,7 +3299,7 @@
   {
     "id": "ankle-wall-drill-acceleration-march-staged-sprint-build-up-late",
     "name": "Wall-drill acceleration march & staged sprint build-up (Late RTS clearance)",
-    "chineseName": "Wall-drill acceleration march & staged sprint build-up (Late RTS clearance)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3400,7 +3400,7 @@
   {
     "id": "ankle-peroneal-myofascial-decompression-cuboid-self-mobilization-cuboid-stage",
     "name": "Peroneal myofascial decompression & Cuboid self-mobilization (Cuboid Stage 1)",
-    "chineseName": "Peroneal myofascial decompression & Cuboid self-mobilization (Cuboid Stage 1)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3505,7 +3505,7 @@
   {
     "id": "ankle-non-weight-bearing-sagittal-ankle-pumps-4-way-hip-quad",
     "name": "Non-weight-bearing sagittal ankle pumps & 4-way hip/quad series (5th Met Stage 1)",
-    "chineseName": "Non-weight-bearing sagittal ankle pumps & 4-way hip/quad series (5th Met Stage 1)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3605,7 +3605,7 @@
   {
     "id": "ankle-short-foot-arch-doming-toe-spread-out-abductor-digiti-minimi",
     "name": "Short-foot arch doming & Toe-Spread-Out (Abductor Digiti Minimi & Arch Lock)",
-    "chineseName": "Short-foot arch doming & Toe-Spread-Out (Abductor Digiti Minimi & Arch Lock)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3712,7 +3712,7 @@
   {
     "id": "ankle-medial-column-biased-1st-ray-press-flat-ground-heel-raise",
     "name": "Medial-column-biased (\"1st-Ray Press\") flat-ground heel raise",
-    "chineseName": "Medial-column-biased (\"1st-Ray Press\") flat-ground heel raise",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3820,7 +3820,7 @@
   {
     "id": "ankle-submaximal-isometric-->-isotonic-band-eversion-post-union",
     "name": "Submaximal isometric -> isotonic band eversion (Post-Union / Post-Reduction)",
-    "chineseName": "Submaximal isometric -> isotonic band eversion (Post-Union / Post-Reduction)",
+    "chineseName": "踝關節抗阻外翻訓練 (腓骨肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -3926,7 +3926,7 @@
   {
     "id": "ankle-flat-foot-box-squat-supported-single-leg-rdl-tripod",
     "name": "Flat-foot box squat & supported single-leg RDL (tripod load distribution)",
-    "chineseName": "Flat-foot box squat & supported single-leg RDL (tripod load distribution)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4037,7 +4037,7 @@
   {
     "id": "ankle-single-leg-balance-with-medial-to-central-weight-centering-y-balance",
     "name": "Single-leg balance with medial-to-central weight centering & Y-Balance reach",
-    "chineseName": "Single-leg balance with medial-to-central weight centering & Y-Balance reach",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4145,7 +4145,7 @@
   {
     "id": "ankle-osteogenic-forefoot-hops-lateral-cutting-clearance-late",
     "name": "Osteogenic forefoot hops & lateral cutting clearance (Late RTS)",
-    "chineseName": "Osteogenic forefoot hops & lateral cutting clearance (Late RTS)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4253,7 +4253,7 @@
   {
     "id": "ankle-kim-s-toe-spread-out-tso-exercise-hallux-valgus",
     "name": "Kim's \"Toe-Spread-Out\" (TSO) exercise (Hallux Valgus correction)",
-    "chineseName": "Kim's \"Toe-Spread-Out\" (TSO) exercise (Hallux Valgus correction)",
+    "chineseName": "防膝外翻臀肌與動態對齊控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4371,7 +4371,7 @@
   {
     "id": "ankle-flat-toe-isometric-hallux-plantarflexion-press-turf-toe",
     "name": "Flat-toe isometric hallux plantarflexion press (Turf Toe / Sesamoid Stage 1)",
-    "chineseName": "Flat-toe isometric hallux plantarflexion press (Turf Toe / Sesamoid Stage 1)",
+    "chineseName": "踝關節蹠屈離心/向心肌力訓練 (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4482,7 +4482,7 @@
   {
     "id": "ankle-1st-mtp-long-axis-distraction-plantar-glide-mobilization-hallux",
     "name": "1st MTP long-axis distraction & plantar-glide mobilization (Hallux Limitus)",
-    "chineseName": "1st MTP long-axis distraction & plantar-glide mobilization (Hallux Limitus)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4591,7 +4591,7 @@
   {
     "id": "ankle-standing-vele-s-forward-lean-closed-chain-hallux",
     "name": "Standing \"Vele's Forward Lean\" (closed-chain hallux flexor overload at 0° MTP)",
-    "chineseName": "Standing \"Vele's Forward Lean\" (closed-chain hallux flexor overload at 0° MTP)",
+    "chineseName": "站姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4706,7 +4706,7 @@
   {
     "id": "ankle-banded-first-ray-plantarflexion-heel-raise-peroneus-longus",
     "name": "Banded first-ray plantarflexion & heel raise (Peroneus Longus lock)",
-    "chineseName": "Banded first-ray plantarflexion & heel raise (Peroneus Longus lock)",
+    "chineseName": "彈力帶 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4815,7 +4815,7 @@
   {
     "id": "ankle-whole-foot-elevated-box-heel-raise-0°-mtp",
     "name": "Whole-foot elevated box heel raise (0° MTP flat-forefoot calf strengthening)",
-    "chineseName": "Whole-foot elevated box heel raise (0° MTP flat-forefoot calf strengthening)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -4915,7 +4915,7 @@
   {
     "id": "ankle-side-lying-standing-hip-external-rotation-monster-walk",
     "name": "Side-lying & standing hip external rotation / Monster walk (stopping valgus roll-off)",
-    "chineseName": "Side-lying & standing hip external rotation / Monster walk (stopping valgus roll-off)",
+    "chineseName": "站姿 彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5019,7 +5019,7 @@
   {
     "id": "ankle-graded-mtp-extension-heel-raise-staggered-sprint",
     "name": "Graded MTP extension heel raise & staggered sprint start (Late Turf Toe RTS)",
-    "chineseName": "Graded MTP extension heel raise & staggered sprint start (Late Turf Toe RTS)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5119,7 +5119,7 @@
   {
     "id": "ankle-active-dorsiflexion-pumps-pain-free-ankle-alphabet",
     "name": "Active dorsiflexion pumps & pain-free ankle alphabet",
-    "chineseName": "Active dorsiflexion pumps & pain-free ankle alphabet",
+    "chineseName": "踝關節主動背屈與伸展拉筋",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5228,7 +5228,7 @@
   {
     "id": "ankle-banded-knee-to-wall-dorsiflexion-mobilization-posterior-talar-glide",
     "name": "Banded Knee-to-Wall dorsiflexion mobilization (posterior talar glide)",
-    "chineseName": "Banded Knee-to-Wall dorsiflexion mobilization (posterior talar glide)",
+    "chineseName": "彈力帶 屈膝觸牆背屈活動度檢測與伸展",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5345,7 +5345,7 @@
   {
     "id": "ankle-isometric-to-eccentric-resisted-ankle-eversion-peroneal-checkrein",
     "name": "Isometric-to-eccentric resisted ankle eversion (peroneal checkrein)",
-    "chineseName": "Isometric-to-eccentric resisted ankle eversion (peroneal checkrein)",
+    "chineseName": "踝關節抗阻外翻訓練 (腓骨肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5449,7 +5449,7 @@
   {
     "id": "ankle-first-ray-biased-calf-raise-coin-band-under",
     "name": "First-ray biased calf raise (coin/band under big-toe knuckle)",
-    "chineseName": "First-ray biased calf raise (coin/band under big-toe knuckle)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5564,7 +5564,7 @@
   {
     "id": "ankle-standing-banded-hip-abduction-proximal-ankle-hip-strategy",
     "name": "Standing banded hip abduction (proximal ankle-hip strategy retraining)",
-    "chineseName": "Standing banded hip abduction (proximal ankle-hip strategy retraining)",
+    "chineseName": "站姿 彈力帶 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5672,7 +5672,7 @@
   {
     "id": "ankle-single-leg-balance-with-ball-toss-unstable-disc",
     "name": "Single-leg balance with ball toss & unstable disc perturbations",
-    "chineseName": "Single-leg balance with ball toss & unstable disc perturbations",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5782,7 +5782,7 @@
   {
     "id": "ankle-star-excursion-y-balance-reach-dorsiflexion-tri-planar-control",
     "name": "Star Excursion / Y-Balance reach (dorsiflexion & tri-planar control)",
-    "chineseName": "Star Excursion / Y-Balance reach (dorsiflexion & tri-planar control)",
+    "chineseName": "Y字平衡 / 星狀延展動態平衡 (SEBT)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -5894,7 +5894,7 @@
   {
     "id": "ankle-multi-planar-single-leg-hop-to-stabilization-cai-return-to-sport",
     "name": "Multi-planar single-leg hop-to-stabilization (CAI return-to-sport)",
-    "chineseName": "Multi-planar single-leg hop-to-stabilization (CAI return-to-sport)",
+    "chineseName": "單腳 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6002,7 +6002,7 @@
   {
     "id": "ankle-manual-metatarsal-head-mobilization-interdigital-webspace-decompression",
     "name": "Manual metatarsal head mobilization & interdigital webspace decompression",
-    "chineseName": "Manual metatarsal head mobilization & interdigital webspace decompression",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6112,7 +6112,7 @@
   {
     "id": "ankle-intrinsic-plus-lumbrical-tabletop-press-paper-grip-exercise",
     "name": "\"Intrinsic Plus\" Lumbrical tabletop press & paper-grip exercise",
-    "chineseName": "\"Intrinsic Plus\" Lumbrical tabletop press & paper-grip exercise",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6218,7 +6218,7 @@
   {
     "id": "ankle-toe-splay-silicone-spacer-isometric-press-short-foot",
     "name": "Toe splay / silicone spacer isometric press & Short-Foot arch doming",
-    "chineseName": "Toe splay / silicone spacer isometric press & Short-Foot arch doming",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6319,7 +6319,7 @@
   {
     "id": "ankle-peroneus-longus-tibialis-posterior-midfoot-stirrup-band",
     "name": "Peroneus Longus + Tibialis Posterior \"Midfoot Stirrup\" band series (Lisfranc)",
-    "chineseName": "Peroneus Longus + Tibialis Posterior \"Midfoot Stirrup\" band series (Lisfranc)",
+    "chineseName": "彈力帶 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6424,7 +6424,7 @@
   {
     "id": "ankle-standing-gastrocnemius-soleus-wall-stretch-forefoot-pressure",
     "name": "Standing gastrocnemius & soleus wall stretch (forefoot pressure offloading)",
-    "chineseName": "Standing gastrocnemius & soleus wall stretch (forefoot pressure offloading)",
+    "chineseName": "站姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6529,7 +6529,7 @@
   {
     "id": "ankle-flat-foot-closed-chain-squats-bridges-rdls-0°-midfoot",
     "name": "Flat-foot closed-chain squats, bridges & RDLs (0° midfoot bending torque)",
-    "chineseName": "Flat-foot closed-chain squats, bridges & RDLs (0° midfoot bending torque)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6631,7 +6631,7 @@
   {
     "id": "ankle-stiff-shoe-heel-block-bilateral-to-single-leg-heel-raise",
     "name": "Stiff-shoe / heel-block bilateral to single-leg heel raise (graded Lisfranc lever)",
-    "chineseName": "Stiff-shoe / heel-block bilateral to single-leg heel raise (graded Lisfranc lever)",
+    "chineseName": "單腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6733,7 +6733,7 @@
   {
     "id": "ankle-single-leg-tripod-balance-pogo-hops-linear-to-lateral-agility",
     "name": "Single-leg tripod balance, pogo hops & linear-to-lateral agility (Late RTS)",
-    "chineseName": "Single-leg tripod balance, pogo hops & linear-to-lateral agility (Late RTS)",
+    "chineseName": "單腳 連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6844,7 +6844,7 @@
   {
     "id": "ankle-seated-bent-knee-soleus-isometric-hsr-press-the",
     "name": "Seated bent-knee soleus isometric & HSR press (The #1 Tibial Bending Shield)",
-    "chineseName": "Seated bent-knee soleus isometric & HSR press (The #1 Tibial Bending Shield)",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -6951,7 +6951,7 @@
   {
     "id": "ankle-kulig-resisted-forefoot-inversion-fdl-towel-paper",
     "name": "Kulig resisted forefoot inversion & FDL towel/paper press (Deep Posterior)",
-    "chineseName": "Kulig resisted forefoot inversion & FDL towel/paper press (Deep Posterior)",
+    "chineseName": "踝關節抗阻內翻訓練 (脛後肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7053,7 +7053,7 @@
   {
     "id": "ankle-short-foot-arch-doming-anti-pronation-tibial-torsion-control",
     "name": "Short-foot arch doming (anti-pronation tibial torsion control)",
-    "chineseName": "Short-foot arch doming (anti-pronation tibial torsion control)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7153,7 +7153,7 @@
   {
     "id": "ankle-side-lying-standing-pelvic-hitch-monster-walk-proximal",
     "name": "Side-lying & standing pelvic hitch / Monster walk (proximal pelvic-drop control)",
-    "chineseName": "Side-lying & standing pelvic hitch / Monster walk (proximal pelvic-drop control)",
+    "chineseName": "站姿 彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7265,7 +7265,7 @@
   {
     "id": "ankle-bilateral-to-unilateral-heel-raise-with-tennis-ball-pinch",
     "name": "Bilateral-to-unilateral heel raise with tennis ball pinch (soleus + tib posterior)",
-    "chineseName": "Bilateral-to-unilateral heel raise with tennis ball pinch (soleus + tib posterior)",
+    "chineseName": "單腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7372,7 +7372,7 @@
   {
     "id": "ankle-single-leg-romanian-deadlift-split-squat-kinetic-chain-load",
     "name": "Single-leg Romanian deadlift & split squat (kinetic-chain load distribution)",
-    "chineseName": "Single-leg Romanian deadlift & split squat (kinetic-chain load distribution)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7473,7 +7473,7 @@
   {
     "id": "ankle-osteogenic-short-bout-pogo-hops-turner-s-bone",
     "name": "Osteogenic short-bout pogo hops (Turner's Bone Mechanotransduction Protocol)",
-    "chineseName": "Osteogenic short-bout pogo hops (Turner's Bone Mechanotransduction Protocol)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7578,7 +7578,7 @@
   {
     "id": "ankle-metronome-cadence-5-–10-midfoot-strike-retraining-diebal",
     "name": "Metronome cadence (+5%–10%) & midfoot-strike retraining (Diebal CECS / MTSS)",
-    "chineseName": "Metronome cadence (+5%–10%) & midfoot-strike retraining (Diebal CECS / MTSS)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7689,7 +7689,7 @@
   {
     "id": "ankle-seated-plantar-fascia-specific-windlass-stretch-digiovanni-protocol",
     "name": "Seated plantar fascia-specific Windlass stretch (DiGiovanni protocol)",
-    "chineseName": "Seated plantar fascia-specific Windlass stretch (DiGiovanni protocol)",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7806,7 +7806,7 @@
   {
     "id": "ankle-isometric-heel-raise-hold-with-toes-extended-on",
     "name": "Isometric heel-raise hold with toes extended on rolled towel",
-    "chineseName": "Isometric heel-raise hold with toes extended on rolled towel",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -7913,7 +7913,7 @@
   {
     "id": "ankle-rathleff-high-load-slow-heel-raise-with-rolled",
     "name": "Rathleff High-Load slow heel raise with rolled towel under toes",
-    "chineseName": "Rathleff High-Load slow heel raise with rolled towel under toes",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8028,7 +8028,7 @@
   {
     "id": "ankle-short-foot-arch-doming-toe-yoga-intrinsic-foot",
     "name": "Short-foot arch doming & \"Toe Yoga\" (intrinsic foot core)",
-    "chineseName": "Short-foot arch doming & \"Toe Yoga\" (intrinsic foot core)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8129,7 +8129,7 @@
   {
     "id": "ankle-standing-gastrocnemius-soleus-wall-stretch-equinus-offloading",
     "name": "Standing gastrocnemius & soleus wall stretch (equinus offloading)",
-    "chineseName": "Standing gastrocnemius & soleus wall stretch (equinus offloading)",
+    "chineseName": "站姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8234,7 +8234,7 @@
   {
     "id": "ankle-seated-bent-knee-calf-raise-hsr-soleus-shock-absorber",
     "name": "Seated bent-knee calf raise HSR (soleus shock-absorber capacity)",
-    "chineseName": "Seated bent-knee calf raise HSR (soleus shock-absorber capacity)",
+    "chineseName": "坐姿 小腿提踵訓練 (踮腳尖) (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8334,7 +8334,7 @@
   {
     "id": "ankle-single-leg-balance-with-active-short-foot-arch-hip",
     "name": "Single-leg balance with active short-foot arch & hip abduction",
-    "chineseName": "Single-leg balance with active short-foot arch & hip abduction",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8444,7 +8444,7 @@
   {
     "id": "ankle-submaximal-forefoot-pogo-hops-cadence-gait-retraining",
     "name": "Submaximal forefoot pogo hops & cadence gait retraining (RTS)",
-    "chineseName": "Submaximal forefoot pogo hops & cadence gait retraining (RTS)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8544,7 +8544,7 @@
   {
     "id": "ankle-seated-isometric-inversion-in-slight-plantarflexion",
     "name": "Seated isometric inversion in slight plantarflexion",
-    "chineseName": "Seated isometric inversion in slight plantarflexion",
+    "chineseName": "坐姿 踝關節抗阻內翻訓練 (脛後肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8657,7 +8657,7 @@
   {
     "id": "ankle-kulig-protocol-resisted-forefoot-adduction-inversion",
     "name": "Kulig protocol: Resisted forefoot adduction/inversion",
-    "chineseName": "Kulig protocol: Resisted forefoot adduction/inversion",
+    "chineseName": "踝關節抗阻內翻訓練 (脛後肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8761,7 +8761,7 @@
   {
     "id": "ankle-short-foot-arch-doming-towel-scrunch",
     "name": "Short-foot arch doming & towel scrunch",
-    "chineseName": "Short-foot arch doming & towel scrunch",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8866,7 +8866,7 @@
   {
     "id": "ankle-bilateral-heel-raise-with-tennis-ball-squeeze",
     "name": "Bilateral heel raise with tennis ball squeeze",
-    "chineseName": "Bilateral heel raise with tennis ball squeeze",
+    "chineseName": "雙腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -8975,7 +8975,7 @@
   {
     "id": "ankle-standing-gastroc-soleus-stretch-with-5°-toe-in",
     "name": "Standing gastroc-soleus stretch with 5° toe-in",
-    "chineseName": "Standing gastroc-soleus stretch with 5° toe-in",
+    "chineseName": "站姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9078,7 +9078,7 @@
   {
     "id": "ankle-side-lying-standing-hip-abduction-external-rotation",
     "name": "Side-lying & standing hip abduction / external rotation",
-    "chineseName": "Side-lying & standing hip abduction / external rotation",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9181,7 +9181,7 @@
   {
     "id": "ankle-single-leg-heel-raise-with-active-hindfoot-inversion",
     "name": "Single-leg heel raise with active hindfoot inversion lock",
-    "chineseName": "Single-leg heel raise with active hindfoot inversion lock",
+    "chineseName": "單腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9293,7 +9293,7 @@
   {
     "id": "ankle-supported-single-leg-rdl-step-down-with-arch-doming",
     "name": "Supported single-leg RDL & step-down with arch doming",
-    "chineseName": "Supported single-leg RDL & step-down with arch doming",
+    "chineseName": "單腳 下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9402,7 +9402,7 @@
   {
     "id": "ankle-seated-isometric-eversion-in-neutral-slight-plantarflexion",
     "name": "Seated isometric eversion in neutral/slight plantarflexion",
-    "chineseName": "Seated isometric eversion in neutral/slight plantarflexion",
+    "chineseName": "坐姿 踝關節抗阻外翻訓練 (腓骨肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9516,7 +9516,7 @@
   {
     "id": "ankle-submaximal-flat-ground-heel-wedge-isometric-calf-hold",
     "name": "Submaximal flat-ground / heel-wedge isometric calf hold",
-    "chineseName": "Submaximal flat-ground / heel-wedge isometric calf hold",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9629,7 +9629,7 @@
   {
     "id": "ankle-supine-glute-bridge-side-lying-hip-abduction",
     "name": "Supine glute bridge & side-lying hip abduction",
-    "chineseName": "Supine glute bridge & side-lying hip abduction",
+    "chineseName": "仰臥 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9730,7 +9730,7 @@
   {
     "id": "ankle-resisted-band-eversion-hsr-in-0°–15°-plantarflexion",
     "name": "Resisted band eversion HSR in 0°–15° plantarflexion",
-    "chineseName": "Resisted band eversion HSR in 0°–15° plantarflexion",
+    "chineseName": "彈力帶 踝關節抗阻外翻訓練 (腓骨肌群) (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9837,7 +9837,7 @@
   {
     "id": "ankle-flat-ground-first-ray-calf-raise",
     "name": "Flat-ground first-ray calf raise",
-    "chineseName": "Flat-ground first-ray calf raise",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -9946,7 +9946,7 @@
   {
     "id": "ankle-neutral-plane-squat-step-up",
     "name": "Neutral-plane squat & step-up",
-    "chineseName": "Neutral-plane squat & step-up",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10062,7 +10062,7 @@
   {
     "id": "ankle-single-leg-balance-y-balance-reach",
     "name": "Single-leg balance & Y-Balance reach",
-    "chineseName": "Single-leg balance & Y-Balance reach",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10171,7 +10171,7 @@
   {
     "id": "ankle-progressive-pogo-hops-45°-cut-rotational-hop-to-stick",
     "name": "Progressive pogo hops, 45° cut & rotational hop-to-stick",
-    "chineseName": "Progressive pogo hops, 45° cut & rotational hop-to-stick",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10281,7 +10281,7 @@
   {
     "id": "ankle-non-weight-bearing-sagittal-ankle-pumps-unresisted-cycling-ocd",
     "name": "Non-weight-bearing sagittal ankle pumps & unresisted cycling (OCD nutrition)",
-    "chineseName": "Non-weight-bearing sagittal ankle pumps & unresisted cycling (OCD nutrition)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10384,7 +10384,7 @@
   {
     "id": "ankle-subtalar-neutral-isometric-co-contraction-sinus-tarsi-decompression",
     "name": "Subtalar-neutral isometric co-contraction (Sinus Tarsi decompression)",
-    "chineseName": "Subtalar-neutral isometric co-contraction (Sinus Tarsi decompression)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10482,7 +10482,7 @@
   {
     "id": "ankle-short-foot-arch-doming-tripod-foot-alignment-stopping-sinus",
     "name": "Short-foot arch doming & tripod-foot alignment (stopping sinus tarsi pinch)",
-    "chineseName": "Short-foot arch doming & tripod-foot alignment (stopping sinus tarsi pinch)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10591,7 +10591,7 @@
   {
     "id": "ankle-mid-range-resisted-band-inversion-eversion-stopping-at",
     "name": "Mid-range resisted band inversion & eversion (stopping at subtalar neutral)",
-    "chineseName": "Mid-range resisted band inversion & eversion (stopping at subtalar neutral)",
+    "chineseName": "彈力帶 踝關節抗阻外翻訓練 (腓骨肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10693,7 +10693,7 @@
   {
     "id": "ankle-non-weight-bearing-4-way-hip-quad-strengthening-ocd-nwb",
     "name": "Non-weight-bearing 4-way hip & quad strengthening (OCD NWB phase)",
-    "chineseName": "Non-weight-bearing 4-way hip & quad strengthening (OCD NWB phase)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10789,7 +10789,7 @@
   {
     "id": "ankle-graduated-axial-weight-shifting-subtalar-neutral-heel-raise",
     "name": "Graduated axial weight-shifting & subtalar-neutral heel raise",
-    "chineseName": "Graduated axial weight-shifting & subtalar-neutral heel raise",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10891,7 +10891,7 @@
   {
     "id": "ankle-uneven-surface-multi-directional-balance-with-tripod-foot-lock",
     "name": "Uneven-surface & multi-directional balance with tripod-foot lock",
-    "chineseName": "Uneven-surface & multi-directional balance with tripod-foot lock",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -10994,7 +10994,7 @@
   {
     "id": "ankle-progressive-axial-drop-landing-sloped-curved-running-clearance",
     "name": "Progressive axial drop-landing & sloped/curved running clearance (RTS)",
-    "chineseName": "Progressive axial drop-landing & sloped/curved running clearance (RTS)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11096,7 +11096,7 @@
   {
     "id": "ankle-seated-supine-tibial-nerve-neurodynamic-slider-nerve",
     "name": "Seated / supine Tibial Nerve Neurodynamic Slider (\"Nerve Flossing\")",
-    "chineseName": "Seated / supine Tibial Nerve Neurodynamic Slider (\"Nerve Flossing\")",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11208,7 +11208,7 @@
   {
     "id": "ankle-seated-fhl-fdl-differential-tendon-glides-clearing",
     "name": "Seated FHL & FDL differential tendon glides (clearing tunnel adhesions)",
-    "chineseName": "Seated FHL & FDL differential tendon glides (clearing tunnel adhesions)",
+    "chineseName": "坐姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11320,7 +11320,7 @@
   {
     "id": "ankle-subtalar-inversion-isometric-hold-flexor-retinaculum-decompression",
     "name": "Subtalar-inversion isometric hold (flexor retinaculum decompression)",
-    "chineseName": "Subtalar-inversion isometric hold (flexor retinaculum decompression)",
+    "chineseName": "踝關節抗阻內翻訓練 (脛後肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11422,7 +11422,7 @@
   {
     "id": "ankle-piriformis-deep-gluteal-release-sciatic-slider-double-crush",
     "name": "Piriformis / deep gluteal release & sciatic slider (Double-Crush relief)",
-    "chineseName": "Piriformis / deep gluteal release & sciatic slider (Double-Crush relief)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11522,7 +11522,7 @@
   {
     "id": "ankle-kulig-resisted-forefoot-adduction-inversion-stopping-at",
     "name": "Kulig resisted forefoot adduction/inversion (stopping at neutral)",
-    "chineseName": "Kulig resisted forefoot adduction/inversion (stopping at neutral)",
+    "chineseName": "踝關節抗阻內翻訓練 (脛後肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11619,7 +11619,7 @@
   {
     "id": "ankle-bilateral-heel-raise-with-tennis-ball-pinch",
     "name": "Bilateral heel raise with tennis ball pinch (hindfoot inversion lock)",
-    "chineseName": "Bilateral heel raise with tennis ball pinch (hindfoot inversion lock)",
+    "chineseName": "雙腳 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11727,7 +11727,7 @@
   {
     "id": "ankle-side-lying-standing-hip-abduction-monster-walk-top-down",
     "name": "Side-lying & standing hip abduction / Monster walk (top-down pronation control)",
-    "chineseName": "Side-lying & standing hip abduction / Monster walk (top-down pronation control)",
+    "chineseName": "站姿 彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11831,7 +11831,7 @@
   {
     "id": "ankle-single-leg-balance-rdl-with-arch-supported-tripod-foot",
     "name": "Single-leg balance & RDL with arch-supported tripod foot (Late RTS)",
-    "chineseName": "Single-leg balance & RDL with arch-supported tripod foot (Late RTS)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -11938,7 +11938,7 @@
   {
     "id": "ankle-seated-isometric-dorsiflexion-mild-inversion-hold-stage",
     "name": "Seated isometric dorsiflexion & mild inversion hold (Stage 1 analgesia)",
-    "chineseName": "Seated isometric dorsiflexion & mild inversion hold (Stage 1 analgesia)",
+    "chineseName": "坐姿 踝關節抗阻內翻訓練 (脛後肌群) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12052,7 +12052,7 @@
   {
     "id": "ankle-active-assisted-strap-dorsiflexion-nmes-recruitment-foot-drop",
     "name": "Active-assisted strap dorsiflexion & NMES recruitment (Foot Drop Stage 1)",
-    "chineseName": "Active-assisted strap dorsiflexion & NMES recruitment (Foot Drop Stage 1)",
+    "chineseName": "踝關節主動背屈與伸展拉筋",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12159,7 +12159,7 @@
   {
     "id": "ankle-eccentric-biased-band-dorsiflexion-stopping-at-neutral-to",
     "name": "Eccentric-biased band dorsiflexion (stopping at neutral to avoid retinacular pinch)",
-    "chineseName": "Eccentric-biased band dorsiflexion (stopping at neutral to avoid retinacular pinch)",
+    "chineseName": "踝關節主動背屈與伸展拉筋 (離心負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12271,7 +12271,7 @@
   {
     "id": "ankle-wall-supported-standing-tibialis-raise-closed-chain-eccentric-heel-strike",
     "name": "Wall-supported standing Tibialis Raise (closed-chain eccentric heel-strike brake)",
-    "chineseName": "Wall-supported standing Tibialis Raise (closed-chain eccentric heel-strike brake)",
+    "chineseName": "站姿 踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12386,7 +12386,7 @@
   {
     "id": "ankle-dynamic-heel-walk-marches-with-toe-up-lock",
     "name": "Dynamic Heel Walk & Marches with Toe-Up Lock (swing & stance endurance)",
-    "chineseName": "Dynamic Heel Walk & Marches with Toe-Up Lock (swing & stance endurance)",
+    "chineseName": "踝足關節動態肌力與穩定訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12491,7 +12491,7 @@
   {
     "id": "ankle-seated-single-leg-kettlebell-dumbbell-toe-hook-dorsiflexion-hsr",
     "name": "Seated single-leg kettlebell / dumbbell toe-hook dorsiflexion HSR",
-    "chineseName": "Seated single-leg kettlebell / dumbbell toe-hook dorsiflexion HSR",
+    "chineseName": "坐姿 單腳 啞鈴 踝關節主動背屈與伸展拉筋 (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12596,7 +12596,7 @@
   {
     "id": "ankle-step-down-heel-strike-deceleration-drill-controlling-foot-slap",
     "name": "Step-down heel-strike deceleration drill (controlling \"Foot Slap\")",
-    "chineseName": "Step-down heel-strike deceleration drill (controlling \"Foot Slap\")",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12709,7 +12709,7 @@
   {
     "id": "ankle-metronome-running-cadence-5-–10-uphill-to-flat-gait",
     "name": "Metronome running cadence (+5%–10%) & uphill-to-flat gait progression (RTS)",
-    "chineseName": "Metronome running cadence (+5%–10%) & uphill-to-flat gait progression (RTS)",
+    "chineseName": "步態與觸地生物力學重塑",
     "macroRegion": "Lower Limb",
     "subRegion": "Ankle & Foot",
     "movementType": [
@@ -12816,7 +12816,7 @@
   {
     "id": "knee-ankle-pumps",
     "name": "Ankle pumps",
-    "chineseName": "Ankle pumps",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -12922,7 +12922,7 @@
   {
     "id": "knee-ankle-alphabet",
     "name": "Ankle alphabet",
-    "chineseName": "Ankle alphabet",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13030,7 +13030,7 @@
   {
     "id": "knee-supine-quad-set-with-towel-roll-aclr",
     "name": "Supine quad set with towel roll (ACLR)",
-    "chineseName": "Supine quad set with towel roll (ACLR)",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13142,7 +13142,7 @@
   {
     "id": "knee-seated-open-kinetic-chain-okc-knee-extension",
     "name": "Seated open kinetic chain (OKC) knee extension (90°–45° safe arc) (ACLR)",
-    "chineseName": "Seated open kinetic chain (OKC) knee extension (90°–45° safe arc) (ACLR)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13257,7 +13257,7 @@
   {
     "id": "knee-double-leg-calf-raise-heel-raise",
     "name": "Double-leg calf raise (heel raise)",
-    "chineseName": "Double-leg calf raise (heel raise)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13369,7 +13369,7 @@
   {
     "id": "knee-eccentric-heel-drop-alfredson-style",
     "name": "Eccentric heel drop (Alfredson-style)",
-    "chineseName": "Eccentric heel drop (Alfredson-style)",
+    "chineseName": "Alfredson 階梯離心下沉肌腱訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13480,7 +13480,7 @@
   {
     "id": "knee-resisted-ankle-eversion-and-inversion-band",
     "name": "Resisted ankle eversion and inversion (band)",
-    "chineseName": "Resisted ankle eversion and inversion (band)",
+    "chineseName": "踝關節抗阻外翻訓練 (腓骨肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13594,7 +13594,7 @@
   {
     "id": "knee-towel-scrunch-intrinsic-foot-strengthening",
     "name": "Towel scrunch (intrinsic foot strengthening)",
-    "chineseName": "Towel scrunch (intrinsic foot strengthening)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13701,7 +13701,7 @@
   {
     "id": "knee-heel-walk-dorsiflexor-strengthening",
     "name": "Heel walk (dorsiflexor strengthening)",
-    "chineseName": "Heel walk (dorsiflexor strengthening)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13801,7 +13801,7 @@
   {
     "id": "knee-belted-spanish-squat-aclr",
     "name": "Belted Spanish squat (ACLR)",
-    "chineseName": "Belted Spanish squat (ACLR)",
+    "chineseName": "西班牙深蹲 (彈力帶髕骨肌腱高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13913,7 +13913,7 @@
   {
     "id": "knee-lateral-poliquin-step-down-aclr",
     "name": "Lateral Poliquin step-down (ACLR)",
-    "chineseName": "Lateral Poliquin step-down (ACLR)",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14030,7 +14030,7 @@
   {
     "id": "knee-nordic-hamstring-curl-aclr",
     "name": "Nordic hamstring curl (ACLR)",
-    "chineseName": "Nordic hamstring curl (ACLR)",
+    "chineseName": "北歐膕旁肌離心彎舉",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14144,7 +14144,7 @@
   {
     "id": "knee-single-leg-balance-ankle-and-foot",
     "name": "Single-leg balance (ankle and foot)",
-    "chineseName": "Single-leg balance (ankle and foot)",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14251,7 +14251,7 @@
   {
     "id": "knee-standing-calf-stretch-gastrocnemius-and-soleus",
     "name": "Standing calf stretch (gastrocnemius and soleus)",
-    "chineseName": "Standing calf stretch (gastrocnemius and soleus)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14364,7 +14364,7 @@
   {
     "id": "knee-single-leg-balance-with-ball-toss",
     "name": "Single-leg balance with ball toss",
-    "chineseName": "Single-leg balance with ball toss",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14472,7 +14472,7 @@
   {
     "id": "knee-wobble-board-ankle-disc-balance",
     "name": "Wobble board / ankle disc balance",
-    "chineseName": "Wobble board / ankle disc balance",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14580,7 +14580,7 @@
   {
     "id": "knee-star-excursion-balance-sebt",
     "name": "Star excursion balance (SEBT)",
-    "chineseName": "Star excursion balance (SEBT)",
+    "chineseName": "Y字平衡 / 星狀延展動態平衡 (SEBT)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14689,7 +14689,7 @@
   {
     "id": "knee-dynamic-y-balance-reach-aclr",
     "name": "Dynamic Y-balance reach (ACLR)",
-    "chineseName": "Dynamic Y-balance reach (ACLR)",
+    "chineseName": "Y字平衡 / 星狀延展動態平衡 (SEBT)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14800,7 +14800,7 @@
   {
     "id": "knee-ankle-hops-pogo-hops",
     "name": "Ankle hops (pogo hops)",
-    "chineseName": "Ankle hops (pogo hops)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -14907,7 +14907,7 @@
   {
     "id": "knee-single-leg-drop-landing-to-stick-aclr",
     "name": "Single-leg drop landing to stick (ACLR)",
-    "chineseName": "Single-leg drop landing to stick (ACLR)",
+    "chineseName": "單腳 跳落軟著地緩衝 (防膝外翻)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15024,7 +15024,7 @@
   {
     "id": "knee-linear-deceleration-drill-penultimate-foot-braking-aclr",
     "name": "Linear deceleration drill (penultimate foot braking) (ACLR)",
-    "chineseName": "Linear deceleration drill (penultimate foot braking) (ACLR)",
+    "chineseName": "衝刺減速著地緩衝控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15138,7 +15138,7 @@
   {
     "id": "knee-lateral-bound-to-stick-aclr",
     "name": "Lateral bound to stick (ACLR)",
-    "chineseName": "Lateral bound to stick (ACLR)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15256,7 +15256,7 @@
   {
     "id": "knee-elevated-ankle-pumps-gentle-mid-range-heel-slides",
     "name": "Elevated ankle pumps & gentle mid-range heel slides (15°–90°)",
-    "chineseName": "Elevated ankle pumps & gentle mid-range heel slides (15°–90°)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15363,7 +15363,7 @@
   {
     "id": "knee-high-seat-unresisted-stationary-cycling-non-compressive-15°–90°-arc",
     "name": "High-seat unresisted stationary cycling (non-compressive 15°–90° arc)",
-    "chineseName": "High-seat unresisted stationary cycling (non-compressive 15°–90° arc)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15469,7 +15469,7 @@
   {
     "id": "knee-supine-isometric-hamstring-heel-dig-quad-set-neutral",
     "name": "Supine isometric hamstring heel-dig & quad set (neutral 30°–45° angle)",
-    "chineseName": "Supine isometric hamstring heel-dig & quad set (neutral 30°–45° angle)",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15576,7 +15576,7 @@
   {
     "id": "knee-seated-open-chain-knee-extension-90°–10°-arc-—",
     "name": "Seated open-chain knee extension (90°–10° arc — intra-articular offloading)",
-    "chineseName": "Seated open-chain knee extension (90°–10° arc — intra-articular offloading)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15684,7 +15684,7 @@
   {
     "id": "knee-banded-glute-bridge-60°–75°-knee-angle-—",
     "name": "Banded glute bridge (60°–75° knee angle — posterior-chain load sharing)",
-    "chineseName": "Banded glute bridge (60°–75° knee angle — posterior-chain load sharing)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15791,7 +15791,7 @@
   {
     "id": "knee-standing-seated-calf-raises-5°–10°-soft-knee-gastrocnemius",
     "name": "Standing & seated calf raises (5°–10° soft-knee gastrocnemius/soleus loading)",
-    "chineseName": "Standing & seated calf raises (5°–10° soft-knee gastrocnemius/soleus loading)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -15904,7 +15904,7 @@
   {
     "id": "knee-restricted-arc-bilateral-to-single-leg-box-squat-10°–70°",
     "name": "Restricted-arc bilateral to single-leg box squat (10°–70° cyst-safe zone)",
-    "chineseName": "Restricted-arc bilateral to single-leg box squat (10°–70° cyst-safe zone)",
+    "chineseName": "單腳 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16013,7 +16013,7 @@
   {
     "id": "knee-supine-eccentric-hamstring-sliders-supported-sl-rdl",
     "name": "Supine eccentric hamstring sliders & supported SL RDL (posterior-chain HSR)",
-    "chineseName": "Supine eccentric hamstring sliders & supported SL RDL (posterior-chain HSR)",
+    "chineseName": "仰臥 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌) (離心負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16115,7 +16115,7 @@
   {
     "id": "knee-mid-range-isometric-wall-sit-45°–60°-decompression-arc",
     "name": "Mid-range isometric wall sit (45°–60° decompression arc)",
-    "chineseName": "Mid-range isometric wall sit (45°–60° decompression arc)",
+    "chineseName": "靠牆等長靜蹲 (髕股關節低壓負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16229,7 +16229,7 @@
   {
     "id": "knee-seated-open-chain-knee-extension-90°–30°-non-impingement-arc",
     "name": "Seated open-chain knee extension (90°–30° non-impingement arc)",
-    "chineseName": "Seated open-chain knee extension (90°–30° non-impingement arc)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16344,7 +16344,7 @@
   {
     "id": "knee-side-lying-straight-leg-hip-abduction-10°–15°-unlocked-knee",
     "name": "Side-lying straight-leg hip abduction (10°–15° unlocked knee)",
-    "chineseName": "Side-lying straight-leg hip abduction (10°–15° unlocked knee)",
+    "chineseName": "側臥 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16461,7 +16461,7 @@
   {
     "id": "knee-standing-pelvic-hitch-hip-hike-10°-soft-knee",
     "name": "Standing pelvic hitch / hip hike (10° soft-knee anti-recurvatum stance)",
-    "chineseName": "Standing pelvic hitch / hip hike (10° soft-knee anti-recurvatum stance)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16569,7 +16569,7 @@
   {
     "id": "knee-banded-glute-bridge-with-hamstring-checkrein-co-activation",
     "name": "Banded glute bridge with hamstring checkrein co-activation",
-    "chineseName": "Banded glute bridge with hamstring checkrein co-activation",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16685,7 +16685,7 @@
   {
     "id": "knee-mid-range-box-squat-15°–75°-non-lockout-piston-squat",
     "name": "Mid-range box squat (15°–75° non-lockout piston squat)",
-    "chineseName": "Mid-range box squat (15°–75° non-lockout piston squat)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16798,7 +16798,7 @@
   {
     "id": "knee-supported-single-leg-rdl-fixed-20°-knee-bend",
     "name": "Supported single-leg RDL (fixed 20° knee bend — anti-recurvatum)",
-    "chineseName": "Supported single-leg RDL (fixed 20° knee bend — anti-recurvatum)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -16907,7 +16907,7 @@
   {
     "id": "knee-soft-knee-forward-step-down-10°–60°-dynamic-recurvatum-retraining",
     "name": "Soft-knee forward step-down (10°–60° dynamic recurvatum retraining)",
-    "chineseName": "Soft-knee forward step-down (10°–60° dynamic recurvatum retraining)",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17016,7 +17016,7 @@
   {
     "id": "knee-standing-wall-press-isometric-hip-abduction",
     "name": "Standing wall-press isometric hip abduction",
-    "chineseName": "Standing wall-press isometric hip abduction",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17132,7 +17132,7 @@
   {
     "id": "knee-side-lying-straight-leg-hip-abduction-wall-slide-anti-tfl",
     "name": "Side-lying straight-leg hip abduction (wall-slide anti-TFL)",
-    "chineseName": "Side-lying straight-leg hip abduction (wall-slide anti-TFL)",
+    "chineseName": "側臥 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17245,7 +17245,7 @@
   {
     "id": "knee-lateral-band-walk-forefoot-ankle-band-placement",
     "name": "Lateral band walk (forefoot / ankle band placement)",
-    "chineseName": "Lateral band walk (forefoot / ankle band placement)",
+    "chineseName": "彈力帶 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17361,7 +17361,7 @@
   {
     "id": "knee-standing-eccentric-pelvic-drop-hip-hike-on",
     "name": "Standing eccentric pelvic drop (hip hike on step)",
-    "chineseName": "Standing eccentric pelvic drop (hip hike on step)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17472,7 +17472,7 @@
   {
     "id": "knee-heavy-slow-bulgarian-split-squat",
     "name": "Heavy slow Bulgarian split squat",
-    "chineseName": "Heavy slow Bulgarian split squat",
+    "chineseName": "保加利亞分腿蹲",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17588,7 +17588,7 @@
   {
     "id": "knee-single-leg-romanian-deadlift-with-contralateral-load",
     "name": "Single-leg Romanian deadlift with contralateral load",
-    "chineseName": "Single-leg Romanian deadlift with contralateral load",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17706,7 +17706,7 @@
   {
     "id": "knee-lateral-poliquin-step-down-20°–30°-impingement-zone-control",
     "name": "Lateral Poliquin step-down (20°–30° impingement zone control)",
-    "chineseName": "Lateral Poliquin step-down (20°–30° impingement zone control)",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17823,7 +17823,7 @@
   {
     "id": "knee-metronome-running-cadence-5-–10-step-width-retraining",
     "name": "Metronome running cadence (+5%–10%) & step-width retraining",
-    "chineseName": "Metronome running cadence (+5%–10%) & step-width retraining",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -17939,7 +17939,7 @@
   {
     "id": "knee-stationary-cycling-supine-heel-slides-rom-chondral",
     "name": "Stationary cycling & supine heel slides (ROM & chondral nutrition)",
-    "chineseName": "Stationary cycling & supine heel slides (ROM & chondral nutrition)",
+    "chineseName": "仰臥 主動關節活動度訓練 (ROM)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18039,7 +18039,7 @@
   {
     "id": "knee-heel-propped-passive-extension-maximal-quad-set-post-tka",
     "name": "Heel-propped passive extension & maximal quad set (post-TKA 0° extension)",
-    "chineseName": "Heel-propped passive extension & maximal quad set (post-TKA 0° extension)",
+    "chineseName": "股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18146,7 +18146,7 @@
   {
     "id": "knee-seated-open-chain-knee-extension-progressive-resistance",
     "name": "Seated open-chain knee extension (progressive resistance)",
-    "chineseName": "Seated open-chain knee extension (progressive resistance)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18258,7 +18258,7 @@
   {
     "id": "knee-side-lying-standing-hip-abduction-kam-medial-compartment",
     "name": "Side-lying & standing hip abduction (KAM & medial compartment offloading)",
-    "chineseName": "Side-lying & standing hip abduction (KAM & medial compartment offloading)",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18362,7 +18362,7 @@
   {
     "id": "knee-banded-glute-bridge-posterior-chain-pelvic-stability",
     "name": "Banded glute bridge (posterior-chain pelvic stability)",
-    "chineseName": "Banded glute bridge (posterior-chain pelvic stability)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18470,7 +18470,7 @@
   {
     "id": "knee-gla-d®-neuromuscular-chair-sit-to-stand-strict-hip-knee-foot",
     "name": "GLA:D® Neuromuscular chair sit-to-stand (strict hip-knee-foot alignment)",
-    "chineseName": "GLA:D® Neuromuscular chair sit-to-stand (strict hip-knee-foot alignment)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18586,7 +18586,7 @@
   {
     "id": "knee-gla-d®-neuromuscular-forward-lateral-step-up-pelvic-level",
     "name": "GLA:D® Neuromuscular forward & lateral step-up (pelvic-level control)",
-    "chineseName": "GLA:D® Neuromuscular forward & lateral step-up (pelvic-level control)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18703,7 +18703,7 @@
   {
     "id": "knee-gla-d®-neuromuscular-backward-forward-lunging-sliders",
     "name": "GLA:D® Neuromuscular backward & forward lunging sliders",
-    "chineseName": "GLA:D® Neuromuscular backward & forward lunging sliders",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18817,7 +18817,7 @@
   {
     "id": "knee-supine-quad-set-straight-leg-raise-0°-neutral",
     "name": "Supine quad set & straight-leg raise (0° neutral, zero hyperextension)",
-    "chineseName": "Supine quad set & straight-leg raise (0° neutral, zero hyperextension)",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -18926,7 +18926,7 @@
   {
     "id": "knee-seated-tibial-internal-rotation-isometric-band-pull",
     "name": "Seated tibial internal rotation isometric & band pull (popliteus isolation)",
-    "chineseName": "Seated tibial internal rotation isometric & band pull (popliteus isolation)",
+    "chineseName": "坐姿 彈力帶 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19037,7 +19037,7 @@
   {
     "id": "knee-resisted-ankle-eversion-with-band-peroneal-anti-varus",
     "name": "Resisted ankle eversion with band (peroneal anti-varus dynamic support)",
-    "chineseName": "Resisted ankle eversion with band (peroneal anti-varus dynamic support)",
+    "chineseName": "踝關節抗阻外翻訓練 (腓骨肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19143,7 +19143,7 @@
   {
     "id": "knee-shallow-closed-chain-mini-squat-0°–60°-anti-varus-aligned-arc",
     "name": "Shallow closed-chain mini-squat (0°–60° anti-varus aligned arc)",
-    "chineseName": "Shallow closed-chain mini-squat (0°–60° anti-varus aligned arc)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19251,7 +19251,7 @@
   {
     "id": "knee-banded-glute-bridge-heels-neutral-slightly-inward",
     "name": "Banded glute bridge (heels neutral/slightly inward to inhibit biceps femoris)",
-    "chineseName": "Banded glute bridge (heels neutral/slightly inward to inhibit biceps femoris)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19357,7 +19357,7 @@
   {
     "id": "knee-forward-step-up-with-lateral-pull-band-cue-anti-varus",
     "name": "Forward step-up with lateral-pull band cue (anti-varus thrust control)",
-    "chineseName": "Forward step-up with lateral-pull band cue (anti-varus thrust control)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19467,7 +19467,7 @@
   {
     "id": "knee-supported-single-leg-rdl-15°-soft-knee-—",
     "name": "Supported single-leg RDL (15° soft knee — anti-recurvatum & anti-rotation)",
-    "chineseName": "Supported single-leg RDL (15° soft knee — anti-recurvatum & anti-rotation)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19575,7 +19575,7 @@
   {
     "id": "knee-controlled-forward-step-down-downhill-deceleration-drill",
     "name": "Controlled forward step-down & downhill deceleration drill",
-    "chineseName": "Controlled forward step-down & downhill deceleration drill",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19679,7 +19679,7 @@
   {
     "id": "knee-ankle-pumps",
     "name": "Ankle pumps",
-    "chineseName": "Ankle pumps",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19785,7 +19785,7 @@
   {
     "id": "knee-ankle-alphabet",
     "name": "Ankle alphabet",
-    "chineseName": "Ankle alphabet",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -19893,7 +19893,7 @@
   {
     "id": "knee-double-leg-calf-raise-heel-raise",
     "name": "Double-leg calf raise (heel raise)",
-    "chineseName": "Double-leg calf raise (heel raise)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20005,7 +20005,7 @@
   {
     "id": "knee-eccentric-heel-drop-alfredson-style",
     "name": "Eccentric heel drop (Alfredson-style)",
-    "chineseName": "Eccentric heel drop (Alfredson-style)",
+    "chineseName": "Alfredson 階梯離心下沉肌腱訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20116,7 +20116,7 @@
   {
     "id": "knee-resisted-ankle-eversion-and-inversion-band",
     "name": "Resisted ankle eversion and inversion (band)",
-    "chineseName": "Resisted ankle eversion and inversion (band)",
+    "chineseName": "踝關節抗阻外翻訓練 (腓骨肌群)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20230,7 +20230,7 @@
   {
     "id": "knee-towel-scrunch-intrinsic-foot-strengthening",
     "name": "Towel scrunch (intrinsic foot strengthening)",
-    "chineseName": "Towel scrunch (intrinsic foot strengthening)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20337,7 +20337,7 @@
   {
     "id": "knee-heel-walk-dorsiflexor-strengthening",
     "name": "Heel walk (dorsiflexor strengthening)",
-    "chineseName": "Heel walk (dorsiflexor strengthening)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20437,7 +20437,7 @@
   {
     "id": "knee-single-leg-balance-ankle-and-foot",
     "name": "Single-leg balance (ankle and foot)",
-    "chineseName": "Single-leg balance (ankle and foot)",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20544,7 +20544,7 @@
   {
     "id": "knee-standing-calf-stretch-gastrocnemius-and-soleus",
     "name": "Standing calf stretch (gastrocnemius and soleus)",
-    "chineseName": "Standing calf stretch (gastrocnemius and soleus)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20655,7 +20655,7 @@
   {
     "id": "knee-single-leg-balance-with-ball-toss",
     "name": "Single-leg balance with ball toss",
-    "chineseName": "Single-leg balance with ball toss",
+    "chineseName": "單腳站立本體感覺平衡",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20763,7 +20763,7 @@
   {
     "id": "knee-wobble-board-ankle-disc-balance",
     "name": "Wobble board / ankle disc balance",
-    "chineseName": "Wobble board / ankle disc balance",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20871,7 +20871,7 @@
   {
     "id": "knee-ankle-hops-pogo-hops",
     "name": "Ankle hops (pogo hops)",
-    "chineseName": "Ankle hops (pogo hops)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -20978,7 +20978,7 @@
   {
     "id": "knee-star-excursion-balance-sebt",
     "name": "Star excursion balance (SEBT)",
-    "chineseName": "Star excursion balance (SEBT)",
+    "chineseName": "Y字平衡 / 星狀延展動態平衡 (SEBT)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21087,7 +21087,7 @@
   {
     "id": "knee-unresisted-stationary-cycling-pendulum-to-full-revolution",
     "name": "Unresisted stationary cycling (pendulum to full revolution)",
-    "chineseName": "Unresisted stationary cycling (pendulum to full revolution)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21199,7 +21199,7 @@
   {
     "id": "knee-supine-quad-set-to-straight-leg-raise-0°",
     "name": "Supine quad set to straight-leg raise (0° locked extension)",
-    "chineseName": "Supine quad set to straight-leg raise (0° locked extension)",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21310,7 +21310,7 @@
   {
     "id": "knee-standing-banded-terminal-knee-extension-tke",
     "name": "Standing banded terminal knee extension (TKE)",
-    "chineseName": "Standing banded terminal knee extension (TKE)",
+    "chineseName": "站姿 彈力帶 末端膝伸展 (TKE) 內側股肌活化",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21424,7 +21424,7 @@
   {
     "id": "knee-restricted-arc-bilateral-mini-squat-0°–60°-posterior-horn-safe",
     "name": "Restricted-arc bilateral mini-squat (0°–60° posterior horn safe zone)",
-    "chineseName": "Restricted-arc bilateral mini-squat (0°–60° posterior horn safe zone)",
+    "chineseName": "雙腳 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21540,7 +21540,7 @@
   {
     "id": "knee-supported-single-leg-romanian-deadlift-fixed-15°-knee",
     "name": "Supported single-leg Romanian deadlift (fixed 15° knee angle)",
-    "chineseName": "Supported single-leg Romanian deadlift (fixed 15° knee angle)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21655,7 +21655,7 @@
   {
     "id": "knee-forward-step-up-strict-sagittal-plane-zero-tibial",
     "name": "Forward step-up (strict sagittal plane, zero tibial rotation)",
-    "chineseName": "Forward step-up (strict sagittal plane, zero tibial rotation)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21765,7 +21765,7 @@
   {
     "id": "knee-dynamic-y-balance-reach-non-rotational-proprioceptive-control",
     "name": "Dynamic Y-balance reach (non-rotational proprioceptive control)",
-    "chineseName": "Dynamic Y-balance reach (non-rotational proprioceptive control)",
+    "chineseName": "Y字平衡 / 星狀延展動態平衡 (SEBT)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21881,7 +21881,7 @@
   {
     "id": "knee-submaximal-single-leg-drop-landing-to-stick-axial",
     "name": "Submaximal single-leg drop landing to stick (axial shock absorption)",
-    "chineseName": "Submaximal single-leg drop landing to stick (axial shock absorption)",
+    "chineseName": "單腳 跳落軟著地緩衝 (防膝外翻)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -21988,7 +21988,7 @@
   {
     "id": "knee-rathleff-block-1-isometric-knee-extension-hold",
     "name": "Rathleff Block 1: Isometric knee extension hold (30°–60°)",
-    "chineseName": "Rathleff Block 1: Isometric knee extension hold (30°–60°)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22101,7 +22101,7 @@
   {
     "id": "knee-rathleff-block-1-supine-glute-bridge-with",
     "name": "Rathleff Block 1: Supine glute bridge with 3-second hold",
-    "chineseName": "Rathleff Block 1: Supine glute bridge with 3-second hold",
+    "chineseName": "仰臥 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22215,7 +22215,7 @@
   {
     "id": "knee-mid-belly-quadriceps-foam-roll-hip-extension-mobility",
     "name": "Mid-belly quadriceps foam roll & hip-extension mobility",
-    "chineseName": "Mid-belly quadriceps foam roll & hip-extension mobility",
+    "chineseName": "滾筒放鬆 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22315,7 +22315,7 @@
   {
     "id": "knee-lateral-band-walk-monster-walk-—-anti-tibial",
     "name": "Lateral band walk (Monster walk — anti-tibial torsion)",
-    "chineseName": "Lateral band walk (Monster walk — anti-tibial torsion)",
+    "chineseName": "彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22431,7 +22431,7 @@
   {
     "id": "knee-seated-standing-calf-raises-soleus-tibial-decelerator",
     "name": "Seated & standing calf raises (soleus tibial decelerator)",
-    "chineseName": "Seated & standing calf raises (soleus tibial decelerator)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22530,7 +22530,7 @@
   {
     "id": "knee-rathleff-block-2-progressive-slow-tempo-wall-squat",
     "name": "Rathleff Block 2: Progressive slow-tempo wall squat (0°–90°)",
-    "chineseName": "Rathleff Block 2: Progressive slow-tempo wall squat (0°–90°)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22642,7 +22642,7 @@
   {
     "id": "knee-rathleff-block-2-non-kneeling-split-squat-lunge",
     "name": "Rathleff Block 2: Non-kneeling split squat / lunge (vertical shin)",
-    "chineseName": "Rathleff Block 2: Non-kneeling split squat / lunge (vertical shin)",
+    "chineseName": "分腿蹲 (跨步深蹲)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22758,7 +22758,7 @@
   {
     "id": "knee-rathleff-return-to-sport-ladder-penultimate-step-deceleration",
     "name": "Rathleff Return-to-Sport Ladder: Penultimate step deceleration",
-    "chineseName": "Rathleff Return-to-Sport Ladder: Penultimate step deceleration",
+    "chineseName": "衝刺減速著地緩衝控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22878,7 +22878,7 @@
   {
     "id": "knee-supine-quad-set-with-mcconnell-medial-glide-tape",
     "name": "Supine quad set with McConnell medial-glide tape / VMO facilitation",
-    "chineseName": "Supine quad set with McConnell medial-glide tape / VMO facilitation",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -22991,7 +22991,7 @@
   {
     "id": "knee-seated-standing-banded-terminal-knee-extension-30°–0°",
     "name": "Seated / standing banded terminal knee extension (30°–0° trochlear entry)",
-    "chineseName": "Seated / standing banded terminal knee extension (30°–0° trochlear entry)",
+    "chineseName": "站姿 彈力帶 末端膝伸展 (TKE) 內側股肌活化",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23105,7 +23105,7 @@
   {
     "id": "knee-side-lying-clamshell-hip-external-rotation-anti-femoral-roll-under",
     "name": "Side-lying clamshell & hip external rotation (anti-femoral roll-under)",
-    "chineseName": "Side-lying clamshell & hip external rotation (anti-femoral roll-under)",
+    "chineseName": "側臥 蚌殼式臀中肌外展訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23221,7 +23221,7 @@
   {
     "id": "knee-lateral-band-walk-monster-walk-—-dynamic",
     "name": "Lateral band walk (Monster walk — dynamic Q-angle reduction)",
-    "chineseName": "Lateral band walk (Monster walk — dynamic Q-angle reduction)",
+    "chineseName": "彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23332,7 +23332,7 @@
   {
     "id": "knee-bilateral-mini-squat-with-adductor-ball-or-lateral",
     "name": "Bilateral mini-squat with adductor ball or lateral band cue (0°–60°)",
-    "chineseName": "Bilateral mini-squat with adductor ball or lateral band cue (0°–60°)",
+    "chineseName": "雙腳 彈力帶 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23441,7 +23441,7 @@
   {
     "id": "knee-supported-single-leg-rdl-anti-femoral-internal-rotation-foot",
     "name": "Supported single-leg RDL (anti-femoral internal rotation & foot arch control)",
-    "chineseName": "Supported single-leg RDL (anti-femoral internal rotation & foot arch control)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23553,7 +23553,7 @@
   {
     "id": "knee-banded-forward-step-down-controlling-the-0°–30°-instability",
     "name": "Banded forward step-down (controlling the 0°–30° instability window)",
-    "chineseName": "Banded forward step-down (controlling the 0°–30° instability window)",
+    "chineseName": "彈力帶 下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23669,7 +23669,7 @@
   {
     "id": "knee-single-leg-drop-landing-lateral-bound-to-stick",
     "name": "Single-leg drop landing & lateral bound to stick (RTS anti-dislocation test)",
-    "chineseName": "Single-leg drop landing & lateral bound to stick (RTS anti-dislocation test)",
+    "chineseName": "單腳 跳落軟著地緩衝 (防膝外翻)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23774,7 +23774,7 @@
   {
     "id": "knee-seated-open-chain-knee-extension-isometric-hold-60°",
     "name": "Seated open-chain knee extension isometric hold (60° angle)",
-    "chineseName": "Seated open-chain knee extension isometric hold (60° angle)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -23887,7 +23887,7 @@
   {
     "id": "knee-belted-spanish-squat-isometric-hold",
     "name": "Belted Spanish squat isometric hold",
-    "chineseName": "Belted Spanish squat isometric hold",
+    "chineseName": "西班牙深蹲 (彈力帶髕骨肌腱高負荷) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24002,7 +24002,7 @@
   {
     "id": "knee-leg-press-hack-squat-heavy-slow-resistance",
     "name": "Leg press / hack squat Heavy Slow Resistance (HSR)",
-    "chineseName": "Leg press / hack squat Heavy Slow Resistance (HSR)",
+    "chineseName": "腿推機推蹬閉鎖鏈肌力 (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24114,7 +24114,7 @@
   {
     "id": "knee-25°-decline-board-single-leg-eccentric-squat",
     "name": "25° decline board single-leg eccentric squat",
-    "chineseName": "25° decline board single-leg eccentric squat",
+    "chineseName": "單腳 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24227,7 +24227,7 @@
   {
     "id": "knee-seated-bent-knee-calf-raise-soleus-hypertrophy",
     "name": "Seated bent-knee calf raise (soleus hypertrophy)",
-    "chineseName": "Seated bent-knee calf raise (soleus hypertrophy)",
+    "chineseName": "坐姿 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24339,7 +24339,7 @@
   {
     "id": "knee-heavy-slow-bulgarian-split-squat",
     "name": "Heavy slow Bulgarian split squat",
-    "chineseName": "Heavy slow Bulgarian split squat",
+    "chineseName": "保加利亞分腿蹲",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24454,7 +24454,7 @@
   {
     "id": "knee-submaximal-pogo-hops-to-athletic-snap-down",
     "name": "Submaximal pogo hops to athletic snap-down",
-    "chineseName": "Submaximal pogo hops to athletic snap-down",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24567,7 +24567,7 @@
   {
     "id": "knee-countermovement-hurdle-hop-to-stick-rebound",
     "name": "Countermovement hurdle hop to stick / rebound",
-    "chineseName": "Countermovement hurdle hop to stick / rebound",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24677,7 +24677,7 @@
   {
     "id": "knee-side-lying-clamshell-with-resistance-band",
     "name": "Side-lying clamshell with resistance band",
-    "chineseName": "Side-lying clamshell with resistance band",
+    "chineseName": "側臥 蚌殼式臀中肌外展訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24795,7 +24795,7 @@
   {
     "id": "knee-side-lying-straight-leg-hip-abduction-wall-slide",
     "name": "Side-lying straight-leg hip abduction (wall-slide)",
-    "chineseName": "Side-lying straight-leg hip abduction (wall-slide)",
+    "chineseName": "側臥 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -24911,7 +24911,7 @@
   {
     "id": "knee-shallow-angle-isometric-wall-sit-0°–45°-safe-arc",
     "name": "Shallow-angle isometric wall sit (0°–45° safe arc)",
-    "chineseName": "Shallow-angle isometric wall sit (0°–45° safe arc)",
+    "chineseName": "靠牆等長靜蹲 (髕股關節低壓負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25024,7 +25024,7 @@
   {
     "id": "knee-lateral-band-walk-monster-crab-walk",
     "name": "Lateral band walk (Monster / Crab walk)",
-    "chineseName": "Lateral band walk (Monster / Crab walk)",
+    "chineseName": "彈力帶螃蟹步外展橫移",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25142,7 +25142,7 @@
   {
     "id": "knee-standing-pelvic-hitch-hip-hike-on-step",
     "name": "Standing pelvic hitch (hip hike on step)",
-    "chineseName": "Standing pelvic hitch (hip hike on step)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25259,7 +25259,7 @@
   {
     "id": "knee-supported-single-leg-romanian-deadlift-sl-rdl",
     "name": "Supported single-leg Romanian deadlift (SL RDL)",
-    "chineseName": "Supported single-leg Romanian deadlift (SL RDL)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25376,7 +25376,7 @@
   {
     "id": "knee-single-leg-squat-to-a-box-progressive-depth",
     "name": "Single-leg squat to a box (progressive depth)",
-    "chineseName": "Single-leg squat to a box (progressive depth)",
+    "chineseName": "單腳 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25494,7 +25494,7 @@
   {
     "id": "knee-forward-anterior-step-down",
     "name": "Forward (anterior) step-down",
-    "chineseName": "Forward (anterior) step-down",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25607,7 +25607,7 @@
   {
     "id": "knee-supine-isometric-hamstring-heel-dig-45°–60°-neutral-alignment",
     "name": "Supine isometric hamstring heel-dig (45°–60° neutral alignment)",
-    "chineseName": "Supine isometric hamstring heel-dig (45°–60° neutral alignment)",
+    "chineseName": "仰臥 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25720,7 +25720,7 @@
   {
     "id": "knee-seated-hook-lying-neutral-adductor-ball-squeeze-gracilis",
     "name": "Seated / hook-lying neutral adductor ball squeeze (gracilis/sartorius isometric)",
-    "chineseName": "Seated / hook-lying neutral adductor ball squeeze (gracilis/sartorius isometric)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25826,7 +25826,7 @@
   {
     "id": "knee-side-lying-straight-leg-hip-abduction-clamshell-proximal-valgus",
     "name": "Side-lying straight-leg hip abduction & clamshell (proximal valgus offloading)",
-    "chineseName": "Side-lying straight-leg hip abduction & clamshell (proximal valgus offloading)",
+    "chineseName": "側臥 蚌殼式臀中肌外展訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -25936,7 +25936,7 @@
   {
     "id": "knee-towel-scrunch-short-foot-arch-doming-anti-pronation-tibial",
     "name": "Towel scrunch & short-foot arch doming (anti-pronation tibial control)",
-    "chineseName": "Towel scrunch & short-foot arch doming (anti-pronation tibial control)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26044,7 +26044,7 @@
   {
     "id": "knee-banded-glute-bridge-neutral-track-hip-hamstring-integration",
     "name": "Banded glute bridge (neutral-track hip & hamstring integration)",
-    "chineseName": "Banded glute bridge (neutral-track hip & hamstring integration)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26152,7 +26152,7 @@
   {
     "id": "knee-supine-eccentric-hamstring-sliders-progressive-semitendinosus-remodeling",
     "name": "Supine eccentric hamstring sliders (progressive semitendinosus remodeling)",
-    "chineseName": "Supine eccentric hamstring sliders (progressive semitendinosus remodeling)",
+    "chineseName": "仰臥 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26265,7 +26265,7 @@
   {
     "id": "knee-forward-step-up-with-strict-anti-valgus-knee-alignment",
     "name": "Forward step-up with strict anti-valgus knee alignment",
-    "chineseName": "Forward step-up with strict anti-valgus knee alignment",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26375,7 +26375,7 @@
   {
     "id": "knee-supported-single-leg-rdl-anti-rotational-tibial-femoral-control",
     "name": "Supported single-leg RDL (anti-rotational tibial-femoral control)",
-    "chineseName": "Supported single-leg RDL (anti-rotational tibial-femoral control)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26490,7 +26490,7 @@
   {
     "id": "knee-prone-passive-knee-flexion-prone-hang-anti-sag",
     "name": "Prone passive knee flexion & prone hang (anti-sag ROM)",
-    "chineseName": "Prone passive knee flexion & prone hang (anti-sag ROM)",
+    "chineseName": "俯臥垂腿膝完全伸展鬆動術",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26599,7 +26599,7 @@
   {
     "id": "knee-supine-quad-set-straight-leg-raise-dynamic-pcl",
     "name": "Supine quad set & straight-leg raise (dynamic PCL agonist)",
-    "chineseName": "Supine quad set & straight-leg raise (dynamic PCL agonist)",
+    "chineseName": "仰臥 股四頭肌等長收縮 (Quad Set)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26705,7 +26705,7 @@
   {
     "id": "knee-seated-isometric-adductor-ball-squeeze-mcl-dynamic",
     "name": "Seated isometric adductor ball squeeze (MCL dynamic support)",
-    "chineseName": "Seated isometric adductor ball squeeze (MCL dynamic support)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26821,7 +26821,7 @@
   {
     "id": "knee-shallow-closed-chain-mini-squat-0°–60°-pcl-safe-zone",
     "name": "Shallow closed-chain mini-squat (0°–60° PCL safe zone)",
-    "chineseName": "Shallow closed-chain mini-squat (0°–60° PCL safe zone)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -26927,7 +26927,7 @@
   {
     "id": "knee-straight-knee-calf-raise-gastrocnemius-posterior-stabilizer",
     "name": "Straight-knee calf raise (gastrocnemius posterior stabilizer)",
-    "chineseName": "Straight-knee calf raise (gastrocnemius posterior stabilizer)",
+    "chineseName": "小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27038,7 +27038,7 @@
   {
     "id": "knee-banded-forward-step-down-anti-valgus-mcl-quad-control",
     "name": "Banded forward step-down (anti-valgus MCL & quad control)",
-    "chineseName": "Banded forward step-down (anti-valgus MCL & quad control)",
+    "chineseName": "彈力帶 下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27154,7 +27154,7 @@
   {
     "id": "knee-supported-single-leg-rdl-fixed-15°-knee-bend",
     "name": "Supported single-leg RDL (fixed 15° knee bend, hip-biased hamstring)",
-    "chineseName": "Supported single-leg RDL (fixed 15° knee bend, hip-biased hamstring)",
+    "chineseName": "單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27267,7 +27267,7 @@
   {
     "id": "knee-lateral-bound-to-stick-multi-planar-mcl-pcl",
     "name": "Lateral bound to stick (multi-planar MCL/PCL RTS clearance)",
-    "chineseName": "Lateral bound to stick (multi-planar MCL/PCL RTS clearance)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27382,7 +27382,7 @@
   {
     "id": "knee-seated-open-chain-knee-extension-isometric-30°–45°-low-compression",
     "name": "Seated open-chain knee extension isometric (30°–45° low-compression arc)",
-    "chineseName": "Seated open-chain knee extension isometric (30°–45° low-compression arc)",
+    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27495,7 +27495,7 @@
   {
     "id": "knee-shallow-angle-belted-spanish-squat-isometric-45°–60°-safe",
     "name": "Shallow-angle belted Spanish squat isometric (45°–60° safe arc)",
-    "chineseName": "Shallow-angle belted Spanish squat isometric (45°–60° safe arc)",
+    "chineseName": "西班牙深蹲 (彈力帶髕骨肌腱高負荷) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27608,7 +27608,7 @@
   {
     "id": "knee-progressive-depth-leg-press-heavy-slow-resistance-0°–60°",
     "name": "Progressive-depth leg press Heavy Slow Resistance (0°–60° -> 90°)",
-    "chineseName": "Progressive-depth leg press Heavy Slow Resistance (0°–60° -> 90°)",
+    "chineseName": "腿推機推蹬閉鎖鏈肌力",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27713,7 +27713,7 @@
   {
     "id": "knee-seated-bent-knee-calf-raise-soleus-braking-capacity",
     "name": "Seated bent-knee calf raise (soleus braking capacity)",
-    "chineseName": "Seated bent-knee calf raise (soleus braking capacity)",
+    "chineseName": "坐姿 小腿提踵訓練 (踮腳尖)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27811,7 +27811,7 @@
   {
     "id": "knee-heavy-slow-split-squat-graded-flexion-exposure",
     "name": "Heavy slow split squat (graded flexion exposure 60° -> 90°)",
-    "chineseName": "Heavy slow split squat (graded flexion exposure 60° -> 90°)",
+    "chineseName": "分腿蹲 (跨步深蹲)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -27921,7 +27921,7 @@
   {
     "id": "knee-heel-elevated-goblet-squat-deep-eccentric-split-squat",
     "name": "Heel-elevated goblet squat / deep eccentric split squat (outer-range HSR)",
-    "chineseName": "Heel-elevated goblet squat / deep eccentric split squat (outer-range HSR)",
+    "chineseName": "分腿蹲 (跨步深蹲) (離心負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28029,7 +28029,7 @@
   {
     "id": "knee-submaximal-pogo-hops-to-shallow-athletic-snap-down",
     "name": "Submaximal pogo hops to shallow athletic snap-down (45°)",
-    "chineseName": "Submaximal pogo hops to shallow athletic snap-down (45°)",
+    "chineseName": "連續踝彈跳 (Pogo Hops 增強式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28135,7 +28135,7 @@
   {
     "id": "knee-box-jump-with-step-down-->-depth-drop",
     "name": "Box jump with step-down -> depth drop to rebound (Stage 3–4 SSC)",
-    "chineseName": "Box jump with step-down -> depth drop to rebound (Stage 3–4 SSC)",
+    "chineseName": "跳箱爆發力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28238,7 +28238,7 @@
   {
     "id": "knee-submaximal-shallow-angle-isometric-wall-sit-30°–45°",
     "name": "Submaximal shallow-angle isometric wall sit (30°–45°)",
-    "chineseName": "Submaximal shallow-angle isometric wall sit (30°–45°)",
+    "chineseName": "靠牆等長靜蹲 (髕股關節低壓負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28348,7 +28348,7 @@
   {
     "id": "knee-supine-glute-bridge-with-3-second-hold-posterior-chain",
     "name": "Supine glute bridge with 3-second hold (posterior-chain offloading)",
-    "chineseName": "Supine glute bridge with 3-second hold (posterior-chain offloading)",
+    "chineseName": "仰臥 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28462,7 +28462,7 @@
   {
     "id": "knee-side-lying-clamshell-straight-leg-hip-abduction",
     "name": "Side-lying clamshell & straight-leg hip abduction",
-    "chineseName": "Side-lying clamshell & straight-leg hip abduction",
+    "chineseName": "側臥 蚌殼式臀中肌外展訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28565,7 +28565,7 @@
   {
     "id": "knee-mid-belly-quadriceps-foam-roll-gentle-side-lying-hip",
     "name": "Mid-belly quadriceps foam roll & gentle side-lying hip flexor stretch",
-    "chineseName": "Mid-belly quadriceps foam roll & gentle side-lying hip flexor stretch",
+    "chineseName": "側臥 滾筒放鬆 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28666,7 +28666,7 @@
   {
     "id": "knee-seated-standing-calf-raises-ankle-shock-absorber-hypertrophy",
     "name": "Seated & standing calf raises (ankle shock-absorber hypertrophy)",
-    "chineseName": "Seated & standing calf raises (ankle shock-absorber hypertrophy)",
+    "chineseName": "站姿 膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28766,7 +28766,7 @@
   {
     "id": "knee-hip-dominant-box-squat-with-vertical-shin-bias-0°–60°",
     "name": "Hip-dominant box squat with vertical-shin bias (0°–60°)",
-    "chineseName": "Hip-dominant box squat with vertical-shin bias (0°–60°)",
+    "chineseName": "膝關節周邊動態肌力與對齊訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28875,7 +28875,7 @@
   {
     "id": "knee-controlled-forward-step-up-strict-sagittal-alignment",
     "name": "Controlled forward step-up (strict sagittal alignment)",
-    "chineseName": "Controlled forward step-up (strict sagittal alignment)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -28985,7 +28985,7 @@
   {
     "id": "knee-hip-hinge-soft-landing-deceleration-mechanics",
     "name": "Hip-hinge soft landing & deceleration mechanics",
-    "chineseName": "Hip-hinge soft landing & deceleration mechanics",
+    "chineseName": "衝刺減速著地緩衝控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -29088,7 +29088,7 @@
   {
     "id": "hip-supine-submaximal-isometric-heel-dig-at-multiple-angles",
     "name": "Supine submaximal isometric heel-dig at multiple angles (90° -> 45° -> 15°)",
-    "chineseName": "Supine submaximal isometric heel-dig at multiple angles (90° -> 45° -> 15°)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29200,7 +29200,7 @@
   {
     "id": "hip-askling-l-protocol-1-the-extender-dynamic-long-length",
     "name": "Askling L-Protocol #1: \"The Extender\" (dynamic long-length flexibility)",
-    "chineseName": "Askling L-Protocol #1: \"The Extender\" (dynamic long-length flexibility)",
+    "chineseName": "Askling L-Protocol 膕旁肌離心三部曲",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29306,7 +29306,7 @@
   {
     "id": "hip-askling-l-protocol-2-the-diver-hip-hinge-lengthening",
     "name": "Askling L-Protocol #2: \"The Diver\" (hip-hinge lengthening & trunk stability)",
-    "chineseName": "Askling L-Protocol #2: \"The Diver\" (hip-hinge lengthening & trunk stability)",
+    "chineseName": "Askling L-Protocol 膕旁肌離心三部曲",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29421,7 +29421,7 @@
   {
     "id": "hip-supine-bilateral-to-unilateral-long-lever-glute-hamstring-bridge",
     "name": "Supine bilateral-to-unilateral long-lever glute-hamstring bridge",
-    "chineseName": "Supine bilateral-to-unilateral long-lever glute-hamstring bridge",
+    "chineseName": "仰臥 雙腳 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29531,7 +29531,7 @@
   {
     "id": "hip-askling-l-protocol-3-the-glider-supramaximal-long-length",
     "name": "Askling L-Protocol #3: \"The Glider\" (supramaximal long-length eccentric slide)",
-    "chineseName": "Askling L-Protocol #3: \"The Glider\" (supramaximal long-length eccentric slide)",
+    "chineseName": "Askling L-Protocol 膕旁肌離心三部曲",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29644,7 +29644,7 @@
   {
     "id": "hip-single-leg-romanian-deadlift-45°-hip-extension-bflh",
     "name": "Single-leg Romanian deadlift / 45° hip extension (BFLH hip-dominant HSR)",
-    "chineseName": "Single-leg Romanian deadlift / 45° hip extension (BFLH hip-dominant HSR)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌) (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29751,7 +29751,7 @@
   {
     "id": "hip-nordic-hamstring-curl-knee-dominant-supramaximal-eccentric-braking",
     "name": "Nordic hamstring curl (knee-dominant supramaximal eccentric braking)",
-    "chineseName": "Nordic hamstring curl (knee-dominant supramaximal eccentric braking)",
+    "chineseName": "北歐膕旁肌離心彎舉",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29863,7 +29863,7 @@
   {
     "id": "hip-high-speed-a-skips-b-skips-paw-back-askling-h-test-sprint",
     "name": "High-speed A-Skips, B-Skips (Paw-Back) & Askling H-Test Sprint Clearance",
-    "chineseName": "High-speed A-Skips, B-Skips (Paw-Back) & Askling H-Test Sprint Clearance",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -29970,7 +29970,7 @@
   {
     "id": "hip-multi-angle-isometric-adductor-squeeze-45°-hook-lying-0°",
     "name": "Multi-angle isometric adductor squeeze (45° hook-lying & 0° long-lever)",
-    "chineseName": "Multi-angle isometric adductor squeeze (45° hook-lying & 0° long-lever)",
+    "chineseName": "內收肌群等長夾球訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30077,7 +30077,7 @@
   {
     "id": "hip-adductor-coupled-deadbug-diagonal-oblique-curl-up-pubic-cross-bracing",
     "name": "Adductor-coupled Deadbug & diagonal oblique curl-up (Pubic Cross-Bracing)",
-    "chineseName": "Adductor-coupled Deadbug & diagonal oblique curl-up (Pubic Cross-Bracing)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30191,7 +30191,7 @@
   {
     "id": "hip-standing-multi-planar-elastic-band-hip-adduction-iliopsoas-march",
     "name": "Standing multi-planar elastic-band hip adduction & iliopsoas march",
-    "chineseName": "Standing multi-planar elastic-band hip adduction & iliopsoas march",
+    "chineseName": "站姿 髖關節內收肌群強化",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30290,7 +30290,7 @@
   {
     "id": "hip-short-lever-copenhagen-adduction-knee-supported-side-plank-lift",
     "name": "Short-Lever Copenhagen Adduction (knee-supported side-plank lift)",
-    "chineseName": "Short-Lever Copenhagen Adduction (knee-supported side-plank lift)",
+    "chineseName": "哥本哈根內收肌動態/等長訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30398,7 +30398,7 @@
   {
     "id": "hip-sliding-lateral-lunge-cossack-eccentric-adductor-slide",
     "name": "Sliding lateral lunge / Cossack eccentric adductor slide",
-    "chineseName": "Sliding lateral lunge / Cossack eccentric adductor slide",
+    "chineseName": "側向弓箭步 (額狀面控制) (離心負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30508,7 +30508,7 @@
   {
     "id": "hip-long-lever-copenhagen-adduction-ankle-supported-gold-standard-hsr",
     "name": "Long-Lever Copenhagen Adduction (ankle-supported gold-standard HSR)",
-    "chineseName": "Long-Lever Copenhagen Adduction (ankle-supported gold-standard HSR)",
+    "chineseName": "哥本哈根內收肌動態/等長訓練 (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30622,7 +30622,7 @@
   {
     "id": "hip-contralateral-load-single-leg-rdl-lateral-step-up-frontal-force",
     "name": "Contralateral-load single-leg RDL & lateral step-up (frontal force couple)",
-    "chineseName": "Contralateral-load single-leg RDL & lateral step-up (frontal force couple)",
+    "chineseName": "單腳 上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30725,7 +30725,7 @@
   {
     "id": "hip-diagonal-tension-arc-kicking-cable-110°-change-of-direction-cut",
     "name": "Diagonal \"Tension-Arc\" kicking cable & 110° change-of-direction cut (RTS)",
-    "chineseName": "Diagonal \"Tension-Arc\" kicking cable & 110° change-of-direction cut (RTS)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30830,7 +30830,7 @@
   {
     "id": "hip-supine-diaphragmatic-exhale-transversus-abdominis-short-lever-adductor",
     "name": "Supine Diaphragmatic Exhale + Transversus Abdominis & Short-Lever Adductor Isometric Coupling",
-    "chineseName": "Supine Diaphragmatic Exhale + Transversus Abdominis & Short-Lever Adductor Isometric Coupling",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -30937,7 +30937,7 @@
   {
     "id": "hip-supine-dead-bug-cross-body-isometric-press-with-adductor",
     "name": "Supine Dead-Bug Cross-Body Isometric Press with Adductor Ball Squeeze (Anterior Oblique Sling)",
-    "chineseName": "Supine Dead-Bug Cross-Body Isometric Press with Adductor Ball Squeeze (Anterior Oblique Sling)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31053,7 +31053,7 @@
   {
     "id": "hip-banded-glute-bridge-with-adductor-block-squeeze",
     "name": "Banded Glute Bridge with Adductor Block Squeeze & Posterior Pelvic Tilt",
-    "chineseName": "Banded Glute Bridge with Adductor Block Squeeze & Posterior Pelvic Tilt",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31164,7 +31164,7 @@
   {
     "id": "hip-side-lying-hip-abduction-to-short-lever-copenhagen-isometric-hold-balancing",
     "name": "Side-Lying Hip Abduction-to-Short-Lever Copenhagen Isometric Hold (Balancing Adductor:Abductor Ratio)",
-    "chineseName": "Side-Lying Hip Abduction-to-Short-Lever Copenhagen Isometric Hold (Balancing Adductor:Abductor Ratio)",
+    "chineseName": "側臥 哥本哈根內收肌訓練 (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31257,7 +31257,7 @@
   {
     "id": "hip-half-kneeling-split-stance-diagonal-cable-chop-lift-with",
     "name": "Half-Kneeling / Split-Stance Diagonal Cable Chop & Lift with Inner-Thigh Co-Activation",
-    "chineseName": "Half-Kneeling / Split-Stance Diagonal Cable Chop & Lift with Inner-Thigh Co-Activation",
+    "chineseName": "半跪姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31358,7 +31358,7 @@
   {
     "id": "hip-eccentric-lateral-slider-lunge-wide-stance-goblet-cossack",
     "name": "Eccentric Lateral Slider Lunge & Wide-Stance Goblet Cossack Progression (Lengthened Adductor–Inguinal HSR)",
-    "chineseName": "Eccentric Lateral Slider Lunge & Wide-Stance Goblet Cossack Progression (Lengthened Adductor–Inguinal HSR)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31468,7 +31468,7 @@
   {
     "id": "hip-standing-anti-extension-rotational-cable-press-out-from-hip",
     "name": "Standing Anti-Extension & Rotational Cable Press-Out from Hip Extension (Kicking / Throwing Arc)",
-    "chineseName": "Standing Anti-Extension & Rotational Cable Press-Out from Hip Extension (Kicking / Throwing Arc)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31577,7 +31577,7 @@
   {
     "id": "hip-rotational-medicine-ball-scoop-toss-45°-deceleration-to-cut",
     "name": "Rotational Medicine Ball Scoop Toss & 45° Deceleration-to-Cut Reactivity",
-    "chineseName": "Rotational Medicine Ball Scoop Toss & 45° Deceleration-to-Cut Reactivity",
+    "chineseName": "衝刺減速著地緩衝控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31679,7 +31679,7 @@
   {
     "id": "hip-short-lever-inner-range-submaximal-isometric-hip-flexion-extension",
     "name": "Short-Lever Inner-Range Submaximal Isometric Hip Flexion / Extension / Abduction (0/10 Pain Gate)",
-    "chineseName": "Short-Lever Inner-Range Submaximal Isometric Hip Flexion / Extension / Abduction (0/10 Pain Gate)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31794,7 +31794,7 @@
   {
     "id": "hip-side-lying-standing-isometric-to-isotonic-gluteus-medius-shielding-femoral",
     "name": "Side-Lying & Standing Isometric-to-Isotonic Gluteus Medius Shielding (Femoral Neck Tension Unloader)",
-    "chineseName": "Side-Lying & Standing Isometric-to-Isotonic Gluteus Medius Shielding (Femoral Neck Tension Unloader)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -31894,7 +31894,7 @@
   {
     "id": "hip-supine-bilateral-to-kickstand-glute-bridge-neutral-pelvis-axial-posterior",
     "name": "Supine Bilateral-to-Kickstand Glute Bridge (Neutral-Pelvis Axial & Posterior Chain Load)",
-    "chineseName": "Supine Bilateral-to-Kickstand Glute Bridge (Neutral-Pelvis Axial & Posterior Chain Load)",
+    "chineseName": "仰臥 雙腳 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32004,7 +32004,7 @@
   {
     "id": "hip-bilateral-to-staggered-mini-squat-0–45°-knee-flexion-axial-osteogenic",
     "name": "Bilateral-to-Staggered Mini-Squat (0–45° Knee Flexion Axial Osteogenic Compression)",
-    "chineseName": "Bilateral-to-Staggered Mini-Squat (0–45° Knee Flexion Axial Osteogenic Compression)",
+    "chineseName": "雙腳 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32113,7 +32113,7 @@
   {
     "id": "hip-forward-lateral-controlled-box-step-up-single-leg-femoral",
     "name": "Forward & Lateral Controlled Box Step-Up (Single-Leg Femoral Neck & Pelvic Control)",
-    "chineseName": "Forward & Lateral Controlled Box Step-Up (Single-Leg Femoral Neck & Pelvic Control)",
+    "chineseName": "單腳 上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32216,7 +32216,7 @@
   {
     "id": "hip-eccentric-split-squat-modified-nordic-reverse-nordic",
     "name": "Eccentric Split Squat & Modified Nordic / Reverse Nordic (Graduated Apophyseal Remodeling)",
-    "chineseName": "Eccentric Split Squat & Modified Nordic / Reverse Nordic (Graduated Apophyseal Remodeling)",
+    "chineseName": "反向北歐股四頭肌離心伸展",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32316,7 +32316,7 @@
   {
     "id": "hip-heavy-seated-standing-soleus-gastrocnemius-hip-abductor",
     "name": "Heavy Seated & Standing Soleus/Gastrocnemius & Hip Abductor Shielding Complex",
-    "chineseName": "Heavy Seated & Standing Soleus/Gastrocnemius & Hip Abductor Shielding Complex",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32411,7 +32411,7 @@
   {
     "id": "hip-osteogenic-low-volume-landing-contacts-alternate-day-walk-to-run-progression",
     "name": "Osteogenic Low-Volume Landing Contacts & Alternate-Day Walk-to-Run Progression",
-    "chineseName": "Osteogenic Low-Volume Landing Contacts & Alternate-Day Walk-to-Run Progression",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32512,7 +32512,7 @@
   {
     "id": "hip-quadruped-rock-back-in-slight-abduction-high-seat-cycling",
     "name": "Quadruped rock-back in slight abduction & high-seat cycling (FAI/OA safe ROM)",
-    "chineseName": "Quadruped rock-back in slight abduction & high-seat cycling (FAI/OA safe ROM)",
+    "chineseName": "主動關節活動度訓練 (ROM)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32614,7 +32614,7 @@
   {
     "id": "hip-posterior-pelvic-tilt-glute-bridge-with-band-acetabular-uncovering",
     "name": "Posterior-pelvic-tilt glute bridge with band (Acetabular Uncovering & Centring)",
-    "chineseName": "Posterior-pelvic-tilt glute bridge with band (Acetabular Uncovering & Centring)",
+    "chineseName": "臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32730,7 +32730,7 @@
   {
     "id": "hip-prone-side-lying-deep-hip-external-rotator-abductor",
     "name": "Prone / side-lying deep hip external rotator & abductor series (\"Hip Cuff\")",
-    "chineseName": "Prone / side-lying deep hip external rotator & abductor series (\"Hip Cuff\")",
+    "chineseName": "俯臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32834,7 +32834,7 @@
   {
     "id": "hip-supine-standing-banded-iliopsoas-march-with-posterior",
     "name": "Supine / standing banded Iliopsoas march with Posterior Pelvic Tilt lock",
-    "chineseName": "Supine / standing banded Iliopsoas march with Posterior Pelvic Tilt lock",
+    "chineseName": "站姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -32947,7 +32947,7 @@
   {
     "id": "hip-lateral-band-walk-monster-walk-dynamic-anti-adduction",
     "name": "Lateral band walk / Monster walk (dynamic anti-adduction/anti-IR alignment)",
-    "chineseName": "Lateral band walk / Monster walk (dynamic anti-adduction/anti-IR alignment)",
+    "chineseName": "彈力帶怪獸步橫向行走 (臀中肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33058,7 +33058,7 @@
   {
     "id": "hip-wide-stance-sumo-biased-box-squat-stopping-above-the",
     "name": "Wide-stance / Sumo-biased box squat (stopping above the 80°–90° pinch ceiling)",
-    "chineseName": "Wide-stance / Sumo-biased box squat (stopping above the 80°–90° pinch ceiling)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33174,7 +33174,7 @@
   {
     "id": "hip-supported-single-leg-romanian-deadlift-gla-d®-step-up",
     "name": "Supported single-leg Romanian deadlift & GLA:D® step-up (pelvic-level HSR)",
-    "chineseName": "Supported single-leg Romanian deadlift & GLA:D® step-up (pelvic-level HSR)",
+    "chineseName": "單腳 上階梯登階肌力訓練 (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33277,7 +33277,7 @@
   {
     "id": "hip-multi-directional-lunging-sliders-open-hip-deceleration-cuts-late",
     "name": "Multi-directional lunging sliders & open-hip deceleration cuts (Late RTS)",
-    "chineseName": "Multi-directional lunging sliders & open-hip deceleration cuts (Late RTS)",
+    "chineseName": "衝刺減速著地緩衝控制",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33379,7 +33379,7 @@
   {
     "id": "hip-supine-slight-abduction-isometric-belt-press-leap-stage",
     "name": "Supine slight-abduction isometric belt press (LEAP Stage 1 — Zero Compression)",
-    "chineseName": "Supine slight-abduction isometric belt press (LEAP Stage 1 — Zero Compression)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33490,7 +33490,7 @@
   {
     "id": "hip-standing-wall-press-isometric-hip-abduction-outside-adduction",
     "name": "Standing wall-press isometric hip abduction (outside adduction zone)",
-    "chineseName": "Standing wall-press isometric hip abduction (outside adduction zone)",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33597,7 +33597,7 @@
   {
     "id": "hip-supine-double--to-single-leg-glute-bridge-with",
     "name": "Supine double- to single-leg glute bridge with wide-knee band press (LEAP)",
-    "chineseName": "Supine double- to single-leg glute bridge with wide-knee band press (LEAP)",
+    "chineseName": "仰臥 單腳 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33711,7 +33711,7 @@
   {
     "id": "hip-pillow-supported-side-lying-hip-abduction-strictly-stopping-at",
     "name": "Pillow-supported side-lying hip abduction (strictly stopping at 0° neutral)",
-    "chineseName": "Pillow-supported side-lying hip abduction (strictly stopping at 0° neutral)",
+    "chineseName": "側臥 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33814,7 +33814,7 @@
   {
     "id": "hip-lateral-band-walk-side-stepping-series-leap-functional",
     "name": "Lateral band walk / Side-stepping series (LEAP functional frontal block)",
-    "chineseName": "Lateral band walk / Side-stepping series (LEAP functional frontal block)",
+    "chineseName": "彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -33930,7 +33930,7 @@
   {
     "id": "hip-standing-pelvic-hitch-hip-hike-stopping-at",
     "name": "Standing pelvic hitch / hip hike (stopping at horizontal — Zero Trendelenburg)",
-    "chineseName": "Standing pelvic hitch / hip hike (stopping at horizontal — Zero Trendelenburg)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34032,7 +34032,7 @@
   {
     "id": "hip-leap-offset-stance-b-stance-squat-->-single-leg-box",
     "name": "LEAP Offset-Stance (B-Stance) squat -> single-leg box squat",
-    "chineseName": "LEAP Offset-Stance (B-Stance) squat -> single-leg box squat",
+    "chineseName": "單腳 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34141,7 +34141,7 @@
   {
     "id": "hip-forward-lateral-step-up-with-level-pelvis-lock-cadence",
     "name": "Forward & lateral step-up with level-pelvis lock & cadence running (RTS)",
-    "chineseName": "Forward & lateral step-up with level-pelvis lock & cadence running (RTS)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34244,7 +34244,7 @@
   {
     "id": "hip-side-lying-standing-obturator-nerve-neurodynamic-slider-cervical–hip",
     "name": "Side-Lying & Standing Obturator Nerve Neurodynamic Slider (Cervical–Hip Abduction/Extension Coupling)",
-    "chineseName": "Side-Lying & Standing Obturator Nerve Neurodynamic Slider (Cervical–Hip Abduction/Extension Coupling)",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34358,7 +34358,7 @@
   {
     "id": "hip-side-lying-prone-knee-bend-femoral-nerve-slider-head–knee-reciprocal",
     "name": "Side-Lying Prone-Knee-Bend Femoral Nerve Slider (Head–Knee Reciprocal Glide)",
-    "chineseName": "Side-Lying Prone-Knee-Bend Femoral Nerve Slider (Head–Knee Reciprocal Glide)",
+    "chineseName": "俯臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34458,7 +34458,7 @@
   {
     "id": "hip-lateral-femoral-cutaneous-nerve-lfcn-inguinal-tunnel",
     "name": "Lateral Femoral Cutaneous Nerve (LFCN) Inguinal Tunnel Decompression & Slider (Meralgia Paresthetica)",
-    "chineseName": "Lateral Femoral Cutaneous Nerve (LFCN) Inguinal Tunnel Decompression & Slider (Meralgia Paresthetica)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34567,7 +34567,7 @@
   {
     "id": "hip-hook-lying-seated-sub-compression-adductor-quadriceps-motor-unit-re-education",
     "name": "Hook-Lying & Seated Sub-Compression Adductor & Quadriceps Motor-Unit Re-Education",
-    "chineseName": "Hook-Lying & Seated Sub-Compression Adductor & Quadriceps Motor-Unit Re-Education",
+    "chineseName": "坐姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34672,7 +34672,7 @@
   {
     "id": "hip-standing-half-kneeling-posterior-tilt-gluteus-medius-maximus-pelvis",
     "name": "Standing & Half-Kneeling Posterior-Tilt Gluteus Medius/Maximus Pelvis Leveler (Anti-Hanging Control)",
-    "chineseName": "Standing & Half-Kneeling Posterior-Tilt Gluteus Medius/Maximus Pelvis Leveler (Anti-Hanging Control)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34776,7 +34776,7 @@
   {
     "id": "hip-eccentric-copenhagen-short-to-wide-slider-lunge-with-obturator",
     "name": "Eccentric Copenhagen & Short-to-Wide Slider Lunge with Obturator Glide Integration",
-    "chineseName": "Eccentric Copenhagen & Short-to-Wide Slider Lunge with Obturator Glide Integration",
+    "chineseName": "哥本哈根內收肌訓練 (離心負重)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34879,7 +34879,7 @@
   {
     "id": "hip-controlled-split-squat-reverse-nordic-with-femoral-neurodynamic",
     "name": "Controlled Split-Squat & Reverse Nordic with Femoral Neurodynamic Excursion",
-    "chineseName": "Controlled Split-Squat & Reverse Nordic with Femoral Neurodynamic Excursion",
+    "chineseName": "反向北歐股四頭肌離心伸展",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -34991,7 +34991,7 @@
   {
     "id": "hip-dynamic-diagonal-lunging-sprint-swing-to-extension-neuro-mechanical-integration",
     "name": "Dynamic Diagonal Lunging & Sprint Swing-to-Extension Neuro-Mechanical Integration",
-    "chineseName": "Dynamic Diagonal Lunging & Sprint Swing-to-Extension Neuro-Mechanical Integration",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35097,7 +35097,7 @@
   {
     "id": "hip-standing-unweighted-hip-pendulum-supine-hook-lying-windshield",
     "name": "Standing Unweighted Hip Pendulum & Supine Hook-Lying Windshield Wiper Oscillations",
-    "chineseName": "Standing Unweighted Hip Pendulum & Supine Hook-Lying Windshield Wiper Oscillations",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35202,7 +35202,7 @@
   {
     "id": "hip-quadruped-lateral-posterior-banded-hip-distraction-rock-back-inferior",
     "name": "Quadruped Lateral-Posterior Banded Hip Distraction & Rock-Back (Inferior/Posterior Capsule MWM)",
-    "chineseName": "Quadruped Lateral-Posterior Banded Hip Distraction & Rock-Back (Inferior/Posterior Capsule MWM)",
+    "chineseName": "四足跪姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35311,7 +35311,7 @@
   {
     "id": "hip-half-kneeling-anterior-lateral-banded-hip-distraction-iliofemoral-ligament",
     "name": "Half-Kneeling Anterior-Lateral Banded Hip Distraction (Iliofemoral Ligament Unloading)",
-    "chineseName": "Half-Kneeling Anterior-Lateral Banded Hip Distraction (Iliofemoral Ligament Unloading)",
+    "chineseName": "半跪姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35421,7 +35421,7 @@
   {
     "id": "hip-supine-figure-4-adductor-low-load-long-duration-llld-viscoelastic",
     "name": "Supine Figure-4 & Adductor Low-Load Long-Duration (LLLD) Viscoelastic Creep Hold",
-    "chineseName": "Supine Figure-4 & Adductor Low-Load Long-Duration (LLLD) Viscoelastic Creep Hold",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35528,7 +35528,7 @@
   {
     "id": "hip-90–90-seated-hip-internal-rotation-pails-rails",
     "name": "90–90 Seated Hip Internal Rotation PAILs & RAILs (Ischiofemoral Capsule Remodeling)",
-    "chineseName": "90–90 Seated Hip Internal Rotation PAILs & RAILs (Ischiofemoral Capsule Remodeling)",
+    "chineseName": "坐姿 髖關節內旋控制與活動度",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35636,7 +35636,7 @@
   {
     "id": "hip-90–90-seated-hip-external-rotation-pails-rails",
     "name": "90–90 Seated Hip External Rotation PAILs & RAILs (Anterior-Medial Capsule Remodeling)",
-    "chineseName": "90–90 Seated Hip External Rotation PAILs & RAILs (Anterior-Medial Capsule Remodeling)",
+    "chineseName": "坐姿 髖關節外旋肌群強化",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35747,7 +35747,7 @@
   {
     "id": "hip-standing-quadruped-hip-controlled-articular-rotations-cars",
     "name": "Standing & Quadruped Hip Controlled Articular Rotations (CARs — Active Capsule Expansion)",
-    "chineseName": "Standing & Quadruped Hip Controlled Articular Rotations (CARs — Active Capsule Expansion)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35866,7 +35866,7 @@
   {
     "id": "hip-band-distracted-deep-goblet-squat-cossack-weight-shift-loaded",
     "name": "Band-Distracted Deep Goblet Squat & Cossack Weight-Shift (Loaded Full-ROM Integration)",
-    "chineseName": "Band-Distracted Deep Goblet Squat & Cossack Weight-Shift (Loaded Full-ROM Integration)",
+    "chineseName": "高腳杯深蹲 (深蹲動作模式)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -35981,7 +35981,7 @@
   {
     "id": "hip-supine-hook-lying-isometric-hip-abduction-external-rotation",
     "name": "Supine Hook-Lying Isometric Hip Abduction & External Rotation Band Press (Deep-Cuff Centration)",
-    "chineseName": "Supine Hook-Lying Isometric Hip Abduction & External Rotation Band Press (Deep-Cuff Centration)",
+    "chineseName": "仰臥 髖關節外展肌力強化 (臀中肌/臀小肌) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36090,7 +36090,7 @@
   {
     "id": "hip-supine-90–90-iliocapsularis-deep-psoas-isometric-march",
     "name": "Supine 90–90 Iliocapsularis & Deep Psoas Isometric March with Posterior Pelvic Tilt",
-    "chineseName": "Supine 90–90 Iliocapsularis & Deep Psoas Isometric March with Posterior Pelvic Tilt",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36203,7 +36203,7 @@
   {
     "id": "hip-banded-glute-bridge-with-isometric-abduction-hold",
     "name": "Banded Glute Bridge with Isometric Abduction Hold (Neutral-Spine Extension)",
-    "chineseName": "Banded Glute Bridge with Isometric Abduction Hold (Neutral-Spine Extension)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練 (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36313,7 +36313,7 @@
   {
     "id": "hip-quadruped-fire-hydrant-isometric-hold-controlled-arc",
     "name": "Quadruped Fire Hydrant Isometric Hold & Controlled Arc (Anti-Rotation Centration)",
-    "chineseName": "Quadruped Fire Hydrant Isometric Hold & Controlled Arc (Anti-Rotation Centration)",
+    "chineseName": "四足跪姿消防栓側抬腿 (臀中肌) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36425,7 +36425,7 @@
   {
     "id": "hip-lateral-diagonal-monster-walks-with-hip-hinge-bias",
     "name": "Lateral & Diagonal Monster Walks with Hip-Hinge Bias (Frontal/Transverse Plane)",
-    "chineseName": "Lateral & Diagonal Monster Walks with Hip-Hinge Bias (Frontal/Transverse Plane)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36541,7 +36541,7 @@
   {
     "id": "hip-supported-b-stance-to-single-leg-romanian-deadlift-neutral-zone",
     "name": "Supported B-Stance to Single-Leg Romanian Deadlift (Neutral-Zone Posterior Chain)",
-    "chineseName": "Supported B-Stance to Single-Leg Romanian Deadlift (Neutral-Zone Posterior Chain)",
+    "chineseName": "單腳 羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36651,7 +36651,7 @@
   {
     "id": "hip-standing-single-leg-hip-airplane-in-mid-range-safe",
     "name": "Standing Single-Leg Hip Airplane in Mid-Range Safe Arc (Controlled Pelvic Rotation)",
-    "chineseName": "Standing Single-Leg Hip Airplane in Mid-Range Safe Arc (Controlled Pelvic Rotation)",
+    "chineseName": "站姿 單腳 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36759,7 +36759,7 @@
   {
     "id": "hip-single-leg-stance-with-overhead-pallof-band-perturbations",
     "name": "Single-Leg Stance with Overhead/Pallof Band Perturbations & Reactive Step-Down",
-    "chineseName": "Single-Leg Stance with Overhead/Pallof Band Perturbations & Reactive Step-Down",
+    "chineseName": "單腳 下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36865,7 +36865,7 @@
   {
     "id": "hip-supine-standing-neutral-spine-oblique–abductor-isometric-co-contraction-hip",
     "name": "Supine & Standing Neutral-Spine Oblique–Abductor Isometric Co-Contraction (Hip Pointer Phase 1–2)",
-    "chineseName": "Supine & Standing Neutral-Spine Oblique–Abductor Isometric Co-Contraction (Hip Pointer Phase 1–2)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -36972,7 +36972,7 @@
   {
     "id": "hip-side-lying-hip-abduction-with-slight-external-rotation",
     "name": "Side-Lying Hip Abduction with Slight External Rotation & Extension against Wall (Posterior Glute Med Bias / TFL Unloader)",
-    "chineseName": "Side-Lying Hip Abduction with Slight External Rotation & Extension against Wall (Posterior Glute Med Bias / TFL Unloader)",
+    "chineseName": "側臥 髖關節外展肌力強化 (臀中肌/臀小肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37080,7 +37080,7 @@
   {
     "id": "hip-supine-to-standing-multi-angle-sartorius-hacky-sack-faber-isometric-cable",
     "name": "Supine-to-Standing Multi-Angle Sartorius (\"Hacky-Sack\" FABER) Isometric & Cable Arc",
-    "chineseName": "Supine-to-Standing Multi-Angle Sartorius (\"Hacky-Sack\" FABER) Isometric & Cable Arc",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37186,7 +37186,7 @@
   {
     "id": "hip-seated-standing-psoas-march-above-90°-flexion",
     "name": "Seated / Standing Psoas March Above 90° Flexion (Unloading TFL & Sartorius Compensation)",
-    "chineseName": "Seated / Standing Psoas March Above 90° Flexion (Unloading TFL & Sartorius Compensation)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37294,7 +37294,7 @@
   {
     "id": "hip-short-to-long-lever-side-plank-with-top-leg-abduction-iliac",
     "name": "Short-to-Long Lever Side-Plank with Top-Leg Abduction (Iliac Crest Oblique–Gluteal Bridge HSR)",
-    "chineseName": "Short-to-Long Lever Side-Plank with Top-Leg Abduction (Iliac Crest Oblique–Gluteal Bridge HSR)",
+    "chineseName": "棒式核心抗伸展支撐 (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37398,7 +37398,7 @@
   {
     "id": "hip-standing-cable-band-diagonal-hip-extension-adduction-ir-to",
     "name": "Standing Cable/Band Diagonal Hip Extension-Adduction-IR to Flexion-Abduction-ER (Lengthened Sartorius & TFL HSR)",
-    "chineseName": "Standing Cable/Band Diagonal Hip Extension-Adduction-IR to Flexion-Abduction-ER (Lengthened Sartorius & TFL HSR)",
+    "chineseName": "站姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37508,7 +37508,7 @@
   {
     "id": "hip-lateral-step-down-hip-hinge-monster-walk-with-trunk-lean",
     "name": "Lateral Step-Down & Hip-Hinge Monster Walk with Trunk-Lean Bias (Functional TFL-to-Glute Load Sharing)",
-    "chineseName": "Lateral Step-Down & Hip-Hinge Monster Walk with Trunk-Lean Bias (Functional TFL-to-Glute Load Sharing)",
+    "chineseName": "下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37618,7 +37618,7 @@
   {
     "id": "hip-overhead-lateral-medicine-ball-slam-cross-body-soccer",
     "name": "Overhead Lateral Medicine Ball Slam, Cross-Body Soccer Pass & Reactive Side-Shuffle Cut",
-    "chineseName": "Overhead Lateral Medicine Ball Slam, Cross-Body Soccer Pass & Reactive Side-Shuffle Cut",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37725,7 +37725,7 @@
   {
     "id": "hip-supine-sub-snap-banded-psoas-march-isometrics-60–80°",
     "name": "Supine Sub-Snap Banded Psoas March Isometrics (60–80° Mid-Range Hold)",
-    "chineseName": "Supine Sub-Snap Banded Psoas March Isometrics (60–80° Mid-Range Hold)",
+    "chineseName": "仰臥 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37834,7 +37834,7 @@
   {
     "id": "hip-posterior-pelvic-tilt-eccentric-leg-lowering-snap-free-arc-control",
     "name": "Posterior-Pelvic-Tilt Eccentric Leg Lowering (Snap-Free Arc Control)",
-    "chineseName": "Posterior-Pelvic-Tilt Eccentric Leg Lowering (Snap-Free Arc Control)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -37949,7 +37949,7 @@
   {
     "id": "hip-side-lying-pelvic-drop-to-hike-gluteus-maximus-posterior-itb",
     "name": "Side-Lying Pelvic Drop-to-Hike & Gluteus Maximus Posterior ITB Unloader (External Snapping Hip)",
-    "chineseName": "Side-Lying Pelvic Drop-to-Hike & Gluteus Maximus Posterior ITB Unloader (External Snapping Hip)",
+    "chineseName": "側臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38059,7 +38059,7 @@
   {
     "id": "hip-seated-standing-cable-band-hip-flexor-march",
     "name": "Seated & Standing Cable/Band Hip Flexor March above 90° (Active End-Range Control)",
-    "chineseName": "Seated & Standing Cable/Band Hip Flexor March above 90° (Active End-Range Control)",
+    "chineseName": "站姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38161,7 +38161,7 @@
   {
     "id": "hip-rear-foot-elevated-split-squat-rfess-with-upright",
     "name": "Rear-Foot Elevated Split Squat (RFESS) with Upright Controlled Torso (Bi-Articular Lengthened Load)",
-    "chineseName": "Rear-Foot Elevated Split Squat (RFESS) with Upright Controlled Torso (Bi-Articular Lengthened Load)",
+    "chineseName": "分腿蹲 (跨步深蹲)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38267,7 +38267,7 @@
   {
     "id": "hip-assisted-to-full-reverse-nordic-curl-eccentric-bi-articular-rectus",
     "name": "Assisted-to-Full Reverse Nordic Curl (Eccentric Bi-Articular Rectus Femoris Conditioning)",
-    "chineseName": "Assisted-to-Full Reverse Nordic Curl (Eccentric Bi-Articular Rectus Femoris Conditioning)",
+    "chineseName": "反向北歐股四頭肌離心伸展",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38375,7 +38375,7 @@
   {
     "id": "hip-prone-standing-resisted-hip-extension-to-flexion-cable-swing",
     "name": "Prone/Standing Resisted Hip Extension-to-Flexion Cable Swing (Lengthened Tendon HSR)",
-    "chineseName": "Prone/Standing Resisted Hip Extension-to-Flexion Cable Swing (Lengthened Tendon HSR)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38482,7 +38482,7 @@
   {
     "id": "hip-wall-sprint-a-switch-band-resisted-rapid-knee-drive",
     "name": "Wall Sprint A-Switch & Band-Resisted Rapid Knee Drive (Swing-Phase RFD & Kicking Prep)",
-    "chineseName": "Wall Sprint A-Switch & Band-Resisted Rapid Knee Drive (Swing-Phase RFD & Kicking Prep)",
+    "chineseName": "彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38590,7 +38590,7 @@
   {
     "id": "hip-side-lying-abducted-neutral-isometric-gluteus-medius-hold-ischiofemoral",
     "name": "Side-Lying Abducted-Neutral Isometric Gluteus Medius Hold (Ischiofemoral Space Widener)",
-    "chineseName": "Side-Lying Abducted-Neutral Isometric Gluteus Medius Hold (Ischiofemoral Space Widener)",
+    "chineseName": "側臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38689,7 +38689,7 @@
   {
     "id": "hip-half-kneeling-active-posterior-tilt-hip-flexor-tfl-lengthening",
     "name": "Half-Kneeling Active Posterior-Tilt Hip Flexor & TFL Lengthening (Unloading Terminal Extension Demand)",
-    "chineseName": "Half-Kneeling Active Posterior-Tilt Hip Flexor & TFL Lengthening (Unloading Terminal Extension Demand)",
+    "chineseName": "半跪姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38797,7 +38797,7 @@
   {
     "id": "hip-standing-wall-press-isometric-hip-abduction-in-10°",
     "name": "Standing Wall-Press Isometric Hip Abduction in 10° Abducted Stance (Closed-Chain Space Opener)",
-    "chineseName": "Standing Wall-Press Isometric Hip Abduction in 10° Abducted Stance (Closed-Chain Space Opener)",
+    "chineseName": "站姿 髖關節外展肌力強化 (臀中肌/臀小肌) (等長維持)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -38904,7 +38904,7 @@
   {
     "id": "hip-controlled-prone-quadruped-hip-internal-rotation-neutral-abducted",
     "name": "Controlled Prone/Quadruped Hip Internal Rotation & Neutral-Abducted Extension",
-    "chineseName": "Controlled Prone/Quadruped Hip Internal Rotation & Neutral-Abducted Extension",
+    "chineseName": "俯臥 髖關節內旋控制與活動度",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39013,7 +39013,7 @@
   {
     "id": "hip-standing-step-pelvic-drop-to-hike-stopping-at-neutral",
     "name": "Standing Step Pelvic Drop-to-Hike (Stopping at Neutral 0° Adduction — Anti-Trendelenburg)",
-    "chineseName": "Standing Step Pelvic Drop-to-Hike (Stopping at Neutral 0° Adduction — Anti-Trendelenburg)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39122,7 +39122,7 @@
   {
     "id": "hip-wide-track-split-squat-with-slight-internal-to-neutral-foot",
     "name": "Wide-Track Split Squat with Slight Internal-to-Neutral Foot Alignment (Decompressed Loading)",
-    "chineseName": "Wide-Track Split Squat with Slight Internal-to-Neutral Foot Alignment (Decompressed Loading)",
+    "chineseName": "分腿蹲 (跨步深蹲)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39231,7 +39231,7 @@
   {
     "id": "hip-lateral-banded-step-up-step-down-with-anti-adduction-knee",
     "name": "Lateral Banded Step-Up & Step-Down with Anti-Adduction Knee Control",
-    "chineseName": "Lateral Banded Step-Up & Step-Down with Anti-Adduction Knee Control",
+    "chineseName": "彈力帶 下台階離心控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39341,7 +39341,7 @@
   {
     "id": "hip-metronome-high-cadence-7-5-track-width-gait-running",
     "name": "Metronome High-Cadence (+7.5%) & Track-Width Gait/Running Retraining (LSW Unloading)",
-    "chineseName": "Metronome High-Cadence (+7.5%) & Track-Width Gait/Running Retraining (LSW Unloading)",
+    "chineseName": "步態與觸地生物力學重塑",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39443,7 +39443,7 @@
   {
     "id": "hip-constructive-rest-happy-baby-diaphragmatic-pelvic-drop-alcock",
     "name": "Constructive Rest & Happy-Baby Diaphragmatic \"Pelvic Drop\" (Alcock's Canal & Levator Ani Down-Training)",
-    "chineseName": "Constructive Rest & Happy-Baby Diaphragmatic \"Pelvic Drop\" (Alcock's Canal & Levator Ani Down-Training)",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39556,7 +39556,7 @@
   {
     "id": "hip-supine-hook-lying-knee-inward-drop-reverse-clam-—",
     "name": "Supine Hook-Lying Knee-Inward Drop (\"Reverse Clam\" — Passive/Active Obturator Internus Lengthening)",
-    "chineseName": "Supine Hook-Lying Knee-Inward Drop (\"Reverse Clam\" — Passive/Active Obturator Internus Lengthening)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39663,7 +39663,7 @@
   {
     "id": "hip-side-lying-quadruped-obturator-pudendal-neurodynamic-slider-s2–s4",
     "name": "Side-Lying & Quadruped Obturator / Pudendal Neurodynamic Slider (S2–S4 & L2–L4 Canal Decompression)",
-    "chineseName": "Side-Lying & Quadruped Obturator / Pudendal Neurodynamic Slider (S2–S4 & L2–L4 Canal Decompression)",
+    "chineseName": "側臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39775,7 +39775,7 @@
   {
     "id": "hip-neutral-rotation-bilateral-kickstand-glute-bridge-superficial-gluteus",
     "name": "Neutral-Rotation Bilateral & Kickstand Glute Bridge (Superficial Gluteus Maximus Load-Takeover)",
-    "chineseName": "Neutral-Rotation Bilateral & Kickstand Glute Bridge (Superficial Gluteus Maximus Load-Takeover)",
+    "chineseName": "雙腳 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39884,7 +39884,7 @@
   {
     "id": "hip-quadruped-rock-back-with-internal-hip-rotation-bias",
     "name": "Quadruped Rock-Back with Internal Hip Rotation Bias (Eccentric Posterior Pelvic Floor & OI Lengthening)",
-    "chineseName": "Quadruped Rock-Back with Internal Hip Rotation Bias (Eccentric Posterior Pelvic Floor & OI Lengthening)",
+    "chineseName": "四足跪姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -39993,7 +39993,7 @@
   {
     "id": "hip-seated-standing-cable-band-eccentric-hip-external",
     "name": "Seated & Standing Cable/Band Eccentric Hip External Rotator Control (Lengthened OI Remodeling)",
-    "chineseName": "Seated & Standing Cable/Band Eccentric Hip External Rotator Control (Lengthened OI Remodeling)",
+    "chineseName": "站姿 彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40094,7 +40094,7 @@
   {
     "id": "hip-breath-synchronized-goblet-box-squat-hip-hinge-inhale",
     "name": "Breath-Synchronized Goblet Box Squat & Hip Hinge (\"Inhale to Widen Ischia, Exhale to Rise\")",
-    "chineseName": "Breath-Synchronized Goblet Box Squat & Hip Hinge (\"Inhale to Widen Ischia, Exhale to Rise\")",
+    "chineseName": "髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40205,7 +40205,7 @@
   {
     "id": "hip-standing-interval-cycling-high-cadence-running-load-transfer-protocol-saddle",
     "name": "Standing-Interval Cycling & High-Cadence Running Load-Transfer Protocol (Saddle & Impact RTS)",
-    "chineseName": "Standing-Interval Cycling & High-Cadence Running Load-Transfer Protocol (Saddle & Impact RTS)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40311,7 +40311,7 @@
   {
     "id": "hip-supine-long-lever-isometric-bridge-hold-stage-1",
     "name": "Supine long-lever isometric bridge hold (Stage 1 — 0° hip flexion analgesia)",
-    "chineseName": "Supine long-lever isometric bridge hold (Stage 1 — 0° hip flexion analgesia)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40423,7 +40423,7 @@
   {
     "id": "hip-supine-sciatic-nerve-slider-deep-gluteal-external",
     "name": "Supine Sciatic Nerve Slider & Deep Gluteal External Rotator Isometric",
-    "chineseName": "Supine Sciatic Nerve Slider & Deep Gluteal External Rotator Isometric",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40528,7 +40528,7 @@
   {
     "id": "hip-single-leg-long-lever-isotonic-bridge-supine-slider-stage",
     "name": "Single-leg long-lever isotonic bridge & supine slider (Stage 2A — 0° hip HSR)",
-    "chineseName": "Single-leg long-lever isotonic bridge & supine slider (Stage 2A — 0° hip HSR)",
+    "chineseName": "仰臥 單腳 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40641,7 +40641,7 @@
   {
     "id": "hip-prone-standing-resisted-hamstring-curl-nordic-curl",
     "name": "Prone / standing resisted hamstring curl & Nordic curl (Stage 2A — 0° hip lock)",
-    "chineseName": "Prone / standing resisted hamstring curl & Nordic curl (Stage 2A — 0° hip lock)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40740,7 +40740,7 @@
   {
     "id": "hip-side-lying-standing-banded-hip-abduction-external-rotation",
     "name": "Side-lying & standing banded hip abduction / external rotation (Deep Gluteal HSR)",
-    "chineseName": "Side-lying & standing banded hip abduction / external rotation (Deep Gluteal HSR)",
+    "chineseName": "站姿 彈力帶 髖關節外展肌力強化 (臀中肌/臀小肌) (HSR高負荷)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40845,7 +40845,7 @@
   {
     "id": "hip-graded-depth-romanian-deadlift-stage-2b-—-30°",
     "name": "Graded-depth Romanian Deadlift (Stage 2B — 30° -> 60° -> 90° hip-flexion exposure)",
-    "chineseName": "Graded-depth Romanian Deadlift (Stage 2B — 30° -> 60° -> 90° hip-flexion exposure)",
+    "chineseName": "羅馬尼亞硬舉 (RDL 膕旁肌與臀肌)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -40946,7 +40946,7 @@
   {
     "id": "hip-graded-depth-bulgarian-split-squat-high-step-up-stage",
     "name": "Graded-depth Bulgarian split squat & high step-up (Stage 2B unilateral compression)",
-    "chineseName": "Graded-depth Bulgarian split squat & high step-up (Stage 2B unilateral compression)",
+    "chineseName": "單腳 上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41055,7 +41055,7 @@
   {
     "id": "hip-kettlebell-swing-a-skip-uphill-speed-running-progression",
     "name": "Kettlebell swing, A-Skip & uphill/speed running progression (Stage 3–4 SSC)",
-    "chineseName": "Kettlebell swing, A-Skip & uphill/speed running progression (Stage 3–4 SSC)",
+    "chineseName": "壺鈴 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41161,7 +41161,7 @@
   {
     "id": "hip-supine-reciprocal-hip-flexion–extension-isometric-reset-shotgun",
     "name": "Supine Reciprocal Hip Flexion–Extension Isometric Reset (\"Shotgun\" / MET Self-Correction)",
-    "chineseName": "Supine Reciprocal Hip Flexion–Extension Isometric Reset (\"Shotgun\" / MET Self-Correction)",
+    "chineseName": "仰臥 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41270,7 +41270,7 @@
   {
     "id": "hip-hook-lying-adductor-ball-squeeze-abductor-band-press",
     "name": "Hook-Lying Adductor Ball Squeeze + Abductor Band Press (\"Shotgun\" Force-Closure Co-Contraction)",
-    "chineseName": "Hook-Lying Adductor Ball Squeeze + Abductor Band Press (\"Shotgun\" Force-Closure Co-Contraction)",
+    "chineseName": "彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41379,7 +41379,7 @@
   {
     "id": "hip-banded-glute-bridge-with-adductor-block-squeeze",
     "name": "Banded Glute Bridge with Adductor Block Squeeze (Symmetric Posterior Ring Compression)",
-    "chineseName": "Banded Glute Bridge with Adductor Block Squeeze (Symmetric Posterior Ring Compression)",
+    "chineseName": "彈力帶 臀橋式骨盆抬高訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41488,7 +41488,7 @@
   {
     "id": "hip-bird-dog-with-contralateral-lat-band-pull-down-posterior",
     "name": "Bird-Dog with Contralateral Lat Band Pull-Down (Posterior Oblique Sling Activation)",
-    "chineseName": "Bird-Dog with Contralateral Lat Band Pull-Down (Posterior Oblique Sling Activation)",
+    "chineseName": "彈力帶 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41596,7 +41596,7 @@
   {
     "id": "hip-half-kneeling-standing-cable-chop-lift-with-adductor",
     "name": "Half-Kneeling / Standing Cable Chop & Lift with Adductor Engagement (Anterior Oblique Sling)",
-    "chineseName": "Half-Kneeling / Standing Cable Chop & Lift with Adductor Engagement (Anterior Oblique Sling)",
+    "chineseName": "站姿 髖骨盆肌群動態活化與控制訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41704,7 +41704,7 @@
   {
     "id": "hip-standing-single-leg-rdl-with-contralateral-cable-band",
     "name": "Standing Single-Leg RDL with Contralateral Cable/Band Row (Loaded Posterior Oblique Sling)",
-    "chineseName": "Standing Single-Leg RDL with Contralateral Cable/Band Row (Loaded Posterior Oblique Sling)",
+    "chineseName": "站姿 單腳羅馬尼亞硬舉 (平衡與後側鏈)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41811,7 +41811,7 @@
   {
     "id": "hip-short-stride-symmetric-to-split-squat-with-anti-rotation-pallof-press",
     "name": "Short-Stride Symmetric-to-Split Squat with Anti-Rotation Pallof Press (Controlled Shear Progression)",
-    "chineseName": "Short-Stride Symmetric-to-Split Squat with Anti-Rotation Pallof Press (Controlled Shear Progression)",
+    "chineseName": "分腿蹲 (跨步深蹲)",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [
@@ -41908,7 +41908,7 @@
   {
     "id": "hip-heavy-mixed-rack-suitcase-farmer-s-carry-step-up",
     "name": "Heavy Mixed-Rack / Suitcase Farmer's Carry & Step-Up (Lateral Sling & Dynamic Force-Closure)",
-    "chineseName": "Heavy Mixed-Rack / Suitcase Farmer's Carry & Step-Up (Lateral Sling & Dynamic Force-Closure)",
+    "chineseName": "上階梯登階肌力訓練",
     "macroRegion": "Lower Limb",
     "subRegion": "Hip & Pelvis",
     "movementType": [

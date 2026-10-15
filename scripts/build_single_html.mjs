@@ -16,25 +16,39 @@ if (!fs.existsSync(htmlFile)) {
 let html = fs.readFileSync(htmlFile, 'utf8');
 
 // Inline CSS
-const cssMatch = html.match(/href="(\/assets\/[^"]+\.css)"/);
+const cssMatch = html.match(/href="(\.?\/assets\/[^"]+\.css)"/);
 if (cssMatch) {
-  const cssPath = path.join(distDir, cssMatch[1].replace(/^\//, ''));
+  const cssPath = path.join(distDir, cssMatch[1].replace(/^\.?\//, ''));
   if (fs.existsSync(cssPath)) {
     const cssContent = fs.readFileSync(cssPath, 'utf8');
-    html = html.replace(/<link rel="stylesheet"[^>]+>/, `<style>\n${cssContent}\n</style>`);
+    html = html.replace(/<link rel="stylesheet"[^>]+>/, () => `<style>\n${cssContent}\n</style>`);
     console.log('✓ Inlined CSS bundle');
   }
 }
 
-// Inline JS
-const jsMatch = html.match(/src="(\/assets\/[^"]+\.js)"/);
+// Inline JS - Remove from head and place right before </body> to ensure DOM (#root) is ready and avoid file:// module CORS restrictions
+const jsMatch = html.match(/<script type="module"[^>]*src="(\.?\/assets\/[^"]+\.js)"[^>]*><\/script>/);
 if (jsMatch) {
-  const jsPath = path.join(distDir, jsMatch[1].replace(/^\//, ''));
+  const jsRelPath = jsMatch[1].replace(/^\.?\//, '');
+  const jsPath = path.join(distDir, jsRelPath);
   if (fs.existsSync(jsPath)) {
     const jsContent = fs.readFileSync(jsPath, 'utf8');
     const safeJs = jsContent.replace(/<\/script>/gi, '<\\/script>');
-    html = html.replace(/<script type="module"[^>]+><\/script>/, `<script type="module">\n${safeJs}\n</script>`);
-    console.log('✓ Inlined JavaScript bundle');
+    
+    // Validate JS syntax
+    try {
+      new Function(safeJs);
+      console.log('✓ JavaScript syntax validated successfully');
+    } catch (err) {
+      console.error('❌ JavaScript syntax error:', err);
+      process.exit(1);
+    }
+
+    // Remove the tag from head
+    html = html.replace(jsMatch[0], '');
+    // Append inline script right before </body> using function replacer to prevent pattern expansion
+    html = html.replace('</body>', () => `<script>\n${safeJs}\n</script>\n</body>`);
+    console.log('✓ Inlined JavaScript bundle before </body>');
   }
 }
 

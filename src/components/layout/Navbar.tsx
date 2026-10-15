@@ -89,8 +89,8 @@ export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
         </div>
       </div>
 
-      {/* Mobile nav bar */}
-      <div className="md:hidden flex items-center justify-around border-t border-slate-200 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 py-2 px-1">
+      {/* Mobile Bottom Navigation Bar (Ergonomic thumb reach) */}
+      <nav className="no-print md:hidden fixed bottom-0 left-0 right-0 z-40 flex items-center justify-around border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md py-2 px-1 shadow-2xl">
         {navLinks.map((link) => {
           const Icon = link.icon;
           const isActive = location === link.href || (link.href !== '/' && location.startsWith(link.href));
@@ -98,14 +98,14 @@ export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
             <Link
               key={link.href}
               href={link.href}
-              className={`flex flex-col items-center gap-1 px-3 py-1 text-[11px] font-medium rounded-lg ${
+              className={`flex flex-col items-center gap-1 px-3 py-1 text-[11px] font-medium rounded-lg transition ${
                 isActive ? 'text-teal-600 dark:text-teal-400 font-bold' : 'text-slate-500 dark:text-slate-400'
               }`}
             >
               <div className="relative">
-                <Icon className="w-4 h-4" />
+                <Icon className="w-5 h-5" />
                 {link.badge !== undefined && link.badge > 0 && (
-                  <span className="absolute -top-1.5 -right-2 w-3.5 h-3.5 rounded-full bg-teal-500 text-white text-[9px] flex items-center justify-center font-bold">
+                  <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-4 px-1 rounded-full bg-teal-600 text-white text-[10px] flex items-center justify-center font-bold">
                     {link.badge}
                   </span>
                 )}
@@ -114,7 +114,7 @@ export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
             </Link>
           );
         })}
-      </div>
+      </nav>
     </header>
   );
 };

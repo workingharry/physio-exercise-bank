@@ -72,9 +72,11 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
               {exercise.name}
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">
-              {exercise.chineseName}
-            </p>
+            {exercise.chineseName && exercise.chineseName !== exercise.name && (
+              <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold mt-1">
+                {exercise.chineseName}
+              </p>
+            )}
             {exercise.targetPathologies.length > 0 && (
               <p className="mt-2 text-xs text-teal-600 dark:text-teal-400 font-medium flex items-center gap-1.5">
                 <Target className="w-3.5 h-3.5 shrink-0" />
@@ -119,41 +121,51 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
             </div>
           </div>
 
-          {/* Step-by-Step Instructions */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-              <span>執行步驟與臨床要點</span>
-            </h4>
+          {/* Execution Steps */}
+          {(() => {
+            const rawStart = exercise.execution.startingPosition?.trim() || '';
+            const isDup = exercise.execution.steps.length > 0 &&
+              exercise.execution.steps[0].instruction.trim().toLowerCase() === rawStart.toLowerCase();
+            const steps = isDup ? exercise.execution.steps.slice(1) : exercise.execution.steps;
 
-            {exercise.description && (
-              <div className="p-3.5 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs text-slate-800 dark:text-slate-200">
-                <strong className="text-teal-700 dark:text-teal-300 block mb-1 font-bold">
-                  臨床動作機制與生物力學目的:
-                </strong>
-                <p className="leading-relaxed font-medium">{exercise.description}</p>
-              </div>
-            )}
+            return (
+              <div className="space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
+                  臨床執行步驟
+                </span>
 
-            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300">
-              <strong className="text-teal-700 dark:text-teal-400 block mb-0.5">起始位置：</strong>
-              <p>{exercise.execution.startingPosition}</p>
-            </div>
-
-            <div className="space-y-2">
-              {exercise.execution.steps.slice(0, 3).map(s => (
-                <div key={s.stepNumber} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/60 text-xs flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-md bg-teal-500/10 text-teal-700 dark:bg-teal-600/30 dark:text-teal-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/20">
-                    {s.stepNumber}
-                  </span>
-                  <div className="flex-1 space-y-0.5">
-                    <p className="text-slate-800 dark:text-slate-200 font-medium">{s.instruction}</p>
-                    {s.keyPoint && <span className="text-[11px] text-amber-700 dark:text-amber-300/90 font-medium block">⚡ {s.keyPoint}</span>}
+                {exercise.description && (
+                  <div className="p-3.5 rounded-xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs text-slate-800 dark:text-slate-200">
+                    <strong className="text-teal-700 dark:text-teal-300 block mb-1 font-bold">
+                      動作機制與目的:
+                    </strong>
+                    <p className="leading-relaxed font-medium">{exercise.description}</p>
                   </div>
+                )}
+
+                {rawStart && (
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300">
+                    <strong className="text-teal-700 dark:text-teal-400 block mb-0.5 font-bold">步驟 0：起始預備姿勢</strong>
+                    <p>{rawStart}</p>
+                  </div>
+                )}
+
+                <div className="space-y-2">
+                  {steps.slice(0, 3).map((s, idx) => (
+                    <div key={idx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/60 text-xs flex items-start gap-2.5">
+                      <span className="w-5 h-5 rounded-md bg-teal-500/10 text-teal-700 dark:bg-teal-600/30 dark:text-teal-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/20">
+                        {idx + 1}
+                      </span>
+                      <div className="flex-1 space-y-0.5">
+                        <p className="text-slate-800 dark:text-slate-200 font-medium">{s.instruction}</p>
+                        {s.keyPoint && <span className="text-[11px] text-amber-700 dark:text-amber-300/90 font-medium block">⚡ {s.keyPoint}</span>}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            );
+          })()}
 
           {/* Coaching Cues & Common Errors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">

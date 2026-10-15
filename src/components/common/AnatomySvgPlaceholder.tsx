@@ -67,12 +67,6 @@ export const AnatomySvgPlaceholder: React.FC<Props> = ({ subRegion, className = 
         <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
           {badge || subRegion}
         </span>
-        <span className="text-[10px] text-slate-400">臨床生物力學關節模型</span>
-      </div>
-
-      {/* Subtle indicator pill */}
-      <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] bg-slate-900/80 border border-slate-700/60 text-slate-400">
-        Clinical Vector
       </div>
     </div>
   );
