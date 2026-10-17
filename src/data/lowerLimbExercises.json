@@ -13142,7 +13142,7 @@
   {
     "id": "knee-seated-open-kinetic-chain-okc-knee-extension",
     "name": "Seated open kinetic chain (OKC) knee extension (90°–45° safe arc) (ACLR)",
-    "chineseName": "坐姿 膝關節周邊動態肌力與對齊訓練",
+    "chineseName": "坐姿開放鏈膝伸展 (90°–45° 安全活動度 / 前十字韌帶重建術後)",
     "macroRegion": "Lower Limb",
     "subRegion": "Knee",
     "movementType": [
@@ -13163,8 +13163,8 @@
     "difficulty": "Intermediate (中階)",
     "description": "Delivers isolated quadriceps overload to reverse post-ACLR atrophy, preventing the hip and ankle compensations common in closed-chain movements. Restricting range to the 90°–45° arc maintains broad patellofemoral contact area and minimizes anterior tibial shear strain on the remodeling ACL graft (peak graft strain occurs between 30° and 0°).",
     "media": {
-      "thumbnailUrl": "/media/lower-limb/knee/seated-open-kinetic-chain-okc-knee-extension.jpg",
-      "videoUrl": "https://www.youtube.com/watch?v=Hu5rhcq_y-8",
+      "thumbnailUrl": "https://img.youtube.com/vi/oFRpUjoTeXQ/hqdefault.jpg",
+      "videoUrl": "https://www.youtube.com/watch?v=oFRpUjoTeXQ",
       "videoType": "youtube",
       "muscleDiagramUrl": "/media/diagrams/knee-muscles.svg"
     },
