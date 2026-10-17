@@ -1,0 +1,2357 @@
+[
+ {
+  "id": "mid-portion-achilles-tendinopathy",
+  "nameEn": "Mid-portion Achilles tendinopathy",
+  "nameZh": "跟腱病變（中段）",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Achilles",
+   "Mid-portion Achilles tendinopathy",
+   "跟腱炎",
+   "跟腱病變（中段）",
+   "跟腱痛",
+   "阿基里斯腱炎"
+  ],
+  "bundleId": 0,
+  "bundleSize": 3,
+  "bundleLabel": "Achilles Tendinopathy (Mid-Portion vs. Insertional) & Rupture Repair",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "insertional-achilles-tendinopathy",
+  "nameEn": "Insertional Achilles tendinopathy",
+  "nameZh": "跟腱病變（止點處）",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Achilles",
+   "Insertional Achilles tendinopathy",
+   "跟腱止點",
+   "跟腱炎",
+   "跟腱病變（止點處）",
+   "阿基里斯腱炎"
+  ],
+  "bundleId": 0,
+  "bundleSize": 3,
+  "bundleLabel": "Achilles Tendinopathy (Mid-Portion vs. Insertional) & Rupture Repair",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "achilles-tendon-rupture-repair",
+  "nameEn": "Achilles tendon rupture repair",
+  "nameZh": "跟腱斷裂修復術後",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Achilles rupture",
+   "Achilles tendon rupture repair",
+   "跟腱斷裂",
+   "跟腱斷裂修復術後",
+   "阿基里斯腱斷裂"
+  ],
+  "bundleId": 0,
+  "bundleSize": 3,
+  "bundleLabel": "Achilles Tendinopathy (Mid-Portion vs. Insertional) & Rupture Repair",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "ankle-fracture-post-orif",
+  "nameEn": "Ankle fracture (post-ORIF)",
+  "nameZh": "踝關節骨折（內固定術後）",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Ankle fracture (post-ORIF)",
+   "ORIF",
+   "腳踝骨折",
+   "踝關節骨折（內固定術後）",
+   "踝骨折"
+  ],
+  "bundleId": 1,
+  "bundleSize": 2,
+  "bundleLabel": "Ankle Fracture (Post-ORIF) & Pes Cavus (High-Arch Supination)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pes-cavus-high-arch-supination",
+  "nameEn": "Pes cavus (high-arch supination)",
+  "nameZh": "高弓足",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Pes cavus (high-arch supination)",
+   "高弓足"
+  ],
+  "bundleId": 1,
+  "bundleSize": 2,
+  "bundleLabel": "Ankle Fracture (Post-ORIF) & Pes Cavus (High-Arch Supination)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "anterior-ankle-impingement",
+  "nameEn": "Anterior ankle impingement",
+  "nameZh": "踝前撞擊",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Anterior ankle impingement",
+   "踝前撞擊"
+  ],
+  "bundleId": 2,
+  "bundleSize": 4,
+  "bundleLabel": "Anterior & Posterior Ankle Impingement (FHL Tendinopathy) & Ankle OA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "posterior-ankle-impingement",
+  "nameEn": "Posterior ankle impingement",
+  "nameZh": "踝後撞擊",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Posterior ankle impingement",
+   "踝後撞擊"
+  ],
+  "bundleId": 2,
+  "bundleSize": 4,
+  "bundleLabel": "Anterior & Posterior Ankle Impingement (FHL Tendinopathy) & Ankle OA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "fhl-tendinopathy",
+  "nameEn": "FHL tendinopathy",
+  "nameZh": "拇長屈肌腱病變",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "FHL tendinopathy",
+   "拇長屈肌腱病變"
+  ],
+  "bundleId": 2,
+  "bundleSize": 4,
+  "bundleLabel": "Anterior & Posterior Ankle Impingement (FHL Tendinopathy) & Ankle OA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "ankle-osteoarthritis",
+  "nameEn": "Ankle osteoarthritis",
+  "nameZh": "踝關節退化性關節炎",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Ankle osteoarthritis",
+   "踝關節退化性關節炎"
+  ],
+  "bundleId": 2,
+  "bundleSize": 4,
+  "bundleLabel": "Anterior & Posterior Ankle Impingement (FHL Tendinopathy) & Ankle OA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "gastrocnemius-strain-tennis-leg",
+  "nameEn": "Gastrocnemius strain (tennis leg)",
+  "nameZh": "腓腸肌拉傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Gastrocnemius strain (tennis leg)",
+   "tennis leg",
+   "腓腸肌拉傷"
+  ],
+  "bundleId": 3,
+  "bundleSize": 2,
+  "bundleLabel": "Calf Muscle Strain (Gastrocnemius Tennis Leg vs. Soleus)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "soleus-strain",
+  "nameEn": "Soleus strain",
+  "nameZh": "比目魚肌拉傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Soleus strain",
+   "比目魚肌拉傷"
+  ],
+  "bundleId": 3,
+  "bundleSize": 2,
+  "bundleLabel": "Calf Muscle Strain (Gastrocnemius Tennis Leg vs. Soleus)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "cuboid-syndrome",
+  "nameEn": "Cuboid syndrome",
+  "nameZh": "骰骨症候群",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Cuboid syndrome",
+   "骰骨症候群"
+  ],
+  "bundleId": 4,
+  "bundleSize": 2,
+  "bundleLabel": "Cuboid Syndrome & 5th Metatarsal (Jones _ Avulsion) Fracture",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "5th-metatarsal-fracture-jones-avulsion",
+  "nameEn": "5th metatarsal fracture (Jones / avulsion)",
+  "nameZh": "第五蹠骨骨折",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "5th metatarsal fracture (Jones / avulsion)",
+   "第五蹠骨骨折"
+  ],
+  "bundleId": 4,
+  "bundleSize": 2,
+  "bundleLabel": "Cuboid Syndrome & 5th Metatarsal (Jones _ Avulsion) Fracture",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hallux-valgus",
+  "nameEn": "Hallux valgus",
+  "nameZh": "拇趾外翻",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Hallux valgus",
+   "bunion",
+   "大腳趾外翻",
+   "拇趾外翻"
+  ],
+  "bundleId": 5,
+  "bundleSize": 4,
+  "bundleLabel": "Hallux Valgus, Turf Toe, Hallux Rigidus & Sesamoiditis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "turf-toe",
+  "nameEn": "Turf toe",
+  "nameZh": "草皮趾",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Turf toe",
+   "草皮趾"
+  ],
+  "bundleId": 5,
+  "bundleSize": 4,
+  "bundleLabel": "Hallux Valgus, Turf Toe, Hallux Rigidus & Sesamoiditis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hallux-rigidus",
+  "nameEn": "Hallux rigidus",
+  "nameZh": "拇趾僵硬",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Hallux rigidus",
+   "拇趾僵硬"
+  ],
+  "bundleId": 5,
+  "bundleSize": 4,
+  "bundleLabel": "Hallux Valgus, Turf Toe, Hallux Rigidus & Sesamoiditis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sesamoiditis",
+  "nameEn": "Sesamoiditis",
+  "nameZh": "籽骨炎",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Sesamoiditis",
+   "籽骨炎"
+  ],
+  "bundleId": 5,
+  "bundleSize": 4,
+  "bundleLabel": "Hallux Valgus, Turf Toe, Hallux Rigidus & Sesamoiditis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "lateral-ankle-sprain",
+  "nameEn": "Lateral ankle sprain",
+  "nameZh": "外側踝扭傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Lateral ankle sprain",
+   "ankle sprain",
+   "外側踝扭傷",
+   "崴腳",
+   "扭腳",
+   "腳踝扭傷"
+  ],
+  "bundleId": 6,
+  "bundleSize": 2,
+  "bundleLabel": "Lateral Ankle Sprain & Chronic Ankle Instability (CAI)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "chronic-ankle-instability-cai",
+  "nameEn": "Chronic ankle instability (CAI)",
+  "nameZh": "慢性踝不穩",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "CAI",
+   "Chronic ankle instability (CAI)",
+   "反覆扭傷",
+   "慢性踝不穩",
+   "腳踝不穩"
+  ],
+  "bundleId": 6,
+  "bundleSize": 2,
+  "bundleLabel": "Lateral Ankle Sprain & Chronic Ankle Instability (CAI)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "lisfranc-midfoot-sprain",
+  "nameEn": "Lisfranc (midfoot) sprain",
+  "nameZh": "跗蹠關節（中足）扭傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Lisfranc (midfoot) sprain",
+   "midfoot",
+   "跗蹠關節（中足）扭傷"
+  ],
+  "bundleId": 7,
+  "bundleSize": 3,
+  "bundleLabel": "Lisfranc (Midfoot) Sprain, Metatarsalgia & Morton's Neuroma",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "metatarsalgia",
+  "nameEn": "Metatarsalgia",
+  "nameZh": "蹠骨痛",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Metatarsalgia",
+   "蹠骨痛"
+  ],
+  "bundleId": 7,
+  "bundleSize": 3,
+  "bundleLabel": "Lisfranc (Midfoot) Sprain, Metatarsalgia & Morton's Neuroma",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "morton-s-neuroma",
+  "nameEn": "Morton's neuroma",
+  "nameZh": "莫頓氏神經瘤",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Morton's neuroma",
+   "腳掌痛",
+   "莫頓氏神經瘤",
+   "足前掌痛"
+  ],
+  "bundleId": 7,
+  "bundleSize": 3,
+  "bundleLabel": "Lisfranc (Midfoot) Sprain, Metatarsalgia & Morton's Neuroma",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "medial-tibial-stress-syndrome-mtss",
+  "nameEn": "Medial tibial stress syndrome (MTSS)",
+  "nameZh": "脛骨內側壓力症候群（脛前疼痛）",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "MTSS",
+   "Medial tibial stress syndrome (MTSS)",
+   "shin splints",
+   "小腿前面痛",
+   "脛痛",
+   "脛骨內側壓力症候群（脛前疼痛）",
+   "脛骨痛"
+  ],
+  "bundleId": 8,
+  "bundleSize": 3,
+  "bundleLabel": "Medial Tibial Stress Syndrome (MTSS), Tibial Stress Fracture & CECS",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "tibial-stress-fracture",
+  "nameEn": "Tibial stress fracture",
+  "nameZh": "脛骨應力性骨折",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Tibial stress fracture",
+   "脛骨應力性骨折"
+  ],
+  "bundleId": 8,
+  "bundleSize": 3,
+  "bundleLabel": "Medial Tibial Stress Syndrome (MTSS), Tibial Stress Fracture & CECS",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "chronic-exertional-compartment-syndrome-cecs",
+  "nameEn": "Chronic exertional compartment syndrome (CECS)",
+  "nameZh": "慢性運動性筋膜室症候群",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "CECS",
+   "Chronic exertional compartment syndrome (CECS)",
+   "慢性運動性筋膜室症候群"
+  ],
+  "bundleId": 8,
+  "bundleSize": 3,
+  "bundleLabel": "Medial Tibial Stress Syndrome (MTSS), Tibial Stress Fracture & CECS",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "plantar-fasciopathy",
+  "nameEn": "Plantar fasciopathy",
+  "nameZh": "足底筋膜病變",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Plantar fasciopathy",
+   "plantar fasciitis",
+   "腳底痛",
+   "腳跟痛",
+   "足底筋膜炎",
+   "足底筋膜病變"
+  ],
+  "bundleId": 9,
+  "bundleSize": 1,
+  "bundleLabel": "Plantar Fasciopathy (Rathleff Windlass Protocol)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "posterior-tibial-tendon-dysfunction-pttd",
+  "nameEn": "Posterior tibial tendon dysfunction (PTTD)",
+  "nameZh": "脛後肌腱功能不全",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "PTTD",
+   "Posterior tibial tendon dysfunction (PTTD)",
+   "脛後肌腱功能不全"
+  ],
+  "bundleId": 10,
+  "bundleSize": 2,
+  "bundleLabel": "Posterior Tibial Tendon Dysfunction (PTTD) & Deltoid Ligament",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 2"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "deltoid-ligament-injury",
+  "nameEn": "Deltoid ligament injury",
+  "nameZh": "三角韌帶損傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Deltoid ligament injury",
+   "三角韌帶損傷"
+  ],
+  "bundleId": 10,
+  "bundleSize": 2,
+  "bundleLabel": "Posterior Tibial Tendon Dysfunction (PTTD) & Deltoid Ligament",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 2"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "syndesmotic-high-ankle-sprain",
+  "nameEn": "Syndesmotic (high ankle) sprain",
+  "nameZh": "下脛腓聯合（高位）踝扭傷",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Syndesmotic (high ankle) sprain",
+   "high ankle",
+   "下脛腓聯合（高位）踝扭傷"
+  ],
+  "bundleId": 11,
+  "bundleSize": 3,
+  "bundleLabel": "Syndesmotic (High Ankle) Sprain, Peroneal Tendinopathy & Sever's Disease",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "peroneal-tendinopathy",
+  "nameEn": "Peroneal tendinopathy",
+  "nameZh": "腓骨肌腱病變",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Peroneal tendinopathy",
+   "腓骨肌腱病變"
+  ],
+  "bundleId": 11,
+  "bundleSize": 3,
+  "bundleLabel": "Syndesmotic (High Ankle) Sprain, Peroneal Tendinopathy & Sever's Disease",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sever-s-disease",
+  "nameEn": "Sever's disease",
+  "nameZh": "跟骨骨骺炎（Sever's）",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Sever's disease",
+   "小孩腳跟痛",
+   "跟骨骨骺炎",
+   "跟骨骨骺炎（Sever's）"
+  ],
+  "bundleId": 11,
+  "bundleSize": 3,
+  "bundleLabel": "Syndesmotic (High Ankle) Sprain, Peroneal Tendinopathy & Sever's Disease",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "talar-osteochondral-defect-ocd",
+  "nameEn": "Talar osteochondral defect (OCD)",
+  "nameZh": "距骨骨軟骨缺損",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "OCD",
+   "Talar osteochondral defect (OCD)",
+   "距骨骨軟骨缺損"
+  ],
+  "bundleId": 12,
+  "bundleSize": 2,
+  "bundleLabel": "Talar Osteochondral Defect (OCD) & Sinus Tarsi Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sinus-tarsi-syndrome",
+  "nameEn": "Sinus tarsi syndrome",
+  "nameZh": "跗骨竇症候群",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Sinus tarsi syndrome",
+   "跗骨竇症候群"
+  ],
+  "bundleId": 12,
+  "bundleSize": 2,
+  "bundleLabel": "Talar Osteochondral Defect (OCD) & Sinus Tarsi Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "tarsal-tunnel-syndrome",
+  "nameEn": "Tarsal tunnel syndrome",
+  "nameZh": "跗隧道症候群",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Tarsal tunnel syndrome",
+   "跗隧道症候群"
+  ],
+  "bundleId": 13,
+  "bundleSize": 2,
+  "bundleLabel": "Tarsal Tunnel Syndrome & Ankle Neurodynamic Entrapment",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "ankle-neurodynamic-entrapment",
+  "nameEn": "Ankle neurodynamic entrapment",
+  "nameZh": "踝部神經卡壓",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Ankle neurodynamic entrapment",
+   "踝部神經卡壓"
+  ],
+  "bundleId": 13,
+  "bundleSize": 2,
+  "bundleLabel": "Tarsal Tunnel Syndrome & Ankle Neurodynamic Entrapment",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "tibialis-anterior-tendinopathy",
+  "nameEn": "Tibialis anterior tendinopathy",
+  "nameZh": "脛前肌腱病變",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Tibialis anterior tendinopathy",
+   "脛前肌腱病變"
+  ],
+  "bundleId": 14,
+  "bundleSize": 3,
+  "bundleLabel": "Tibialis Anterior Tendinopathy, Extensor Impingement & Foot Drop",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "extensor-impingement",
+  "nameEn": "Extensor impingement",
+  "nameZh": "伸肌撞擊",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Extensor impingement",
+   "伸肌撞擊"
+  ],
+  "bundleId": 14,
+  "bundleSize": 3,
+  "bundleLabel": "Tibialis Anterior Tendinopathy, Extensor Impingement & Foot Drop",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "foot-drop",
+  "nameEn": "Foot drop",
+  "nameZh": "足下垂",
+  "region": "Ankle & Foot",
+  "aliases": [
+   "Foot drop",
+   "垂足",
+   "足下垂"
+  ],
+  "bundleId": 14,
+  "bundleSize": 3,
+  "bundleLabel": "Tibialis Anterior Tendinopathy, Extensor Impingement & Foot Drop",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "acl-reconstruction-aclr",
+  "nameEn": "ACL reconstruction (ACLR)",
+  "nameZh": "前十字韌帶重建術後",
+  "region": "Knee",
+  "aliases": [
+   "ACL",
+   "ACL reconstruction (ACLR)",
+   "ACLR",
+   "前十字韌帶",
+   "前十字韌帶重建術後",
+   "十字韌帶術後"
+  ],
+  "bundleId": 15,
+  "bundleSize": 1,
+  "bundleLabel": "ACLR Sports",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": [
+   "few-specific-exercises"
+  ]
+ },
+ {
+  "id": "baker-s-cyst",
+  "nameEn": "Baker's cyst",
+  "nameZh": "貝克氏囊腫",
+  "region": "Knee",
+  "aliases": [
+   "Baker's cyst",
+   "貝克氏囊腫"
+  ],
+  "bundleId": 16,
+  "bundleSize": 2,
+  "bundleLabel": "Baker's Cyst & Posterior Knee Overuse",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "posterior-knee-overuse",
+  "nameEn": "Posterior knee overuse",
+  "nameZh": "膝後側過度使用",
+  "region": "Knee",
+  "aliases": [
+   "Posterior knee overuse",
+   "膝後側過度使用"
+  ],
+  "bundleId": 16,
+  "bundleSize": 2,
+  "bundleLabel": "Baker's Cyst & Posterior Knee Overuse",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hoffa-s-fat-pad-syndrome",
+  "nameEn": "Hoffa's fat pad syndrome",
+  "nameZh": "霍法氏脂肪墊症候群",
+  "region": "Knee",
+  "aliases": [
+   "Hoffa's fat pad syndrome",
+   "霍法氏脂肪墊症候群"
+  ],
+  "bundleId": 17,
+  "bundleSize": 1,
+  "bundleLabel": "Hoffa's Fat Pad Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "iliotibial-band-syndrome-itbs",
+  "nameEn": "Iliotibial band syndrome (ITBS)",
+  "nameZh": "髂脛束症候群",
+  "region": "Knee",
+  "aliases": [
+   "ITB",
+   "ITBS",
+   "Iliotibial band syndrome (ITBS)",
+   "膝外側痛",
+   "跑者膝",
+   "髂脛束",
+   "髂脛束症候群"
+  ],
+  "bundleId": 18,
+  "bundleSize": 1,
+  "bundleLabel": "Iliotibial Band Syndrome (ITBS)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "knee-osteoarthritis-oa",
+  "nameEn": "Knee osteoarthritis (OA)",
+  "nameZh": "膝關節退化性關節炎",
+  "region": "Knee",
+  "aliases": [
+   "Knee osteoarthritis (OA)",
+   "OA",
+   "knee OA",
+   "膝痛",
+   "膝退化",
+   "膝關節炎",
+   "膝關節退化性關節炎"
+  ],
+  "bundleId": 19,
+  "bundleSize": 2,
+  "bundleLabel": "Knee Osteoarthritis (OA) & Total Knee Arthroplasty (TKA)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "total-knee-arthroplasty-tka",
+  "nameEn": "Total knee arthroplasty (TKA)",
+  "nameZh": "全膝關節置換術後",
+  "region": "Knee",
+  "aliases": [
+   "TKA",
+   "TKR",
+   "Total knee arthroplasty (TKA)",
+   "全膝關節置換術後",
+   "換膝",
+   "膝關節置換"
+  ],
+  "bundleId": 19,
+  "bundleSize": 2,
+  "bundleLabel": "Knee Osteoarthritis (OA) & Total Knee Arthroplasty (TKA)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "lcl-injury",
+  "nameEn": "LCL injury",
+  "nameZh": "外側副韌帶損傷",
+  "region": "Knee",
+  "aliases": [
+   "LCL injury",
+   "外側副韌帶損傷"
+  ],
+  "bundleId": 20,
+  "bundleSize": 3,
+  "bundleLabel": "LCL, Posterolateral Corner (PLC) & Popliteus",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 3"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "posterolateral-corner-plc-injury",
+  "nameEn": "Posterolateral corner (PLC) injury",
+  "nameZh": "後外側角損傷",
+  "region": "Knee",
+  "aliases": [
+   "PLC",
+   "Posterolateral corner (PLC) injury",
+   "後外側角損傷"
+  ],
+  "bundleId": 20,
+  "bundleSize": 3,
+  "bundleLabel": "LCL, Posterolateral Corner (PLC) & Popliteus",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 3"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "popliteus-injury",
+  "nameEn": "Popliteus injury",
+  "nameZh": "膕肌損傷",
+  "region": "Knee",
+  "aliases": [
+   "Popliteus injury",
+   "膕肌損傷"
+  ],
+  "bundleId": 20,
+  "bundleSize": 3,
+  "bundleLabel": "LCL, Posterolateral Corner (PLC) & Popliteus",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 3"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "generic-ankle-foot-bank-not-a-condition",
+  "nameEn": "(Generic ankle & foot bank — not a condition)",
+  "nameZh": "通用踝足運動庫（非病症）",
+  "region": "Knee",
+  "aliases": [
+   "(Generic ankle & foot bank — not a condition)",
+   "通用踝足運動庫（非病症）"
+  ],
+  "bundleId": 21,
+  "bundleSize": 1,
+  "bundleLabel": "Lower_Limb_03_Ankle_Foot_Complete_Exercise_Bank",
+  "isPlaceholder": true,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [],
+  "dataWarnings": []
+ },
+ {
+  "id": "meniscal-tear",
+  "nameEn": "Meniscal tear",
+  "nameZh": "半月板撕裂",
+  "region": "Knee",
+  "aliases": [
+   "Meniscal tear",
+   "meniscus",
+   "半月板",
+   "半月板撕裂",
+   "膝軟骨撕裂"
+  ],
+  "bundleId": 22,
+  "bundleSize": 2,
+  "bundleLabel": "Meniscal Tear & Articular Cartilage Repair",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "articular-cartilage-repair",
+  "nameEn": "Articular cartilage repair",
+  "nameZh": "關節軟骨修復",
+  "region": "Knee",
+  "aliases": [
+   "Articular cartilage repair",
+   "關節軟骨修復"
+  ],
+  "bundleId": 22,
+  "bundleSize": 2,
+  "bundleLabel": "Meniscal Tear & Articular Cartilage Repair",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "osgood-schlatter-disease-osd",
+  "nameEn": "Osgood-Schlatter disease (OSD)",
+  "nameZh": "奧斯古德-施拉特氏病",
+  "region": "Knee",
+  "aliases": [
+   "OSD",
+   "Osgood-Schlatter disease (OSD)",
+   "奧斯古德-施拉特氏病",
+   "生長痛",
+   "膝下突出"
+  ],
+  "bundleId": 23,
+  "bundleSize": 1,
+  "bundleLabel": "Osgood-Schlatter Disease (OSD)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "patellar-instability",
+  "nameEn": "Patellar instability",
+  "nameZh": "髕骨不穩",
+  "region": "Knee",
+  "aliases": [
+   "Patellar instability",
+   "髕骨不穩"
+  ],
+  "bundleId": 24,
+  "bundleSize": 2,
+  "bundleLabel": "Patellar Instability & MPFL",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "mpfl-injury",
+  "nameEn": "MPFL injury",
+  "nameZh": "內側髕股韌帶損傷",
+  "region": "Knee",
+  "aliases": [
+   "MPFL injury",
+   "內側髕股韌帶損傷"
+  ],
+  "bundleId": 24,
+  "bundleSize": 2,
+  "bundleLabel": "Patellar Instability & MPFL",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "patellar-tendinopathy-jumper-s-knee",
+  "nameEn": "Patellar tendinopathy (jumper's knee)",
+  "nameZh": "髕腱病變（跳躍膝）",
+  "region": "Knee",
+  "aliases": [
+   "Patellar tendinopathy (jumper's knee)",
+   "jumper's knee",
+   "膝前痛",
+   "跳躍膝",
+   "髕腱炎",
+   "髕腱病變（跳躍膝）"
+  ],
+  "bundleId": 25,
+  "bundleSize": 1,
+  "bundleLabel": "Patellar Tendinopathy (Jumper's Knee)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "patellofemoral-pain-pfp",
+  "nameEn": "Patellofemoral pain (PFP)",
+  "nameZh": "髕股關節疼痛",
+  "region": "Knee",
+  "aliases": [
+   "PFP",
+   "PFPS",
+   "Patellofemoral pain (PFP)",
+   "runner's knee",
+   "膝痛",
+   "膝蓋前面痛",
+   "跑步膝",
+   "髕股關節疼痛"
+  ],
+  "bundleId": 26,
+  "bundleSize": 1,
+  "bundleLabel": "Patellofemoral Pain (PFP)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pes-anserinus-tendinopathy",
+  "nameEn": "Pes anserinus tendinopathy",
+  "nameZh": "鵝足肌腱病變",
+  "region": "Knee",
+  "aliases": [
+   "Pes anserinus tendinopathy",
+   "鵝足肌腱病變"
+  ],
+  "bundleId": 27,
+  "bundleSize": 2,
+  "bundleLabel": "Pes Anserinus Tendinopathy & Bursitis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pes-anserinus-bursitis",
+  "nameEn": "Pes anserinus bursitis",
+  "nameZh": "鵝足滑囊炎",
+  "region": "Knee",
+  "aliases": [
+   "Pes anserinus bursitis",
+   "鵝足滑囊炎"
+  ],
+  "bundleId": 27,
+  "bundleSize": 2,
+  "bundleLabel": "Pes Anserinus Tendinopathy & Bursitis",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pcl-sprain",
+  "nameEn": "PCL sprain",
+  "nameZh": "後十字韌帶扭傷",
+  "region": "Knee",
+  "aliases": [
+   "PCL sprain",
+   "後十字韌帶扭傷"
+  ],
+  "bundleId": 28,
+  "bundleSize": 2,
+  "bundleLabel": "Posterior Cruciate Ligament (PCL) & MCL Sprains",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 2"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "mcl-sprain",
+  "nameEn": "MCL sprain",
+  "nameZh": "內側副韌帶扭傷",
+  "region": "Knee",
+  "aliases": [
+   "MCL sprain",
+   "內側副韌帶扭傷"
+  ],
+  "bundleId": 28,
+  "bundleSize": 2,
+  "bundleLabel": "Posterior Cruciate Ligament (PCL) & MCL Sprains",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 2"
+  ],
+  "dataWarnings": [
+   "phase-coverage-incomplete"
+  ]
+ },
+ {
+  "id": "quadriceps-tendinopathy",
+  "nameEn": "Quadriceps tendinopathy",
+  "nameZh": "股四頭肌腱病變",
+  "region": "Knee",
+  "aliases": [
+   "Quadriceps tendinopathy",
+   "股四頭肌腱病變"
+  ],
+  "bundleId": 29,
+  "bundleSize": 1,
+  "bundleLabel": "Quadriceps Tendinopathy",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sinding-larsen-johansson-slj-syndrome",
+  "nameEn": "Sinding-Larsen-Johansson (SLJ) syndrome",
+  "nameZh": "辛丁-拉森-約翰遜症候群",
+  "region": "Knee",
+  "aliases": [
+   "SLJ",
+   "Sinding-Larsen-Johansson (SLJ) syndrome",
+   "辛丁-拉森-約翰遜症候群"
+  ],
+  "bundleId": 30,
+  "bundleSize": 1,
+  "bundleLabel": "Sinding-Larsen-Johansson (SLJ) Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "acute-hamstring-strain",
+  "nameEn": "Acute hamstring strain",
+  "nameZh": "急性膕旁肌拉傷",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Acute hamstring strain",
+   "hamstring",
+   "大腿後側拉傷",
+   "急性膕旁肌拉傷",
+   "扯筋",
+   "肌肉拉傷"
+  ],
+  "bundleId": 31,
+  "bundleSize": 1,
+  "bundleLabel": "Acute Hamstring Strain (Askling L-Protocol & Aspetar)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "n/a",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "adductor-related-groin-pain",
+  "nameEn": "Adductor-related groin pain",
+  "nameZh": "內收肌相關鼠蹊痛",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Adductor-related groin pain",
+   "groin",
+   "內收肌相關鼠蹊痛",
+   "大腿內側痛",
+   "鼠蹊痛"
+  ],
+  "bundleId": 32,
+  "bundleSize": 2,
+  "bundleLabel": "Adductor Groin Pain, Osteitis Pubis & Copenhagen Protocol",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "osteitis-pubis",
+  "nameEn": "Osteitis pubis",
+  "nameZh": "恥骨骨炎",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Osteitis pubis",
+   "恥骨骨炎"
+  ],
+  "bundleId": 32,
+  "bundleSize": 2,
+  "bundleLabel": "Adductor Groin Pain, Osteitis Pubis & Copenhagen Protocol",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "athletic-pubalgia-sports-hernia",
+  "nameEn": "Athletic pubalgia (sports hernia)",
+  "nameZh": "運動性恥骨痛（運動疝氣）",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Athletic pubalgia (sports hernia)",
+   "運動性恥骨痛（運動疝氣）"
+  ],
+  "bundleId": 33,
+  "bundleSize": 2,
+  "bundleLabel": "Athletic Pubalgia (Sports Hernia _ Inguinal Groin Pain & PLAC Complex)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "inguinal-related-groin-pain",
+  "nameEn": "Inguinal-related groin pain",
+  "nameZh": "腹股溝相關疼痛",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Inguinal-related groin pain",
+   "腹股溝相關疼痛"
+  ],
+  "bundleId": 33,
+  "bundleSize": 2,
+  "bundleLabel": "Athletic Pubalgia (Sports Hernia _ Inguinal Groin Pain & PLAC Complex)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "femoral-neck-stress-fracture",
+  "nameEn": "Femoral neck stress fracture",
+  "nameZh": "股骨頸應力性骨折",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Femoral neck stress fracture",
+   "股骨頸應力性骨折"
+  ],
+  "bundleId": 34,
+  "bundleSize": 3,
+  "bundleLabel": "Femoral Neck Stress Fracture, Pelvic Apophysitis (AIIS_ASIS) & Pediatric Hip",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pelvic-apophysitis-aiis-asis",
+  "nameEn": "Pelvic apophysitis (AIIS/ASIS)",
+  "nameZh": "骨盆骨骺炎",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "AIIS/ASIS",
+   "Pelvic apophysitis (AIIS/ASIS)",
+   "骨盆骨骺炎"
+  ],
+  "bundleId": 34,
+  "bundleSize": 3,
+  "bundleLabel": "Femoral Neck Stress Fracture, Pelvic Apophysitis (AIIS_ASIS) & Pediatric Hip",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pediatric-hip-conditions",
+  "nameEn": "Pediatric hip conditions",
+  "nameZh": "兒童髖部問題",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Pediatric hip conditions",
+   "兒童髖部問題"
+  ],
+  "bundleId": 34,
+  "bundleSize": 3,
+  "bundleLabel": "Femoral Neck Stress Fracture, Pelvic Apophysitis (AIIS_ASIS) & Pediatric Hip",
+  "isPlaceholder": false,
+  "nameInferred": true,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "femoroacetabular-impingement-fai",
+  "nameEn": "Femoroacetabular impingement (FAI)",
+  "nameZh": "股髖臼夾擠",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "FAI",
+   "Femoroacetabular impingement (FAI)",
+   "股髖臼夾擠",
+   "髖前痛",
+   "髖夾擠"
+  ],
+  "bundleId": 35,
+  "bundleSize": 3,
+  "bundleLabel": "Femoroacetabular Impingement (FAI), Labral Tear & Hip OA_THA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "acetabular-labral-tear",
+  "nameEn": "Acetabular labral tear",
+  "nameZh": "髖臼盂唇撕裂",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Acetabular labral tear",
+   "髖臼盂唇撕裂"
+  ],
+  "bundleId": 35,
+  "bundleSize": 3,
+  "bundleLabel": "Femoroacetabular Impingement (FAI), Labral Tear & Hip OA_THA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hip-oa-tha",
+  "nameEn": "Hip OA / THA",
+  "nameZh": "髖關節退化／全髖置換術後",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Hip OA / THA",
+   "THA",
+   "換髖",
+   "髖退化",
+   "髖關節炎",
+   "髖關節退化／全髖置換術後"
+  ],
+  "bundleId": 35,
+  "bundleSize": 3,
+  "bundleLabel": "Femoroacetabular Impingement (FAI), Labral Tear & Hip OA_THA",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "greater-trochanteric-pain-syndrome-gtps",
+  "nameEn": "Greater trochanteric pain syndrome (GTPS)",
+  "nameZh": "大轉子疼痛症候群",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "GTPS",
+   "Greater trochanteric pain syndrome (GTPS)",
+   "大轉子滑囊炎",
+   "大轉子疼痛症候群",
+   "大轉子痛",
+   "髖外側痛"
+  ],
+  "bundleId": 36,
+  "bundleSize": 2,
+  "bundleLabel": "Greater Trochanteric Pain Syndrome (GTPS) & Gluteal Tendinopathy",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "gluteal-tendinopathy",
+  "nameEn": "Gluteal tendinopathy",
+  "nameZh": "臀肌腱病變",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Gluteal tendinopathy",
+   "臀肌腱病變"
+  ],
+  "bundleId": 36,
+  "bundleSize": 2,
+  "bundleLabel": "Greater Trochanteric Pain Syndrome (GTPS) & Gluteal Tendinopathy",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "obturator-nerve-entrapment",
+  "nameEn": "Obturator nerve entrapment",
+  "nameZh": "閉孔神經卡壓",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Obturator nerve entrapment",
+   "閉孔神經卡壓"
+  ],
+  "bundleId": 37,
+  "bundleSize": 3,
+  "bundleLabel": "Hip & Groin Nerve Entrapments (Obturator, Femoral & LFCN Meralgia Paresthetica)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "femoral-nerve-entrapment",
+  "nameEn": "Femoral nerve entrapment",
+  "nameZh": "股神經卡壓",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Femoral nerve entrapment",
+   "股神經卡壓"
+  ],
+  "bundleId": 37,
+  "bundleSize": 3,
+  "bundleLabel": "Hip & Groin Nerve Entrapments (Obturator, Femoral & LFCN Meralgia Paresthetica)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "meralgia-paresthetica-lfcn",
+  "nameEn": "Meralgia paresthetica (LFCN)",
+  "nameZh": "股外側皮神經痛",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "LFCN",
+   "Meralgia paresthetica (LFCN)",
+   "股外側皮神經痛"
+  ],
+  "bundleId": 37,
+  "bundleSize": 3,
+  "bundleLabel": "Hip & Groin Nerve Entrapments (Obturator, Femoral & LFCN Meralgia Paresthetica)",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hip-adhesive-capsulitis-frozen-hip",
+  "nameEn": "Hip adhesive capsulitis (frozen hip)",
+  "nameZh": "髖關節沾黏性關節囊炎",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Hip adhesive capsulitis (frozen hip)",
+   "frozen hip",
+   "髖關節沾黏性關節囊炎"
+  ],
+  "bundleId": 38,
+  "bundleSize": 2,
+  "bundleLabel": "Hip Adhesive Capsulitis (Frozen Hip) & Post-Traumatic Capsular Stiffness",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "post-traumatic-capsular-stiffness",
+  "nameEn": "Post-traumatic capsular stiffness",
+  "nameZh": "創傷後關節囊僵硬",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Post-traumatic capsular stiffness",
+   "創傷後關節囊僵硬"
+  ],
+  "bundleId": 38,
+  "bundleSize": 2,
+  "bundleLabel": "Hip Adhesive Capsulitis (Frozen Hip) & Post-Traumatic Capsular Stiffness",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hip-micro-instability",
+  "nameEn": "Hip micro-instability",
+  "nameZh": "髖關節微不穩",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Hip micro-instability",
+   "髖關節微不穩"
+  ],
+  "bundleId": 39,
+  "bundleSize": 3,
+  "bundleLabel": "Hip Micro-Instability, Acetabular Dysplasia (DDH) & Ligamentum Teres",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "acetabular-dysplasia-ddh",
+  "nameEn": "Acetabular dysplasia (DDH)",
+  "nameZh": "髖臼發育不良",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Acetabular dysplasia (DDH)",
+   "DDH",
+   "髖臼發育不良"
+  ],
+  "bundleId": 39,
+  "bundleSize": 3,
+  "bundleLabel": "Hip Micro-Instability, Acetabular Dysplasia (DDH) & Ligamentum Teres",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "ligamentum-teres-injury",
+  "nameEn": "Ligamentum teres injury",
+  "nameZh": "圓韌帶損傷",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Ligamentum teres injury",
+   "圓韌帶損傷"
+  ],
+  "bundleId": 39,
+  "bundleSize": 3,
+  "bundleLabel": "Hip Micro-Instability, Acetabular Dysplasia (DDH) & Ligamentum Teres",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "hip-pointer-iliac-crest-contusion",
+  "nameEn": "Hip pointer (iliac crest contusion)",
+  "nameZh": "髂嵴挫傷",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Hip pointer (iliac crest contusion)",
+   "髂嵴挫傷"
+  ],
+  "bundleId": 40,
+  "bundleSize": 3,
+  "bundleLabel": "Iliac Crest Contusion (Hip Pointer), TFL Tendinopathy & Sartorius Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "tfl-tendinopathy",
+  "nameEn": "TFL tendinopathy",
+  "nameZh": "闊筋膜張肌腱病變",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "TFL tendinopathy",
+   "闊筋膜張肌腱病變"
+  ],
+  "bundleId": 40,
+  "bundleSize": 3,
+  "bundleLabel": "Iliac Crest Contusion (Hip Pointer), TFL Tendinopathy & Sartorius Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sartorius-strain",
+  "nameEn": "Sartorius strain",
+  "nameZh": "縫匠肌拉傷",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Sartorius strain",
+   "縫匠肌拉傷"
+  ],
+  "bundleId": 40,
+  "bundleSize": 3,
+  "bundleLabel": "Iliac Crest Contusion (Hip Pointer), TFL Tendinopathy & Sartorius Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "iliopsoas-tendinopathy",
+  "nameEn": "Iliopsoas tendinopathy",
+  "nameZh": "髂腰肌腱病變",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Iliopsoas tendinopathy",
+   "髂腰肌腱病變"
+  ],
+  "bundleId": 41,
+  "bundleSize": 3,
+  "bundleLabel": "Iliopsoas Tendinopathy, Snapping Hip (Coxa Saltans) & Rectus Femoris Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "snapping-hip-coxa-saltans",
+  "nameEn": "Snapping hip (coxa saltans)",
+  "nameZh": "彈響髖",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Snapping hip (coxa saltans)",
+   "彈響髖",
+   "髖關節彈響"
+  ],
+  "bundleId": 41,
+  "bundleSize": 3,
+  "bundleLabel": "Iliopsoas Tendinopathy, Snapping Hip (Coxa Saltans) & Rectus Femoris Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "rectus-femoris-strain",
+  "nameEn": "Rectus femoris strain",
+  "nameZh": "股直肌拉傷",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Rectus femoris strain",
+   "股直肌拉傷"
+  ],
+  "bundleId": 41,
+  "bundleSize": 3,
+  "bundleLabel": "Iliopsoas Tendinopathy, Snapping Hip (Coxa Saltans) & Rectus Femoris Strain",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "ischiofemoral-impingement-ifi",
+  "nameEn": "Ischiofemoral impingement (IFI)",
+  "nameZh": "坐骨股骨撞擊",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "IFI",
+   "Ischiofemoral impingement (IFI)",
+   "坐骨股骨撞擊"
+  ],
+  "bundleId": 42,
+  "bundleSize": 2,
+  "bundleLabel": "Ischiofemoral Impingement (IFI — Quadratus Femoris) & Posterior Hip",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "posterior-hip-pain",
+  "nameEn": "Posterior hip pain",
+  "nameZh": "髖後側疼痛",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Posterior hip pain",
+   "髖後側疼痛"
+  ],
+  "bundleId": 42,
+  "bundleSize": 2,
+  "bundleLabel": "Ischiofemoral Impingement (IFI — Quadratus Femoris) & Posterior Hip",
+  "isPlaceholder": false,
+  "nameInferred": true,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "obturator-internus-syndrome",
+  "nameEn": "Obturator internus syndrome",
+  "nameZh": "閉孔內肌症候群",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Obturator internus syndrome",
+   "閉孔內肌症候群"
+  ],
+  "bundleId": 43,
+  "bundleSize": 3,
+  "bundleLabel": "Obturator Internus Syndrome, Pudendal Neuralgia & Pelvic Floor–Hip Interface",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pudendal-neuralgia",
+  "nameEn": "Pudendal neuralgia",
+  "nameZh": "陰部神經痛",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Pudendal neuralgia",
+   "陰部神經痛"
+  ],
+  "bundleId": 43,
+  "bundleSize": 3,
+  "bundleLabel": "Obturator Internus Syndrome, Pudendal Neuralgia & Pelvic Floor–Hip Interface",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pelvic-floor-hip-interface-problems",
+  "nameEn": "Pelvic floor–hip interface problems",
+  "nameZh": "骨盆底—髖部介面問題",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Pelvic floor–hip interface problems",
+   "骨盆底—髖部介面問題"
+  ],
+  "bundleId": 43,
+  "bundleSize": 3,
+  "bundleLabel": "Obturator Internus Syndrome, Pudendal Neuralgia & Pelvic Floor–Hip Interface",
+  "isPlaceholder": false,
+  "nameInferred": true,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "proximal-hamstring-tendinopathy-pht",
+  "nameEn": "Proximal hamstring tendinopathy (PHT)",
+  "nameZh": "近端膕旁肌腱病變",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "PHT",
+   "Proximal hamstring tendinopathy (PHT)",
+   "近端膕旁肌腱病變"
+  ],
+  "bundleId": 44,
+  "bundleSize": 2,
+  "bundleLabel": "Proximal Hamstring Tendinopathy (PHT) & Deep Gluteal Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "deep-gluteal-syndrome",
+  "nameEn": "Deep gluteal syndrome",
+  "nameZh": "深層臀部症候群",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Deep gluteal syndrome",
+   "深層臀部症候群"
+  ],
+  "bundleId": 44,
+  "bundleSize": 2,
+  "bundleLabel": "Proximal Hamstring Tendinopathy (PHT) & Deep Gluteal Syndrome",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "sacroiliac-joint-sij-dysfunction",
+  "nameEn": "Sacroiliac joint (SIJ) dysfunction",
+  "nameZh": "薦髂關節功能障礙",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "SIJ",
+   "Sacroiliac joint (SIJ) dysfunction",
+   "下背臀痛",
+   "盆骨痛",
+   "薦髂關節",
+   "薦髂關節功能障礙",
+   "骶髂關節"
+  ],
+  "bundleId": 45,
+  "bundleSize": 2,
+  "bundleLabel": "Sacroiliac Joint (SIJ) Dysfunction & Pelvic Girdle Force-Closure",
+  "isPlaceholder": false,
+  "nameInferred": false,
+  "mentionTagging": "none",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ },
+ {
+  "id": "pelvic-girdle-force-closure-problems",
+  "nameEn": "Pelvic girdle force-closure problems",
+  "nameZh": "骨盆帶力閉合問題",
+  "region": "Hip & Pelvis",
+  "aliases": [
+   "Pelvic girdle force-closure problems",
+   "骨盆帶力閉合問題"
+  ],
+  "bundleId": 45,
+  "bundleSize": 2,
+  "bundleLabel": "Sacroiliac Joint (SIJ) Dysfunction & Pelvic Girdle Force-Closure",
+  "isPlaceholder": false,
+  "nameInferred": true,
+  "mentionTagging": "ok",
+  "phaseCoverage": [
+   "Phase 1",
+   "Phase 2",
+   "Phase 3",
+   "Phase 4"
+  ],
+  "dataWarnings": []
+ }
+]

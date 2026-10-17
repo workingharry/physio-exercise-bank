@@ -57,7 +57,7 @@ export const ProtocolView: React.FC = () => {
                 </p>
               </div>
               <span className="mt-3 text-[11px] text-slate-400 dark:text-slate-500 italic block">
-                {p.guidelineReference.split(';')[0]}
+                {p.guidelineReference?.split(';')[0] || ''}
               </span>
             </button>
           );

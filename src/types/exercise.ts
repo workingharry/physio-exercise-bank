@@ -24,6 +24,47 @@ export type SubRegion =
   | 'Gait & Running Mechanics'
   | 'Whole-Body Plyometrics & Agility';
 
+export interface Condition {
+  id: string;
+  nameEn: string;
+  nameZh: string;
+  region: 'Ankle & Foot' | 'Knee' | 'Hip & Pelvis' | string;
+  aliases: string[];
+  bundleId: number;
+  bundleSize: number;
+  bundleLabel: string;
+  isPlaceholder: boolean;
+  nameInferred: boolean;
+  mentionTagging: 'ok' | 'none' | string;
+  phaseCoverage: string[];
+  dataWarnings: string[];
+}
+
+export type EvidenceBasis = 'primary' | 'mentioned' | 'group' | 'suggested-pending-review' | string;
+
+export interface AppliesToCondition {
+  conditionId: string;
+  basis: EvidenceBasis;
+  rehabPhase: string[];
+}
+
+export interface ConditionContextOverride {
+  startingPosition?: string;
+  description?: string;
+  coachingCues?: string[];
+  precautions?: string[];
+  regressions?: { name: string; rationale: string }[];
+  progressions?: { name: string; rationale: string }[];
+  dosage?: {
+    sets?: string;
+    reps?: string;
+    holdDuration?: string;
+    frequency?: string;
+    rest?: string;
+    tempo?: string;
+  };
+}
+
 export interface ExecutionStep {
   stepNumber: number;
   title?: string;
@@ -47,7 +88,7 @@ export interface Exercise {
   macroRegion: MacroRegion;
   subRegion: SubRegion;
   movementType: ('Isometric' | 'Concentric' | 'Eccentric' | 'Plyometric' | 'Mobility' | 'Proprioception' | 'Stability' | 'Motor Control')[];
-  rehabPhase: ('Phase 1: 急性保護/神經肌肉活化' | 'Phase 2: 次急性控制負荷' | 'Phase 3: 後期肌力與肥大強化' | 'Phase 4: 增強式與重返運動')[];
+  rehabPhase: ('Phase 1: 急性保護/神經肌肉活化' | 'Phase 2: 次急性控制負荷' | 'Phase 3: 後期肌力與肥大強化' | 'Phase 4: 增強式與重返運動' | string)[];
   targetPathologies: string[];
   equipment: string[];
   difficulty: 'Beginner (初階)' | 'Intermediate (中階)' | 'Advanced (進階)';
@@ -81,6 +122,17 @@ export interface Exercise {
   contraindications: string[];
   precautions: string[];
   clinicalNotes?: string;
+
+  // PhysioBank v2 Multi-to-Multi Condition Architecture
+  appliesTo?: AppliesToCondition[];
+  conditionContext?: Record<string, ConditionContextOverride>;
+  legacyIds?: string[];
+  legacyGroups?: string[];
+  library?: string;
+  regions?: string[];
+  contraindicationsStatus?: string;
+  chineseNameIsFallback?: boolean;
+  suggestedConditions?: string[];
 }
 
 export interface RehabProtocolPhase {
@@ -98,22 +150,17 @@ export interface RehabProtocol {
   chineseName: string;
   subRegion: SubRegion;
   indication: string;
-  guidelineReference: string;
+  durationWeeks?: string;
+  guidelineReference?: string;
   phases: RehabProtocolPhase[];
+  keyPrecautions?: string[];
+  evidenceLevel?: string;
 }
 
 export interface RoutineItem {
   exerciseId: string;
-  customSets?: string;
-  customReps?: string;
+  customSets: string;
+  customReps: string;
   customHold?: string;
   therapistNotes?: string;
-}
-
-export interface Routine {
-  id: string;
-  title: string;
-  patientName?: string;
-  createdAt: string;
-  items: RoutineItem[];
 }
