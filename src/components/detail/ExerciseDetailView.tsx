@@ -7,10 +7,11 @@ import { Lightbox } from '../common/Lightbox';
 import { useRoutineStore } from '../../store/useRoutineStore';
 import { findSimilarExercises } from '../../utils/similarity';
 import { 
-  ArrowLeft, Plus, Check, Bookmark, AlertTriangle, ShieldAlert,
+  ArrowLeft, ArrowRight, Bookmark, AlertTriangle, ShieldAlert,
   Dumbbell, Compass, Target, ArrowUpRight, ArrowDownRight,
   Clock, Repeat, Play, Info, Sparkles, ZoomIn, Search, CheckCircle2,
-  ChevronRight, Scale
+  ChevronRight, Scale, BookOpen, Layers, ExternalLink, ListChecks,
+  FileText, Activity, ShieldCheck
 } from 'lucide-react';
 
 export const ExerciseDetailView: React.FC = () => {
@@ -19,9 +20,6 @@ export const ExerciseDetailView: React.FC = () => {
   const exercise = getExerciseById(exerciseId);
 
   const { 
-    routine, 
-    addToRoutine, 
-    removeFromRoutine, 
     bookmarks, 
     toggleBookmark, 
     comparisonIds, 
@@ -40,17 +38,16 @@ export const ExerciseDetailView: React.FC = () => {
   if (!exercise) {
     return (
       <div className="max-w-4xl mx-auto py-16 px-4 text-center">
-        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">找不到此運動項目</h2>
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">找不到此運動百科條目</h2>
         <p className="mt-2 text-sm text-slate-400">可能該運動代碼不正確或已被移除</p>
         <Link href="/" className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-600 text-white text-xs font-semibold">
           <ArrowLeft className="w-4 h-4" />
-          <span>返回運動資料庫</span>
+          <span>返回運動百科目錄</span>
         </Link>
       </div>
     );
   }
 
-  const isAdded = routine.some(item => item.exerciseId === exercise.id);
   const isBookmarked = bookmarks.includes(exercise.id);
   const isComparing = comparisonIds.includes(exercise.id);
 
@@ -84,25 +81,37 @@ export const ExerciseDetailView: React.FC = () => {
     ? exercise.execution.steps.slice(1)
     : exercise.execution.steps;
 
+  const tableOfContents = [
+    { id: 'mechanism', label: '1. 臨床機制與生物力學原理' },
+    { id: 'anatomy', label: '2. 功能解剖與目標肌群' },
+    { id: 'technique', label: '3. 分步操作技術與起始擺位' },
+    { id: 'cues', label: '4. 物理治療師指導口訣' },
+    { id: 'errors', label: '5. 常見代償錯誤與校正防線' },
+    { id: 'safety', label: '6. 禁忌症與臨床安全考量' },
+    { id: 'progressions', label: '7. 進階與退階決策樹' },
+    { id: 'see-also', label: '8. 相關條目與替代動作' },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 animate-in fade-in duration-200">
-      {/* Breadcrumb Navigation & Action Bar */}
+      {/* Top Academic Breadcrumbs & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800">
         <nav className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 overflow-x-auto no-scrollbar">
-          <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400 transition shrink-0">
-            首頁
+          <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400 transition shrink-0 flex items-center gap-1">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>運動百科</span>
           </Link>
           <ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" />
           <Link href={`/?macro=${encodeURIComponent(exercise.macroRegion)}`} className="hover:text-teal-600 dark:hover:text-teal-400 transition shrink-0">
             {exercise.macroRegion}
           </Link>
           <ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" />
-          <span className="text-slate-700 dark:text-slate-300 font-medium shrink-0">
+          <Link href={`/anatomy`} className="hover:text-teal-600 dark:hover:text-teal-400 transition shrink-0">
             {exercise.subRegion}
-          </span>
+          </Link>
           <ChevronRight className="w-3.5 h-3.5 shrink-0 text-slate-400" />
           <span className="text-teal-700 dark:text-teal-300 font-bold truncate max-w-xs">
-            {exercise.name}
+            {exercise.chineseName || exercise.name}
           </span>
         </nav>
 
@@ -111,124 +120,490 @@ export const ExerciseDetailView: React.FC = () => {
             onClick={() => toggleComparison(exercise.id)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition ${
               isComparing
-                ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-500/20'
+                ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
                 : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
             title="加入並排對比 (最多 3 個動作)"
           >
             <Scale className="w-3.5 h-3.5" />
-            <span>{isComparing ? '已在對比中' : '加入對比'}</span>
+            <span>{isComparing ? '已加入對比' : '並排對比'}</span>
           </button>
 
           <button
             onClick={() => toggleBookmark(exercise.id)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition ${
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border text-xs font-semibold transition ${
               isBookmarked
-                ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/40'
+                ? 'bg-amber-500/10 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/40 shadow-sm'
                 : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             <Bookmark className="w-3.5 h-3.5 fill-current" />
-            <span>{isBookmarked ? '已收藏' : '學習書籤'}</span>
-          </button>
-
-          <button
-            onClick={() => {
-              if (isAdded) {
-                removeFromRoutine(exercise.id);
-              } else {
-                addToRoutine(exercise.id);
-              }
-            }}
-            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-semibold transition shadow-md ${
-              isAdded
-                ? 'bg-teal-50 text-teal-800 dark:bg-teal-950/60 dark:text-teal-300 border border-teal-300 dark:border-teal-700/60 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-600'
-                : 'bg-teal-600 hover:bg-teal-500 text-white shadow-teal-600/30'
-            }`}
-          >
-            {isAdded ? (
-              <>
-                <Check className="w-3.5 h-3.5" />
-                <span>已在處方清單中</span>
-              </>
-            ) : (
-              <>
-                <Plus className="w-3.5 h-3.5" />
-                <span>加入處方 (HEP)</span>
-              </>
-            )}
+            <span>{isBookmarked ? '已收錄在研讀筆記' : '⭐ 收藏至研讀筆記'}</span>
           </button>
         </div>
       </div>
 
-      {/* Main Clinical Header */}
-      <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 shadow-sm dark:shadow-xl relative overflow-hidden">
-        <div className="flex flex-wrap items-center gap-2 mb-3">
-          <span className="px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-700/60">
-            {exercise.subRegion}
-          </span>
-          <span className="px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-            {exercise.difficulty}
-          </span>
-          {exercise.movementType.map(t => (
-            <span key={t} className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-50 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-300 border border-slate-200 dark:border-slate-700/80">
-              {t}
-            </span>
-          ))}
-          <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-purple-50 dark:bg-slate-800/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-slate-700/60">
-            {exercise.biomechanics.kineticChain}
-          </span>
-        </div>
-
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          {exercise.name}
-        </h1>
-        {exercise.chineseName && exercise.chineseName !== exercise.name && (
-          <p className="text-base sm:text-lg text-teal-700 dark:text-teal-400 font-semibold mt-1">
-            {exercise.chineseName}
-          </p>
-        )}
-
-        {exercise.targetPathologies.length > 0 && (
-          <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium flex items-center gap-2">
-            <Target className="w-4 h-4 text-teal-500 shrink-0" />
-            <span>臨床適應症 / 目標病理：<strong className="text-teal-700 dark:text-teal-300">{exercise.targetPathologies.join(' / ')}</strong></span>
-          </p>
-        )}
-      </div>
-
-      {/* Two-Column Responsive Layout: Left Sticky Media & FITT (5 cols), Right Steps & Biomechanics (7 cols) */}
+      {/* Main Two-Column Academic Layout: Left Article Body (7 cols) + Right Canonical Infobox (5 cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column (5 cols): Sticky Media Player & FITT Dosage */}
-        <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-20">
-          {/* Media Player Card */}
-          <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl">
-            {/* Media Switcher Tab */}
-            <div className="p-2.5 bg-slate-50 dark:bg-slate-950/70 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => setActiveMediaTab('video')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                    activeMediaTab === 'video'
-                      ? 'bg-teal-600 text-white shadow-sm'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                  }`}
-                >
-                  <Play className="w-3.5 h-3.5" />
-                  <span>臨床示範影片</span>
-                </button>
-                <button
-                  onClick={() => setActiveMediaTab('anatomy')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                    activeMediaTab === 'anatomy'
-                      ? 'bg-teal-600 text-white shadow-sm'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-                  }`}
-                >
-                  <ZoomIn className="w-3.5 h-3.5" />
-                  <span>解剖力學向量</span>
-                </button>
+        
+        {/* Left Column: Academic Article Body */}
+        <article className="lg:col-span-7 xl:col-span-8 space-y-8">
+          
+          {/* Article Header */}
+          <header className="space-y-3 pb-6 border-b border-slate-200 dark:border-slate-800">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wider bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+                {exercise.subRegion}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                {exercise.difficulty}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-purple-50 dark:bg-slate-800/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-slate-700/60">
+                {exercise.biomechanics.kineticChain}
+              </span>
+              {exercise.movementType.map(t => (
+                <span key={t} className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-50 dark:bg-slate-800/80 text-cyan-700 dark:text-cyan-300 border border-slate-200 dark:border-slate-700/80">
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+              {exercise.chineseName || exercise.name}
+            </h1>
+            
+            <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 font-mono">
+              {exercise.name}
+            </p>
+
+            {exercise.targetPathologies.length > 0 && (
+              <div className="pt-2 flex flex-wrap items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300 font-medium">
+                <Target className="w-4 h-4 text-teal-500 shrink-0" />
+                <span>相關臨床適應症：</span>
+                {exercise.targetPathologies.map((pathology, idx) => (
+                  <Link
+                    key={idx}
+                    href={`/protocols`}
+                    className="px-2 py-0.5 rounded-md bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/80 hover:underline"
+                  >
+                    {pathology}
+                  </Link>
+                ))}
               </div>
+            )}
+          </header>
+
+          {/* Table of Contents (TOC - Wikipedia Style) */}
+          <nav aria-label="條目目錄" className="p-4 sm:p-5 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs">
+            <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-slate-200 mb-2.5">
+              <ListChecks className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+              <span>條目章節目錄 (Contents)</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+              {tableOfContents.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition hover:underline"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          {/* Section 1: 臨床機制與生物力學原理 */}
+          <section id="mechanism" className="space-y-3 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>1. 臨床機制與生物力學原理 (Biomechanical Rationale)</span>
+            </h2>
+            
+            {exercise.description && (
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                {exercise.description}
+              </p>
+            )}
+
+            {exercise.clinicalNotes && (
+              <div className="p-4 rounded-xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs sm:text-sm text-teal-950 dark:text-teal-200 leading-relaxed">
+                <strong className="font-bold block mb-1 flex items-center gap-1.5 text-teal-800 dark:text-teal-300">
+                  <Activity className="w-4 h-4" />
+                  臨床學術註記 (Clinical Note):
+                </strong>
+                {exercise.clinicalNotes}
+              </div>
+            )}
+          </section>
+
+          {/* Section 2: 功能解剖與目標肌群 */}
+          <section id="anatomy" className="space-y-4 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>2. 功能解剖與目標肌群 (Functional Anatomy)</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-bold block">
+                  主要作用肌 (Prime Movers):
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {exercise.biomechanics.primaryMuscles.map(m => (
+                    <Link
+                      key={m}
+                      href="/anatomy"
+                      className="px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:border-teal-500 transition"
+                      title="點擊查看肌群解剖索引"
+                    >
+                      {m}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {exercise.biomechanics.secondaryMuscles.length > 0 && (
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-bold block">
+                    協同穩定肌 (Synergists & Stabilizers):
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {exercise.biomechanics.secondaryMuscles.map(m => (
+                      <span key={m} className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {exercise.biomechanics.jointActions.length > 0 && (
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-bold block">
+                  關節運動學機制 (Joint Arthrokinematics):
+                </span>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {exercise.biomechanics.jointActions.join('；')}
+                </p>
+              </div>
+            )}
+          </section>
+
+          {/* Section 3: 分步操作技術與起始擺位 */}
+          <section id="technique" className="space-y-4 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>3. 分步操作技術與起始擺位 (Technique & Setup)</span>
+            </h2>
+
+            {/* Starting Position (Step 0) */}
+            {rawStartingPos && (
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded bg-teal-600 text-white font-bold text-[10px]">
+                    起始預備 (Setup)
+                  </span>
+                  <strong className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                    患者體位與關節對齊
+                  </strong>
+                </div>
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                  {rawStartingPos}
+                </p>
+              </div>
+            )}
+
+            {/* Steps */}
+            <div className="space-y-3">
+              {executionSteps.map((step, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start gap-3.5 shadow-sm"
+                >
+                  <span className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-700 dark:bg-teal-600/30 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30">
+                    {idx + 1}
+                  </span>
+                  <div className="flex-1 space-y-1">
+                    <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                      {step.instruction}
+                    </p>
+                    {step.keyPoint && (
+                      <p className="text-xs text-amber-700 dark:text-amber-300 font-medium flex items-center gap-1.5 pt-1">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                        <span>生物力學要點：{step.keyPoint}</span>
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 4: 物理治療師指導口訣 */}
+          <section id="cues" className="space-y-3 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>4. 物理治療師臨床指導口訣 (Coaching Cues)</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {exercise.execution.coachingCues.map((cue, i) => (
+                <div 
+                  key={i} 
+                  className="p-3.5 rounded-xl bg-teal-50/70 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800/60 flex items-start gap-3 shadow-sm"
+                >
+                  <div className="w-6 h-6 rounded-md bg-teal-500/20 text-teal-700 dark:text-teal-300 font-black text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    “
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-800 dark:text-teal-100 font-medium leading-relaxed">
+                    {cue}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 5: 常見代償錯誤與校正防線 */}
+          <section id="errors" className="space-y-3 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-red-500 rounded-full"></span>
+              <span>5. 常見代償錯誤與校正防線 (Common Compensations & Red Flags)</span>
+            </h2>
+
+            <div className="space-y-2.5">
+              {exercise.execution.commonErrors.map((err, i) => (
+                <div 
+                  key={i} 
+                  className="p-3.5 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 space-y-1 shadow-sm"
+                >
+                  <div className="flex items-center gap-1.5 text-red-700 dark:text-red-400 font-bold text-xs">
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-500 shrink-0" />
+                    <span>代償紅旗 #{i + 1}</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                    {err}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 6: 禁忌症與臨床安全考量 */}
+          <section id="safety" className="space-y-4 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-amber-500 rounded-full"></span>
+              <span>6. 禁忌症與臨床安全考量 (Safety & Precautions)</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Contraindications */}
+              <div className="p-4 rounded-xl bg-red-50/70 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 space-y-2">
+                <span className="text-xs font-bold text-red-700 dark:text-red-400 flex items-center gap-1.5">
+                  <ShieldAlert className="w-4 h-4 text-red-600" />
+                  絕對/相對禁忌症 (Contraindications):
+                </span>
+                {exercise.contraindications && exercise.contraindications.length > 0 ? (
+                  <ul className="list-disc list-inside space-y-1 text-xs text-red-900 dark:text-red-200">
+                    {exercise.contraindications.map((c, idx) => (
+                      <li key={idx} className="leading-relaxed">{c}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    常規下肢保護期適用；若有急性未診斷疼痛或嚴重紅腫熱痛，請先停止並重新評估。
+                  </p>
+                )}
+              </div>
+
+              {/* Precautions */}
+              <div className="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 space-y-2">
+                <span className="text-xs font-bold text-amber-800 dark:text-amber-400 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-amber-600" />
+                  操作安全注意事項 (Precautions):
+                </span>
+                {exercise.precautions && exercise.precautions.length > 0 ? (
+                  <ul className="list-disc list-inside space-y-1 text-xs text-amber-900 dark:text-amber-200">
+                    {exercise.precautions.map((p, idx) => (
+                      <li key={idx} className="leading-relaxed">{p}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    保持軀幹中立位，動作全程在無痛或輕微牽拉範圍內執行。
+                  </p>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Section 7: 進階與退階臨床決策樹 */}
+          <section id="progressions" className="space-y-4 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>7. 進階與退階臨床決策樹 (Progressions & Regressions)</span>
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Regressions */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400 text-xs font-bold">
+                  <ArrowDownRight className="w-4 h-4" />
+                  <span>退階方案 (症狀急性發作或肌力不足):</span>
+                </div>
+
+                <div className="space-y-2">
+                  {exercise.regressions.map((reg, i) => {
+                    const matched = findMatchingExercise(reg.name);
+                    return (
+                      <div 
+                        key={i} 
+                        className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <strong className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
+                            {reg.name}
+                          </strong>
+                          {matched && (
+                            <Link 
+                              href={`/exercise/${matched.id}`}
+                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold transition shrink-0"
+                            >
+                              <span>跳轉條目</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
+                          )}
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {reg.rationale}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Progressions */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                  <ArrowUpRight className="w-4 h-4" />
+                  <span>進階方案 (無痛達標與負荷提升):</span>
+                </div>
+
+                <div className="space-y-2">
+                  {exercise.progressions.map((prog, i) => {
+                    const matched = findMatchingExercise(prog.name);
+                    return (
+                      <div 
+                        key={i} 
+                        className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <strong className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">
+                            {prog.name}
+                          </strong>
+                          {matched && (
+                            <Link 
+                              href={`/exercise/${matched.id}`}
+                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold transition shrink-0"
+                            >
+                              <span>跳轉條目</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
+                          )}
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {prog.rationale}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 8: 相關條目與替代動作 (See Also) */}
+          <section id="see-also" className="space-y-4 scroll-mt-24">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+              <span className="w-1.5 h-5 bg-teal-500 rounded-full"></span>
+              <span>8. 相關條目與替代動作 (See Also & Similar Exercises)</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {similarExercises.map(({ exercise: simEx, matchingPoints, score }) => (
+                <Link
+                  key={simEx.id}
+                  href={`/exercise/${simEx.id}`}
+                  className="group p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-500/60 transition flex flex-col justify-between space-y-2 shadow-sm"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+                        {simEx.subRegion}
+                      </span>
+                      <span className="text-[10px] font-bold text-slate-400">
+                        匹配 {Math.min(99, score)}%
+                      </span>
+                    </div>
+                    <strong className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition block">
+                      {simEx.chineseName || simEx.name}
+                    </strong>
+                    <span className="text-[11px] text-slate-400 font-mono block mt-0.5">
+                      {simEx.name}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    {matchingPoints.map((pt, idx) => (
+                      <span
+                        key={idx}
+                        className="px-1.5 py-0.5 rounded text-[10px] bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
+                      >
+                        {pt}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+        </article>
+
+        {/* Right Column: Physiopedia Canonical Infobox (Sticky) */}
+        <aside className="lg:col-span-5 xl:col-span-4 space-y-5 lg:sticky lg:top-20">
+          
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+            {/* Infobox Header */}
+            <div className="p-3 bg-slate-100 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 text-center font-bold text-xs text-slate-800 dark:text-slate-200">
+              百科資訊盒 (Canonical Infobox)
+            </div>
+
+            {/* Media Tabs */}
+            <div className="p-2 bg-slate-50 dark:bg-slate-950/60 border-b border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2">
+              <button
+                onClick={() => setActiveMediaTab('video')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition ${
+                  activeMediaTab === 'video'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                <Play className="w-3.5 h-3.5" />
+                <span>動作示範影片</span>
+              </button>
+              <button
+                onClick={() => setActiveMediaTab('anatomy')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition ${
+                  activeMediaTab === 'anatomy'
+                    ? 'bg-teal-600 text-white shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
+              >
+                <ZoomIn className="w-3.5 h-3.5" />
+                <span>解剖向量圖</span>
+              </button>
             </div>
 
             {/* Media Content */}
@@ -244,406 +619,82 @@ export const ExerciseDetailView: React.FC = () => {
                   onClick={() => setSelectedImage(exercise.media.thumbnailUrl)}
                   className="cursor-pointer group relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950"
                 >
-                  <AnatomySvgPlaceholder subRegion={exercise.subRegion} className="h-72 w-full" badge={exercise.name} />
+                  <AnatomySvgPlaceholder subRegion={exercise.subRegion} className="h-64 w-full" badge={exercise.name} />
                   <div className="absolute inset-0 bg-teal-950/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                    <span className="px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold shadow-lg border border-teal-500/50 flex items-center gap-1.5">
+                    <span className="px-3 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold shadow border border-teal-500/50 flex items-center gap-1.5">
                       <ZoomIn className="w-3.5 h-3.5 text-teal-400" />
-                      <span>放大全螢幕檢視</span>
+                      <span>全螢幕檢視</span>
                     </span>
                   </div>
                 </div>
               )}
             </div>
-          </div>
 
-          {/* FITT Clinical Dosage Quick Card */}
-          <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm dark:shadow-lg space-y-3.5">
-            <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2.5">
-              <Clock className="w-4 h-4 text-cyan-500" />
-              <span>標準臨床處方劑量 (FITT Dosage)</span>
-            </h3>
-
-            <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400 block mb-0.5">組數 (Sets):</span>
-                <strong className="text-teal-600 dark:text-teal-300 font-bold text-sm">{exercise.dosage.sets}</strong>
+            {/* Metadata Table */}
+            <div className="divide-y divide-slate-100 dark:divide-slate-800 text-xs">
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">英文原名</span>
+                <span className="font-mono text-slate-800 dark:text-slate-200 text-right">{exercise.name}</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400 block mb-0.5">次數 (Reps):</span>
-                <strong className="text-teal-600 dark:text-teal-300 font-bold text-sm">{exercise.dosage.reps}</strong>
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">解剖次分區</span>
+                <span className="font-bold text-teal-600 dark:text-teal-400 text-right">{exercise.subRegion}</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400 block mb-0.5">等長維持 (Hold):</span>
-                <strong className="text-cyan-600 dark:text-cyan-300 font-bold text-sm">{exercise.dosage.holdDuration || '依節奏'}</strong>
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">動力鏈形態</span>
+                <span className="font-bold text-purple-600 dark:text-purple-400 text-right">{exercise.biomechanics.kineticChain}</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800">
-                <span className="text-slate-500 dark:text-slate-400 block mb-0.5">訓練頻率 (Frequency):</span>
-                <strong className="text-slate-800 dark:text-slate-200 font-bold text-sm">{exercise.dosage.frequency}</strong>
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">動作平面</span>
+                <span className="text-slate-700 dark:text-slate-300 text-right">{exercise.biomechanics.planesOfMotion.join('、')}</span>
               </div>
-            </div>
-
-            <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 text-xs flex justify-between text-slate-600 dark:text-slate-300">
-              <span>組間休息：{exercise.dosage.rest}</span>
-              <span>節奏 (Tempo)：{exercise.dosage.tempo || '2-0-2-0'}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column (7 cols): Execution Steps, Biomechanics & Decision Tree */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Biomechanical Profile Card */}
-          <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm dark:shadow-lg space-y-4">
-            <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2.5">
-              <Compass className="w-4 h-4 text-teal-500" />
-              <span>生物力學剖析 (Biomechanical Profile)</span>
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block mb-1.5">主要主動肌 (Prime Movers):</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {exercise.biomechanics.primaryMuscles.map(m => (
-                    <span key={m} className="px-2.5 py-1 rounded-md text-xs font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-700/60">
-                      {m}
-                    </span>
-                  ))}
-                </div>
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">所需器材</span>
+                <span className="text-slate-700 dark:text-slate-300 text-right">{exercise.equipment.join('、') || '無器材 (徒手)'}</span>
               </div>
-
-              {exercise.biomechanics.secondaryMuscles.length > 0 && (
-                <div>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block mb-1.5">協同肌 (Synergists):</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {exercise.biomechanics.secondaryMuscles.map(m => (
-                      <span key={m} className="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                        {m}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block mb-1.5">動作平面 (Planes of Motion):</span>
-              <div className="flex flex-wrap gap-1.5">
-                {exercise.biomechanics.planesOfMotion.map(p => (
-                  <span key={p} className="px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
-                    {p}
-                  </span>
-                ))}
+              <div className="p-3 flex items-start justify-between gap-2">
+                <span className="text-slate-400 font-medium shrink-0">動作難度</span>
+                <span className="font-bold text-slate-800 dark:text-slate-200 text-right">{exercise.difficulty}</span>
               </div>
             </div>
 
-            {exercise.biomechanics.jointActions.length > 0 && (
-              <div>
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold block mb-1">關節運動學機制 (Joint Arthrokinematics):</span>
-                <p className="text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/60 p-3 rounded-xl border border-slate-200 dark:border-slate-800/80 leading-relaxed">
-                  {exercise.biomechanics.jointActions.join('；')}
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Step-by-Step Clinical Execution with Deduplication */}
-          <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 shadow-sm dark:shadow-xl space-y-5">
-            <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
-              <Info className="w-5 h-5 text-teal-500" />
-              <span>分步動作指引與臨床執行規則</span>
-            </h3>
-
-            {/* Clinical Biomechanical Purpose / Description with Calm Title */}
-            {exercise.description && (
-              <div className="p-4 rounded-2xl bg-teal-50/70 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 space-y-1.5">
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="font-bold text-xs text-teal-800 dark:text-teal-300">臨床動作機制與生物力學目的</span>
-                  <span className="text-[11px] text-teal-600 dark:text-teal-400 font-normal">Biomechanical Mechanism & Rationale</span>
+            {/* Standard FITT Dosage Box */}
+            <div className="p-4 bg-slate-50 dark:bg-slate-950/70 border-t border-slate-200 dark:border-slate-800 space-y-2.5">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-teal-500" />
+                標準臨床處方參考 (FITT)
+              </span>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-400 text-[10px] block">建議組數</span>
+                  <strong className="text-teal-600 dark:text-teal-300 font-bold">{exercise.dosage.sets}</strong>
                 </div>
-                <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
-                  {exercise.description}
-                </p>
-              </div>
-            )}
-
-            {/* Setup / Starting Position (Step 0) */}
-            {rawStartingPos && (
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 space-y-1.5">
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded-md bg-teal-600 text-white font-bold text-[11px]">
-                    步驟 0
-                  </span>
-                  <strong className="text-xs font-bold text-slate-800 dark:text-slate-200">
-                    起始預備擺位與關節對齊 (Setup Position)
-                  </strong>
+                <div className="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-400 text-[10px] block">建議次數</span>
+                  <strong className="text-teal-600 dark:text-teal-300 font-bold">{exercise.dosage.reps}</strong>
                 </div>
-                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed pl-1 pt-1">
-                  {rawStartingPos}
-                </p>
-              </div>
-            )}
-
-            {/* Execution Steps List (Deduplicated, continuing from Step 1) */}
-            <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                執行分解動作 (Execution Steps):
-              </h4>
-              {executionSteps.map((step, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/50 hover:bg-slate-100 dark:hover:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 transition flex items-start gap-4"
-                >
-                  <span className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-700 dark:bg-teal-600/30 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30">
-                    {idx + 1}
-                  </span>
-                  <div className="flex-1 space-y-1">
-                    <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
-                      {step.instruction}
-                    </p>
-                    {step.keyPoint && (
-                      <p className="text-xs text-amber-700 dark:text-amber-300/90 font-medium flex items-center gap-1.5 pt-1">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                        <span>生物力學重點：{step.keyPoint}</span>
-                      </p>
-                    )}
-                  </div>
+                <div className="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-400 text-[10px] block">等長維持</span>
+                  <strong className="text-slate-700 dark:text-slate-200 font-bold">{exercise.dosage.holdDuration || '依節奏'}</strong>
                 </div>
-              ))}
+                <div className="p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-400 text-[10px] block">訓練頻率</span>
+                  <strong className="text-slate-700 dark:text-slate-200 font-bold">{exercise.dosage.frequency}</strong>
+                </div>
+              </div>
             </div>
 
-            {/* Red Flag Compensation Cards & Coaching Cues */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4 border-t border-slate-200 dark:border-slate-800">
-              {/* Coaching Cues */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wide flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-teal-500" />
-                  <span>治療師臨床口訣 (Coaching Cues)</span>
-                </h4>
-                <div className="space-y-2.5">
-                  {exercise.execution.coachingCues.map((cue, i) => (
-                    <div 
-                      key={i} 
-                      className="p-3.5 rounded-xl bg-teal-50/80 dark:bg-gradient-to-r dark:from-teal-950/40 dark:to-slate-950 border border-teal-200 dark:border-teal-800/60 flex items-start gap-3 shadow-sm"
-                    >
-                      <div className="w-6 h-6 rounded-md bg-teal-500/20 text-teal-700 dark:text-teal-300 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                        “
-                      </div>
-                      <p className="text-xs sm:text-sm text-slate-800 dark:text-teal-100 font-medium leading-relaxed">
-                        {cue}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Red Flag Compensation */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide flex items-center gap-1.5">
-                  <ShieldAlert className="w-4 h-4 text-red-500" />
-                  <span>防代償紅旗警示 (Red Flags)</span>
-                </h4>
-                <div className="space-y-2.5">
-                  {exercise.execution.commonErrors.map((err, i) => (
-                    <div 
-                      key={i} 
-                      className="p-3.5 rounded-xl bg-red-50/70 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 space-y-1.5 shadow-sm"
-                    >
-                      <div className="flex items-center gap-1.5 text-red-700 dark:text-red-400 font-bold text-xs">
-                        <AlertTriangle className="w-3.5 h-3.5 text-red-500 shrink-0" />
-                        <span>代償紅旗 #{i + 1}</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-                        {err}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Infobox Footer Link */}
+            <div className="p-3 bg-slate-100/60 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500">
+              <span>PhysioBank 條目</span>
+              <Link href="/notebook" className="text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1">
+                <span>檢視我的研讀筆記</span>
+                <ChevronRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
+        </aside>
 
-          {/* Progression & Regression Linking */}
-          <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-7 shadow-sm dark:shadow-xl space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <Repeat className="w-5 h-5 text-cyan-500" />
-                <span>進階與退階決策樹 (Progression & Regression)</span>
-              </h3>
-              <span className="text-xs text-slate-500 dark:text-slate-400">點擊卡片跳轉</span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Regressions */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400 text-xs font-bold">
-                  <ArrowDownRight className="w-4 h-4" />
-                  <span>退階方案 (症狀急性發作或肌力不足):</span>
-                </div>
-
-                <div className="space-y-2.5">
-                  {exercise.regressions.map((reg, i) => {
-                    const matched = findMatchingExercise(reg.name);
-                    return (
-                      <div 
-                        key={i} 
-                        className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-500/50 transition space-y-2 shadow-sm"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <strong className="text-slate-900 dark:text-white font-bold text-sm block">
-                              {reg.name}
-                            </strong>
-                            {matched && (
-                              <span className="text-xs text-teal-600 dark:text-teal-400 font-medium">
-                                {matched.chineseName} · {matched.subRegion}
-                              </span>
-                            )}
-                          </div>
-
-                          {matched ? (
-                            <Link 
-                              href={`/exercise/${matched.id}`}
-                              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold transition border border-amber-500/30 shrink-0"
-                            >
-                              <span>查看動作</span>
-                              <ArrowDownRight className="w-3.5 h-3.5" />
-                            </Link>
-                          ) : (
-                            <Link
-                              href={`/?q=${encodeURIComponent(reg.name)}`}
-                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-medium transition hover:bg-slate-300 shrink-0"
-                            >
-                              <Search className="w-3 h-3" />
-                              <span>搜尋</span>
-                            </Link>
-                          )}
-                        </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                          {reg.rationale}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Progressions */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
-                  <ArrowUpRight className="w-4 h-4" />
-                  <span>進階方案 (無痛達標與負荷提升):</span>
-                </div>
-
-                <div className="space-y-2.5">
-                  {exercise.progressions.map((prog, i) => {
-                    const matched = findMatchingExercise(prog.name);
-                    return (
-                      <div 
-                        key={i} 
-                        className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-500/50 transition space-y-2 shadow-sm"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <strong className="text-slate-900 dark:text-white font-bold text-sm block">
-                              {prog.name}
-                            </strong>
-                            {matched && (
-                              <span className="text-xs text-teal-600 dark:text-teal-400 font-medium">
-                                {matched.chineseName} · {matched.subRegion}
-                              </span>
-                            )}
-                          </div>
-
-                          {matched ? (
-                            <Link 
-                              href={`/exercise/${matched.id}`}
-                              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold transition border border-emerald-500/30 shrink-0"
-                            >
-                              <span>查看動作</span>
-                              <ArrowUpRight className="w-3.5 h-3.5" />
-                            </Link>
-                          ) : (
-                            <Link
-                              href={`/?q=${encodeURIComponent(prog.name)}`}
-                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-medium transition hover:bg-slate-300 shrink-0"
-                            >
-                              <Search className="w-3 h-3" />
-                              <span>搜尋</span>
-                            </Link>
-                          )}
-                        </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                          {prog.rationale}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Similar Exercises (Clinical Alternatives & Modifications) */}
-          {similarExercises.length > 0 && (
-            <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm dark:shadow-lg space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-2">
-                  <div className="p-1.5 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400">
-                    <Repeat className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white text-sm">
-                      相似替代動作推薦 (Clinical Alternatives & Variations)
-                    </h3>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                      基於相同目標主動肌群、動力鏈型態與收縮機制的實證替代方案，方便病患疼痛或無器材時即時調換
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {similarExercises.map(({ exercise: simEx, matchingPoints, score }) => {
-                  return (
-                    <Link
-                      key={simEx.id}
-                      href={`/exercise/${simEx.id}`}
-                      className="group p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50 transition flex flex-col justify-between space-y-2.5 shadow-sm hover:shadow"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between gap-2 mb-1">
-                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/60">
-                            {simEx.subRegion}
-                          </span>
-                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">
-                            匹配度 {Math.min(99, score)}%
-                          </span>
-                        </div>
-
-                        <strong className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition line-clamp-1 block">
-                          {simEx.name}
-                        </strong>
-                        <span className="text-xs text-teal-600 dark:text-teal-400 font-medium line-clamp-1 block mt-0.5">
-                          {simEx.chineseName}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-wrap gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-                        {matchingPoints.map((pt, idx) => (
-                          <span
-                            key={idx}
-                            className="px-1.5 py-0.5 rounded text-[10px] bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
-                          >
-                            {pt}
-                          </span>
-                        ))}
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Lightbox for Zoomed Anatomy Viewing */}

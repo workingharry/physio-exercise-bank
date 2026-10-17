@@ -5,10 +5,12 @@ import { Navbar } from './components/layout/Navbar';
 import { LibraryView } from './components/library/LibraryView';
 import { ExerciseDetailView } from './components/detail/ExerciseDetailView';
 import { ProtocolView } from './components/protocols/ProtocolView';
+import { AnatomyIndexView } from './components/anatomy/AnatomyIndexView';
+import { BookmarksView } from './components/bookmarks/BookmarksView';
 import { RoutineBuilderView } from './components/builder/RoutineBuilderView';
 import { CustomStudioView } from './components/custom/CustomStudioView';
 import { useRoutineStore } from './store/useRoutineStore';
-import { ShieldCheck, Heart, ClipboardList } from 'lucide-react';
+import { ShieldCheck, BookOpen } from 'lucide-react';
 
 // Bulletproof hash location hook for 100% compatibility with file:// protocol and web servers
 const currentHashLocation = () => {
@@ -36,7 +38,6 @@ useSafeHashLocation.hrefs = (href: string) => '#' + (href.startsWith('/') ? href
 
 export function App() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
-  const { routine } = useRoutineStore();
   const [loc] = useSafeHashLocation();
 
   useEffect(() => {
@@ -59,7 +60,10 @@ export function App() {
           <Route path="/" component={LibraryView} />
           <Route path="/library" component={LibraryView} />
           <Route path="/exercise/:id" component={ExerciseDetailView} />
+          <Route path="/anatomy" component={AnatomyIndexView} />
           <Route path="/protocols" component={ProtocolView} />
+          <Route path="/notebook" component={BookmarksView} />
+          <Route path="/bookmarks" component={BookmarksView} />
           <Route path="/builder" component={RoutineBuilderView} />
           <Route path="/custom" component={CustomStudioView} />
           <Route>
@@ -79,30 +83,16 @@ export function App() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-teal-500" />
             <span>
-              PhysioBank 物理治療復健運動處方庫 · 僅供物理治療實習教學與學術複習參考
+              PhysioBank 物理治療運動百科知識庫 · 完整 387 動作離線參考庫
             </span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span>V1 下肢關節核心庫 (387 動作)</span>
+            <span>基於 JOSPT / Aspetar / Melbourne ACL 臨床指引</span>
             <span>·</span>
-            <span>JOSPT / Aspetar / Melbourne ACL 指引</span>
+            <span>100% 離線本地運算 · 無外部 API 依賴</span>
           </div>
         </div>
       </footer>
-
-      {/* Floating Prescription Count Badge */}
-      {routine.length > 0 && loc !== '/builder' && (
-        <Link
-          href="/builder"
-          className="no-print fixed bottom-20 md:bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs shadow-2xl shadow-teal-600/40 hover:scale-105 active:scale-95 transition-all group border border-teal-400/40"
-        >
-          <ClipboardList className="w-4 h-4 text-white" />
-          <span>已選處方</span>
-          <span className="w-5 h-5 rounded-full bg-white text-teal-800 text-xs font-black flex items-center justify-center shadow-sm">
-            {routine.length}
-          </span>
-        </Link>
-      )}
     </div>
     </Router>
   );

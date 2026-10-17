@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'wouter';
-import { Activity, BookOpen, Stethoscope, ClipboardList, PlusCircle, Moon, Sun, Code2 } from 'lucide-react';
+import { BookOpen, Layers, Stethoscope, Bookmark, Moon, Sun, Code2, GraduationCap } from 'lucide-react';
 import { useRoutineStore } from '../../store/useRoutineStore';
 
 interface Props {
@@ -10,13 +10,13 @@ interface Props {
 
 export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
   const [location] = useLocation();
-  const { routine } = useRoutineStore();
+  const { bookmarks } = useRoutineStore();
 
   const navLinks = [
-    { href: '/', label: '運動資料庫', icon: BookOpen },
-    { href: '/protocols', label: '分期復健協定', icon: Stethoscope },
-    { href: '/builder', label: '處方組裝 (HEP)', icon: ClipboardList, badge: routine.length },
-    { href: '/custom', label: '自訂工作室', icon: PlusCircle },
+    { href: '/', label: '運動百科', icon: BookOpen },
+    { href: '/anatomy', label: '肌群解剖', icon: Layers },
+    { href: '/protocols', label: '病症指南', icon: Stethoscope },
+    { href: '/notebook', label: '研讀筆記', icon: Bookmark, badge: bookmarks.length },
   ];
 
   return (
@@ -25,7 +25,7 @@ export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20 group-hover:scale-105 transition">
-            <Activity className="w-5 h-5" />
+            <GraduationCap className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -33,10 +33,10 @@ export const Navbar: React.FC<Props> = ({ darkMode, setDarkMode }) => {
                 PhysioBank
               </span>
               <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-700/60">
-                V1 下肢實作
+                運動百科
               </span>
             </div>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">物理治療全身運動處方資料庫</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">物理治療下肢運動百科知識庫</p>
           </div>
         </Link>
 
