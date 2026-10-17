@@ -35,10 +35,10 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
 
   // Difficulty color
   const diffBadge = {
-    'Beginner (初階)': 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/80 dark:text-emerald-400 dark:border-emerald-700/60',
-    'Intermediate (中階)': 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/80 dark:text-blue-300 dark:border-blue-700/60',
-    'Advanced (進階)': 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-950/80 dark:text-purple-300 dark:border-purple-700/60'
-  }[exercise.difficulty] || 'bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700';
+    'Beginner (初階)': 'bg-[#F5F2EB] text-stone-700 border-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-700',
+    'Intermediate (中階)': 'bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800/60',
+    'Advanced (進階)': 'bg-stone-200 text-stone-900 border-stone-300 dark:bg-stone-700 dark:text-stone-100 dark:border-stone-600'
+  }[exercise.difficulty] || 'bg-stone-100 text-stone-700 border-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-700';
 
   // Check if Chinese subtitle is distinct from English name
   const hasDistinctChinese = exercise.chineseName && exercise.chineseName.trim() !== exercise.name.trim();
@@ -52,15 +52,15 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
   return (
     <div 
       onClick={handleCardClick}
-      className={`group relative bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-900 border rounded-2xl p-4 transition-all duration-200 shadow-sm hover:shadow-lg dark:shadow-md flex flex-col justify-between cursor-pointer ${
+      className={`group relative bg-white dark:bg-[#201D1A] hover:bg-[#FAF8F5] dark:hover:bg-[#26221E] border rounded-2xl p-4 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between cursor-pointer ${
         isComparing 
-          ? 'border-indigo-500 ring-2 ring-indigo-500/30' 
-          : 'border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50'
+          ? 'border-amber-700 ring-2 ring-amber-700/30' 
+          : 'border-stone-200 dark:border-stone-800 hover:border-amber-700/60 dark:hover:border-amber-600/60'
       }`}
     >
       {/* Top Banner & Media Thumbnail */}
       <div>
-        <div className="relative mb-3 h-36 w-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950">
+        <div className="relative mb-3 h-36 w-full rounded-xl overflow-hidden border border-stone-200 dark:border-stone-800 bg-stone-900">
           {thumbnailUrl && !imgError ? (
             <img
               src={thumbnailUrl}
@@ -74,12 +74,12 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
           )}
 
           {/* Dark gradient overlay for bottom badge readability */}
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-slate-950/80 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-stone-950/80 to-transparent pointer-events-none" />
 
           {/* Top-Left: Video Badge */}
           {exercise.media.videoUrl && (
-            <div className="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-950/85 backdrop-blur-md text-[11px] font-semibold text-teal-300 border border-teal-500/40 shadow-sm">
-              <Play className="w-3 h-3 fill-teal-400 text-teal-400" />
+            <div className="absolute top-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded-md bg-stone-950/85 backdrop-blur-md text-[11px] font-semibold text-amber-300 border border-amber-600/40 shadow-sm">
+              <Play className="w-3 h-3 fill-amber-400 text-amber-400" />
               <span>示範影片</span>
             </div>
           )}
@@ -93,8 +93,8 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
               }}
               className={`p-1.5 rounded-lg backdrop-blur-md transition shadow-sm border ${
                 isComparing
-                  ? 'bg-indigo-600 text-white border-indigo-500 shadow-indigo-500/30'
-                  : 'bg-slate-950/80 text-slate-300 hover:text-white border-slate-700/60 hover:bg-indigo-600/80'
+                  ? 'bg-amber-800 text-white border-amber-700 shadow-amber-900/30'
+                  : 'bg-stone-950/80 text-stone-300 hover:text-white border-stone-700/60 hover:bg-amber-800/80'
               }`}
               title={isComparing ? '自動作對比中移除' : '加入動作並排對比 (最多3個)'}
             >
@@ -108,7 +108,7 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
                   addRecentlyViewed(exercise.id);
                   onQuickView(exercise);
                 }}
-                className="p-1.5 rounded-lg bg-slate-950/80 hover:bg-teal-600 backdrop-blur-md text-slate-300 hover:text-white border border-slate-700/60 transition shadow-sm"
+                className="p-1.5 rounded-lg bg-stone-950/80 hover:bg-amber-800 backdrop-blur-md text-stone-300 hover:text-white border border-stone-700/60 transition shadow-sm"
                 title="快速抽屜預覽"
               >
                 <Eye className="w-3.5 h-3.5" />
@@ -122,8 +122,8 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
               }}
               className={`p-1.5 rounded-lg backdrop-blur-md transition shadow-sm border ${
                 isBookmarked
-                  ? 'bg-amber-500 text-white border-amber-400'
-                  : 'bg-slate-950/80 text-slate-300 hover:text-white border-slate-700/60'
+                  ? 'bg-amber-700 text-white border-amber-600'
+                  : 'bg-stone-950/80 text-stone-300 hover:text-white border-stone-700/60'
               }`}
               title="儲存至學習書籤"
             >
@@ -132,7 +132,7 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
           </div>
 
           {/* Bottom-Right: Kinetic Chain Pill */}
-          <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-slate-950/80 backdrop-blur-md text-[11px] font-medium text-slate-300 border border-slate-700/60">
+          <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-stone-950/80 backdrop-blur-md text-[11px] font-medium text-stone-300 border border-stone-700/60">
             {exercise.biomechanics.kineticChain}
           </div>
         </div>
@@ -143,36 +143,36 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
             {exercise.difficulty}
           </span>
           {exercise.rehabPhase[0] && (
-            <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-teal-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700 truncate max-w-[170px]">
+            <span className="px-2 py-0.5 text-[11px] font-semibold rounded-md bg-[#F5F2EB] dark:bg-stone-800 text-amber-900 dark:text-amber-300 border border-stone-200 dark:border-stone-700 truncate max-w-[170px]">
               {exercise.rehabPhase[0].split(':')[0]}
             </span>
           )}
         </div>
 
         {/* Exercise Title: English + Chinese */}
-        <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-300 transition line-clamp-2 leading-snug">
+        <h3 className="font-serif font-bold text-sm text-stone-900 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition line-clamp-2 leading-snug">
           {exercise.name}
         </h3>
         {hasDistinctChinese && (
-          <span className="text-xs text-teal-700 dark:text-teal-400 font-medium block line-clamp-1 mt-1">
+          <span className="text-xs text-amber-800 dark:text-amber-400 font-medium block line-clamp-1 mt-1">
             {exercise.chineseName}
           </span>
         )}
 
         {/* 4 Core Parameters: Target Muscles & Equipment */}
-        <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 space-y-1.5 text-xs">
-          <div className="text-slate-600 dark:text-slate-300 flex items-center gap-1.5 line-clamp-1">
-            <Dumbbell className="w-3.5 h-3.5 text-teal-500 shrink-0" />
+        <div className="mt-3 pt-2.5 border-t border-stone-100 dark:border-stone-800/80 space-y-1.5 text-xs">
+          <div className="text-stone-600 dark:text-stone-300 flex items-center gap-1.5 line-clamp-1">
+            <Dumbbell className="w-3.5 h-3.5 text-amber-700 shrink-0" />
             <span>
-              <strong className="text-slate-700 dark:text-slate-200 font-medium">主動肌:</strong>{' '}
+              <strong className="text-stone-700 dark:text-stone-200 font-medium">主動肌:</strong>{' '}
               {exercise.biomechanics.primaryMuscles.slice(0, 3).join(', ') || '目標肌群'}
             </span>
           </div>
 
-          <div className="text-slate-500 dark:text-slate-400 flex items-center gap-1.5 line-clamp-1">
-            <Target className="w-3.5 h-3.5 text-cyan-500 shrink-0" />
+          <div className="text-stone-500 dark:text-stone-400 flex items-center gap-1.5 line-clamp-1">
+            <Target className="w-3.5 h-3.5 text-amber-800/70 shrink-0" />
             <span>
-              <strong className="text-slate-600 dark:text-slate-300 font-medium">器材:</strong>{' '}
+              <strong className="text-stone-600 dark:text-stone-300 font-medium">器材:</strong>{' '}
               {exercise.equipment.length > 0 ? exercise.equipment.slice(0, 2).join(', ') : '徒手 / 無器材'}
             </span>
           </div>
@@ -180,14 +180,14 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
       </div>
 
       {/* Card Actions: Primary Add-to-Routine Button & Details */}
-      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+      <div className="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between gap-2">
         <Link
           href={`/exercise/${exercise.id}`}
           onClick={(e) => {
             e.stopPropagation();
             addRecentlyViewed(exercise.id);
           }}
-          className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition py-1 px-1"
+          className="text-xs font-semibold text-stone-600 dark:text-stone-400 hover:text-amber-800 dark:hover:text-amber-300 transition py-1 px-1"
         >
           查看詳情 →
         </Link>
@@ -203,8 +203,8 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
           }}
           className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition shadow-sm ${
             isAdded
-              ? 'bg-teal-50 text-teal-800 dark:bg-teal-950/60 dark:text-teal-300 border border-teal-300 dark:border-teal-700/60 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-600 dark:hover:text-red-400'
-              : 'bg-teal-600 hover:bg-teal-500 text-white shadow-teal-600/20 active:scale-95'
+              ? 'bg-amber-100/70 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 hover:bg-stone-200 dark:hover:bg-stone-800'
+              : 'bg-amber-800 hover:bg-amber-900 text-amber-50 shadow-amber-900/20 active:scale-95'
           }`}
           title={isAdded ? '點擊自處方移除' : '加入病患處方 (HEP)'}
         >

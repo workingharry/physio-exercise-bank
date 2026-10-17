@@ -12,6 +12,8 @@ import { CustomStudioView } from './components/custom/CustomStudioView';
 import { useRoutineStore } from './store/useRoutineStore';
 import { ShieldCheck, BookOpen } from 'lucide-react';
 
+import { ConditionDetailView } from './components/conditions/ConditionDetailView';
+
 // Bulletproof hash location hook for 100% compatibility with file:// protocol and web servers
 const currentHashLocation = () => {
   const hash = typeof window !== 'undefined' ? window.location.hash.replace(/^#?\/?/, '') : '';
@@ -50,7 +52,7 @@ export function App() {
 
   return (
     <Router hook={useSafeHashLocation}>
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-teal-500 selection:text-white transition-colors duration-150">
+      <div className="min-h-screen bg-[#FBF9F5] dark:bg-[#1C1917] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-amber-600 selection:text-white transition-colors duration-150">
         {/* Navigation */}
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
@@ -59,6 +61,7 @@ export function App() {
         <Switch>
           <Route path="/" component={LibraryView} />
           <Route path="/library" component={LibraryView} />
+          <Route path="/condition/:id" component={ConditionDetailView} />
           <Route path="/exercise/:id" component={ExerciseDetailView} />
           <Route path="/anatomy" component={AnatomyIndexView} />
           <Route path="/protocols" component={ProtocolView} />
@@ -68,8 +71,8 @@ export function App() {
           <Route path="/custom" component={CustomStudioView} />
           <Route>
             <div className="max-w-4xl mx-auto py-24 text-center">
-              <h2 className="text-2xl font-bold">404 - 找不到此頁面</h2>
-              <a href="/" className="mt-4 inline-block px-4 py-2 bg-teal-600 rounded-xl text-white text-xs font-semibold">
+              <h2 className="text-2xl font-serif font-bold">404 - 找不到此頁面</h2>
+              <a href="/" className="mt-4 inline-block px-4 py-2 bg-amber-800 hover:bg-amber-900 rounded-xl text-amber-50 text-xs font-semibold">
                 返回首頁
               </a>
             </div>

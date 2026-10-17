@@ -57,7 +57,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                           {exercise.subRegion}
                         </span>
                         {exercise.media.videoUrl && (
-                          <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-teal-50 text-teal-700 dark:bg-teal-950/80 dark:text-teal-400 border border-teal-200 dark:border-teal-800/60">
+                          <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-[#F5F2EB] text-amber-900 dark:bg-stone-800 dark:text-amber-300 border border-stone-200 dark:border-stone-750">
                             <Play className="w-2.5 h-2.5 fill-current" />
                             <span>影片</span>
                           </span>
@@ -67,18 +67,18 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         href={`/exercise/${exercise.id}`}
                         onClick={() => addRecentlyViewed(exercise.id)}
                       >
-                        <span className="font-bold text-slate-900 dark:text-slate-100 hover:text-teal-600 dark:hover:text-teal-300 transition cursor-pointer text-sm line-clamp-1">
+                        <span className="font-serif font-bold text-stone-900 dark:text-stone-100 hover:text-amber-800 dark:hover:text-amber-300 transition cursor-pointer text-sm line-clamp-1">
                           {exercise.name}
                         </span>
                       </Link>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                      <span className="text-[11px] text-stone-500 dark:text-stone-400 line-clamp-1 mt-0.5">
                         {exercise.chineseName} · {exercise.targetPathologies[0] || ''}
                       </span>
                     </div>
                   </td>
 
                   {/* Target Muscles */}
-                  <td className="py-3 px-4 hidden md:table-cell text-slate-700 dark:text-slate-300 font-medium">
+                  <td className="py-3 px-4 hidden md:table-cell text-stone-700 dark:text-stone-300 font-medium">
                     <div className="line-clamp-2 max-w-xs">
                       {exercise.biomechanics.primaryMuscles.join(', ') || '下肢目標肌'}
                     </div>
@@ -88,7 +88,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   <td className="py-3 px-4 hidden sm:table-cell">
                     <div className="flex flex-wrap gap-1 max-w-[140px]">
                       {exercise.movementType.slice(0, 2).map((t) => (
-                        <span key={t} className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-cyan-800 dark:bg-slate-800/80 dark:text-cyan-300 border border-slate-200 dark:border-slate-700/80">
+                        <span key={t} className="px-1.5 py-0.5 rounded text-[10px] bg-[#F5F2EB] text-amber-900 dark:bg-stone-800/80 dark:text-amber-300 border border-stone-200 dark:border-stone-700/80">
                           {t}
                         </span>
                       ))}
@@ -96,7 +96,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   </td>
 
                   {/* Rehab Phases */}
-                  <td className="py-3 px-4 hidden lg:table-cell text-slate-600 dark:text-slate-300">
+                  <td className="py-3 px-4 hidden lg:table-cell text-stone-600 dark:text-stone-300">
                     <span className="line-clamp-1 max-w-[150px]">
                       {exercise.rehabPhase[0]?.split(':')[0] || '一般復健'}
                     </span>
@@ -105,19 +105,19 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   {/* Difficulty & Chain */}
                   <td className="py-3 px-4 hidden xl:table-cell">
                     <div className="flex items-center gap-1.5">
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300">
                         {exercise.difficulty.split(' ')[0]}
                       </span>
-                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-purple-50 text-purple-700 dark:bg-slate-800/60 dark:text-purple-300 border border-purple-200 dark:border-slate-700/60">
+                      <span className="px-1.5 py-0.5 rounded text-[10px] bg-stone-100 text-stone-700 dark:bg-stone-800/60 dark:text-stone-300 border border-stone-200 dark:border-stone-700/60">
                         {exercise.biomechanics.kineticChain.split(' ')[0]}
                       </span>
                     </div>
                   </td>
 
                   {/* Dosage */}
-                  <td className="py-3 px-4 hidden sm:table-cell text-slate-700 dark:text-slate-300 font-medium text-[11px]">
+                  <td className="py-3 px-4 hidden sm:table-cell text-stone-700 dark:text-stone-300 font-medium text-[11px]">
                     <div>{exercise.dosage.sets} x {exercise.dosage.reps}</div>
-                    <div className="text-[10px] text-slate-400">{exercise.dosage.frequency}</div>
+                    <div className="text-[10px] text-stone-400">{exercise.dosage.frequency}</div>
                   </td>
 
                   {/* Actions */}
@@ -128,8 +128,8 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         onClick={() => toggleComparison(exercise.id)}
                         className={`p-1.5 rounded-lg border transition ${
                           isComparing
-                            ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
-                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700'
+                            ? 'bg-amber-800 text-white border-amber-700 shadow-sm'
+                            : 'bg-stone-100 hover:bg-stone-200 dark:bg-stone-800/80 dark:hover:bg-stone-700 text-stone-500 dark:text-stone-400 border-stone-200 dark:border-stone-700'
                         }`}
                         title={isComparing ? '自對比移除' : '加入動作並排對比'}
                       >
@@ -141,8 +141,8 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         onClick={() => toggleBookmark(exercise.id)}
                         className={`p-1.5 rounded-lg border transition ${
                           isBookmarked
-                            ? 'bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-300 border-amber-500/40'
-                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700'
+                            ? 'bg-amber-500/10 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300 border-amber-500/40'
+                            : 'bg-stone-100 hover:bg-stone-200 dark:bg-stone-800/80 dark:hover:bg-stone-700 text-stone-500 dark:text-stone-400 border-stone-200 dark:border-stone-700'
                         }`}
                         title="學習書籤"
                       >
@@ -155,10 +155,10 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                           addRecentlyViewed(exercise.id);
                           onQuickView(exercise);
                         }}
-                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 text-xs font-semibold border border-stone-200 dark:border-stone-700 transition"
                         title="快速側欄預覽"
                       >
-                        <Eye className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                        <Eye className="w-3.5 h-3.5 text-amber-800 dark:text-amber-400" />
                         <span className="hidden sm:inline">預覽</span>
                       </button>
 
@@ -173,8 +173,8 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                         }}
                         className={`p-1.5 rounded-lg transition ${
                           isAdded
-                            ? 'bg-teal-500/10 text-teal-700 dark:bg-teal-500/20 dark:text-teal-300 border border-teal-500/40'
-                            : 'bg-teal-600 hover:bg-teal-500 text-white'
+                            ? 'bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300'
+                            : 'bg-amber-800 hover:bg-amber-900 text-amber-50'
                         }`}
                         title={isAdded ? '已在處方中' : '加入處方'}
                       >
