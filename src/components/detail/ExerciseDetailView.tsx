@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useRoute } from 'wouter';
 import { getExerciseById, allExercises } from '../../data/exercises';
 import { AnatomySvgPlaceholder } from '../common/AnatomySvgPlaceholder';
 import { VideoPlayer } from '../common/VideoPlayer';
 import { Lightbox } from '../common/Lightbox';
 import { useRoutineStore } from '../../store/useRoutineStore';
+import { findSimilarExercises } from '../../utils/similarity';
 import { 
   ArrowLeft, Plus, Check, Bookmark, AlertTriangle, ShieldAlert,
   Dumbbell, Compass, Target, ArrowUpRight, ArrowDownRight,
   Clock, Repeat, Play, Info, Sparkles, ZoomIn, Search, CheckCircle2,
-  ChevronRight
+  ChevronRight, Scale
 } from 'lucide-react';
 
 export const ExerciseDetailView: React.FC = () => {
@@ -17,9 +18,24 @@ export const ExerciseDetailView: React.FC = () => {
   const exerciseId = params?.id || '';
   const exercise = getExerciseById(exerciseId);
 
-  const { routine, addToRoutine, removeFromRoutine, bookmarks, toggleBookmark } = useRoutineStore();
+  const { 
+    routine, 
+    addToRoutine, 
+    removeFromRoutine, 
+    bookmarks, 
+    toggleBookmark, 
+    comparisonIds, 
+    toggleComparison, 
+    addRecentlyViewed 
+  } = useRoutineStore();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeMediaTab, setActiveMediaTab] = useState<'video' | 'anatomy'>('video');
+
+  useEffect(() => {
+    if (exercise?.id) {
+      addRecentlyViewed(exercise.id);
+    }
+  }, [exercise?.id]);
 
   if (!exercise) {
     return (
@@ -36,6 +52,11 @@ export const ExerciseDetailView: React.FC = () => {
 
   const isAdded = routine.some(item => item.exerciseId === exercise.id);
   const isBookmarked = bookmarks.includes(exercise.id);
+  const isComparing = comparisonIds.includes(exercise.id);
+
+  const similarExercises = useMemo(() => {
+    return findSimilarExercises(exercise, allExercises, 4);
+  }, [exercise]);
 
   // Helper to match progression/regression names to actual database exercises
   const findMatchingExercise = (targetName: string) => {
@@ -86,6 +107,19 @@ export const ExerciseDetailView: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => toggleComparison(exercise.id)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition ${
+              isComparing
+                ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-500/20'
+                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+            }`}
+            title="加入並排對比 (最多 3 個動作)"
+          >
+            <Scale className="w-3.5 h-3.5" />
+            <span>{isComparing ? '已在對比中' : '加入對比'}</span>
+          </button>
+
           <button
             onClick={() => toggleBookmark(exercise.id)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition ${
@@ -547,6 +581,68 @@ export const ExerciseDetailView: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Similar Exercises (Clinical Alternatives & Modifications) */}
+          {similarExercises.length > 0 && (
+            <div className="bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm dark:shadow-lg space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-slate-200 dark:border-slate-800">
+                <div className="flex items-center gap-2">
+                  <div className="p-1.5 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400">
+                    <Repeat className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 dark:text-white text-sm">
+                      相似替代動作推薦 (Clinical Alternatives & Variations)
+                    </h3>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      基於相同目標主動肌群、動力鏈型態與收縮機制的實證替代方案，方便病患疼痛或無器材時即時調換
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                {similarExercises.map(({ exercise: simEx, matchingPoints, score }) => {
+                  return (
+                    <Link
+                      key={simEx.id}
+                      href={`/exercise/${simEx.id}`}
+                      className="group p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50 transition flex flex-col justify-between space-y-2.5 shadow-sm hover:shadow"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-1">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/60">
+                            {simEx.subRegion}
+                          </span>
+                          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">
+                            匹配度 {Math.min(99, score)}%
+                          </span>
+                        </div>
+
+                        <strong className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-300 transition line-clamp-1 block">
+                          {simEx.name}
+                        </strong>
+                        <span className="text-xs text-teal-600 dark:text-teal-400 font-medium line-clamp-1 block mt-0.5">
+                          {simEx.chineseName}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                        {matchingPoints.map((pt, idx) => (
+                          <span
+                            key={idx}
+                            className="px-1.5 py-0.5 rounded text-[10px] bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800"
+                          >
+                            {pt}
+                          </span>
+                        ))}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

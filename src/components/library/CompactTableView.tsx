@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'wouter';
 import { Exercise } from '../../types/exercise';
 import { useRoutineStore } from '../../store/useRoutineStore';
-import { Eye, Plus, Check, Bookmark, Play, ChevronRight, Dumbbell } from 'lucide-react';
+import { Eye, Plus, Check, Bookmark, Play, ChevronRight, Dumbbell, Scale } from 'lucide-react';
 
 interface Props {
   exercises: Exercise[];
@@ -10,7 +10,16 @@ interface Props {
 }
 
 export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) => {
-  const { routine, addToRoutine, removeFromRoutine, bookmarks, toggleBookmark } = useRoutineStore();
+  const { 
+    routine, 
+    addToRoutine, 
+    removeFromRoutine, 
+    bookmarks, 
+    toggleBookmark,
+    comparisonIds,
+    toggleComparison,
+    addRecentlyViewed
+  } = useRoutineStore();
 
   return (
     <div className="w-full bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl transition-colors">
@@ -31,11 +40,14 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
             {exercises.map((exercise) => {
               const isAdded = routine.some(item => item.exerciseId === exercise.id);
               const isBookmarked = bookmarks.includes(exercise.id);
+              const isComparing = comparisonIds.includes(exercise.id);
 
               return (
                 <tr
                   key={exercise.id}
-                  className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition group"
+                  className={`hover:bg-slate-50 dark:hover:bg-slate-800/50 transition group ${
+                    isComparing ? 'bg-indigo-50/50 dark:bg-indigo-950/20' : ''
+                  }`}
                 >
                   {/* Name & Region */}
                   <td className="py-3 px-4">
@@ -51,7 +63,10 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                           </span>
                         )}
                       </div>
-                      <Link href={`/exercise/${exercise.id}`}>
+                      <Link 
+                        href={`/exercise/${exercise.id}`}
+                        onClick={() => addRecentlyViewed(exercise.id)}
+                      >
                         <span className="font-bold text-slate-900 dark:text-slate-100 hover:text-teal-600 dark:hover:text-teal-300 transition cursor-pointer text-sm line-clamp-1">
                           {exercise.name}
                         </span>
@@ -80,10 +95,10 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                     </div>
                   </td>
 
-                  {/* Rehab Phase */}
-                  <td className="py-3 px-4 hidden lg:table-cell text-slate-500 dark:text-slate-400 font-medium text-[11px]">
-                    <span className="truncate max-w-[150px] block">
-                      {exercise.rehabPhase[0]?.split(':')[0] || 'Phase 2'}
+                  {/* Rehab Phases */}
+                  <td className="py-3 px-4 hidden lg:table-cell text-slate-600 dark:text-slate-300">
+                    <span className="line-clamp-1 max-w-[150px]">
+                      {exercise.rehabPhase[0]?.split(':')[0] || '一般復健'}
                     </span>
                   </td>
 
@@ -108,6 +123,19 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   {/* Actions */}
                   <td className="py-3 px-4 text-right">
                     <div className="flex items-center justify-end gap-1.5">
+                      {/* Compare */}
+                      <button
+                        onClick={() => toggleComparison(exercise.id)}
+                        className={`p-1.5 rounded-lg border transition ${
+                          isComparing
+                            ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700'
+                        }`}
+                        title={isComparing ? '自對比移除' : '加入動作並排對比'}
+                      >
+                        <Scale className="w-3.5 h-3.5" />
+                      </button>
+
                       {/* Bookmark */}
                       <button
                         onClick={() => toggleBookmark(exercise.id)}
@@ -123,7 +151,10 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
 
                       {/* Quick View Drawer */}
                       <button
-                        onClick={() => onQuickView(exercise)}
+                        onClick={() => {
+                          addRecentlyViewed(exercise.id);
+                          onQuickView(exercise);
+                        }}
                         className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold border border-slate-200 dark:border-slate-700 transition"
                         title="快速側欄預覽"
                       >

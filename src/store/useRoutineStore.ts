@@ -5,6 +5,8 @@ import { allExercises } from '../data/exercises';
 const ROUTINE_KEY = 'physiobank_active_routine_v1';
 const BOOKMARKS_KEY = 'physiobank_bookmarks_v1';
 const CUSTOM_EXERCISES_KEY = 'physiobank_custom_exercises_v1';
+const RECENT_KEY = 'physiobank_recent_exercises_v1';
+const COMPARE_KEY = 'physiobank_compare_exercises_v1';
 
 export function useRoutineStore() {
   const [routine, setRoutine] = useState<RoutineItem[]>(() => {
@@ -19,6 +21,24 @@ export function useRoutineStore() {
   const [bookmarks, setBookmarks] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem(BOOKMARKS_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [comparisonIds, setComparisonIds] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem(COMPARE_KEY);
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -49,6 +69,22 @@ export function useRoutineStore() {
       console.error(e);
     }
   }, [bookmarks]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(RECENT_KEY, JSON.stringify(recentlyViewed));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [recentlyViewed]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(COMPARE_KEY, JSON.stringify(comparisonIds));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [comparisonIds]);
 
   useEffect(() => {
     try {
@@ -123,9 +159,43 @@ export function useRoutineStore() {
     setCustomExercises(prev => prev.filter(e => e.id !== id));
   };
 
+  const addRecentlyViewed = (exerciseId: string) => {
+    setRecentlyViewed(prev => {
+      const filtered = prev.filter(id => id !== exerciseId);
+      return [exerciseId, ...filtered].slice(0, 20);
+    });
+  };
+
+  const clearRecentlyViewed = () => {
+    setRecentlyViewed([]);
+  };
+
+  const toggleComparison = (exerciseId: string) => {
+    setComparisonIds(prev => {
+      if (prev.includes(exerciseId)) {
+        return prev.filter(id => id !== exerciseId);
+      }
+      if (prev.length >= 3) {
+        alert('最多只能同時對比 3 個動作！請先取消其他動作的勾選。');
+        return prev;
+      }
+      return [...prev, exerciseId];
+    });
+  };
+
+  const removeFromComparison = (exerciseId: string) => {
+    setComparisonIds(prev => prev.filter(id => id !== exerciseId));
+  };
+
+  const clearComparison = () => {
+    setComparisonIds([]);
+  };
+
   return {
     routine,
     bookmarks,
+    recentlyViewed,
+    comparisonIds,
     customExercises,
     addToRoutine,
     removeFromRoutine,
@@ -134,6 +204,11 @@ export function useRoutineStore() {
     reorderRoutine,
     moveRoutineItem,
     toggleBookmark,
+    addRecentlyViewed,
+    clearRecentlyViewed,
+    toggleComparison,
+    removeFromComparison,
+    clearComparison,
     addCustomExercise,
     deleteCustomExercise
   };

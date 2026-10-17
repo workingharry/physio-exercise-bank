@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Exercise } from '../../types/exercise';
 import { AnatomySvgPlaceholder } from '../common/AnatomySvgPlaceholder';
-import { Eye, Bookmark, Plus, Check, Play, Dumbbell, Target } from 'lucide-react';
+import { Eye, Bookmark, Plus, Check, Play, Dumbbell, Target, Scale } from 'lucide-react';
 import { useRoutineStore } from '../../store/useRoutineStore';
 
 interface Props {
@@ -12,11 +12,21 @@ interface Props {
 
 export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
   const [, navigate] = useLocation();
-  const { routine, addToRoutine, removeFromRoutine, bookmarks, toggleBookmark } = useRoutineStore();
+  const { 
+    routine, 
+    addToRoutine, 
+    removeFromRoutine, 
+    bookmarks, 
+    toggleBookmark, 
+    comparisonIds, 
+    toggleComparison, 
+    addRecentlyViewed 
+  } = useRoutineStore();
   const [imgError, setImgError] = useState(false);
 
   const isAdded = routine.some(item => item.exerciseId === exercise.id);
   const isBookmarked = bookmarks.includes(exercise.id);
+  const isComparing = comparisonIds.includes(exercise.id);
 
   // Extract YouTube ID for authentic thumbnail preview
   const ytMatch = exercise.media.videoUrl?.match(/(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*)/);
@@ -33,13 +43,20 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
   // Check if Chinese subtitle is distinct from English name
   const hasDistinctChinese = exercise.chineseName && exercise.chineseName.trim() !== exercise.name.trim();
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest('button, a')) return;
+    addRecentlyViewed(exercise.id);
+    navigate(`/exercise/${exercise.id}`);
+  };
+
   return (
     <div 
-      onClick={(e) => {
-        if ((e.target as HTMLElement).closest('button, a')) return;
-        navigate(`/exercise/${exercise.id}`);
-      }}
-      className="group relative bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50 rounded-2xl p-4 transition-all duration-200 shadow-sm hover:shadow-lg dark:shadow-md dark:hover:shadow-teal-500/10 flex flex-col justify-between cursor-pointer"
+      onClick={handleCardClick}
+      className={`group relative bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-900 border rounded-2xl p-4 transition-all duration-200 shadow-sm hover:shadow-lg dark:shadow-md flex flex-col justify-between cursor-pointer ${
+        isComparing 
+          ? 'border-indigo-500 ring-2 ring-indigo-500/30' 
+          : 'border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50'
+      }`}
     >
       {/* Top Banner & Media Thumbnail */}
       <div>
@@ -67,12 +84,28 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
             </div>
           )}
 
-          {/* Top-Right: Quick Actions (Quick View & Bookmark) */}
+          {/* Top-Right: Quick Actions (Compare, Quick View, Bookmark) */}
           <div className="absolute top-2.5 right-2.5 flex items-center gap-1">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleComparison(exercise.id);
+              }}
+              className={`p-1.5 rounded-lg backdrop-blur-md transition shadow-sm border ${
+                isComparing
+                  ? 'bg-indigo-600 text-white border-indigo-500 shadow-indigo-500/30'
+                  : 'bg-slate-950/80 text-slate-300 hover:text-white border-slate-700/60 hover:bg-indigo-600/80'
+              }`}
+              title={isComparing ? '自動作對比中移除' : '加入動作並排對比 (最多3個)'}
+            >
+              <Scale className="w-3.5 h-3.5" />
+            </button>
+
             {onQuickView && (
               <button
                 onClick={(e) => {
                   e.stopPropagation();
+                  addRecentlyViewed(exercise.id);
                   onQuickView(exercise);
                 }}
                 className="p-1.5 rounded-lg bg-slate-950/80 hover:bg-teal-600 backdrop-blur-md text-slate-300 hover:text-white border border-slate-700/60 transition shadow-sm"
@@ -146,11 +179,14 @@ export const ExerciseCard: React.FC<Props> = ({ exercise, onQuickView }) => {
         </div>
       </div>
 
-      {/* Card Actions: Primary Add-to-Routine Button */}
+      {/* Card Actions: Primary Add-to-Routine Button & Details */}
       <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
         <Link
           href={`/exercise/${exercise.id}`}
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            addRecentlyViewed(exercise.id);
+          }}
           className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-300 transition py-1 px-1"
         >
           查看詳情 →

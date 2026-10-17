@@ -1,14 +1,16 @@
 import React from 'react';
-import { Search, Filter, RotateCcw, X, SlidersHorizontal } from 'lucide-react';
+import { Search, Filter, RotateCcw, X, SlidersHorizontal, Dumbbell, Target } from 'lucide-react';
 
-interface FilterState {
+export interface FilterState {
   search: string;
   subRegion: string;
   movementTypes: string[];
   rehabPhases: string[];
   equipment: string[];
+  targetMuscles: string[];
   difficulty: string;
   kineticChain: string;
+  loadingStatus: string;
 }
 
 interface Props {
@@ -39,6 +41,19 @@ export const FilterDrawer: React.FC<Props> = ({
     'Phase 4: 增強式與重返運動'
   ];
 
+  const muscleOptions = [
+    '腓腸肌 / 比目魚肌 (Calf)',
+    '脛前肌 (Tibialis Anterior)',
+    '脛後肌 (Tibialis Posterior)',
+    '腓骨長短肌 (Peroneals)',
+    '股四頭肌 (Quadriceps)',
+    '膕旁肌 (Hamstrings)',
+    '臀大肌 (Gluteus Maximus)',
+    '臀中肌 / 髖外展 (Gluteus Medius)',
+    '髖內收肌 (Hip Adductors)',
+    '足底小肌 (Foot Intrinsics)'
+  ];
+
   const equipmentOptions = [
     '徒手 (Bodyweight)',
     '彈力帶 (Resistance Band)',
@@ -51,8 +66,15 @@ export const FilterDrawer: React.FC<Props> = ({
 
   const difficultyOptions = ['ALL', 'Beginner (初階)', 'Intermediate (中階)', 'Advanced (進階)'];
   const chainOptions = ['ALL', '閉鎖鏈 (CKC)', '開放鏈 (OKC)'];
+  const loadingStatusOptions = [
+    'ALL',
+    '閉鎖鏈承重 (CKC)',
+    '開放鏈非承重 (OKC)',
+    '徒手自重 (Bodyweight)',
+    '抗阻負重 (Resisted)'
+  ];
 
-  const handleToggle = (key: 'movementTypes' | 'rehabPhases' | 'equipment', val: string) => {
+  const handleToggle = (key: 'movementTypes' | 'rehabPhases' | 'equipment' | 'targetMuscles', val: string) => {
     setFilters(prev => {
       const exists = prev[key].includes(val);
       return {
@@ -69,8 +91,10 @@ export const FilterDrawer: React.FC<Props> = ({
       movementTypes: [],
       rehabPhases: [],
       equipment: [],
+      targetMuscles: [],
       difficulty: 'ALL',
-      kineticChain: 'ALL'
+      kineticChain: 'ALL',
+      loadingStatus: 'ALL'
     });
   };
 
@@ -80,8 +104,10 @@ export const FilterDrawer: React.FC<Props> = ({
     filters.movementTypes.length > 0 || 
     filters.rehabPhases.length > 0 || 
     filters.equipment.length > 0 || 
+    filters.targetMuscles.length > 0 ||
     filters.difficulty !== 'ALL' || 
-    filters.kineticChain !== 'ALL';
+    filters.kineticChain !== 'ALL' ||
+    filters.loadingStatus !== 'ALL';
 
   return (
     <div className="w-full bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm dark:shadow-xl transition-colors">
@@ -100,50 +126,86 @@ export const FilterDrawer: React.FC<Props> = ({
           {filters.search && (
             <button
               onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 dark:hover:text-white"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-full"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
 
-        {/* Action Buttons */}
+        {/* Filter Drawer Toggle & Reset Button */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-semibold transition ${
-              isOpen
-                ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-600/20'
-                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700'
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition border ${
+              isOpen || hasActiveFilters
+                ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-500/20'
+                : 'bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700/60'
             }`}
           >
             <SlidersHorizontal className="w-4 h-4" />
-            <span>臨床進階篩選</span>
+            <span>進階臨床篩選</span>
             {hasActiveFilters && (
-              <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             )}
           </button>
 
           {hasActiveFilters && (
             <button
               onClick={handleReset}
-              className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-xs text-slate-600 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700/80 transition"
-              title="重設全部條件"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 hover:text-rose-600 dark:hover:bg-rose-950/50 dark:hover:text-rose-400 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 transition"
+              title="重設全部篩選條件"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">重設</span>
+              <RotateCcw className="w-4 h-4" />
             </button>
           )}
         </div>
       </div>
 
-      {/* Expanded Multi-Attribute Filter Panel */}
+      {/* Expanded Multi-Attribute Filter Matrix */}
       {isOpen && (
-        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4 animate-in fade-in duration-200">
-          {/* Movement Types */}
+        <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4 animate-in slide-in-from-top-2 duration-200">
+          
+          {/* Target Muscle Groups */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide flex items-center gap-1.5">
+                <Target className="w-3.5 h-3.5 text-teal-500" />
+                <span>目標肌群篩選 (Target Muscles)</span>
+              </span>
+              {filters.targetMuscles.length > 0 && (
+                <button
+                  onClick={() => setFilters(prev => ({ ...prev, targetMuscles: [] }))}
+                  className="text-[11px] text-teal-600 dark:text-teal-400 hover:underline"
+                >
+                  清除肌群
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {muscleOptions.map((muscle) => {
+                const active = filters.targetMuscles.includes(muscle);
+                return (
+                  <button
+                    key={muscle}
+                    onClick={() => handleToggle('targetMuscles', muscle)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-medium transition ${
+                      active
+                        ? 'bg-teal-600 text-white font-bold shadow-sm'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+                    }`}
+                  >
+                    {muscle.split(' ')[0]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Movement Types (Contraction) */}
           <div>
             <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
-              動作收縮型態 (Contraction / Movement Type)
+              收縮型態 / 動作機制 (Contraction Type)
             </span>
             <div className="flex flex-wrap gap-1.5">
               {movementOptions.map((type) => {
@@ -154,8 +216,8 @@ export const FilterDrawer: React.FC<Props> = ({
                     onClick={() => handleToggle('movementTypes', type)}
                     className={`px-2.5 py-1 rounded-lg text-xs font-medium transition ${
                       active
-                        ? 'bg-teal-600 text-white font-bold border border-teal-500 shadow-sm'
-                        : 'bg-slate-50 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+                        ? 'bg-cyan-600 text-white font-bold shadow-sm'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {type}
@@ -168,19 +230,19 @@ export const FilterDrawer: React.FC<Props> = ({
           {/* Rehab Phases */}
           <div>
             <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
-              復健臨床分期 (Rehabilitation Phase)
+              臨床復健分期 (Rehabilitation Phase)
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {phaseOptions.map((phase) => {
                 const active = filters.rehabPhases.includes(phase);
                 return (
                   <button
                     key={phase}
                     onClick={() => handleToggle('rehabPhases', phase)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium text-left transition ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition ${
                       active
-                        ? 'bg-cyan-600 text-white font-bold border border-cyan-400 shadow-sm'
-                        : 'bg-slate-50 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+                        ? 'bg-purple-600 text-white font-bold shadow-sm'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
                     }`}
                   >
                     {phase}
@@ -190,8 +252,8 @@ export const FilterDrawer: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* Equipment & Difficulty & Kinetic Chain */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          {/* Equipment & Difficulty & Kinetic Chain & Loading Status */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
             {/* Equipment */}
             <div>
               <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
@@ -231,7 +293,7 @@ export const FilterDrawer: React.FC<Props> = ({
                       filters.difficulty === diff
                         ? 'bg-indigo-600 text-white font-bold'
                         : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
-                      }`}
+                    }`}
                   >
                     {diff === 'ALL' ? '不限' : diff.split(' ')[0]}
                   </button>
@@ -256,6 +318,28 @@ export const FilterDrawer: React.FC<Props> = ({
                     }`}
                   >
                     {chain === 'ALL' ? '不限' : chain}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Loading / Weight-Bearing Status */}
+            <div>
+              <span className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">
+                負重 / 承重狀態
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {loadingStatusOptions.map((status) => (
+                  <button
+                    key={status}
+                    onClick={() => setFilters(prev => ({ ...prev, loadingStatus: status }))}
+                    className={`px-2.5 py-1 rounded text-[11px] font-medium transition ${
+                      filters.loadingStatus === status
+                        ? 'bg-amber-600 text-white font-bold'
+                        : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
+                    }`}
+                  >
+                    {status === 'ALL' ? '不限' : status.split(' ')[0]}
                   </button>
                 ))}
               </div>

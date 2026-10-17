@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'wouter';
 import { Exercise } from '../../types/exercise';
+import { allExercises } from '../../data/exercises';
 import { VideoPlayer } from '../common/VideoPlayer';
 import { AnatomySvgPlaceholder } from '../common/AnatomySvgPlaceholder';
 import { useRoutineStore } from '../../store/useRoutineStore';
+import { findSimilarExercises } from '../../utils/similarity';
 import { 
   X, ExternalLink, Plus, Check, Bookmark, Target, Dumbbell, 
-  Compass, Clock, Sparkles, AlertTriangle, ShieldAlert, ArrowRight 
+  Compass, Clock, Sparkles, AlertTriangle, ShieldAlert, ArrowRight, Scale, Repeat
 } from 'lucide-react';
 
 interface Props {
   exercise: Exercise | null;
   onClose: () => void;
+  onSelectSimilar?: (exercise: Exercise) => void;
 }
 
-export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
+export const QuickViewModal: React.FC<Props> = ({ 
+  exercise, 
+  onClose,
+  onSelectSimilar 
+}) => {
   if (!exercise) return null;
 
-  const { routine, addToRoutine, removeFromRoutine, bookmarks, toggleBookmark } = useRoutineStore();
+  const { 
+    routine, 
+    addToRoutine, 
+    removeFromRoutine, 
+    bookmarks, 
+    toggleBookmark,
+    comparisonIds,
+    toggleComparison,
+    addRecentlyViewed
+  } = useRoutineStore();
+
   const isAdded = routine.some(item => item.exerciseId === exercise.id);
   const isBookmarked = bookmarks.includes(exercise.id);
+  const isComparing = comparisonIds.includes(exercise.id);
+
+  // Compute similar exercises dynamically
+  const similarExercises = useMemo(() => {
+    return findSimilarExercises(exercise, allExercises, 3);
+  }, [exercise]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
@@ -43,6 +66,20 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
           </div>
 
           <div className="flex items-center gap-1.5">
+            {/* Compare Toggle */}
+            <button
+              onClick={() => toggleComparison(exercise.id)}
+              className={`p-2 rounded-xl border transition ${
+                isComparing
+                  ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                  : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+              title={isComparing ? '自動作對比中移除' : '加入動作並排對比'}
+            >
+              <Scale className="w-4 h-4" />
+            </button>
+
+            {/* Bookmark Toggle */}
             <button
               onClick={() => toggleBookmark(exercise.id)}
               className={`p-2 rounded-xl border transition ${
@@ -55,6 +92,7 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
               <Bookmark className="w-4 h-4" />
             </button>
 
+            {/* Close */}
             <button
               onClick={onClose}
               className="p-2 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition"
@@ -85,7 +123,7 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
             )}
           </div>
 
-          {/* Demonstration Video with 0.5x/0.75x Slow Motion */}
+          {/* Demonstration Video */}
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2 block">
               動作示範與慢動作控制
@@ -98,82 +136,32 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
           </div>
 
           {/* Biomechanical Profile Summary */}
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800/80 space-y-3 text-xs">
-            <h4 className="font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wide flex items-center gap-1.5 border-b border-slate-200 dark:border-slate-800/60 pb-2">
-              <Dumbbell className="w-3.5 h-3.5 text-teal-500" />
-              <span>生物力學概要</span>
-            </h4>
-
-            <div>
-              <span className="text-slate-500 dark:text-slate-400 font-medium block mb-1">主要主動肌群:</span>
-              <div className="flex flex-wrap gap-1.5">
-                {exercise.biomechanics.primaryMuscles.map(m => (
-                  <span key={m} className="px-2 py-0.5 rounded text-[11px] font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
-                    {m}
-                  </span>
-                ))}
-              </div>
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 block mb-1">主要主動肌群：</span>
+              <strong className="text-teal-600 dark:text-teal-300 font-bold block">
+                {exercise.biomechanics.primaryMuscles.join(', ') || '目標肌群'}
+              </strong>
             </div>
 
-            <div className="flex flex-wrap gap-4 text-slate-600 dark:text-slate-300 pt-1">
-              <span><strong>動作平面：</strong> {exercise.biomechanics.planesOfMotion.join(', ')}</span>
-              <span><strong>動力鏈：</strong> {exercise.biomechanics.kineticChain}</span>
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800">
+              <span className="text-slate-500 dark:text-slate-400 block mb-1">所需器材：</span>
+              <strong className="text-slate-800 dark:text-slate-200 font-semibold block">
+                {exercise.equipment.join(', ') || '徒手'}
+              </strong>
             </div>
           </div>
 
-          {/* Execution Steps */}
-          {(() => {
-            const rawStart = exercise.execution.startingPosition?.trim() || '';
-            const isDup = exercise.execution.steps.length > 0 &&
-              exercise.execution.steps[0].instruction.trim().toLowerCase() === rawStart.toLowerCase();
-            const steps = isDup ? exercise.execution.steps.slice(1) : exercise.execution.steps;
-
-            return (
-              <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
-                  臨床執行步驟
-                </span>
-
-                {exercise.description && (
-                  <div className="p-3.5 rounded-xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60 text-xs text-slate-800 dark:text-slate-200">
-                    <strong className="text-teal-700 dark:text-teal-300 block mb-1 font-bold">
-                      動作機制與目的:
-                    </strong>
-                    <p className="leading-relaxed font-medium">{exercise.description}</p>
-                  </div>
-                )}
-
-                {rawStart && (
-                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300">
-                    <strong className="text-teal-700 dark:text-teal-400 block mb-0.5 font-bold">步驟 0：起始預備姿勢</strong>
-                    <p>{rawStart}</p>
-                  </div>
-                )}
-
-                <div className="space-y-2">
-                  {steps.slice(0, 3).map((s, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/60 text-xs flex items-start gap-2.5">
-                      <span className="w-5 h-5 rounded-md bg-teal-500/10 text-teal-700 dark:bg-teal-600/30 dark:text-teal-300 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 border border-teal-500/20">
-                        {idx + 1}
-                      </span>
-                      <div className="flex-1 space-y-0.5">
-                        <p className="text-slate-800 dark:text-slate-200 font-medium">{s.instruction}</p>
-                        {s.keyPoint && <span className="text-[11px] text-amber-700 dark:text-amber-300/90 font-medium block">⚡ {s.keyPoint}</span>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })()}
-
-          {/* Coaching Cues & Common Errors */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-3 rounded-xl bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-900/50">
-              <strong className="text-teal-700 dark:text-teal-300 uppercase tracking-wide block mb-1">指導口訣 (Cues):</strong>
-              <ul className="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-[11px]">
-                {exercise.execution.coachingCues.slice(0, 2).map((c, i) => (
-                  <li key={i}>{c}</li>
+          {/* Coaching Cues & Error Prevention */}
+          <div className="space-y-3 text-xs">
+            <div className="p-3.5 rounded-xl bg-teal-50/60 dark:bg-teal-950/20 border border-teal-200/80 dark:border-teal-800/40">
+              <strong className="text-teal-700 dark:text-teal-300 flex items-center gap-1.5 uppercase tracking-wide mb-1.5">
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                <span>物理治療師臨床指導口訣 (Coaching Cues):</span>
+              </strong>
+              <ul className="space-y-1.5 text-slate-700 dark:text-slate-300 list-disc list-inside">
+                {exercise.execution.coachingCues.slice(0, 3).map((cue, i) => (
+                  <li key={i}>{cue}</li>
                 ))}
               </ul>
             </div>
@@ -187,6 +175,47 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
               </ul>
             </div>
           </div>
+
+          {/* Similar Exercises (Clinical Alternatives) */}
+          {similarExercises.length > 0 && (
+            <div className="space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <Repeat className="w-3.5 h-3.5 text-teal-500" />
+                  <span>相似替換動作推薦 (Similar Alternatives)</span>
+                </span>
+                <span className="text-[11px] text-slate-400">同肌群/力學目標</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {similarExercises.map(({ exercise: simEx, matchingPoints }) => (
+                  <div
+                    key={simEx.id}
+                    onClick={() => {
+                      addRecentlyViewed(simEx.id);
+                      if (onSelectSimilar) {
+                        onSelectSimilar(simEx);
+                      }
+                    }}
+                    className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 hover:border-teal-500/60 dark:hover:border-teal-500/50 cursor-pointer transition group"
+                  >
+                    <span className="text-[10px] font-bold text-teal-600 dark:text-teal-400 block truncate">
+                      {simEx.subRegion}
+                    </span>
+                    <h5 className="font-bold text-xs text-slate-900 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-300 transition line-clamp-1 mt-0.5">
+                      {simEx.name}
+                    </h5>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+                      {simEx.chineseName}
+                    </p>
+                    <span className="inline-block mt-1.5 px-1.5 py-0.5 rounded text-[9px] bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/50">
+                      {matchingPoints[0] || '力學相近'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Dosage (FITT) */}
           <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 text-xs">
@@ -212,7 +241,10 @@ export const QuickViewModal: React.FC<Props> = ({ exercise, onClose }) => {
         <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/90 flex items-center justify-between gap-3">
           <Link
             href={`/exercise/${exercise.id}`}
-            onClick={onClose}
+            onClick={() => {
+              addRecentlyViewed(exercise.id);
+              onClose();
+            }}
             className="flex items-center gap-1.5 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition"
           >
             <span>完整生物力學詳情</span>
