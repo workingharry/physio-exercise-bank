@@ -252,7 +252,7 @@ export const ExerciseDetailView: React.FC = () => {
                   {exercise.biomechanics.primaryMuscles.map(m => (
                     <Link
                       key={m}
-                      href="/anatomy"
+                      href={`/anatomy?muscle=${encodeURIComponent(m)}`}
                       className="px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 hover:border-teal-500 transition"
                       title="點擊查看肌群解剖索引"
                     >

@@ -105,6 +105,29 @@ export const AnatomyIndexView: React.FC = () => {
     }
   ];
 
+  // Deep linking: Auto-select muscle group if passed via URL parameter (?muscle=...)
+  React.useEffect(() => {
+    try {
+      const hash = window.location.hash;
+      const queryIdx = hash.indexOf('?');
+      if (queryIdx !== -1) {
+        const params = new URLSearchParams(hash.substring(queryIdx));
+        const m = params.get('muscle') || params.get('m');
+        if (m) {
+          const mLower = m.toLowerCase();
+          const found = muscleGroups.find(g => 
+            g.id === mLower || 
+            g.name.toLowerCase().includes(mLower) || 
+            g.keywords.some(k => k.toLowerCase().includes(mLower) || mLower.includes(k.toLowerCase()))
+          );
+          if (found) setSelectedMuscleId(found.id);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
   // Match exercises for each muscle group
   const muscleExercisesMap = useMemo(() => {
     const map = new Map<string, Exercise[]>();
