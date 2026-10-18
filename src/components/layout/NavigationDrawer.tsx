@@ -6,7 +6,7 @@ import { allConditions, allExercises } from '../../data/exercises';
 import { 
   X, Search, Compass, Bookmark, Clock, ClipboardList, Scale,
   Layers, Stethoscope, BookOpen, Sun, Moon, Laptop, ShieldAlert,
-  PanelLeftClose, PanelLeft, Pin, ChevronRight, GraduationCap
+  PanelLeftClose, PanelLeft, Pin, ChevronRight, ChevronDown, GraduationCap
 } from 'lucide-react';
 
 interface Props {
@@ -31,6 +31,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
 
   const [isFilterActive, setIsFilterActive] = useState(false);
   const [filterQuery, setFilterQuery] = useState('');
+  const [isConditionsExpanded, setIsConditionsExpanded] = useState(true);
   const filterInputRef = useRef<HTMLInputElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -244,30 +245,86 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               </button>
             </li>
             <li>
-              <button
-                data-testid="nav-search"
-                onClick={() => handleNavClick('/?mode=search')}
-                aria-current={location === '/' || location.startsWith('/condition') ? 'page' : undefined}
-                className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
-                  (location === '/' || location.startsWith('/condition')) && !location.includes('browse')
-                    ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
-                    : 'text-stone-700 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800/60'
-                }`}
-                title="以病症搜尋"
-              >
-                <div className="flex items-center gap-3 truncate">
-                  <Search className="w-4 h-4 shrink-0" />
-                  {!isCollapsed && <span className="truncate">以病症搜尋</span>}
-                </div>
-                {!isCollapsed && (
-                  <span 
-                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-[10px] font-mono shrink-0"
-                    aria-label={`共 ${conditionCount} 項`}
+              <div>
+                <div className="flex items-center">
+                  <button
+                    data-testid="nav-search"
+                    onClick={() => {
+                      if (isCollapsed) {
+                        handleNavClick('/?mode=search');
+                      } else {
+                        setIsConditionsExpanded(!isConditionsExpanded);
+                        handleNavClick('/?mode=search');
+                      }
+                    }}
+                    aria-current={location === '/' || location.startsWith('/condition') || location === '/conditions' ? 'page' : undefined}
+                    className={`flex-1 flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
+                      (location === '/' || location.startsWith('/condition') || location === '/conditions') && !location.includes('browse') && location !== '/library'
+                        ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
+                        : 'text-stone-700 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800/60'
+                    }`}
+                    title="以病症搜尋 (Conditions)"
                   >
-                    {conditionCount}
-                  </span>
+                    <div className="flex items-center gap-3 truncate">
+                      <Search className="w-4 h-4 shrink-0" />
+                      {!isCollapsed && <span className="truncate">以病症搜尋</span>}
+                    </div>
+                    {!isCollapsed && (
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <span 
+                          className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-[10px] font-mono"
+                          aria-label={`共 ${conditionCount} 項`}
+                        >
+                          {conditionCount}
+                        </span>
+                        <ChevronDown className={`w-3.5 h-3.5 text-stone-400 transition-transform duration-200 ${isConditionsExpanded ? 'rotate-180' : ''}`} />
+                      </div>
+                    )}
+                  </button>
+                </div>
+
+                {/* Submenu of Regions under 以病症搜尋 */}
+                {!isCollapsed && isConditionsExpanded && (
+                  <ul className="mt-1 ml-4 pl-3 border-l border-amber-900/20 dark:border-stone-800 space-y-0.5 animate-in fade-in duration-150">
+                    <li>
+                      <button
+                        onClick={() => handleNavClick('/?mode=search&region=ALL')}
+                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
+                      >
+                        <span className="font-medium">All Conditions (全部病症)</span>
+                        <span className="text-[10px] text-stone-400 font-mono">98</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleNavClick('/?mode=search&region=Ankle+%26+Foot')}
+                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
+                      >
+                        <span className="font-medium">Ankle & Foot (腳踝足部)</span>
+                        <span className="text-[10px] text-stone-400 font-mono">38</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleNavClick('/?mode=search&region=Knee')}
+                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
+                      >
+                        <span className="font-medium">Knee & Patella (膝與髕骨)</span>
+                        <span className="text-[10px] text-stone-400 font-mono">24</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleNavClick('/?mode=search&region=Hip+%26+Pelvis')}
+                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
+                      >
+                        <span className="font-medium">Hip & Pelvis (髖與骨盆)</span>
+                        <span className="text-[10px] text-stone-400 font-mono">36</span>
+                      </button>
+                    </li>
+                  </ul>
                 )}
-              </button>
+              </div>
             </li>
             <li>
               <button
@@ -530,7 +587,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                         data-testid={`nav-pinned-item-${cond.id}`}
                         onClick={() => handleNavClick(`/condition/${cond.id}`)}
                         aria-current={isActive ? 'page' : undefined}
-                        title={`${cond.nameZh} (${cond.region})`}
+                        title={`${cond.nameEn} · ${cond.nameZh} (${cond.region})`}
                         className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl transition text-left group ${
                           isActive
                             ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
@@ -541,13 +598,18 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                           <span className="w-5 h-5 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-serif text-[10px] flex items-center justify-center shrink-0 border border-stone-300 dark:border-stone-700 font-bold">
                             {regionChar}
                           </span>
-                          <span className="truncate text-xs font-serif">
-                            {cond.nameZh}
-                          </span>
+                          <div className="truncate">
+                            <span className="truncate text-xs font-serif font-bold text-stone-900 dark:text-stone-100 block">
+                              {cond.nameEn}
+                            </span>
+                            <span className="truncate text-[10px] text-amber-900 dark:text-amber-300 font-medium block">
+                              {cond.nameZh}
+                            </span>
+                          </div>
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
                           {isPinned && <Pin className="w-3 h-3 text-amber-700 dark:text-amber-400 fill-amber-700/20" />}
-                          <span className="text-[10px] text-stone-400 font-normal">
+                          <span className="text-[10px] text-stone-500 font-normal">
                             {regionChar}
                           </span>
                         </div>

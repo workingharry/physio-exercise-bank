@@ -16,8 +16,26 @@ export const ConditionSearchView: React.FC<Props> = ({ onSwitchToReview }) => {
   const [query, setQuery] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
-  const [selectedRegionFilter, setSelectedRegionFilter] = useState<string>('ALL');
+  const [selectedRegionFilter, setSelectedRegionFilter] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const match = window.location.hash.match(/[?&]region=([^&]+)/);
+      if (match) return decodeURIComponent(match[1]);
+    }
+    return 'ALL';
+  });
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Sync selectedRegionFilter on hashchange
+  useEffect(() => {
+    const handleHash = () => {
+      const match = window.location.hash.match(/[?&]region=([^&]+)/);
+      if (match) {
+        setSelectedRegionFilter(decodeURIComponent(match[1]));
+      }
+    };
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   // Search results
   const searchResults = useMemo(() => {
@@ -121,14 +139,14 @@ export const ConditionSearchView: React.FC<Props> = ({ onSwitchToReview }) => {
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <strong className="font-serif font-bold text-sm">
-                          {cond.nameZh}
+                          {cond.nameEn}
                         </strong>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400">
                           {cond.region}
                         </span>
                       </div>
-                      <p className="text-xs text-stone-400 font-mono">
-                        {cond.nameEn}
+                      <p className="text-xs text-amber-900 dark:text-amber-300 font-medium">
+                        {cond.nameZh}
                       </p>
                     </div>
 
@@ -266,11 +284,11 @@ const ConditionCard: React.FC<{ condition: Condition }> = ({ condition }) => {
         </div>
 
         <strong className="font-serif font-bold text-sm text-stone-900 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition line-clamp-1 block">
-          {condition.nameZh}
+          {condition.nameEn}
         </strong>
 
-        <p className="text-[11px] text-stone-400 font-mono line-clamp-1">
-          {condition.nameEn}
+        <p className="text-xs text-stone-700 dark:text-stone-300 font-medium line-clamp-1">
+          {condition.nameZh}
         </p>
       </div>
 

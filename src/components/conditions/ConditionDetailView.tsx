@@ -111,10 +111,10 @@ export const ConditionDetailView: React.FC = () => {
 
         <div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-stone-900 dark:text-stone-100 tracking-tight leading-tight">
-            {condition.nameZh}
-          </h1>
-          <p className="text-sm sm:text-base text-stone-500 dark:text-stone-400 font-mono mt-1">
             {condition.nameEn}
+          </h1>
+          <p className="text-base sm:text-lg text-amber-900 dark:text-amber-300 font-medium mt-1">
+            {condition.nameZh}
           </p>
         </div>
 

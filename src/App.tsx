@@ -21,7 +21,8 @@ import { ShieldCheck } from 'lucide-react';
 // Bulletproof hash location hook for 100% compatibility with file:// protocol and web servers
 const currentHashLocation = () => {
   const hash = typeof window !== 'undefined' ? window.location.hash.replace(/^#?\/?/, '') : '';
-  return '/' + hash;
+  const [path] = hash.split('?');
+  return '/' + (path || '');
 };
 
 const useSafeHashLocation = () => {
@@ -74,6 +75,7 @@ export function App() {
           <main className="flex-1 pb-16 lg:pb-0">
             <Switch>
               <Route path="/" component={LibraryView} />
+              <Route path="/conditions" component={LibraryView} />
               <Route path="/library" component={LibraryView} />
               <Route path="/browse" component={LibraryView} />
               <Route path="/condition/:id" component={ConditionDetailView} />

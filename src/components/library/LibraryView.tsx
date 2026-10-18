@@ -26,7 +26,10 @@ interface ScenarioPreset {
 
 export type ScopeMode = 'all' | 'favorites' | 'recent';
 
+import { useLocation } from 'wouter';
+
 export const LibraryView: React.FC = () => {
+  const [location] = useLocation();
   const { 
     customExercises, 
     bookmarks, 
@@ -38,7 +41,29 @@ export const LibraryView: React.FC = () => {
   } = useRoutineStore();
 
   // Dual mode: 'search' (default condition search) vs 'review' (joint review)
-  const [homeMode, setHomeMode] = useState<'search' | 'review'>('search');
+  const [homeMode, setHomeMode] = useState<'search' | 'review'>(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash.includes('browse') || hash.includes('/library')) return 'review';
+      if (hash.includes('conditions') || hash.includes('mode=search')) return 'search';
+    }
+    return 'search';
+  });
+
+  // Listen to hash changes to sync homeMode
+  React.useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.includes('browse') || hash.includes('/library')) {
+        setHomeMode('review');
+      } else if (hash.includes('conditions') || hash.includes('mode=search')) {
+        setHomeMode('search');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const combinedExercises = useMemo(() => {
     return [...customExercises, ...allExercises];
