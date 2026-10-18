@@ -182,7 +182,7 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
           </div>
           <button
             onClick={() => setUseDirectMode(true)}
-            className="text-teal-400 hover:text-teal-300 font-semibold underline underline-offset-2 shrink-0"
+            className="text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-2 shrink-0"
           >
             切換為縮圖直連模式
           </button>
@@ -193,7 +193,7 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
       <div className="p-3.5 bg-slate-900 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2">
           <span className="font-medium text-slate-300 flex items-center gap-1.5">
-            <Gauge className="w-3.5 h-3.5 text-teal-400" />
+            <Gauge className="w-3.5 h-3.5 text-amber-400" />
             慢動作分析:
           </span>
           <div className="flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
@@ -203,7 +203,7 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
                 onClick={() => handleRateChange(rate)}
                 className={`px-2 py-1 rounded text-xs font-semibold transition ${
                   playbackRate === rate
-                    ? 'bg-teal-600 text-white shadow-sm'
+                    ? 'bg-amber-800 text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -219,7 +219,7 @@ export const VideoPlayer: React.FC<Props> = ({ videoUrl, videoType = 'youtube', 
             onClick={() => setIsLooping(!isLooping)}
             className={`flex items-center gap-1 px-2.5 py-1 rounded-lg border transition ${
               isLooping
-                ? 'bg-teal-950/60 border-teal-500/50 text-teal-300'
+                ? 'bg-amber-950/60 border-amber-700/50 text-amber-300'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
             }`}
             title="循環播放生物力學分解"

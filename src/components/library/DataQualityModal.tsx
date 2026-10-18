@@ -151,7 +151,7 @@ export const DataQualityModal: React.FC<Props> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handleExportCSV}
-              className="px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/80 border border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900/80 text-teal-700 dark:text-teal-300 text-xs font-semibold transition flex items-center gap-1.5 shadow-sm"
+              className="px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/80 border border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/80 text-amber-800 dark:text-amber-300 text-xs font-semibold transition flex items-center gap-1.5 shadow-sm"
               title="匯出待補齊清單為 CSV 試算表"
             >
               <Download className="w-3.5 h-3.5" />
@@ -173,10 +173,10 @@ export const DataQualityModal: React.FC<Props> = ({
           <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
             <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1">
               <span>示範影片覆蓋率</span>
-              <VideoOff className="w-3.5 h-3.5 text-teal-500" />
+              <VideoOff className="w-3.5 h-3.5 text-amber-700" />
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl font-extrabold text-teal-600 dark:text-teal-400">{auditReport.videoCoverage}%</span>
+              <span className="text-xl font-extrabold text-amber-800 dark:text-amber-400">{auditReport.videoCoverage}%</span>
               <span className="text-[10px] text-slate-400">({auditReport.total - auditReport.items.filter(i => i.missingVideo).length}/{auditReport.total})</span>
             </div>
           </div>
@@ -233,7 +233,7 @@ export const DataQualityModal: React.FC<Props> = ({
               onClick={() => setActiveFilter('video')}
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'video'
-                  ? 'bg-teal-600 text-white shadow-sm'
+                  ? 'bg-amber-800 text-white shadow-sm'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -303,7 +303,7 @@ export const DataQualityModal: React.FC<Props> = ({
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-teal-300">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-amber-300">
                         {item.exercise.subRegion}
                       </span>
                       <span className="text-xs text-slate-400 font-mono">
@@ -314,7 +314,7 @@ export const DataQualityModal: React.FC<Props> = ({
                     <h4 className="font-bold text-slate-900 dark:text-white text-sm truncate">
                       {item.exercise.name}
                     </h4>
-                    <p className="text-xs text-teal-600 dark:text-teal-400 font-medium truncate mt-0.5">
+                    <p className="text-xs text-amber-800 dark:text-amber-400 font-medium truncate mt-0.5">
                       {item.exercise.chineseName}
                     </p>
 
@@ -355,7 +355,7 @@ export const DataQualityModal: React.FC<Props> = ({
                           onSelectExercise(item.exercise);
                           onClose();
                         }}
-                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition"
+                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-800 dark:hover:text-amber-400 transition"
                       >
                         快速預覽
                       </button>
@@ -364,7 +364,7 @@ export const DataQualityModal: React.FC<Props> = ({
                     <Link
                       href={`/exercise/${item.exercise.id}`}
                       onClick={onClose}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-800 hover:bg-amber-700 text-white text-xs font-bold transition shadow-sm"
                     >
                       <span>前往詳情維護</span>
                       <ExternalLink className="w-3.5 h-3.5" />

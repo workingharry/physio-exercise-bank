@@ -100,7 +100,7 @@ export const RoutineBuilderView: React.FC = () => {
       {/* Non-print Top Controls */}
       <div className="no-print flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-4">
         <div>
-          <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
             <FileText className="w-4 h-4" />
             <span>臨床居家處方與複習表單組裝器</span>
           </div>
@@ -108,7 +108,7 @@ export const RoutineBuilderView: React.FC = () => {
             居家運動計畫 (HEP) 工作室
           </h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            已加入 <strong className="text-teal-600 dark:text-teal-300 font-bold">{routine.length}</strong> 個動作，支援拖曳排序、劑量步進微調與 A4 雙欄醫療單據列印
+            已加入 <strong className="text-amber-800 dark:text-amber-300 font-bold">{routine.length}</strong> 個動作，支援拖曳排序、劑量步進微調與 A4 雙欄醫療單據列印
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export const RoutineBuilderView: React.FC = () => {
             href="/"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition"
           >
-            <Plus className="w-4 h-4 text-teal-500" />
+            <Plus className="w-4 h-4 text-amber-700" />
             <span>繼續新增動作</span>
           </Link>
 
@@ -134,7 +134,7 @@ export const RoutineBuilderView: React.FC = () => {
 
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold shadow-lg shadow-teal-600/20 transition"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold shadow-lg shadow-amber-800/20 transition"
                 title="列印或另存為 A4 PDF"
               >
                 <Printer className="w-4 h-4" />
@@ -168,19 +168,19 @@ export const RoutineBuilderView: React.FC = () => {
               type="text"
               value={protocolTitle}
               onChange={(e) => setProtocolTitle(e.target.value)}
-              className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white bg-transparent border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700 focus:border-teal-500 outline-none w-full transition print:text-black print:text-base print:font-bold"
+              className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white bg-transparent border-b border-transparent hover:border-slate-300 dark:hover:border-slate-700 focus:border-amber-700 outline-none w-full transition print:text-black print:text-base print:font-bold"
             />
           </div>
 
           <div className="flex items-center gap-3 text-xs text-slate-600 dark:text-slate-400 flex-wrap">
             <div className="flex items-center gap-1.5">
-              <User className="w-3.5 h-3.5 text-teal-500" />
+              <User className="w-3.5 h-3.5 text-amber-700" />
               <input
                 type="text"
                 placeholder="病患姓名"
                 value={patientName}
                 onChange={(e) => setPatientName(e.target.value)}
-                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 text-xs w-24 print:bg-transparent print:border-none print:text-black print:w-auto"
+                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-amber-700 text-xs w-24 print:bg-transparent print:border-none print:text-black print:w-auto"
               />
             </div>
             <div className="flex items-center gap-1.5">
@@ -190,11 +190,11 @@ export const RoutineBuilderView: React.FC = () => {
                 placeholder="可選填"
                 value={patientId}
                 onChange={(e) => setPatientId(e.target.value)}
-                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 text-xs w-20 print:bg-transparent print:border-none print:text-black print:w-auto"
+                className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-1 text-slate-800 dark:text-slate-200 outline-none focus:border-amber-700 text-xs w-20 print:bg-transparent print:border-none print:text-black print:w-auto"
               />
             </div>
             <div className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-teal-500" />
+              <Calendar className="w-3.5 h-3.5 text-amber-700" />
               <span>開單日：{new Date().toLocaleDateString('zh-TW')}</span>
             </div>
           </div>
@@ -208,7 +208,7 @@ export const RoutineBuilderView: React.FC = () => {
             value={therapistGeneralNotes}
             onChange={(e) => setTherapistGeneralNotes(e.target.value)}
             rows={2}
-            className="w-full text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl p-2.5 outline-none focus:border-teal-500 transition resize-none print:bg-transparent print:border-none print:p-0 print:text-slate-900"
+            className="w-full text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 rounded-xl p-2.5 outline-none focus:border-amber-700 transition resize-none print:bg-transparent print:border-none print:p-0 print:text-slate-900"
           />
         </div>
       </div>
@@ -223,7 +223,7 @@ export const RoutineBuilderView: React.FC = () => {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold shadow-md transition"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold shadow-md transition"
           >
             <Plus className="w-4 h-4" />
             <span>前往運動庫挑選動作</span>
@@ -234,7 +234,7 @@ export const RoutineBuilderView: React.FC = () => {
           {/* Instructions for user about Drag & Drop */}
           <div className="no-print flex items-center justify-between text-xs text-slate-400 px-1">
             <span className="flex items-center gap-1.5">
-              <GripVertical className="w-3.5 h-3.5 text-teal-500" />
+              <GripVertical className="w-3.5 h-3.5 text-amber-700" />
               <span>小提示：可直接拖曳左側把手或點擊上下箭頭調整動作順序</span>
             </span>
             <span>共 {routine.length} 個處方動作</span>
@@ -259,7 +259,7 @@ export const RoutineBuilderView: React.FC = () => {
                   onDrop={(e) => onDrop(e, index)}
                   className={`p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border transition shadow-sm dark:shadow-md print-card ${
                     isOver 
-                      ? 'border-teal-500 ring-2 ring-teal-500/30' 
+                      ? 'border-amber-700 ring-2 ring-amber-700/30' 
                       : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                   } ${isDragging ? 'opacity-40 scale-[0.98]' : 'opacity-100'}`}
                 >
@@ -271,7 +271,7 @@ export const RoutineBuilderView: React.FC = () => {
                         <button
                           onClick={() => moveRoutineItem(index, 'up')}
                           disabled={index === 0}
-                          className="p-1 hover:text-teal-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
+                          className="p-1 hover:text-amber-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
                           title="往上移"
                         >
                           <ChevronUp className="w-3.5 h-3.5" />
@@ -285,7 +285,7 @@ export const RoutineBuilderView: React.FC = () => {
                         <button
                           onClick={() => moveRoutineItem(index, 'down')}
                           disabled={index === routine.length - 1}
-                          className="p-1 hover:text-teal-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
+                          className="p-1 hover:text-amber-400 disabled:opacity-20 disabled:hover:text-slate-400 transition"
                           title="往下移"
                         >
                           <ChevronDown className="w-3.5 h-3.5" />
@@ -293,21 +293,21 @@ export const RoutineBuilderView: React.FC = () => {
                       </div>
 
                       {/* Item Number Badge */}
-                      <span className="w-6 h-6 rounded-lg bg-teal-500/10 text-teal-600 dark:bg-teal-500/20 dark:text-teal-300 font-bold text-xs flex items-center justify-center shrink-0 border border-teal-500/30 mt-0.5 print:bg-slate-200 print:text-black">
+                      <span className="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300 font-bold text-xs flex items-center justify-center shrink-0 border border-amber-700/30 mt-0.5 print:bg-slate-200 print:text-black">
                         {index + 1}
                       </span>
 
                       <div>
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700 print:border-none print:p-0 print:text-slate-700">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700 print:border-none print:p-0 print:text-slate-700">
                             {exercise.subRegion}
                           </span>
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-teal-50 text-teal-700 dark:bg-teal-950/60 dark:text-teal-400 border border-teal-200 dark:border-teal-900/60 no-print">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-50 text-amber-800 dark:bg-amber-950/60 dark:text-amber-400 border border-amber-200 dark:border-amber-900/60 no-print">
                             {exercise.biomechanics.kineticChain}
                           </span>
                         </div>
                         <Link href={`/exercise/${exercise.id}`}>
-                          <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-teal-500 dark:hover:text-teal-300 transition cursor-pointer mt-0.5 print:text-black">
+                          <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-amber-700 dark:hover:text-amber-300 transition cursor-pointer mt-0.5 print:text-black">
                             {exercise.name}
                             <span className="ml-1.5 text-xs text-slate-500 dark:text-slate-400 font-normal">
                               ({exercise.chineseName})
@@ -349,7 +349,7 @@ export const RoutineBuilderView: React.FC = () => {
                           type="text"
                           value={item.customSets || exercise.dosage.sets}
                           onChange={(e) => updateRoutineItem(item.exerciseId, { customSets: e.target.value })}
-                          className="w-full text-center bg-transparent text-teal-600 dark:text-teal-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                          className="w-full text-center bg-transparent text-amber-800 dark:text-amber-300 font-bold text-xs outline-none focus:ring-1 focus:ring-amber-700 rounded py-0.5 print:text-black"
                         />
                         <button
                           onClick={() => stepSets(item.exerciseId, item.customSets || exercise.dosage.sets, 1)}
@@ -376,7 +376,7 @@ export const RoutineBuilderView: React.FC = () => {
                           type="text"
                           value={item.customReps || exercise.dosage.reps}
                           onChange={(e) => updateRoutineItem(item.exerciseId, { customReps: e.target.value })}
-                          className="w-full text-center bg-transparent text-teal-600 dark:text-teal-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                          className="w-full text-center bg-transparent text-amber-800 dark:text-amber-300 font-bold text-xs outline-none focus:ring-1 focus:ring-amber-700 rounded py-0.5 print:text-black"
                         />
                         <button
                           onClick={() => stepReps(item.exerciseId, item.customReps || exercise.dosage.reps, 2)}
@@ -395,7 +395,7 @@ export const RoutineBuilderView: React.FC = () => {
                         type="text"
                         value={item.customHold || exercise.dosage.holdDuration || '依節奏'}
                         onChange={(e) => updateRoutineItem(item.exerciseId, { customHold: e.target.value })}
-                        className="w-full text-center bg-transparent text-cyan-600 dark:text-cyan-300 font-bold text-xs outline-none focus:ring-1 focus:ring-teal-500 rounded py-0.5 print:text-black"
+                        className="w-full text-center bg-transparent text-stone-700 dark:text-stone-300 font-bold text-xs outline-none focus:ring-1 focus:ring-amber-700 rounded py-0.5 print:text-black"
                       />
                     </div>
 
@@ -417,7 +417,7 @@ export const RoutineBuilderView: React.FC = () => {
                         onClick={() => updateRoutineItem(item.exerciseId, { customHold: opt })}
                         className={`px-1.5 py-0.5 rounded text-[10px] font-medium transition ${
                           (item.customHold || exercise.dosage.holdDuration) === opt
-                            ? 'bg-teal-600 text-white font-bold'
+                            ? 'bg-amber-800 text-white font-bold'
                             : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400'
                         }`}
                       >
@@ -436,7 +436,7 @@ export const RoutineBuilderView: React.FC = () => {
                       value={item.therapistNotes || ''}
                       onChange={(e) => updateRoutineItem(item.exerciseId, { therapistNotes: e.target.value })}
                       placeholder="例：右腳尖向前不可外八、核心收緊骨盆防後傾..."
-                      className="w-full bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-200 outline-none focus:border-teal-500 transition print:bg-transparent print:border-none print:p-0 print:text-slate-900"
+                      className="w-full bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-200 outline-none focus:border-amber-700 transition print:bg-transparent print:border-none print:p-0 print:text-slate-900"
                     />
                   </div>
 

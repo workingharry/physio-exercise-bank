@@ -37,7 +37,7 @@ export const WholeBodyNav: React.FC<Props> = ({
       {/* Tier 1: Compact Horizontal Macro Region Tab Bar */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
         <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 shrink-0 pr-1">
-          <Layers className="w-3.5 h-3.5 text-teal-500" />
+          <Layers className="w-3.5 h-3.5 text-amber-700" />
           <span className="hidden sm:inline">解剖區域:</span>
         </div>
 
@@ -54,16 +54,16 @@ export const WholeBodyNav: React.FC<Props> = ({
               }}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition ${
                 isSelected
-                  ? 'bg-teal-600 text-white shadow-sm font-bold'
+                  ? 'bg-amber-800 text-white shadow-sm font-bold'
                   : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60'
               }`}
             >
               <span>{tab.label}</span>
               <span className={`px-1.5 py-0.2 rounded text-[10px] ${
                 isSelected
-                  ? 'bg-teal-700 text-teal-100 font-bold'
+                  ? 'bg-amber-800 text-amber-100 font-bold'
                   : tab.isReady
-                  ? 'bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300'
+                  ? 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
                   : 'bg-slate-200 dark:bg-slate-900 text-slate-500 dark:text-slate-400'
               }`}>
                 {tab.badge}
@@ -113,7 +113,7 @@ export const WholeBodyNav: React.FC<Props> = ({
                 <span>{sub.label}</span>
                 <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
                   isSubSelected
-                    ? 'bg-slate-800 text-teal-300 dark:bg-slate-300 dark:text-slate-900 font-bold'
+                    ? 'bg-slate-800 text-amber-300 dark:bg-slate-300 dark:text-slate-900 font-bold'
                     : 'bg-slate-200 dark:bg-slate-900 text-slate-600 dark:text-slate-400'
                 }`}>
                   {count}

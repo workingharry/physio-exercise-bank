@@ -53,7 +53,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
                   <td className="py-3 px-4">
                     <div className="flex flex-col">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">
                           {exercise.subRegion}
                         </span>
                         {exercise.media.videoUrl && (

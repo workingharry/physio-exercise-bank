@@ -102,7 +102,7 @@ export const CustomStudioView: React.FC = () => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-8 animate-in fade-in duration-200">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-1">
+        <div className="flex items-center gap-2 text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-1">
           <FolderPlus className="w-4 h-4" />
           <span>全身部位自訂運動與 GitHub 數據管理</span>
         </div>
@@ -118,11 +118,11 @@ export const CustomStudioView: React.FC = () => {
       <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-xl space-y-6">
         <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-            <PlusCircle className="w-5 h-5 text-teal-500" />
+            <PlusCircle className="w-5 h-5 text-amber-700" />
             <span>新增臨床復健運動</span>
           </h2>
           {submitted && (
-            <div className="flex items-center gap-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-lg border border-teal-200 dark:border-teal-700/60 animate-in fade-in">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-amber-800 dark:text-amber-400 bg-amber-50 dark:bg-amber-950 px-3 py-1 rounded-lg border border-amber-200 dark:border-amber-800/60 animate-in fade-in">
               <CheckCircle2 className="w-4 h-4" />
               <span>成功儲存至本機資料庫！</span>
             </div>
@@ -139,7 +139,7 @@ export const CustomStudioView: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="例如: Copenhagen Adduction Plank"
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
               />
             </div>
 
@@ -150,7 +150,7 @@ export const CustomStudioView: React.FC = () => {
                 value={chineseName}
                 onChange={(e) => setChineseName(e.target.value)}
                 placeholder="例如: 哥本哈根內收肌側棒式"
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ export const CustomStudioView: React.FC = () => {
               <select
                 value={macroRegion}
                 onChange={(e) => setMacroRegion(e.target.value as MacroRegion)}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-amber-700"
               >
                 <option value="Lower Limb">下肢 (Lower Limb)</option>
                 <option value="Upper Limb">上肢 (Upper Limb)</option>
@@ -175,7 +175,7 @@ export const CustomStudioView: React.FC = () => {
               <select
                 value={subRegion}
                 onChange={(e) => setSubRegion(e.target.value as SubRegion)}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-amber-700"
               >
                 <option value="Ankle & Foot">Ankle & Foot (腳踝與足部)</option>
                 <option value="Knee">Knee (膝與髕骨)</option>
@@ -192,7 +192,7 @@ export const CustomStudioView: React.FC = () => {
               <select
                 value={movementType}
                 onChange={(e) => setMovementType(e.target.value)}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3 py-2.5 text-slate-700 dark:text-slate-200 outline-none focus:border-amber-700"
               >
                 <option value="Isometric">Isometric (等長)</option>
                 <option value="Concentric">Concentric (向心)</option>
@@ -211,7 +211,7 @@ export const CustomStudioView: React.FC = () => {
               value={primaryMuscles}
               onChange={(e) => setPrimaryMuscles(e.target.value)}
               placeholder="例如: 臀中肌, 內收大肌, 股四頭肌"
-              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
             />
           </div>
 
@@ -222,7 +222,7 @@ export const CustomStudioView: React.FC = () => {
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
               placeholder="1. 側躺於瑜珈墊上，上方腳踝置於長凳&#10;2. 啟動內收肌群將骨盆抬離地面&#10;3. 維持頂峰等長收縮 30 秒"
-              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500 resize-none"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700 resize-none"
             />
           </div>
 
@@ -234,7 +234,7 @@ export const CustomStudioView: React.FC = () => {
                 value={coachingCues}
                 onChange={(e) => setCoachingCues(e.target.value)}
                 placeholder="例如: 肚臍微縮，肋骨不外翻"
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
               />
             </div>
 
@@ -245,7 +245,7 @@ export const CustomStudioView: React.FC = () => {
                 value={commonErrors}
                 onChange={(e) => setCommonErrors(e.target.value)}
                 placeholder="例如: 骨盆過度前傾或側向塌陷"
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
               />
             </div>
           </div>
@@ -257,14 +257,14 @@ export const CustomStudioView: React.FC = () => {
               value={videoUrl}
               onChange={(e) => setVideoUrl(e.target.value)}
               placeholder="例如: https://www.youtube.com/watch?v=... 或 /media/custom/my-video.mp4"
-              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-teal-500"
+              className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-slate-900 dark:text-slate-100 outline-none focus:border-amber-700"
             />
           </div>
 
           <div className="flex justify-end pt-2">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold shadow-lg shadow-teal-600/30 transition text-xs"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-amber-800 hover:bg-amber-700 text-white font-bold shadow-lg shadow-amber-800/30 transition text-xs"
             >
               <PlusCircle className="w-4 h-4" />
               <span>儲存自訂運動</span>
@@ -288,7 +288,7 @@ export const CustomStudioView: React.FC = () => {
               onClick={handleExportAllCustom}
               className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition"
             >
-              <Download className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+              <Download className="w-4 h-4 text-amber-800 dark:text-amber-400" />
               <span>匯出所有自訂動作 JSON</span>
             </button>
           )}
@@ -304,7 +304,7 @@ export const CustomStudioView: React.FC = () => {
                 className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3 shadow-sm"
               >
                 <div>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-teal-300 border border-slate-200 dark:border-slate-700">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">
                     {ex.subRegion}
                   </span>
                   <h4 className="font-bold text-sm text-slate-900 dark:text-slate-200 mt-1">{ex.name}</h4>

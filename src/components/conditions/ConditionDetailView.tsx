@@ -6,13 +6,15 @@ import { ExerciseCard } from '../library/ExerciseCard';
 import { 
   ArrowLeft, AlertTriangle, ShieldAlert, Sparkles, BookOpen, 
   Layers, Clock, Info, CheckCircle2, ChevronRight, Stethoscope,
-  HelpCircle, ExternalLink
+  HelpCircle, ExternalLink, Pin
 } from 'lucide-react';
+import { useNavStore } from '../../store/useNavStore';
 
 export const ConditionDetailView: React.FC = () => {
   const [, params] = useRoute('/condition/:id');
   const conditionId = params?.id || '';
   const condition = getConditionById(conditionId);
+  const { isConditionPinned, togglePinCondition, addRecentCondition } = useNavStore();
 
   const phaseGroups = useMemo(() => {
     return exercisesForCondition(conditionId);
@@ -21,6 +23,15 @@ export const ConditionDetailView: React.FC = () => {
   const suggestedExercises = useMemo(() => {
     return suggestedExercisesForCondition(conditionId);
   }, [conditionId]);
+
+  // Track recent condition visit
+  React.useEffect(() => {
+    if (conditionId) {
+      addRecentCondition(conditionId);
+    }
+  }, [conditionId, addRecentCondition]);
+
+  const isPinned = condition ? isConditionPinned(condition.id) : false;
 
   // Default to first phase with exercises
   const [activePhaseIndex, setActivePhaseIndex] = useState<number>(0);
@@ -73,13 +84,29 @@ export const ConditionDetailView: React.FC = () => {
             </span>
           </div>
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 hover:text-amber-800 dark:hover:text-amber-300 transition"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>切換其他病症</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => togglePinCondition(condition.id)}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition shadow-sm ${
+                isPinned
+                  ? 'bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-800'
+                  : 'bg-white dark:bg-[#2A2622] text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-800 hover:border-amber-700'
+              }`}
+              title={isPinned ? '取消釘選此病症' : '釘選至導覽列常用病症'}
+              aria-label={isPinned ? '取消釘選' : '釘選此病症'}
+            >
+              <Pin className={`w-3.5 h-3.5 ${isPinned ? 'fill-amber-700 text-amber-700 dark:text-amber-300' : 'text-stone-400'}`} />
+              <span>{isPinned ? '已釘選' : '釘選此病症'}</span>
+            </button>
+
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs text-stone-600 dark:text-stone-400 hover:text-amber-800 dark:hover:text-amber-300 transition"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>切換其他病症</span>
+            </Link>
+          </div>
         </div>
 
         <div>

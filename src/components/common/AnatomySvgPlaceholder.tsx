@@ -20,7 +20,7 @@ export const AnatomySvgPlaceholder: React.FC<Props> = ({ subRegion, className = 
       {/* Anatomical stylized vector */}
       <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
         {isAnkle && (
-          <svg className="w-16 h-16 text-teal-400 opacity-90 drop-shadow-[0_0_12px_rgba(13,148,136,0.4)]" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-16 h-16 text-amber-400 opacity-90 drop-shadow-[0_0_12px_rgba(217,119,6,0.4)]" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             {/* Tibia & Fibula */}
             <path d="M26 4v34M38 10v26" strokeDasharray="3 3" />
             {/* Talocrural Mortise & Talus */}

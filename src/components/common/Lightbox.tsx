@@ -18,7 +18,7 @@ export const Lightbox: React.FC<Props> = ({ isOpen, imageUrl, title, onClose, ch
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-950/80">
           <h3 className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-            <ZoomIn className="w-4 h-4 text-teal-400" />
+            <ZoomIn className="w-4 h-4 text-amber-400" />
             {title || '高解析分解圖示 / 關節剖析'}
           </h3>
           <button
