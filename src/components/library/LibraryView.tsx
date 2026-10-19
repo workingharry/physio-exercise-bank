@@ -3,6 +3,7 @@ import { allExercises } from '../../data/exercises';
 import { genericAnkleLibrary, filterExercises, countByRegion } from '../../data/selectors';
 import { useRoutineStore } from '../../store/useRoutineStore';
 import { FilterDrawer } from './FilterDrawer';
+import { CategoryModules } from './CategoryModules';
 import { RegionChips } from './RegionChips';
 import { ActiveFilterBar } from './ActiveFilterBar';
 import { ExerciseCard } from './ExerciseCard';
@@ -271,6 +272,13 @@ export const LibraryView: React.FC = () => {
             setViewMode={setViewMode}
             totalFiltered={filteredExercises.length}
             totalCount={combinedExercises.length}
+          />
+
+          {/* 🌟 1.5 Wikipedia / PhysioWiki Style Category Modules Grid */}
+          <CategoryModules
+            exercises={scopedPool}
+            filters={filters}
+            onUpdateFilters={updateFilters}
           />
 
           {/* 🌟 2. Region Chips (Derived dynamically, disables 0-count chips) */}

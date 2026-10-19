@@ -50,9 +50,35 @@ export const ExerciseDetailView: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeMediaTab, setActiveMediaTab] = useState<'video' | 'anatomy'>('video');
 
+  // Study note state persisted in localStorage
+  const [localNote, setLocalNote] = useState<string>(() => {
+    if (typeof window !== 'undefined' && exerciseId) {
+      try {
+        const stored = localStorage.getItem(`physio_note_${exerciseId}`);
+        return stored || '';
+      } catch (e) {
+        return '';
+      }
+    }
+    return '';
+  });
+
+  const handleNoteChange = (val: string) => {
+    setLocalNote(val);
+    if (typeof window !== 'undefined' && exerciseId) {
+      try {
+        localStorage.setItem(`physio_note_${exerciseId}`, val);
+      } catch (e) {}
+    }
+  };
+
   useEffect(() => {
     if (exercise?.id) {
       addRecentlyViewed(exercise.id);
+      try {
+        const stored = localStorage.getItem(`physio_note_${exercise.id}`);
+        setLocalNote(stored || '');
+      } catch (e) {}
     }
   }, [exercise?.id]);
 
@@ -110,7 +136,8 @@ export const ExerciseDetailView: React.FC = () => {
     { id: 'errors', label: '5. 常見代償錯誤與校正防線' },
     { id: 'safety', label: '6. 禁忌症與臨床安全考量' },
     { id: 'progressions', label: '7. 進階與退階決策樹' },
-    { id: 'see-also', label: '8. 相關條目與替代動作' },
+    { id: 'notes', label: '8. 臨床研讀筆記 (Study Notes)' },
+    { id: 'see-also', label: '9. 相關條目與替代動作' },
   ];
 
   return (
@@ -578,11 +605,37 @@ export const ExerciseDetailView: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 8: 相關條目與替代動作 (See Also) */}
+          {/* Section 8: 臨床研讀筆記 (Study Notes - Saved Locally) */}
+          <section id="notes" className="space-y-3 scroll-mt-24">
+            <div className="flex items-center justify-between pb-2 border-b border-stone-200 dark:border-stone-800">
+              <h2 className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+                <span className="w-1.5 h-5 bg-amber-700 rounded-full"></span>
+                <span>8. 臨床研讀筆記 (Study Notes)</span>
+              </h2>
+              <span className="text-[11px] text-stone-500 dark:text-stone-400 font-medium">
+                本機自動儲存 · 治療師專屬備忘
+              </span>
+            </div>
+
+            <div className="bg-[#FAF8F5] dark:bg-[#201D1A] p-3.5 rounded-2xl border border-stone-200 dark:border-stone-800 space-y-2">
+              <textarea
+                value={localNote}
+                onChange={(e) => handleNoteChange(e.target.value)}
+                placeholder="在此記錄對該病患或特定分期的臨床觀察、口訣微調或代償紀錄（資料僅保存在本機）..."
+                className="w-full h-24 p-3 text-xs bg-white dark:bg-[#26221E] border border-stone-200 dark:border-stone-700 rounded-xl focus:border-amber-700 focus:ring-1 focus:ring-amber-700 text-stone-900 dark:text-stone-100 placeholder:text-stone-400 outline-none resize-y transition"
+              />
+              <div className="flex items-center justify-between text-[11px] text-stone-500">
+                <span>提示：按 Tab 或離開輸入框自動同步保存</span>
+                {localNote && <span className="text-amber-800 dark:text-amber-400 font-bold">✓ 已即時保存至本機</span>}
+              </div>
+            </div>
+          </section>
+
+          {/* Section 9: 相關條目與替代動作 (See Also) */}
           <section id="see-also" className="space-y-4 scroll-mt-24">
             <h2 className="text-lg font-serif font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2 pb-2 border-b border-stone-200 dark:border-stone-800">
               <span className="w-1.5 h-5 bg-amber-700 rounded-full"></span>
-              <span>8. 相關條目與替代動作 (See Also & Similar Exercises)</span>
+              <span>9. 相關條目與替代動作 (See Also & Similar Exercises)</span>
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -623,6 +676,48 @@ export const ExerciseDetailView: React.FC = () => {
               ))}
             </div>
           </section>
+
+          {/* Section 10: Wikipedia-style Categories Footer Bar */}
+          <div className="p-3.5 rounded-2xl bg-[#FAF8F5] dark:bg-[#201D1A] border border-stone-200 dark:border-stone-800 text-xs space-y-2">
+            <span className="font-bold text-stone-800 dark:text-stone-200 block text-[11px] uppercase tracking-wider">
+              條目收錄分類 (Categories):
+            </span>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <Link
+                href={`/library?region=${exercise.subRegion === 'Knee' ? 'knee' : exercise.subRegion === 'Hip & Pelvis' ? 'hip' : 'ankle'}`}
+                className="px-2.5 py-1 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-amber-700 transition"
+              >
+                解剖部位: {exercise.subRegion}
+              </Link>
+              {exercise.movementType.map((t, idx) => (
+                <Link
+                  key={idx}
+                  href={`/library?type=${encodeURIComponent(t)}`}
+                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-amber-700 transition"
+                >
+                  收縮型態: {t}
+                </Link>
+              ))}
+              {exercise.rehabPhase.map((p, idx) => (
+                <Link
+                  key={idx}
+                  href={`/library?phase=${p.includes('Phase 1') ? '1' : p.includes('Phase 2') ? '2' : p.includes('Phase 3') ? '3' : '4'}`}
+                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-amber-700 transition"
+                >
+                  {p.split(':')[0]}
+                </Link>
+              ))}
+              {exercise.equipment.map((eq, idx) => (
+                <Link
+                  key={idx}
+                  href={`/library?equip=${encodeURIComponent(eq.split(' ')[0])}`}
+                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-amber-700 transition"
+                >
+                  器材: {eq.split(' ')[0]}
+                </Link>
+              ))}
+            </div>
+          </div>
 
         </article>
 
