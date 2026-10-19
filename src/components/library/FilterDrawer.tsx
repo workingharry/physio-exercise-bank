@@ -4,22 +4,12 @@ import {
   Bookmark, Clock, LayoutGrid, Table, Trash2, Check
 } from 'lucide-react';
 import { ScopeMode } from './LibraryView';
-
-export interface FilterState {
-  search: string;
-  subRegion: string;
-  movementTypes: string[];
-  rehabPhases: string[];
-  equipment: string[];
-  targetMuscles: string[];
-  difficulty: string;
-  kineticChain: string;
-  loadingStatus: string;
-}
+import { LibraryUrlFilters } from '../../hooks/useHashSearchParams';
 
 interface Props {
-  filters: FilterState;
-  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+  filters: LibraryUrlFilters;
+  onUpdateFilters: (next: Partial<LibraryUrlFilters>) => void;
+  onResetFilters: () => void;
   isOpen: boolean;
   setIsOpen: (val: boolean) => void;
   scopeMode: ScopeMode;
@@ -35,7 +25,8 @@ interface Props {
 
 export const FilterDrawer: React.FC<Props> = ({
   filters,
-  setFilters,
+  onUpdateFilters,
+  onResetFilters,
   isOpen,
   setIsOpen,
   scopeMode,
@@ -59,19 +50,6 @@ export const FilterDrawer: React.FC<Props> = ({
     'Phase 4: 增強式與重返運動'
   ];
 
-  const muscleOptions = [
-    '腓腸肌 / 比目魚肌 (Calf)',
-    '脛前肌 (Tibialis Anterior)',
-    '脛後肌 (Tibialis Posterior)',
-    '腓骨長短肌 (Peroneals)',
-    '股四頭肌 (Quadriceps)',
-    '膕旁肌 (Hamstrings)',
-    '臀大肌 (Gluteus Maximus)',
-    '臀中肌 / 髖外展 (Gluteus Medius)',
-    '髖內收肌 (Hip Adductors)',
-    '足底小肌 (Foot Intrinsics)'
-  ];
-
   const equipmentOptions = [
     '徒手 (Bodyweight)',
     '彈力帶 (Resistance Band)',
@@ -84,55 +62,27 @@ export const FilterDrawer: React.FC<Props> = ({
 
   const difficultyOptions = ['ALL', 'Beginner (初階)', 'Intermediate (中階)', 'Advanced (進階)'];
   const chainOptions = ['ALL', '閉鎖鏈 (CKC)', '開放鏈 (OKC)'];
-  const loadingStatusOptions = [
-    'ALL',
-    '閉鎖鏈承重 (CKC)',
-    '開放鏈非承重 (OKC)',
-    '徒手自重 (Bodyweight)',
-    '抗阻負重 (Resisted)'
-  ];
 
-  const handleToggle = (key: 'movementTypes' | 'rehabPhases' | 'equipment' | 'targetMuscles', val: string) => {
-    setFilters(prev => {
-      const exists = prev[key].includes(val);
-      return {
-        ...prev,
-        [key]: exists ? prev[key].filter(item => item !== val) : [...prev[key], val]
-      };
-    });
-  };
-
-  const handleReset = () => {
-    setFilters({
-      search: '',
-      subRegion: 'ALL',
-      movementTypes: [],
-      rehabPhases: [],
-      equipment: [],
-      targetMuscles: [],
-      difficulty: 'ALL',
-      kineticChain: 'ALL',
-      loadingStatus: 'ALL'
-    });
+  const handleToggle = (key: 'movementTypes' | 'rehabPhases' | 'equipment', val: string) => {
+    const current = filters[key] || [];
+    const exists = current.includes(val);
+    const updated = exists ? current.filter(item => item !== val) : [...current, val];
+    onUpdateFilters({ [key]: updated });
   };
 
   const hasActiveAdvancedFilters = 
     filters.movementTypes.length > 0 || 
     filters.rehabPhases.length > 0 || 
     filters.equipment.length > 0 || 
-    filters.targetMuscles.length > 0 ||
-    filters.difficulty !== 'ALL' || 
-    filters.kineticChain !== 'ALL' ||
-    filters.loadingStatus !== 'ALL';
+    (filters.difficulty && filters.difficulty !== 'ALL') || 
+    (filters.kineticChain && filters.kineticChain !== 'ALL');
 
   const activeFilterCount = 
     filters.movementTypes.length + 
     filters.rehabPhases.length + 
     filters.equipment.length + 
-    filters.targetMuscles.length + 
-    (filters.difficulty !== 'ALL' ? 1 : 0) + 
-    (filters.kineticChain !== 'ALL' ? 1 : 0) + 
-    (filters.loadingStatus !== 'ALL' ? 1 : 0);
+    (filters.difficulty && filters.difficulty !== 'ALL' ? 1 : 0) + 
+    (filters.kineticChain && filters.kineticChain !== 'ALL' ? 1 : 0);
 
   return (
     <div className="w-full bg-white dark:bg-[#201D1A] border border-stone-200 dark:border-stone-800 rounded-2xl p-2.5 sm:p-3 shadow-sm transition-colors space-y-2">
@@ -141,18 +91,18 @@ export const FilterDrawer: React.FC<Props> = ({
         
         {/* Left: Search input */}
         <div className="relative flex-1 min-w-[240px]">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500 dark:text-stone-400" />
           <input
             type="text"
             value={filters.search}
-            onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
-            placeholder="搜尋運動名稱、肌群 (如: 腓骨肌、膕旁肌) 或器材..."
-            className="w-full pl-9 pr-8 py-2 rounded-xl bg-[#FAF8F5] dark:bg-stone-900 border border-stone-200 dark:border-stone-800 focus:border-amber-700 focus:ring-1 focus:ring-amber-700 text-xs sm:text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 outline-none transition"
+            onChange={(e) => onUpdateFilters({ search: e.target.value })}
+            placeholder="搜尋運動名稱、肌群或器材..."
+            className="w-full pl-9 pr-8 py-2 rounded-xl bg-[#FAF8F5] dark:bg-stone-900 border border-stone-200 dark:border-stone-800 focus:border-amber-700 focus:ring-1 focus:ring-amber-700 text-xs sm:text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-500 dark:placeholder:text-stone-400 outline-none transition"
           />
           {filters.search && (
             <button
-              onClick={() => setFilters(prev => ({ ...prev, search: '' }))}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 p-1"
+              onClick={() => onUpdateFilters({ search: '' })}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 p-1"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -167,7 +117,7 @@ export const FilterDrawer: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-lg font-semibold transition ${
                 scopeMode === 'all'
                   ? 'bg-white dark:bg-stone-800 text-amber-900 dark:text-amber-300 shadow-sm font-bold'
-                  : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
+                  : 'text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
               全部
@@ -178,12 +128,12 @@ export const FilterDrawer: React.FC<Props> = ({
               className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-semibold transition ${
                 scopeMode === 'favorites'
                   ? 'bg-amber-700 text-white shadow-sm font-bold'
-                  : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
+                  : 'text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
               <Bookmark className="w-3 h-3 fill-current" />
               <span>收藏</span>
-              {bookmarksCount > 0 && <span className="text-[10px]">({bookmarksCount})</span>}
+              {bookmarksCount > 0 && <span className="text-[10px] font-mono">({bookmarksCount})</span>}
             </button>
 
             <button
@@ -191,12 +141,12 @@ export const FilterDrawer: React.FC<Props> = ({
               className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg font-semibold transition ${
                 scopeMode === 'recent'
                   ? 'bg-stone-800 text-white shadow-sm font-bold'
-                  : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'
+                  : 'text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
               <Clock className="w-3 h-3" />
               <span>最近</span>
-              {recentCount > 0 && <span className="text-[10px]">({recentCount})</span>}
+              {recentCount > 0 && <span className="text-[10px] font-mono">({recentCount})</span>}
             </button>
           </div>
 
@@ -207,7 +157,7 @@ export const FilterDrawer: React.FC<Props> = ({
                   clearRecentlyViewed();
                 }
               }}
-              className="p-1.5 rounded-lg border border-stone-200 dark:border-stone-800 hover:bg-stone-100 text-stone-400 hover:text-stone-800 transition"
+              className="p-1.5 rounded-lg border border-stone-200 dark:border-stone-800 hover:bg-stone-100 text-stone-500 hover:text-stone-800 transition"
               title="清空最近紀錄"
             >
               <Trash2 className="w-3.5 h-3.5" />
@@ -235,8 +185,8 @@ export const FilterDrawer: React.FC<Props> = ({
           {/* Reset Filter Button */}
           {hasActiveAdvancedFilters && (
             <button
-              onClick={handleReset}
-              className="p-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-500 border border-stone-200 dark:border-stone-700 transition"
+              onClick={onResetFilters}
+              className="p-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700 transition"
               title="重設全部條件"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -250,9 +200,9 @@ export const FilterDrawer: React.FC<Props> = ({
               className={`p-1.5 rounded-lg transition ${
                 viewMode === 'grid'
                   ? 'bg-white dark:bg-stone-800 text-amber-900 dark:text-amber-300 shadow-sm'
-                  : 'text-stone-400 hover:text-stone-600 dark:hover:text-stone-300'
+                  : 'text-stone-600 dark:text-stone-400 hover:text-stone-900'
               }`}
-              title="網格卡片視圖"
+              title="網格檢視"
             >
               <LayoutGrid className="w-3.5 h-3.5" />
             </button>
@@ -261,88 +211,75 @@ export const FilterDrawer: React.FC<Props> = ({
               className={`p-1.5 rounded-lg transition ${
                 viewMode === 'table'
                   ? 'bg-white dark:bg-stone-800 text-amber-900 dark:text-amber-300 shadow-sm'
-                  : 'text-stone-400 hover:text-stone-600 dark:hover:text-stone-300'
+                  : 'text-stone-600 dark:text-stone-400 hover:text-stone-900'
               }`}
-              title="緊湊清單表格"
+              title="精簡表格檢視"
             >
               <Table className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
-
       </div>
 
-      {/* Expanded Multi-Attribute Filter Matrix (Only shows when user clicks '篩選') */}
+      {/* 🌟 Collapsible Advanced Filter Drawer Panel */}
       {isOpen && (
-        <div className="mt-2 pt-3 border-t border-stone-100 dark:border-stone-800/80 space-y-3.5 animate-in slide-in-from-top-2 duration-200 text-xs">
-          
-          {/* Target Muscle Groups */}
-          <div>
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="font-bold text-stone-700 dark:text-stone-300 flex items-center gap-1.5">
-                <Target className="w-3.5 h-3.5 text-amber-700" />
-                <span>目標肌群篩選 (Target Muscles)</span>
+        <div className="pt-3 pb-2 border-t border-stone-100 dark:border-stone-800/80 space-y-3.5 animate-in fade-in duration-150 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            {/* Movement Types */}
+            <div>
+              <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
+                動作收縮型態
               </span>
-              {filters.targetMuscles.length > 0 && (
-                <button
-                  onClick={() => setFilters(prev => ({ ...prev, targetMuscles: [] }))}
-                  className="text-[11px] text-amber-800 dark:text-amber-400 hover:underline"
-                >
-                  清除肌群
-                </button>
-              )}
+              <div className="flex flex-wrap gap-1">
+                {movementOptions.map((type) => {
+                  const active = filters.movementTypes.includes(type);
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => handleToggle('movementTypes', type)}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
+                        active
+                          ? 'bg-amber-800 text-white font-bold'
+                          : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-1.5">
-              {muscleOptions.map((muscle) => {
-                const active = filters.targetMuscles.includes(muscle);
-                return (
-                  <button
-                    key={muscle}
-                    onClick={() => handleToggle('targetMuscles', muscle)}
-                    className={`px-2 py-0.5 rounded-lg text-xs font-medium transition ${
-                      active
-                        ? 'bg-amber-800 text-white font-bold shadow-sm'
-                        : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800'
-                    }`}
-                  >
-                    {muscle.split(' ')[0]}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* Movement Types (Contraction) */}
-          <div>
-            <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
-              收縮型態 / 機制 (Contraction)
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {movementOptions.map((type) => {
-                const active = filters.movementTypes.includes(type);
-                return (
-                  <button
-                    key={type}
-                    onClick={() => handleToggle('movementTypes', type)}
-                    className={`px-2 py-0.5 rounded-lg text-xs font-medium transition ${
-                      active
-                        ? 'bg-amber-900 text-white font-bold shadow-sm'
-                        : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800'
-                    }`}
-                  >
-                    {type}
-                  </button>
-                );
-              })}
+            {/* Rehab Phases */}
+            <div>
+              <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
+                臨床復健階段
+              </span>
+              <div className="flex flex-wrap gap-1">
+                {phaseOptions.map((phase) => {
+                  const active = filters.rehabPhases.includes(phase);
+                  return (
+                    <button
+                      key={phase}
+                      onClick={() => handleToggle('rehabPhases', phase)}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
+                        active
+                          ? 'bg-amber-800 text-white font-bold'
+                          : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
+                      }`}
+                    >
+                      {phase.split(':')[0]}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Equipment & Difficulty & Kinetic Chain */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
             {/* Equipment */}
             <div>
               <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
-                所需器材
+                器材需求
               </span>
               <div className="flex flex-wrap gap-1">
                 {equipmentOptions.map((eq) => {
@@ -364,71 +301,51 @@ export const FilterDrawer: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Difficulty */}
-            <div>
-              <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
-                難易度
-              </span>
-              <div className="flex flex-wrap gap-1">
-                {difficultyOptions.map((diff) => (
-                  <button
-                    key={diff}
-                    onClick={() => setFilters(prev => ({ ...prev, difficulty: diff }))}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
-                      filters.difficulty === diff
-                        ? 'bg-amber-800 text-white font-bold'
-                        : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
-                    }`}
-                  >
-                    {diff === 'ALL' ? '不限' : diff.split(' ')[0]}
-                  </button>
-                ))}
+            {/* Difficulty & Kinetic Chain */}
+            <div className="space-y-3">
+              <div>
+                <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
+                  難易度
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {difficultyOptions.map((diff) => (
+                    <button
+                      key={diff}
+                      onClick={() => onUpdateFilters({ difficulty: diff })}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
+                        filters.difficulty === diff
+                          ? 'bg-amber-800 text-white font-bold'
+                          : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
+                      }`}
+                    >
+                      {diff === 'ALL' ? '不限' : diff.split(' ')[0]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
+                  動力鏈
+                </span>
+                <div className="flex flex-wrap gap-1">
+                  {chainOptions.map((chain) => (
+                    <button
+                      key={chain}
+                      onClick={() => onUpdateFilters({ kineticChain: chain })}
+                      className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
+                        filters.kineticChain === chain
+                          ? 'bg-amber-800 text-white font-bold'
+                          : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
+                      }`}
+                    >
+                      {chain === 'ALL' ? '不限' : chain}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Kinetic Chain */}
-            <div>
-              <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
-                動力鏈
-              </span>
-              <div className="flex flex-wrap gap-1">
-                {chainOptions.map((chain) => (
-                  <button
-                    key={chain}
-                    onClick={() => setFilters(prev => ({ ...prev, kineticChain: chain }))}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
-                      filters.kineticChain === chain
-                        ? 'bg-amber-800 text-white font-bold'
-                        : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
-                    }`}
-                  >
-                    {chain === 'ALL' ? '不限' : chain}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Loading Status */}
-            <div>
-              <span className="block font-bold text-stone-700 dark:text-stone-300 mb-1.5">
-                負重/承重
-              </span>
-              <div className="flex flex-wrap gap-1">
-                {loadingStatusOptions.map((status) => (
-                  <button
-                    key={status}
-                    onClick={() => setFilters(prev => ({ ...prev, loadingStatus: status }))}
-                    className={`px-2 py-0.5 rounded text-[11px] font-medium transition ${
-                      filters.loadingStatus === status
-                        ? 'bg-amber-800 text-white font-bold'
-                        : 'bg-[#FAF8F5] dark:bg-stone-900 text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-stone-800'
-                    }`}
-                  >
-                    {status === 'ALL' ? '不限' : status.split(' ')[0]}
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       )}

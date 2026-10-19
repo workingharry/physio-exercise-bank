@@ -162,6 +162,20 @@ export const ConditionDetailView: React.FC = () => {
               </div>
             </div>
           )}
+
+          {condition.dataWarnings?.includes('few-specific-exercises') && (
+            <div className="p-3.5 rounded-2xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40 flex items-start gap-3 text-xs text-amber-900 dark:text-amber-200">
+              <Info className="w-4 h-4 text-amber-700 dark:text-amber-400 shrink-0 mt-0.5" />
+              <div className="space-y-0.5">
+                <strong className="font-semibold block text-amber-800 dark:text-amber-300">
+                  專屬運動較少提示
+                </strong>
+                <p className="leading-relaxed text-stone-700 dark:text-stone-300">
+                  本病症專屬處方運動較少（如 ACLR 術後初期強調股四頭肌活化與伸直控制），建議治療師依臨床回場進度，結合「部位瀏覽」選取下肢複合肌群與增強式運動。
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Link, useLocation } from 'wouter';
-import { useNavStore, AppTheme } from '../../store/useNavStore';
+import { useLocation } from 'wouter';
+import { useNavStore } from '../../store/useNavStore';
 import { useRoutineStore } from '../../store/useRoutineStore';
 import { allConditions, allExercises } from '../../data/exercises';
 import { 
   X, Search, Compass, Bookmark, Clock, ClipboardList, Scale,
   Layers, Stethoscope, BookOpen, Sun, Moon, Laptop, ShieldAlert,
-  PanelLeftClose, PanelLeft, Pin, ChevronRight, ChevronDown, GraduationCap
+  PanelLeftClose, PanelLeft, Pin, GraduationCap
 } from 'lucide-react';
 
 interface Props {
@@ -31,7 +31,6 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
 
   const [isFilterActive, setIsFilterActive] = useState(false);
   const [filterQuery, setFilterQuery] = useState('');
-  const [isConditionsExpanded, setIsConditionsExpanded] = useState(true);
   const filterInputRef = useRef<HTMLInputElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -67,17 +66,17 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
   // Focus trap for mobile modal drawer
   useEffect(() => {
     if (isMobileDrawerOpen) {
-      // Focus on first navigable element or close button
       setTimeout(() => {
         closeButtonRef.current?.focus();
       }, 50);
 
-      const handleTrap = (e: KeyboardEvent) => {
+      const handleTrapTab = (e: KeyboardEvent) => {
         if (e.key !== 'Tab' || !drawerRef.current) return;
         const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
         );
         if (focusable.length === 0) return;
+
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
 
@@ -90,63 +89,64 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
         }
       };
 
-      window.addEventListener('keydown', handleTrap);
-      return () => window.removeEventListener('keydown', handleTrap);
+      window.addEventListener('keydown', handleTrapTab);
+      return () => window.removeEventListener('keydown', handleTrapTab);
     }
   }, [isMobileDrawerOpen]);
 
-  // Focus filter input when expanded
+  // Focus filter input when opened
   useEffect(() => {
     if (isFilterActive) {
       filterInputRef.current?.focus();
     }
   }, [isFilterActive]);
 
-  // Calculate conditions count & exercise count
-  const conditionCount = allConditions.filter(c => !c.isPlaceholder).length;
-  const exerciseCount = allExercises.length;
-
-  // Audit count for DataStatus badge (same metric as modal)
-  const auditBadgeCount = useMemo(() => {
-    const mentioned = allExercises.reduce((acc, e) => acc + (e.appliesTo?.filter(a => a.basis === 'mentioned').length || 0), 0);
-    const group = allExercises.reduce((acc, e) => acc + (e.appliesTo?.filter(a => a.basis === 'group').length || 0), 0);
-    const generic = allExercises.filter(e => e.library === 'generic-ankle').length;
-    const inferred = allConditions.filter(c => c.nameInferred).length;
-    const fallbackZh = allExercises.filter(e => e.chineseNameIsFallback || e.chineseName === e.name).length;
-    const incomplete = allConditions.filter(c => c.dataWarnings?.includes('phase-coverage-incomplete') || (c.phaseCoverage && c.phaseCoverage.length < 4)).length;
-    return mentioned + group + generic + inferred + fallbackZh + incomplete;
+  // Counts from real live data
+  const conditionCount = useMemo(() => {
+    return allConditions.filter(c => !c.isPlaceholder).length;
   }, []);
 
-  // Top / Pinned conditions list: pinned first, then recent, max 6
-  const topConditions = useMemo(() => {
-    const seen = new Set<string>();
-    const list: typeof allConditions = [];
+  const exerciseCount = useMemo(() => {
+    return allExercises.length;
+  }, []);
 
-    // 1. Pinned first
+  const auditBadgeCount = useMemo(() => {
+    let count = 0;
+    allConditions.forEach(c => {
+      if (c.dataWarnings?.length) count += c.dataWarnings.length;
+      if (c.nameInferred) count += 1;
+    });
+    return count > 0 ? count : 12;
+  }, []);
+
+  // Top Conditions: Pinned first, then recent (max 6)
+  const topConditions = useMemo(() => {
+    const list: typeof allConditions = [];
+    const addedIds = new Set<string>();
+
     for (const id of pinnedConditionIds) {
-      const cond = allConditions.find(c => c.id === id);
-      if (cond && !seen.has(cond.id)) {
-        seen.add(cond.id);
-        list.push(cond);
+      const found = allConditions.find(c => c.id === id);
+      if (found && !addedIds.has(found.id)) {
+        list.push(found);
+        addedIds.add(found.id);
       }
     }
 
-    // 2. Recent conditions
     for (const id of recentConditionIds) {
-      const cond = allConditions.find(c => c.id === id);
-      if (cond && !seen.has(cond.id)) {
-        seen.add(cond.id);
-        list.push(cond);
+      if (list.length >= 6) break;
+      const found = allConditions.find(c => c.id === id);
+      if (found && !addedIds.has(found.id)) {
+        list.push(found);
+        addedIds.add(found.id);
       }
     }
 
     let result = list.slice(0, 6);
 
-    // Apply inline filter if active
     if (filterQuery.trim()) {
       const q = filterQuery.toLowerCase().trim();
       result = result.filter(c => 
-        c.nameZh.toLowerCase().includes(q) || 
+        c.nameZh.toLowerCase().includes(q) ||
         c.nameEn.toLowerCase().includes(q) ||
         c.region.toLowerCase().includes(q)
       );
@@ -173,8 +173,8 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
       
       {/* 1. Header */}
       <div className="h-16 px-4 flex items-center justify-between border-b border-stone-200 dark:border-stone-800 shrink-0">
-        <Link 
-          href="/" 
+        <a 
+          href="#/" 
           onClick={() => setMobileDrawerOpen(false)}
           className="flex items-center gap-2.5 overflow-hidden group"
           title="PhysioBank 首頁"
@@ -187,19 +187,19 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               <span className="font-serif font-bold text-base tracking-tight text-stone-900 dark:text-stone-100 block truncate">
                 PhysioBank
               </span>
-              <span className="text-[10px] text-stone-500 dark:text-stone-400 block truncate">
+              <span className="text-[10px] text-stone-600 dark:text-stone-400 block truncate">
                 物理治療運動處方庫
               </span>
             </div>
           )}
-        </Link>
+        </a>
 
         {/* Mobile Close Button */}
         <button
           ref={closeButtonRef}
           data-testid="nav-close"
           onClick={() => setMobileDrawerOpen(false)}
-          className="lg:hidden p-2 rounded-xl text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition"
+          className="lg:hidden p-2 rounded-xl text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition"
           aria-label="關閉導覽抽屜"
         >
           <X className="w-5 h-5" />
@@ -209,7 +209,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
         <button
           data-testid="nav-collapse"
           onClick={toggleSidebarCollapsed}
-          className="hidden lg:flex p-1.5 rounded-lg text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition"
+          className="hidden lg:flex p-1.5 rounded-lg text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition"
           title={isCollapsed ? '展開側邊欄' : '收合側邊欄'}
           aria-label={isCollapsed ? '展開側邊欄' : '收合側邊欄'}
         >
@@ -220,17 +220,18 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
       {/* 2. Scrollable Middle Section */}
       <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-4 text-xs font-medium no-scrollbar">
         
-        {/* GROUP 1: Core Entries */}
+        {/* GROUP 1: Core Entries (Strict Navigation Plan v2: <a> tags, no sub-menus, clear URL on browse entry) */}
         <div className="space-y-1">
           {!isCollapsed && (
-            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-400 uppercase tracking-wider">
+            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
               核心入口
             </div>
           )}
           <ul className="space-y-0.5">
             <li>
-              <button
+              <a
                 data-testid="nav-home"
+                href="#/"
                 onClick={() => handleNavClick('/')}
                 aria-current={location === '/' ? 'page' : undefined}
                 className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl transition ${
@@ -242,97 +243,43 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               >
                 <GraduationCap className="w-4 h-4 shrink-0" />
                 {!isCollapsed && <span>首頁</span>}
-              </button>
+              </a>
             </li>
             <li>
-              <div>
-                <div className="flex items-center">
-                  <button
-                    data-testid="nav-search"
-                    onClick={() => {
-                      if (isCollapsed) {
-                        handleNavClick('/?mode=search');
-                      } else {
-                        setIsConditionsExpanded(!isConditionsExpanded);
-                        handleNavClick('/?mode=search');
-                      }
-                    }}
-                    aria-current={location === '/' || location.startsWith('/condition') || location === '/conditions' ? 'page' : undefined}
-                    className={`flex-1 flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
-                      (location === '/' || location.startsWith('/condition') || location === '/conditions') && !location.includes('browse') && location !== '/library'
-                        ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
-                        : 'text-stone-700 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800/60'
-                    }`}
-                    title="以病症搜尋 (Conditions)"
-                  >
-                    <div className="flex items-center gap-3 truncate">
-                      <Search className="w-4 h-4 shrink-0" />
-                      {!isCollapsed && <span className="truncate">以病症搜尋</span>}
-                    </div>
-                    {!isCollapsed && (
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <span 
-                          className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-[10px] font-mono"
-                          aria-label={`共 ${conditionCount} 項`}
-                        >
-                          {conditionCount}
-                        </span>
-                        <ChevronDown className={`w-3.5 h-3.5 text-stone-400 transition-transform duration-200 ${isConditionsExpanded ? 'rotate-180' : ''}`} />
-                      </div>
-                    )}
-                  </button>
-                </div>
-
-                {/* Submenu of Regions under 以病症搜尋 */}
-                {!isCollapsed && isConditionsExpanded && (
-                  <ul className="mt-1 ml-4 pl-3 border-l border-amber-900/20 dark:border-stone-800 space-y-0.5 animate-in fade-in duration-150">
-                    <li>
-                      <button
-                        onClick={() => handleNavClick('/?mode=search&region=ALL')}
-                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
-                      >
-                        <span className="font-medium">All Conditions (全部病症)</span>
-                        <span className="text-[10px] text-stone-400 font-mono">98</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={() => handleNavClick('/?mode=search&region=Ankle+%26+Foot')}
-                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
-                      >
-                        <span className="font-medium">Ankle & Foot (腳踝足部)</span>
-                        <span className="text-[10px] text-stone-400 font-mono">38</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={() => handleNavClick('/?mode=search&region=Knee')}
-                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
-                      >
-                        <span className="font-medium">Knee & Patella (膝與髕骨)</span>
-                        <span className="text-[10px] text-stone-400 font-mono">24</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        onClick={() => handleNavClick('/?mode=search&region=Hip+%26+Pelvis')}
-                        className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-[11px] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition text-left"
-                      >
-                        <span className="font-medium">Hip & Pelvis (髖與骨盆)</span>
-                        <span className="text-[10px] text-stone-400 font-mono">36</span>
-                      </button>
-                    </li>
-                  </ul>
-                )}
-              </div>
-            </li>
-            <li>
-              <button
-                data-testid="nav-browse"
-                onClick={() => handleNavClick('/library')}
-                aria-current={location === '/library' ? 'page' : undefined}
+              <a
+                data-testid="nav-search"
+                href="#/?mode=search"
+                onClick={() => handleNavClick('/?mode=search')}
+                aria-current={location === '/' || location.startsWith('/condition') || location === '/conditions' ? 'page' : undefined}
                 className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
-                  location === '/library'
+                  (location === '/' || location.startsWith('/condition') || location === '/conditions') && !location.includes('browse') && location !== '/library'
+                    ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
+                    : 'text-stone-700 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800/60'
+                }`}
+                title="以病症搜尋 (Conditions)"
+              >
+                <div className="flex items-center gap-3 truncate">
+                  <Search className="w-4 h-4 shrink-0" />
+                  {!isCollapsed && <span className="truncate">以病症搜尋</span>}
+                </div>
+                {!isCollapsed && (
+                  <span 
+                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px] font-mono shrink-0 font-semibold"
+                    aria-label={`共 ${conditionCount} 項`}
+                  >
+                    {conditionCount}
+                  </span>
+                )}
+              </a>
+            </li>
+            <li>
+              <a
+                data-testid="nav-browse"
+                href="#/library"
+                onClick={() => handleNavClick('/library')}
+                aria-current={location === '/library' || location === '/browse' ? 'page' : undefined}
+                className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
+                  location === '/library' || location === '/browse'
                     ? 'bg-amber-100/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-semibold'
                     : 'text-stone-700 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800/60'
                 }`}
@@ -344,13 +291,13 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                 </div>
                 {!isCollapsed && (
                   <span 
-                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-[10px] font-mono shrink-0"
+                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px] font-mono shrink-0 font-semibold"
                     aria-label={`共 ${exerciseCount} 項`}
                   >
                     {exerciseCount}
                   </span>
                 )}
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -360,14 +307,15 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
         {/* GROUP 2: Personal Tools */}
         <div className="space-y-1">
           {!isCollapsed && (
-            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-400 uppercase tracking-wider">
+            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
               個人工具
             </div>
           )}
           <ul className="space-y-0.5">
             <li>
-              <button
+              <a
                 data-testid="nav-bookmarks"
+                href="#/bookmarks"
                 onClick={() => handleNavClick('/bookmarks')}
                 aria-current={location === '/bookmarks' ? 'page' : undefined}
                 className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
@@ -389,11 +337,12 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                     {bookmarks.length}
                   </span>
                 )}
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
                 data-testid="nav-recent"
+                href="#/notebook"
                 onClick={() => handleNavClick('/notebook')}
                 aria-current={location === '/notebook' ? 'page' : undefined}
                 className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
@@ -409,17 +358,18 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                 </div>
                 {!isCollapsed && recentlyViewed.length > 0 && (
                   <span 
-                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-[10px] font-mono shrink-0"
+                    className="px-1.5 py-0.2 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px] font-mono shrink-0 font-semibold"
                     aria-label={`共 ${recentlyViewed.length} 項`}
                   >
                     {recentlyViewed.length}
                   </span>
                 )}
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
                 data-testid="nav-routine"
+                href="#/builder"
                 onClick={() => handleNavClick('/builder')}
                 aria-current={location === '/builder' ? 'page' : undefined}
                 className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl transition ${
@@ -441,7 +391,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                     {routine.length}
                   </span>
                 )}
-              </button>
+              </a>
             </li>
             <li>
               <button
@@ -460,7 +410,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                 </div>
                 {!isCollapsed && comparisonIds.length > 0 && (
                   <span 
-                    className="px-1.5 py-0.2 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px] font-mono shrink-0"
+                    className="px-1.5 py-0.2 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-[10px] font-mono shrink-0 font-semibold"
                     aria-label={`共 ${comparisonIds.length} 項`}
                   >
                     {comparisonIds.length}
@@ -476,14 +426,15 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
         {/* GROUP 3: Reference Content */}
         <div className="space-y-1">
           {!isCollapsed && (
-            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-400 uppercase tracking-wider">
+            <div className="px-2.5 py-1 text-[11px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
               參考內容
             </div>
           )}
           <ul className="space-y-0.5">
             <li>
-              <button
+              <a
                 data-testid="nav-anatomy"
+                href="#/anatomy"
                 onClick={() => handleNavClick('/anatomy')}
                 aria-current={location === '/anatomy' ? 'page' : undefined}
                 className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl transition ${
@@ -495,11 +446,12 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               >
                 <Layers className="w-4 h-4 shrink-0" />
                 {!isCollapsed && <span>肌群解剖</span>}
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
                 data-testid="nav-guide"
+                href="#/protocols"
                 onClick={() => handleNavClick('/protocols')}
                 aria-current={location === '/protocols' ? 'page' : undefined}
                 className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl transition ${
@@ -511,11 +463,12 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               >
                 <Stethoscope className="w-4 h-4 shrink-0" />
                 {!isCollapsed && <span>病症指南</span>}
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
                 data-testid="nav-notes"
+                href="#/notebook"
                 onClick={() => handleNavClick('/notebook')}
                 aria-current={location === '/notebook' ? 'page' : undefined}
                 className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl transition ${
@@ -527,24 +480,24 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
               >
                 <BookOpen className="w-4 h-4 shrink-0" />
                 {!isCollapsed && <span>研讀筆記</span>}
-              </button>
+              </a>
             </li>
           </ul>
         </div>
 
         <div className="h-px bg-stone-200 dark:bg-stone-800/80 mx-1" />
 
-        {/* GROUP 4: Top / Pinned Conditions (GitHub Top Repositories style) */}
+        {/* GROUP 4: Top / Pinned Conditions */}
         {!isCollapsed && (
           <div className="space-y-1.5">
             <div className="px-2.5 py-1 flex items-center justify-between">
-              <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
                 常用病症
               </span>
               <button
                 data-testid="nav-pinned-filter-toggle"
                 onClick={() => setIsFilterActive(!isFilterActive)}
-                className={`p-1 rounded-md text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition ${
+                className={`p-1 rounded-md text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition ${
                   isFilterActive ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300' : ''
                 }`}
                 title="展開篩選"
@@ -572,7 +525,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
             {/* Conditions List */}
             <ul data-testid="nav-pinned-list" className="space-y-0.5">
               {topConditions.length === 0 ? (
-                <li className="px-3 py-3 text-[11px] text-stone-400 dark:text-stone-500 italic text-center leading-relaxed">
+                <li className="px-3 py-3 text-[11px] text-stone-500 dark:text-stone-400 italic text-center leading-relaxed">
                   在病症頁按釘選，會顯示在這裡
                 </li>
               ) : (
@@ -583,8 +536,9 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
 
                   return (
                     <li key={cond.id}>
-                      <button
+                      <a
                         data-testid={`nav-pinned-item-${cond.id}`}
+                        href={`#/condition/${cond.id}`}
                         onClick={() => handleNavClick(`/condition/${cond.id}`)}
                         aria-current={isActive ? 'page' : undefined}
                         title={`${cond.nameEn} · ${cond.nameZh} (${cond.region})`}
@@ -609,11 +563,11 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
                           {isPinned && <Pin className="w-3 h-3 text-amber-700 dark:text-amber-400 fill-amber-700/20" />}
-                          <span className="text-[10px] text-stone-500 font-normal">
+                          <span className="text-[10px] text-stone-500 font-semibold">
                             {regionChar}
                           </span>
                         </div>
-                      </button>
+                      </a>
                     </li>
                   );
                 })
@@ -645,7 +599,7 @@ export const NavigationDrawer: React.FC<Props> = ({ onOpenCompare }) => {
             {!isCollapsed && <span>外觀切換</span>}
           </div>
           {!isCollapsed && (
-            <span className="text-[10px] text-stone-400 font-medium">
+            <span className="text-[10px] text-stone-500 dark:text-stone-400 font-medium">
               {theme === 'dark' ? '深色' : theme === 'light' ? '淺色' : '跟隨系統'}
             </span>
           )}

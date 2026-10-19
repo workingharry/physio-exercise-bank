@@ -43,7 +43,12 @@ const normalizeQuery = (text: string): string => {
     .replace(/韧带/g, '韌帶')
     .replace(/髌/g, '髕')
     .replace(/肌腱炎/g, '肌腱炎')
-    .replace(/术后/g, '術後');
+    .replace(/术后/g, '術後')
+    // Vernacular equivalents mapping
+    .replace(/膝蓋痛/g, '膝痛')
+    .replace(/膝蓋/g, '膝')
+    .replace(/跑步後小腿前面痛/g, '小腿前面痛')
+    .replace(/腳跟痛/g, '足底筋膜病變');
 };
 
 // 3. Search conditions with intelligent ranking
@@ -211,3 +216,98 @@ export const searchExercises = (query: string): Exercise[] => {
     return matchName || matchChinese || matchMuscles || matchPathologies || matchEquipment;
   });
 };
+
+export interface ExerciseFilterCriteria {
+  region?: 'all' | 'ankle' | 'knee' | 'hip';
+  movementTypes?: string[];
+  rehabPhases?: string[];
+  equipment?: string[];
+  difficulty?: string;
+  kineticChain?: string;
+  search?: string;
+}
+
+const REGION_MAP: Record<string, string> = {
+  ankle: 'Ankle & Foot',
+  knee: 'Knee',
+  hip: 'Hip & Pelvis'
+};
+
+// 8. Filter exercises strictly according to criteria
+export const filterExercises = (criteria: ExerciseFilterCriteria, pool: Exercise[] = allExercises): Exercise[] => {
+  return pool.filter(ex => {
+    // 1. Region filter
+    if (criteria.region && criteria.region !== 'all') {
+      const targetSub = REGION_MAP[criteria.region];
+      if (targetSub && ex.subRegion !== targetSub) {
+        return false;
+      }
+    }
+
+    // 2. Search keyword
+    if (criteria.search && criteria.search.trim()) {
+      const q = normalizeQuery(criteria.search);
+      const matchName = normalizeQuery(ex.name).includes(q);
+      const matchChinese = normalizeQuery(ex.chineseName).includes(q);
+      const matchMuscles = ex.biomechanics.primaryMuscles.some(m => normalizeQuery(m).includes(q));
+      const matchPathologies = ex.targetPathologies.some(p => normalizeQuery(p).includes(q));
+      const matchEquipment = ex.equipment.some(eq => normalizeQuery(eq).includes(q));
+      if (!matchName && !matchChinese && !matchMuscles && !matchPathologies && !matchEquipment) {
+        return false;
+      }
+    }
+
+    // 3. Movement types (OR within types)
+    if (criteria.movementTypes && criteria.movementTypes.length > 0) {
+      const hasMovement = criteria.movementTypes.some(t => ex.movementType.includes(t as any));
+      if (!hasMovement) return false;
+    }
+
+    // 4. Rehab phases (OR within phases)
+    if (criteria.rehabPhases && criteria.rehabPhases.length > 0) {
+      const hasPhase = criteria.rehabPhases.some(p => ex.rehabPhase.includes(p as any));
+      if (!hasPhase) return false;
+    }
+
+    // 5. Equipment (OR within equipment)
+    if (criteria.equipment && criteria.equipment.length > 0) {
+      const hasEquip = criteria.equipment.some(eq => ex.equipment.some(e => e.includes(eq.split(' ')[0])));
+      if (!hasEquip) return false;
+    }
+
+    // 6. Difficulty
+    if (criteria.difficulty && criteria.difficulty !== 'ALL') {
+      if (ex.difficulty !== criteria.difficulty) return false;
+    }
+
+    // 7. Kinetic Chain
+    if (criteria.kineticChain && criteria.kineticChain !== 'ALL') {
+      if (ex.biomechanics.kineticChain !== criteria.kineticChain) return false;
+    }
+
+    return true;
+  });
+};
+
+// 9. Count exercises per region under current OTHER criteria
+export const countByRegion = (criteria: Omit<ExerciseFilterCriteria, 'region'>, pool: Exercise[] = allExercises): Record<'all' | 'ankle' | 'knee' | 'hip', number> => {
+  const basePool = filterExercises({ ...criteria, region: 'all' }, pool);
+  
+  let ankle = 0;
+  let knee = 0;
+  let hip = 0;
+
+  for (const ex of basePool) {
+    if (ex.subRegion === 'Ankle & Foot') ankle++;
+    else if (ex.subRegion === 'Knee') knee++;
+    else if (ex.subRegion === 'Hip & Pelvis') hip++;
+  }
+
+  return {
+    all: basePool.length,
+    ankle,
+    knee,
+    hip
+  };
+};
+

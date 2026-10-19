@@ -454,7 +454,9 @@ export const ExerciseDetailView: React.FC = () => {
               <div className="p-4 rounded-xl bg-white dark:bg-[#201D1A] border border-stone-200 dark:border-stone-800 space-y-2">
                 <span className="text-xs font-bold text-stone-800 dark:text-stone-200 flex items-center gap-1.5">
                   <ShieldAlert className="w-4 h-4 text-amber-700" />
-                  絕對/相對禁忌症 (Contraindications):
+                  {exercise.contraindications && exercise.contraindications.length > 0 
+                    ? '絕對/相對禁忌症 (Contraindications):'
+                    : '全站臨床安全免責聲明 (Clinical Safety Disclaimer):'}
                 </span>
                 {exercise.contraindications && exercise.contraindications.length > 0 ? (
                   <ul className="list-disc list-inside space-y-1 text-xs text-stone-700 dark:text-stone-300">
@@ -463,8 +465,8 @@ export const ExerciseDetailView: React.FC = () => {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-xs text-stone-500 dark:text-stone-400 italic">
-                    原教材未列具體禁忌症；本處方遵循常規下肢保護期原則，遇未診斷之急性劇痛應先停練並尋求物理治療師臨床鑑別。
+                  <p className="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                    本運動庫未記錄專屬禁忌症。所有動作處方均應遵循常規物理治療組織保護原則；若運動過程中產生刺痛、關節積水或神經性放射症狀，應即刻停止並尋求物理治療師評估。
                   </p>
                 )}
               </div>
