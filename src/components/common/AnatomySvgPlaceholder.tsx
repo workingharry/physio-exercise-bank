@@ -13,9 +13,9 @@ export const AnatomySvgPlaceholder: React.FC<Props> = ({ subRegion, className = 
   const isHip = subRegion.includes('Hip');
 
   return (
-    <div className={`relative flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 overflow-hidden border border-slate-700/50 rounded-xl ${className}`}>
+    <div className={`relative flex items-center justify-center bg-gradient-to-br from-[#1C1917] via-stone-900 to-stone-950 overflow-hidden border border-stone-800 rounded-xl ${className}`}>
       {/* Background medical grid */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#0d9488_1px,transparent_1px)] [background-size:16px_16px]" />
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]" />
       
       {/* Anatomical stylized vector */}
       <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
@@ -64,7 +64,7 @@ export const AnatomySvgPlaceholder: React.FC<Props> = ({ subRegion, className = 
           </svg>
         )}
 
-        <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <span className="mt-2 text-xs font-semibold uppercase tracking-wider text-stone-300">
           {badge || subRegion}
         </span>
       </div>

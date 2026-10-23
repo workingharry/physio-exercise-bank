@@ -14,16 +14,16 @@ export const Lightbox: React.FC<Props> = ({ isOpen, imageUrl, title, onClose, ch
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative max-w-4xl w-full max-h-[90vh] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+      <div className="relative max-w-4xl w-full max-h-[90vh] bg-[#1C1917] border border-stone-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-950/80">
-          <h3 className="text-sm font-semibold text-slate-200 flex items-center gap-2">
+        <div className="flex items-center justify-between p-4 border-b border-stone-800 bg-stone-950/80">
+          <h3 className="text-sm font-semibold text-stone-200 flex items-center gap-2">
             <ZoomIn className="w-4 h-4 text-amber-400" />
             {title || '高解析分解圖示 / 關節剖析'}
           </h3>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+            className="p-1 rounded-lg text-stone-400 hover:text-white hover:bg-stone-800 transition"
           >
             <X className="w-5 h-5" />
           </button>

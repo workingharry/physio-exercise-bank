@@ -33,10 +33,10 @@ export const WholeBodyNav: React.FC<Props> = ({
   ];
 
   return (
-    <div className="w-full bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-sm transition-colors space-y-2.5">
+    <div className="w-full bg-[#FAF8F5] dark:bg-[#1C1917] border border-stone-200 dark:border-stone-800 rounded-2xl p-3 shadow-sm transition-colors space-y-2.5">
       {/* Tier 1: Compact Horizontal Macro Region Tab Bar */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
-        <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 shrink-0 pr-1">
+        <div className="flex items-center gap-1.5 text-xs font-bold text-stone-500 dark:text-stone-400 shrink-0 pr-1">
           <Layers className="w-3.5 h-3.5 text-amber-700" />
           <span className="hidden sm:inline">解剖區域:</span>
         </div>
@@ -55,7 +55,7 @@ export const WholeBodyNav: React.FC<Props> = ({
               className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition ${
                 isSelected
                   ? 'bg-amber-800 text-white shadow-sm font-bold'
-                  : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/60'
+                  : 'bg-stone-100 dark:bg-stone-800/80 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700 hover:text-stone-900 dark:hover:text-white border border-stone-200 dark:border-stone-700/60'
               }`}
             >
               <span>{tab.label}</span>
@@ -64,7 +64,7 @@ export const WholeBodyNav: React.FC<Props> = ({
                   ? 'bg-amber-800 text-amber-100 font-bold'
                   : tab.isReady
                   ? 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-                  : 'bg-slate-200 dark:bg-slate-900 text-slate-500 dark:text-slate-400'
+                  : 'bg-stone-200 dark:bg-stone-900 text-stone-500 dark:text-stone-400'
               }`}>
                 {tab.badge}
               </span>
@@ -75,8 +75,8 @@ export const WholeBodyNav: React.FC<Props> = ({
 
       {/* Tier 2: Sub-Region Filter Chips (with disabled empty state for Kinetic Chain) */}
       {selectedMacro === 'Lower Limb' && (
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1 border-t border-slate-100 dark:border-slate-800/60">
-          <span className="text-[11px] font-semibold text-slate-400 shrink-0 mr-1 hidden sm:inline">關節:</span>
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1 border-t border-stone-100 dark:border-stone-800/60">
+          <span className="text-[11px] font-semibold text-stone-400 shrink-0 mr-1 hidden sm:inline">關節:</span>
           {lowerLimbSubRegions.map((sub) => {
             const count = sub.id === 'ALL'
               ? (exerciseCounts['Ankle & Foot'] || 0) + (exerciseCounts['Knee'] || 0) + (exerciseCounts['Hip & Pelvis'] || 0)
@@ -89,11 +89,11 @@ export const WholeBodyNav: React.FC<Props> = ({
               return (
                 <div
                   key={sub.id}
-                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100/60 dark:bg-slate-900/40 text-slate-400 dark:text-slate-600 border border-dashed border-slate-200 dark:border-slate-800 cursor-not-allowed shrink-0 opacity-60"
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-stone-100/60 dark:bg-stone-900/40 text-stone-400 dark:text-stone-600 border border-dashed border-stone-200 dark:border-stone-800 cursor-not-allowed shrink-0 opacity-60"
                   title="該分類動作庫尚在擴充整合中"
                 >
                   <span>{sub.label}</span>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-slate-200 dark:bg-slate-800 text-slate-500">
+                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-stone-200 dark:bg-stone-800 text-stone-500">
                     即將推出
                   </span>
                 </div>
@@ -106,15 +106,15 @@ export const WholeBodyNav: React.FC<Props> = ({
                 onClick={() => setSelectedSub(sub.id)}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium shrink-0 transition ${
                   isSubSelected
-                    ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-950 font-bold shadow-sm'
-                    : 'bg-slate-50 dark:bg-slate-950/60 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
+                    ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-950 font-bold shadow-sm'
+                    : 'bg-stone-50 dark:bg-stone-950/60 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-800'
                 }`}
               >
                 <span>{sub.label}</span>
                 <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
                   isSubSelected
-                    ? 'bg-slate-800 text-amber-300 dark:bg-slate-300 dark:text-slate-900 font-bold'
-                    : 'bg-slate-200 dark:bg-slate-900 text-slate-600 dark:text-slate-400'
+                    ? 'bg-stone-800 text-amber-300 dark:bg-stone-300 dark:text-stone-900 font-bold'
+                    : 'bg-stone-200 dark:bg-stone-900 text-stone-600 dark:text-stone-400'
                 }`}>
                   {count}
                 </span>

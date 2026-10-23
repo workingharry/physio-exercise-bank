@@ -126,23 +126,23 @@ export const DataQualityModal: React.FC<Props> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-5xl max-h-[92vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-colors">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-stone-950/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-5xl max-h-[92vh] bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-colors">
         
         {/* Header */}
-        <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/90 flex items-center justify-between gap-4">
+        <div className="px-6 py-4 border-b border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-950/90 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
               <BarChart3 className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-stone-900 dark:text-white flex items-center gap-2">
                 <span>臨床資料庫品質審計工具 (Data Quality Audit)</span>
                 <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 text-xs font-semibold">
                   全庫 {auditReport.total} 筆
                 </span>
               </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-stone-500 dark:text-stone-400">
                 自動排查缺少影片、未審核翻譯或待補齊口訣的動作，方便持續維護高品質復健庫
               </p>
             </div>
@@ -160,7 +160,7 @@ export const DataQualityModal: React.FC<Props> = ({
 
             <button
               onClick={onClose}
-              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              className="p-2 rounded-xl bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-500 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white transition"
               title="關閉審計工具"
             >
               <X className="w-5 h-5" />
@@ -169,54 +169,54 @@ export const DataQualityModal: React.FC<Props> = ({
         </div>
 
         {/* Health Metrics Dashboard */}
-        <div className="px-6 py-4 bg-slate-100/50 dark:bg-slate-950/40 border-b border-slate-200 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1">
+        <div className="px-6 py-4 bg-stone-100/50 dark:bg-stone-950/40 border-b border-stone-200 dark:border-stone-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div className="p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm">
+            <div className="flex items-center justify-between text-stone-500 dark:text-stone-400 mb-1">
               <span>示範影片覆蓋率</span>
               <VideoOff className="w-3.5 h-3.5 text-amber-700" />
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-extrabold text-amber-800 dark:text-amber-400">{auditReport.videoCoverage}%</span>
-              <span className="text-[10px] text-slate-400">({auditReport.total - auditReport.items.filter(i => i.missingVideo).length}/{auditReport.total})</span>
+              <span className="text-[10px] text-stone-400">({auditReport.total - auditReport.items.filter(i => i.missingVideo).length}/{auditReport.total})</span>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1">
+          <div className="p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm">
+            <div className="flex items-center justify-between text-stone-500 dark:text-stone-400 mb-1">
               <span>繁中在地化完整度</span>
               <Languages className="w-3.5 h-3.5 text-blue-500" />
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-extrabold text-blue-600 dark:text-blue-400">{auditReport.translationCoverage}%</span>
-              <span className="text-[10px] text-slate-400">({auditReport.total - auditReport.items.filter(i => i.unreviewedTranslation).length}/{auditReport.total})</span>
+              <span className="text-[10px] text-stone-400">({auditReport.total - auditReport.items.filter(i => i.unreviewedTranslation).length}/{auditReport.total})</span>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1">
+          <div className="p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm">
+            <div className="flex items-center justify-between text-stone-500 dark:text-stone-400 mb-1">
               <span>治療師口訣覆蓋率</span>
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-extrabold text-amber-600 dark:text-amber-400">{auditReport.cuesCoverage}%</span>
-              <span className="text-[10px] text-slate-400">({auditReport.total - auditReport.items.filter(i => i.missingCues).length}/{auditReport.total})</span>
+              <span className="text-[10px] text-stone-400">({auditReport.total - auditReport.items.filter(i => i.missingCues).length}/{auditReport.total})</span>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-1">
+          <div className="p-3 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm">
+            <div className="flex items-center justify-between text-stone-500 dark:text-stone-400 mb-1">
               <span>進退階決策樹覆蓋</span>
               <GitFork className="w-3.5 h-3.5 text-purple-500" />
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-xl font-extrabold text-purple-600 dark:text-purple-400">{auditReport.treeCoverage}%</span>
-              <span className="text-[10px] text-slate-400">({auditReport.total - auditReport.items.filter(i => i.missingTree).length}/{auditReport.total})</span>
+              <span className="text-[10px] text-stone-400">({auditReport.total - auditReport.items.filter(i => i.missingTree).length}/{auditReport.total})</span>
             </div>
           </div>
         </div>
 
         {/* Filter Tabs & Search Bar */}
-        <div className="p-4 sm:px-6 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-slate-900">
+        <div className="p-4 sm:px-6 border-b border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-stone-900">
           {/* Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 text-xs">
             <button
@@ -224,7 +224,7 @@ export const DataQualityModal: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'all'
                   ? 'bg-purple-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
               全部待改進 ({auditReport.issuesOnly.length})
@@ -234,7 +234,7 @@ export const DataQualityModal: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'video'
                   ? 'bg-amber-800 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
               缺少示範影片 ({auditReport.items.filter(i => i.missingVideo).length})
@@ -244,7 +244,7 @@ export const DataQualityModal: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'translation'
                   ? 'bg-blue-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
               待審核翻譯 ({auditReport.items.filter(i => i.unreviewedTranslation).length})
@@ -254,7 +254,7 @@ export const DataQualityModal: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'cues'
                   ? 'bg-amber-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
               缺少口訣 ({auditReport.items.filter(i => i.missingCues).length})
@@ -264,7 +264,7 @@ export const DataQualityModal: React.FC<Props> = ({
               className={`px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition ${
                 activeFilter === 'tree'
                   ? 'bg-rose-600 text-white shadow-sm'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
               }`}
             >
               缺少進退階 ({auditReport.items.filter(i => i.missingTree).length})
@@ -273,13 +273,13 @@ export const DataQualityModal: React.FC<Props> = ({
 
           {/* Quick Search */}
           <div className="relative w-full sm:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 -transtone-y-1/2 w-3.5 h-3.5 text-stone-400" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="搜尋動作名稱或部位..."
-              className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 outline-none focus:border-purple-500 transition"
+              className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 text-xs text-stone-900 dark:text-stone-100 placeholder:text-stone-400 outline-none focus:border-purple-500 transition"
             />
           </div>
         </div>
@@ -287,31 +287,31 @@ export const DataQualityModal: React.FC<Props> = ({
         {/* Issue Items Table / List */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
           {filteredIssues.length === 0 ? (
-            <div className="py-16 text-center text-slate-500">
+            <div className="py-16 text-center text-stone-500">
               <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
-              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
                 太棒了！此條件下沒有發現任何資料缺失
               </h3>
-              <p className="text-xs text-slate-400 mt-1">目前所選類別之資料已 100% 齊全並通過審核</p>
+              <p className="text-xs text-stone-400 mt-1">目前所選類別之資料已 100% 齊全並通過審核</p>
             </div>
           ) : (
             <div className="space-y-2.5">
               {filteredIssues.map((item) => (
                 <div
                   key={item.exercise.id}
-                  className="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 dark:bg-slate-950/60 dark:hover:bg-slate-950 border border-slate-200 dark:border-slate-800/80 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group"
+                  className="p-3.5 rounded-2xl bg-stone-50 hover:bg-stone-100/80 dark:bg-stone-950/60 dark:hover:bg-stone-950 border border-stone-200 dark:border-stone-800/80 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group"
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-amber-300">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-amber-300">
                         {item.exercise.subRegion}
                       </span>
-                      <span className="text-xs text-slate-400 font-mono">
+                      <span className="text-xs text-stone-400 font-mono">
                         #{item.exercise.id}
                       </span>
                     </div>
 
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm truncate">
+                    <h4 className="font-bold text-stone-900 dark:text-white text-sm truncate">
                       {item.exercise.name}
                     </h4>
                     <p className="text-xs text-amber-800 dark:text-amber-400 font-medium truncate mt-0.5">
@@ -355,7 +355,7 @@ export const DataQualityModal: React.FC<Props> = ({
                           onSelectExercise(item.exercise);
                           onClose();
                         }}
-                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-800 dark:hover:text-amber-400 transition"
+                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 transition"
                       >
                         快速預覽
                       </button>
@@ -377,11 +377,11 @@ export const DataQualityModal: React.FC<Props> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/90 flex items-center justify-between text-xs text-slate-500">
+        <div className="px-6 py-3 border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-950/90 flex items-center justify-between text-xs text-stone-500">
           <span>共找到 {filteredIssues.length} 筆符合條件的待審查動作。</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold transition"
+            className="px-4 py-1.5 rounded-xl bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 font-semibold transition"
           >
             關閉
           </button>

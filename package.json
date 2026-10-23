@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "node scripts/test_stage_a.mjs && node scripts/test_navigation_plan.mjs && node scripts/test_videoplayer.mjs",
+    "test": "node scripts/test_stage_a.mjs && node scripts/test_navigation_plan.mjs && node scripts/test_videoplayer.mjs && node scripts/test_palette.mjs",
     "build": "tsc && vite build && node scripts/build_single_html.mjs",
     "build:single": "node scripts/build_single_html.mjs",
     "preview": "vite preview"

@@ -22,11 +22,11 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
   } = useRoutineStore();
 
   return (
-    <div className="w-full bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl transition-colors">
+    <div className="w-full bg-[#FAF8F5] dark:bg-[#1C1917] border border-stone-200 dark:border-stone-800 rounded-2xl overflow-hidden shadow-sm dark:shadow-xl transition-colors">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse text-xs">
           <thead>
-            <tr className="bg-slate-50 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[11px]">
+            <tr className="bg-stone-50 dark:bg-stone-900/90 border-b border-stone-200 dark:border-stone-800 text-stone-500 dark:text-stone-400 font-bold uppercase tracking-wider text-[11px]">
               <th className="py-3.5 px-4">運動名稱 / 部位</th>
               <th className="py-3.5 px-4 hidden md:table-cell">目標主動肌</th>
               <th className="py-3.5 px-4 hidden sm:table-cell">收縮型態</th>
@@ -36,7 +36,7 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
               <th className="py-3.5 px-4 text-right">快捷操作</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
+          <tbody className="divide-y divide-stone-100 dark:divide-stone-800/80">
             {exercises.map((exercise) => {
               const isAdded = routine.some(item => item.exerciseId === exercise.id);
               const isBookmarked = bookmarks.includes(exercise.id);
@@ -45,15 +45,15 @@ export const CompactTableView: React.FC<Props> = ({ exercises, onQuickView }) =>
               return (
                 <tr
                   key={exercise.id}
-                  className={`hover:bg-slate-50 dark:hover:bg-slate-800/50 transition group ${
-                    isComparing ? 'bg-indigo-50/50 dark:bg-indigo-950/20' : ''
+                  className={`hover:bg-stone-50 dark:hover:bg-stone-800/50 transition group ${
+                    isComparing ? 'bg-amber-50/50 dark:bg-amber-950/20' : ''
                   }`}
                 >
                   {/* Name & Region */}
                   <td className="py-3 px-4">
                     <div className="flex flex-col">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-amber-300 border border-stone-200 dark:border-stone-700">
                           {exercise.subRegion}
                         </span>
                         {exercise.media.videoUrl && (
