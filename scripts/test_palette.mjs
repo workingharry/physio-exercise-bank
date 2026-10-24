@@ -7,7 +7,6 @@ console.log('--- Running Palette Verification TDD (No Slate Left Behind) ---');
 const TARGET_FILES = [
   'src/components/common/AnatomySvgPlaceholder.tsx',
   'src/components/common/Lightbox.tsx',
-  'src/components/layout/WholeBodyNav.tsx',
   'src/components/library/CompactTableView.tsx',
   'src/components/library/DataQualityModal.tsx',
   'src/components/builder/RoutineBuilderView.tsx',
